@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vuiclip-Tool - Bot AI</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-animation"></div>
+
+    <div class="container">
+        <!-- HEADER / LOGO -->
+        <div class="header">
+            <div class="logo">Vuiclip-Tool</div>
+            <div class="tagline">Bot AI - Phân tích thông minh</div>
+        </div>
+
+        <!-- SOCIAL LINKS - PENTAGON/CIRCLE LAYOUT -->
+        <div class="social-section">
+            <h2>Kết nối với chúng tôi</h2>
+            <div class="social-pentagon">
+                <div style="text-align: center;">
+                    <a href="https://zalo.me/0767564895" target="_blank" class="social-btn zalo" title="Zalo Admin">
+                        <span style="font-weight: 900; font-size: 16px;">Zalo</span>
+                    </a>
+                    <span class="social-label">Zalo Admin</span>
+                </div>
+                <div style="text-align: center;">
+                    <a href="https://t.me/qdungdeptrai" target="_blank" class="social-btn telegram" title="Telegram">
+                        <i class="fab fa-telegram-plane"></i>
+                    </a>
+                    <span class="social-label">Telegram</span>
+                </div>
+                <div style="text-align: center;">
+                    <a href="https://zalo.me/g/rhyrmn931" target="_blank" class="social-btn group-zalo" title="Group Zalo">
+                        <i class="fas fa-users"></i>
+                    </a>
+                    <span class="social-label">Group Zalo</span>
+                </div>
+                <div style="text-align: center;">
+                    <a href="https://www.tiktok.com/@xworldhi" target="_blank" class="social-btn tiktok" title="TikTok">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                    <span class="social-label">TikTok</span>
+                </div>
+                <div style="text-align: center;">
+                    <a href="https://youtube.com/@aresstool" target="_blank" class="social-btn youtube" title="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <span class="social-label">YouTube</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- HƯỚNG DẪN CÀI ĐẶT -->
+        <div class="card" id="guide">
+            <h2 class="card-title">Hướng dẫn cài đặt Vuiclip-Tool</h2>
+
+            <!-- BƯỚC 1 -->
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">1</span>
+                    Cài đặt Termux
+                </div>
+                <p class="step-text">
+                    Tải Termux từ <strong>F-Droid</strong> (không dùng Google Play Store):
+                    <br>
+                    <a href="https://f-droid.org/en/packages/com.termux/" target="_blank">
+                        Tải Termux từ F-Droid
+                    </a>
+                </p>
+            </div>
+
+            <!-- BƯỚC 2 -->
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">2</span>
+                    Cập nhật hệ thống
+                </div>
+                <p class="step-text">Chạy lệnh sau trong Termux:</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this, 'pkg update && pkg install python curl -y')">Copy</button>
+                    <pre>pkg update && pkg install python curl -y</pre>
+                </div>
+            </div>
+
+            <!-- BƯỚC 3 -->
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">3</span>
+                    Cài đặt thư viện Python
+                </div>
+                <p class="step-text">Chạy từng lệnh sau:</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this, 'pip install requests')">Copy</button>
+                    <pre>pip install requests</pre>
+                </div>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this, 'pip install beautifulsoup4')">Copy</button>
+                    <pre>pip install beautifulsoup4</pre>
+                </div>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this, 'pip install colorama')">Copy</button>
+                    <pre>pip install colorama</pre>
+                </div>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this, 'pip install websocket-client')">Copy</button>
+                    <pre>pip install websocket-client</pre>
+                </div>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this, 'pip install pysocks')">Copy</button>
+                    <pre>pip install pysocks</pre>
+                </div>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this, 'pip install rich')">Copy</button>
+                    <pre>pip install rich</pre>
+            </div>
+
+            <!-- BƯỚC 4 -->
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">4</span>
+                    Tải Vuiclip-Tool
+                </div>
+                <p class="step-text">Tải file tool về máy:</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this, 'curl -o AresTool.py https://raw.githubusercontent.com/Ares-TOOL/main/refs/heads/main/main.py')">Copy</button>
+                    <pre>curl -o AresTool.py https://raw.githubusercontent.com/Ares-TOOL/main/refs/heads/main/main.py</pre>
+                </div>
+            </div>
+
+            <!-- BƯỚC 5 -->
+            <div class="step">
+                <div class="step-title">
+                    <span class="step-number">5</span>
+                    Chạy tool
+                </div>
+                <p class="step-text">Sau khi tải xong, chạy lệnh:</p>
+                <div class="code-block">
+                    <button class="copy-btn" onclick="copyCode(this, 'python AresTool.py')">Copy</button>
+                    <pre>python AresTool.py</pre>
+                </div>
+                <p class="step-text" style="color: #10b981; font-weight: 600;">
+                    Nếu mọi thứ đúng, tool sẽ bắt đầu chạy!
+                </p>
+            </div>
+
+            <!-- XỬ LÝ LỖI -->
+            <div class="error-section">
+                <h3>Xử lý lỗi thường gặp</h3>
+
+                <div class="error-box">
+                    <div class="error-title">Lỗi 1: command not found: curl</div>
+                    <p class="error-text">Lỗi này xảy ra khi 'curl' chưa được cài đặt.</p>
+                    <p class="step-text"><strong>Cách khắc phục:</strong></p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this, 'pkg install curl')">Copy</button>
+                        <pre>pkg install curl</pre>
+                    </div>
+                </div>
+
+                <div class="error-box">
+                    <div class="error-title">Lỗi 2: No module named 'requests'</div>
+                    <p class="error-text">Lỗi này xảy ra khi thư viện chưa được cài đặt.</p>
+                    <p class="step-text"><strong>Cách khắc phục:</strong> Chạy lại lệnh cài thư viện ở bước 3</p>
+                </div>
+
+                <div class="error-box">
+                    <div class="error-title">Lỗi 3: Permission denied</div>
+                    <p class="error-text">Lỗi này xảy ra khi file không có quyền thực thi.</p>
+                    <p class="step-text"><strong>Cách khắc phục:</strong></p>
+                    <div class="code-block">
+                        <button class="copy-btn" onclick="copyCode(this, 'chmod +x AresTool.py')">Copy</button>
+                        <pre>chmod +x AresTool.py</pre>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- FOOTER -->
+        <div class="footer">
+            <p>&copy; 2024 Vuiclip-Tool. All rights reserved.</p>
+        </div>
+    </div>
+
+    <script>
+        function copyCode(button, text) {
+            navigator.clipboard.writeText(text).then(function() {
+                const originalText = button.textContent;
+                button.textContent = 'Đã copy!';
+                button.style.background = '#34d399';
+                setTimeout(function() {
+                    button.textContent = originalText;
+                    button.style.background = '';
+                }, 2000);
+            }).catch(function(err) {
+                console.error('Lỗi copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
