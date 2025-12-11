@@ -4,155 +4,129 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vuiclip-Tool - Bot AI</title>
+
+    <!-- Font + Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="bg-animation"></div>
-
+    
     <div class="container">
-        <!-- HEADER / LOGO -->
-        <div class="header">
+
+        <!-- HEADER -->
+        <header class="header">
             <div class="logo">Vuiclip-Tool</div>
             <div class="tagline">Bot AI - Phân tích thông minh</div>
+        </header>
+
+        <!-- GUIDE -->
+        <div class="card" id="guide">
+            <h2 style="color:blue; text-align:center;">Chúc Mừng Bạn Đã Vượt Link Thành Công!!!</h2>
+            <h2 style="color:red; text-align:center;">Kéo xuống 👇 để lấy key 😗</h2>
+
+            <div style="height:60px;"></div>
+
+            <!-- Copy Key -->
+            <div class="form">
+                <h3 style="color:red; text-align:center;">CLICK VÀO Ô DƯỚI SẼ AUTO COPY API KEY</h3>
+                <br>
+
+                <button class="button" onclick="copyKey()">
+                    <span id="keytool">BẠN CHƯA CÓ MẬT KHẨU</span>
+                </button>
+            </div>
         </div>
 
-        
-
-        <!-- HƯỚNG DẪN CÀI ĐẶT -->
-        <div class="card" id="guide">
-            <h2 style="color:blue;"align="center">                Chúc Mừng Bạn Đã Vượt Link Thành Công!!!</h2>
-            <h2 style="color:red;"align="center">Kéo xuống 👇 để lấy key😗</h2>
-            <br>
-            <br>
-            <br>
-            <br>
-            <br>
-
-            <!-- BƯỚC 1 -->
-            <div class="form">
-                <div>
-                
-                <h3 style="color:red;" align="center">CLICK VÀO Ô DƯỚI SẼ AUTO COPY API KEY</h3><div><br /></div>
-                
-                <p>
-                
-                <button class="button" name="submit" onclick="copyToClipboard('#keytool')" type="submit">
-            
-                
-                <span id="keytool">BẠN CHƯA CÓ MẬT KHẨU</span>               
-                </button>           
-                </p>              
-                </div>     
-           </div>
-
-        <!-- FOOTER -->
-        <!-- SOCIAL LINKS - PENTAGON/CIRCLE LAYOUT -->
-        <div class="social-section">
+        <!-- SOCIAL -->
+        <section class="social-section">
             <h2>Kết nối với chúng tôi</h2>
+
             <div class="social-pentagon">
-                <div style="text-align: center;">
-                    <a href="https://zalo.me/0767564895" target="_blank" class="social-btn zalo" title="Zalo Admin">
-                        <span style="font-weight: 900; font-size: 16px;">Zalo</span>
+
+                <div>
+                    <a href="https://zalo.me/0767564895" target="_blank" class="social-btn zalo">
+                        <span style="font-weight:900;font-size:16px;">Zalo</span>
                     </a>
                     <span class="social-label">Zalo Admin</span>
                 </div>
-                <div style="text-align: center;">
-                    <a href="https://t.me/qdungdeptrai" target="_blank" class="social-btn telegram" title="Telegram">
+
+                <div>
+                    <a href="https://t.me/qdungdeptrai" target="_blank" class="social-btn telegram">
                         <i class="fab fa-telegram-plane"></i>
                     </a>
                     <span class="social-label">Telegram</span>
                 </div>
-                <div style="text-align: center;">
-                    <a href="https://zalo.me/g/rhyrmn931" target="_blank" class="social-btn group-zalo" title="Group Zalo">
+
+                <div>
+                    <a href="https://zalo.me/g/rhyrmn931" target="_blank" class="social-btn group-zalo">
                         <i class="fas fa-users"></i>
                     </a>
                     <span class="social-label">Group Zalo</span>
                 </div>
-                <div style="text-align: center;">
-                    <a href="https://www.tiktok.com/@xworldhi" target="_blank" class="social-btn tiktok" title="TikTok">
+
+                <div>
+                    <a href="https://www.tiktok.com/@xworldhi" target="_blank" class="social-btn tiktok">
                         <i class="fab fa-tiktok"></i>
                     </a>
                     <span class="social-label">TikTok</span>
                 </div>
-                <div style="text-align: center;">
-                    <a href="https://youtube.com/@aresstool" target="_blank" class="social-btn youtube" title="YouTube">
+
+                <div>
+                    <a href="https://youtube.com/@aresstool" target="_blank" class="social-btn youtube">
                         <i class="fab fa-youtube"></i>
                     </a>
                     <span class="social-label">YouTube</span>
                 </div>
+
             </div>
-        </div>
-        <div class="footer">
+        </section>
+
+        <!-- FOOTER -->
+        <footer class="footer">
             <p>&copy; 2024 Vuiclip-Tool. All rights reserved.</p>
-        </div>
+        </footer>
+
     </div>
 
+    <!-- SCRIPT -->
     <script>
-        function copyCode(button, text) {
-            navigator.clipboard.writeText(text).then(function() {
-                const originalText = button.textContent;
-                button.textContent = 'Đã copy!';
-                button.style.background = '#34d399';
-                setTimeout(function() {
-                    button.textContent = originalText;
-                    button.style.background = '';
-                }, 2000);
-            }).catch(function(err) {
-                console.error('Lỗi copy: ', err);
+        // Lấy key từ URL ?key=...
+        const urlParams = new URLSearchParams(window.location.search);
+        const key = urlParams.get("key");
+
+        if (key) {
+            document.getElementById("keytool").textContent = key;
+        }
+
+        // Copy key
+        function copyKey() {
+            const keyText = document.getElementById("keytool").textContent;
+
+            navigator.clipboard.writeText(keyText).then(() => {
+                alert("Bạn đã sao chép mật khẩu!");
             });
         }
     </script>
-    <style>
-.button {
-    background-color: #4c56af;
-    width: 100%;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    border-radius: 15px;
-    box-shadow: 2px 2px 20px rgba(0, 0, 0, 0.25),
-            2px 2px 2px rgba(0, 0, 0, 0.25),
-            inset 2px 2px 4px rgba(255, 255, 255, 0.5),
-            inset 2px 2px 6px rgba(255, 255, 255, 0.2),
-            inset -1px -1px 6px rgba(218, 218, 218, 0.75);
-}
-</style>    
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  
-    <script>
-      	var key = GetURLParameter('key');
-      	if(key != ""){
-	        document.getElementById("keytool").innerHTML = key;
+    <!-- STYLE NÚT -->
+    <style>
+        .button {
+            background-color: #4c56af;
+            width: 100%;
+            border: none;
+            color: white;
+            padding: 15px;
+            font-size: 16px;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 2px 2px 20px rgba(0,0,0,0.25),
+                        inset 2px 2px 4px rgba(255,255,255,0.5);
         }
-      
-        function GetURLParameter(sParam) {
-            var sPageURL = window.location.search.substring(1);
-            var sURLVariables = sPageURL.split('&');
-            for (var i = 0; i < sURLVariables.length; i++) {
-                var sParameterName = sURLVariables[i].split('=');
-                if (sParameterName[0] == sParam) {
-                    return sParameterName[1];
-                }
-            }
-        }
-        function copyToClipboard(element) {
-            var $temp = $("<input>");
-            $("body").append($temp);
-            $temp.val($(element).text()).select();
-            document.execCommand("copy");
-            $temp.remove();
-            
-            return confirm('Bạn đã sao chép mật khẩu');
-        }
-    </script>
+    </style>
+
 </body>
 </html>
