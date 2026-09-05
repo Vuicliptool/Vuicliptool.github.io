@@ -7,7 +7,6 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
-# Sử dụng Session để giữ cookie và vượt qua trang trung gian
 session = requests.Session()
 session.headers.update(headers)
 
@@ -42,20 +41,29 @@ try:
             dur_el = item.select_one('.duration')
             duration = dur_el.get_text(strip=True) if dur_el else "Full"
             
-            # Đi sâu vào trang chi tiết để tìm iframe chứa video thật (lọc bỏ khung quảng cáo)
+            # Quét link iframe xem phim và link tải về
             video_embed = "https://geo.dailymotion.com/player.html?video=xb1j9wq"
+            download_url = detail_url if detail_url else url
+            
             if detail_url:
                 try:
                     detail_res = session.get(detail_url, timeout=10)
                     if detail_res.status_code == 200:
                         detail_soup = BeautifulSoup(detail_res.text, 'html.parser')
+                        
+                        # Lấy iframe xem phim
                         iframes = detail_soup.find_all('iframe')
                         for iframe in iframes:
                             src = iframe.get('src', '')
-                            # Chỉ lấy iframe là trình phát video (ví dụ chứa dailymotion, player, embed...)
                             if any(keyword in src for keyword in ['dailymotion', 'player', 'embed', 'video']):
                                 video_embed = src
                                 break
+                        
+                        # Tìm nút/link tải về nếu có trên trang chi tiết
+                        dl_btn = detail_soup.select_one('a[download], a.download-btn, .download-link')
+                        if dl_btn and dl_btn.has_attr('href'):
+                            dl_href = dl_btn['href']
+                            download_url = dl_href if dl_href.startswith('http') else "https://fbwacth.com" + dl_href
                 except:
                     pass
             
@@ -64,13 +72,14 @@ try:
                     "title": title,
                     "duration": duration,
                     "poster": poster,
-                    "video": video_embed
+                    "video": video_embed,
+                    "download": download_url
                 })
         
         if movies:
             with open('movies.json', 'w', encoding='utf-8') as f:
                 json.dump(movies, f, ensure_ascii=False, indent=4)
-            print(f"Đã cập nhật thành công {len(movies)} phim sạch!")
+            print(f"Đã cập nhật thành công {len(movies)} phim có kèm link tải!")
         else:
             print("Không tìm thấy thẻ phim nào.")
     else:
