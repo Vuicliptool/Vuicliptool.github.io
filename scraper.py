@@ -7,8 +7,12 @@ headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36"
 }
 
+# Sử dụng Session để giữ cookie và vượt qua trang trung gian
+session = requests.Session()
+session.headers.update(headers)
+
 try:
-    response = requests.get(url, headers=headers, timeout=15)
+    response = session.get(url, timeout=15)
     if response.status_code == 200:
         soup = BeautifulSoup(response.text, 'html.parser')
         movies = []
@@ -38,16 +42,20 @@ try:
             dur_el = item.select_one('.duration')
             duration = dur_el.get_text(strip=True) if dur_el else "Full"
             
-            # 👉 Tự động đi sâu vào trang chi tiết để lấy link phát video gốc (bỏ qua trang quảng cáo)
-            video_embed = "https://geo.dailymotion.com/player.html?video=xb1j9wq" # Link mặc định phòng hờ
+            # Đi sâu vào trang chi tiết để tìm iframe chứa video thật (lọc bỏ khung quảng cáo)
+            video_embed = "https://geo.dailymotion.com/player.html?video=xb1j9wq"
             if detail_url:
                 try:
-                    detail_res = requests.get(detail_url, headers=headers, timeout=10)
+                    detail_res = session.get(detail_url, timeout=10)
                     if detail_res.status_code == 200:
                         detail_soup = BeautifulSoup(detail_res.text, 'html.parser')
-                        iframe = detail_soup.find('iframe')
-                        if iframe and iframe.has_attr('src'):
-                            video_embed = iframe['src']
+                        iframes = detail_soup.find_all('iframe')
+                        for iframe in iframes:
+                            src = iframe.get('src', '')
+                            # Chỉ lấy iframe là trình phát video (ví dụ chứa dailymotion, player, embed...)
+                            if any(keyword in src for keyword in ['dailymotion', 'player', 'embed', 'video']):
+                                video_embed = src
+                                break
                 except:
                     pass
             
@@ -62,7 +70,7 @@ try:
         if movies:
             with open('movies.json', 'w', encoding='utf-8') as f:
                 json.dump(movies, f, ensure_ascii=False, indent=4)
-            print(f"Đã cập nhật thành công {len(movies)} phim sạch không quảng cáo!")
+            print(f"Đã cập nhật thành công {len(movies)} phim sạch!")
         else:
             print("Không tìm thấy thẻ phim nào.")
     else:
