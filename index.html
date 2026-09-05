@@ -167,17 +167,19 @@
         }
         
         /* Logo nổi trên video */
-        .video-logo-overlay {
-            position: absolute;
-            top: 20px;
-            left: 20px;
-            width: 45px;
-            height: 45px;
-            opacity: 0.85;
-            pointer-events: none;
-            z-index: 99;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.5));
-        }
+        /* Logo nổi trên video */
+.video-logo-overlay {
+    position: absolute;
+    top: 55px;   /* Tăng khoảng cách từ trên xuống để dịch xuống ngang vị trí logo Wind Studio */
+    left: 15px;  /* Khoảng cách từ lề trái sang */
+    width: 90px; /* Chỉnh độ rộng to hơn một chút để đủ che phủ logo cũ */
+    height: auto;
+    opacity: 0.95; /* Cho logo hiển thị rõ nét hoàn toàn */
+    pointer-events: none;
+    z-index: 99;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+}
+
 
         footer {
             text-align: center;
