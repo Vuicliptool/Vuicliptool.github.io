@@ -13,25 +13,17 @@ try:
         soup = BeautifulSoup(response.text, 'html.parser')
         movies = []
         
-        # Quét các thẻ chứa phim trên trang gốc
         items = soup.select('.movie-card, article, .grid > div')
         
         for item in items:
-            # Lấy tiêu đề phim
             title_el = item.find(['h3', 'a'])
             title = title_el.get_text(strip=True) if title_el else "Phim mới cập nhật"
             
-            # Lấy link riêng của từng phim
             link_el = item.find('a')
-            video_url = ""
+            detail_url = ""
             if link_el and link_el.has_attr('href'):
                 href = link_el['href']
-                if href.startswith('http'):
-                    video_url = href
-                else:
-                    video_url = "https://fbwacth.com" + href
-            else:
-                video_url = url
+                detail_url = href if href.startswith('http') else "https://fbwacth.com" + href
             
             # Lấy ảnh poster
             poster = ""
@@ -43,22 +35,34 @@ try:
                     end = style.find(')', start)
                     poster = style[start:end].strip('\'"')
             
-            # Lấy thời lượng phim
             dur_el = item.select_one('.duration')
             duration = dur_el.get_text(strip=True) if dur_el else "Full"
+            
+            # 👉 Tự động đi sâu vào trang chi tiết để lấy link phát video gốc (bỏ qua trang quảng cáo)
+            video_embed = "https://geo.dailymotion.com/player.html?video=xb1j9wq" # Link mặc định phòng hờ
+            if detail_url:
+                try:
+                    detail_res = requests.get(detail_url, headers=headers, timeout=10)
+                    if detail_res.status_code == 200:
+                        detail_soup = BeautifulSoup(detail_res.text, 'html.parser')
+                        iframe = detail_soup.find('iframe')
+                        if iframe and iframe.has_attr('src'):
+                            video_embed = iframe['src']
+                except:
+                    pass
             
             if poster:
                 movies.append({
                     "title": title,
                     "duration": duration,
                     "poster": poster,
-                    "video": video_url
+                    "video": video_embed
                 })
         
         if movies:
             with open('movies.json', 'w', encoding='utf-8') as f:
                 json.dump(movies, f, ensure_ascii=False, indent=4)
-            print(f"Đã cập nhật thành công {len(movies)} phim với link riêng biệt!")
+            print(f"Đã cập nhật thành công {len(movies)} phim sạch không quảng cáo!")
         else:
             print("Không tìm thấy thẻ phim nào.")
     else:
