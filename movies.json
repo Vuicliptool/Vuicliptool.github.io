@@ -70,6 +70,20 @@
         "download": "https://fbwacth.com/phim/xe-hon-thu-nang-tro-thanh-thai-tu-phi"
     },
     {
+        "title": "30:00",
+        "duration": "Full",
+        "poster": "https://fbwacth.com/storage/thumbnails/manual-32e33b5f-1de1-4ec3-a4fa-0dd062d1e1e8.jpg",
+        "video": "https://geo.dailymotion.com/player.html?video=xb6x592",
+        "download": "https://fbwacth.com/phim/roi-phu-gia-nang-tro-thanh-vuong-phi-ton-quy"
+    },
+    {
+        "title": "1:01:40",
+        "duration": "Full",
+        "poster": "https://fbwacth.com/storage/thumbnails/manual-a6ab8687-38a9-4b10-8c6c-550fe9596de9.jpg",
+        "video": "https://geo.dailymotion.com/player.html?video=xb6x46a",
+        "download": "https://fbwacth.com/phim/buoc-vao-hau-phu-nang-moi-thay-bo-mat-that"
+    },
+    {
         "title": "1:20:00",
         "duration": "Full",
         "poster": "https://fbwacth.com/storage/thumbnails/manual-7cab1e30-510e-43b2-a403-fc5fc3725db3.jpg",
@@ -138,19 +152,5 @@
         "poster": "https://fbwacth.com/storage/thumbnails/manual-93794af6-5d1a-4c95-babd-bae41395970a.jpg",
         "video": "https://geo.dailymotion.com/player.html?video=xb6avn2",
         "download": "https://fbwacth.com/phim/thay-ga-cho-hau-gia-mot-dem-nam-quyen-hau-phu"
-    },
-    {
-        "title": "40:00",
-        "duration": "Full",
-        "poster": "https://fbwacth.com/storage/thumbnails/manual-564955c7-be1b-4008-86bf-11dabb5c4933.jpg",
-        "video": "https://geo.dailymotion.com/player.html?video=xb5u4ly",
-        "download": "https://fbwacth.com/phim/bi-tu-hon-nang-quay-sang-ga-cho-hoang-thuc"
-    },
-    {
-        "title": "1:00:00",
-        "duration": "Full",
-        "poster": "https://fbwacth.com/storage/thumbnails/manual-a2c04778-1763-493f-8314-d050810c7ec2.jpg",
-        "video": "https://geo.dailymotion.com/player.html?video=xb5rqzi",
-        "download": "https://fbwacth.com/phim/bo-roi-vo-con-ngay-tro-ve-chi-con-hoi-han"
     }
 ]
