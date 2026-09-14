@@ -35,13 +35,6 @@
         "download": "https://fbwacth.com/phim/tang-le-cha-chong-lai-chon-nguoi-khac"
     },
     {
-        "title": "Hot1:00:00",
-        "duration": "Full",
-        "poster": "https://fbwacth.com/storage/thumbnails/manual-fae982bc-b592-4e22-ac8b-82e8a6b58204.jpg",
-        "video": "https://geo.dailymotion.com/player.html?video=xb3p1s6",
-        "download": "https://fbwacth.com/phim/khoac-ao-cuoi-bao-thu-cuoi-cung-tro-thanh-nu-de-phan1"
-    },
-    {
         "title": "Hot1:10:00",
         "duration": "Full",
         "poster": "https://fbwacth.com/storage/thumbnails/manual-f1690e5c-b617-4f43-b163-862feeab61b7.jpg",
@@ -56,6 +49,13 @@
         "download": "https://fbwacth.com/phim/thay-ty-ty-tuyen-tu-nang-buoc-len-phuong-vi"
     },
     {
+        "title": "Hot1:00:00",
+        "duration": "Full",
+        "poster": "https://fbwacth.com/storage/thumbnails/manual-fae982bc-b592-4e22-ac8b-82e8a6b58204.jpg",
+        "video": "https://geo.dailymotion.com/player.html?video=xb3p1s6",
+        "download": "https://fbwacth.com/phim/khoac-ao-cuoi-bao-thu-cuoi-cung-tro-thanh-nu-de-phan1"
+    },
+    {
         "title": "Hot1:39:15",
         "duration": "Full",
         "poster": "https://fbwacth.com/storage/thumbnails/manual-af301b7a-e4bd-4176-9990-4702e3817c76.jpg",
@@ -68,6 +68,13 @@
         "poster": "https://fbwacth.com/storage/thumbnails/manual-6ada354a-3144-48ca-adce-fef8d08efcd7.jpg",
         "video": "https://geo.dailymotion.com/player.html?video=xb4pxs2",
         "download": "https://fbwacth.com/phim/bi-thai-tu-ruong-bo-nang-tro-thanh-hoang-phi"
+    },
+    {
+        "title": "41:40",
+        "duration": "Full",
+        "poster": "https://fbwacth.com/storage/thumbnails/manual-230fd84d-c2d2-4f80-9106-3db16d0e0b6f.jpg",
+        "video": "https://geo.dailymotion.com/player.html?video=xb7gh22",
+        "download": "https://fbwacth.com/phim/ba-van-tien-cuoi-lat-tay-long-nguoi"
     },
     {
         "title": "38:20",
@@ -145,12 +152,5 @@
         "poster": "https://fbwacth.com/storage/thumbnails/manual-a3aed8f4-c693-4621-9f04-0c44a4f945e3.jpg",
         "video": "https://geo.dailymotion.com/player.html?video=xb76lsi",
         "download": "https://fbwacth.com/phim/o-cu-xong-co-lat-tay-bi-mat-hai-nam"
-    },
-    {
-        "title": "1:10:00",
-        "duration": "Full",
-        "poster": "https://fbwacth.com/storage/thumbnails/manual-94e25848-49ea-4476-831a-9c99a327f6ea.jpg",
-        "video": "https://geo.dailymotion.com/player.html?video=xb76lsm",
-        "download": "https://fbwacth.com/phim/truoc-ngay-cuoi-co-moi-biet-minh-chi-la-nguoi-thay-the"
     }
 ]
