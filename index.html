@@ -227,13 +227,12 @@
 
 <script>
     let currentMovie = null;
-    window.allMoviesList = []; // Khai báo biến lưu danh sách toàn cục
 
+    // Hàm load phim và kiểm tra ngay tham số ?v= ngay sau khi dữ liệu đã sẵn sàng
     async function loadMovies() {
         try {
             let response = await fetch('movies.json');
             let movies = await response.json();
-            window.allMoviesList = movies; // Lưu lại để dùng cho tính năng tự động mở link
             
             let htmlContent = '';
             if (movies.length === 0) {
@@ -256,30 +255,30 @@
             });
 
             document.getElementById('movieGrid').innerHTML = htmlContent;
+
+            // KIỂM TRA LINK CHIA SẺ ?v= NGAY SAU KHI ĐÃ CÓ DỮ LIỆU PHIM
+            const urlParams = new URLSearchParams(window.location.search);
+            const movieSlug = urlParams.get('v');
+            
+            if (movieSlug) {
+                let found = movies.find(m => {
+                    let slug = encodeURIComponent(m.title.replace(/\s+/g, '-').toLowerCase());
+                    return slug === movieSlug;
+                });
+                
+                if (found) {
+                    openPlayer(encodeURIComponent(JSON.stringify(found)));
+                }
+            }
+
         } catch (error) {
             console.error(error);
             document.getElementById('movieGrid').innerHTML = '<div class="loading">Không thể tải dữ liệu từ movies.json</div>';
         }
     }
 
-    // Tự động tải phim và kiểm tra xem có link chia sẻ ?v= kèm theo không
-    window.addEventListener('DOMContentLoaded', async () => {
-        await loadMovies();
-        
-        const urlParams = new URLSearchParams(window.location.search);
-        const movieSlug = urlParams.get('v');
-        
-        if (movieSlug && window.allMoviesList.length > 0) {
-            let found = window.allMoviesList.find(m => {
-                let slug = encodeURIComponent(m.title.replace(/\s+/g, '-').toLowerCase());
-                return slug === movieSlug;
-            });
-            
-            if (found) {
-                openPlayer(encodeURIComponent(JSON.stringify(found)));
-            }
-        }
-    });
+    // Chạy hàm load khi vừa vào trang
+    loadMovies();
 
     function openPlayer(encodedMovie) {
         let movie = JSON.parse(decodeURIComponent(encodedMovie));
@@ -332,7 +331,5 @@
         }
     }
 </script>
-
-
 </body>
 </html>
