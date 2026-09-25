@@ -3,7 +3,7 @@ import requests
 
 # Danh sách các kênh Dailymotion nguồn phim mà bạn muốn tổng hợp
 # Bạn có thể thêm tên user khác vào danh sách này (ví dụ: ["MovieReel", "ShortDrama1018", "kenhkhac"])
-channels = ["MovieReel", "ducanawm829"]
+channels = ["ducanawm829", "MovieReel"]
 
 all_movies = []
 seen_ids = {}
