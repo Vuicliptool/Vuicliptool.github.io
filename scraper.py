@@ -1,4 +1,5 @@
 import json
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -16,38 +17,52 @@ try:
         soup = BeautifulSoup(response.text, 'html.parser')
         movies = []
         
-        items = soup.select('.movie-card, article, .grid > div')
+        # Quét tất cả các khung chứa phim trên trang
+        items = soup.select('.movie-card, article, .grid > div, div[class*="item"]')
         
         for item in items:
-            # 🌟 Tinh chỉnh cách lấy tiêu đề chính xác, loại bỏ nhãn HOT và thời lượng
-            title = "Phim mới cập nhật"
-            # Thường tên phim nằm ở thẻ h3, h4 hoặc các thẻ chứa text phía dưới poster
-            title_candidates = item.find_all(['h3', 'h4', 'p', 'a'])
-            for el in title_candidates:
-                txt = el.get_text(strip=True)
-                # Lọc bỏ các text ngắn, chứa từ khóa rác hoặc trùng với thời lượng/badge
-                if txt and len(txt) > 3 and not txt.startswith("HOT") and not ":" in txt and "Full" not in txt:
-                    title = txt
-                    break
-            
+            # 1. Lấy Tiêu đề phim chuẩn xác nhất
+            title = ""
+            title_el = item.find(['h3', 'h4', 'span', 'a'], class_=lambda x: x and ('title' in x or 'name' in x))
+            if title_el:
+                title = title_el.get_text(strip=True)
+            else:
+                # Fallback tìm các thẻ text bên trong
+                for el in item.find_all(['h3', 'h4', 'p', 'a']):
+                    txt = el.get_text(strip=True)
+                    if txt and len(txt) > 3 and not txt.startswith("HOT") and ":" not in txt:
+                        title = txt
+                        break
+            if not title:
+                title = "Phim mới cập nhật"
+
+            # 2. Lấy link chi tiết
             link_el = item.find('a')
             detail_url = ""
             if link_el and link_el.has_attr('href'):
                 href = link_el['href']
                 detail_url = href if href.startswith('http') else "https://fbwacth.com" + href
             
-            # Lấy ảnh poster
+            # 3. Lấy ảnh Poster (hỗ trợ cả thẻ img lẫn background-image)
             poster = ""
-            poster_div = item.select_one('.poster, [style*="background-image"]')
-            if poster_div and poster_div.get('style'):
-                style = poster_div['style']
-                if 'url(' in style:
-                    start = style.find('url(') + 4
-                    end = style.find(')', start)
-                    poster = style[start:end].strip('\'"')
+            img_el = item.find('img')
+            if img_el:
+                poster = img_el.get('src') or img_el.get('data-src') or ""
             
-            # Lấy thời lượng phim sạch sẽ
-            dur_el = item.select_one('.duration')
+            if not poster:
+                poster_div = item.select_one('.poster, [style*="background-image"]')
+                if poster_div and poster_div.get('style'):
+                    style = poster_div['style']
+                    if 'url(' in style:
+                        start = style.find('url(') + 4
+                        end = style.find(')', start)
+                        poster = style[start:end].strip('\'"')
+            
+            if poster and not poster.startswith('http'):
+                poster = "https://fbwacth.com" + poster
+
+            # 4. Lấy thời lượng phim
+            dur_el = item.select_one('.duration, span[class*="time"]')
             duration = dur_el.get_text(strip=True) if dur_el else "Full"
             
             video_embed = "https://geo.dailymotion.com/player.html?video=xb1j9wq"
@@ -75,6 +90,7 @@ try:
                 except:
                     pass
             
+            # Chỉ thêm vào danh sách nếu quét được poster hợp lệ
             if poster:
                 movies.append({
                     "title": title,
@@ -87,9 +103,9 @@ try:
         if movies:
             with open('movies.json', 'w', encoding='utf-8') as f:
                 json.dump(movies, f, ensure_ascii=False, indent=4)
-            print(f"Đã cập nhật {len(movies)} phim với tên chuẩn xác!")
+            print(f"Đã cập nhật thành công {len(movies)} phim!")
         else:
-            print("Không tìm thấy phim.")
+            print("Không tìm thấy phim nào do cấu trúc thay đổi.")
     else:
         print(f"Lỗi kết nối: {response.status_code}")
 except Exception as e:
