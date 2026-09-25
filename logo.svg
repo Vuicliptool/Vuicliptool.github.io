@@ -1,11 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" width="100%" height="100%">
-  <defs>
-    <linearGradient id="grad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#dfef45;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8ca300;stop-opacity:1" />
-    </linearGradient>
-  </defs>
-  <rect width="120" height="120" rx="28" fill="#12151c" stroke="#dfef45" stroke-width="3"/>
-  <path d="M35 32 L60 82 L85 32 L70 32 L60 55 L50 32 Z" fill="url(#grad)" />
-  <circle cx="60" cy="72" r="6" fill="#dfef45" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- Nền bo tròn hiện đại tông màu website -->
+  <rect width="512" height="512" rx="110" fill="#12151c"/>
+  
+  <!-- Chữ V cách điệu kết hợp biểu tượng xem phim -->
+  <path d="M130 150 L256 380 L382 150" fill="none" stroke="#dfef45" stroke-width="52" stroke-linecap="round" stroke-linejoin="round"/>
+  
+  <!-- Biểu tượng play tinh tế ở chính giữa -->
+  <polygon points="220,185 315,235 220,285" fill="#dfef45"/>
 </svg>
