@@ -211,7 +211,6 @@
 
 <div id="playerModal">
     <div class="modal-header">
-        <a id="downloadBtn" href="#" class="control-btn download" target="_blank">📥 Tải Về</a>
         <button class="control-btn" onclick="toggleFullScreen()">⛶ Phóng To</button>
         <button class="control-btn close" onclick="closePlayer()">Đóng ✕</button>
     </div>
@@ -267,9 +266,6 @@
         
         // Gắn link phát video
         document.getElementById('videoIframe').src = movie.video;
-        
-        // Gắn link tải video
-        document.getElementById('downloadBtn').href = movie.download || movie.video;
         
         // Mở khung phát
         document.getElementById('playerModal').style.display = 'flex';
