@@ -39,10 +39,11 @@
             align-items: center;
             gap: 8px;
         }
-        .brand span.mark {
-            background: var(--accent);
-            color: var(--accent-ink);
-            padding: 2px 8px;
+        /* Style cho logo hình ảnh trên header */
+        .brand-logo {
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
             border-radius: 4px;
         }
         .container {
@@ -153,7 +154,7 @@
             align-items: center;
             gap: 5px;
         }
-        .control-btn.download { background: #10b981; }
+        .control-btn.share { background: #3b5998; }
         .control-btn.close { background: #ef4444; }
         
         .modal-content {
@@ -167,19 +168,17 @@
         }
         
         /* Logo nổi trên video */
-        /* Logo nổi trên video */
-.video-logo-overlay {
-    position: absolute;
-    top: 55px;   /* Tăng khoảng cách từ trên xuống để dịch xuống ngang vị trí logo Wind Studio */
-    left: 15px;  /* Khoảng cách từ lề trái sang */
-    width: 90px; /* Chỉnh độ rộng to hơn một chút để đủ che phủ logo cũ */
-    height: auto;
-    opacity: 0.95; /* Cho logo hiển thị rõ nét hoàn toàn */
-    pointer-events: none;
-    z-index: 99;
-    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
-}
-
+        .video-logo-overlay {
+            position: absolute;
+            top: 55px;
+            left: 15px;
+            width: 90px;
+            height: auto;
+            opacity: 0.95;
+            pointer-events: none;
+            z-index: 99;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+        }
 
         footer {
             text-align: center;
@@ -195,7 +194,7 @@
 
 <header>
     <a class="brand" href="#">
-        <span class="mark">V</span> <strong>Vuicliptool</strong>
+        <img src="logo.png" alt="Logo" class="brand-logo"> <strong>Vuicliptool</strong>
     </a>
     <span style="font-size: 13px; color: var(--accent);">Không Quảng Cáo</span>
 </header>
@@ -211,6 +210,7 @@
 
 <div id="playerModal">
     <div class="modal-header">
+        <button class="control-btn share" onclick="shareMovie()">🔗 Chia Sẻ</button>
         <button class="control-btn" onclick="toggleFullScreen()">⛶ Phóng To</button>
         <button class="control-btn close" onclick="closePlayer()">Đóng ✕</button>
     </div>
@@ -226,6 +226,8 @@
 </footer>
 
 <script>
+    let currentMovie = null;
+
     async function loadMovies() {
         try {
             let response = await fetch('movies.json');
@@ -238,7 +240,6 @@
             }
 
             movies.forEach(movie => {
-                // Mã hóa dữ liệu để truyền an toàn vào hàm openPlayer
                 let movieData = encodeURIComponent(JSON.stringify(movie));
                 htmlContent += `
                     <article class="movie-card" onclick="openPlayer('${movieData}')">
@@ -263,17 +264,36 @@
 
     function openPlayer(encodedMovie) {
         let movie = JSON.parse(decodeURIComponent(encodedMovie));
+        currentMovie = movie;
         
-        // Gắn link phát video
         document.getElementById('videoIframe').src = movie.video;
-        
-        // Mở khung phát
         document.getElementById('playerModal').style.display = 'flex';
     }
 
     function closePlayer() {
         document.getElementById('videoIframe').src = '';
         document.getElementById('playerModal').style.display = 'none';
+    }
+
+    function shareMovie() {
+        if (!currentMovie) return;
+
+        let shareUrl = currentMovie.download || window.location.href;
+        let shareText = `Xem ngay phim "${currentMovie.title}" không quảng cáo tại đây:`;
+
+        if (navigator.share) {
+            navigator.share({
+                title: currentMovie.title,
+                text: shareText,
+                url: shareUrl,
+            }).catch((error) => console.log('Chia sẻ bị hủy', error));
+        } else {
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                alert("Đã sao chép link phim vào bộ nhớ tạm!");
+            }).catch(err => {
+                console.error('Không thể copy link: ', err);
+            });
+        }
     }
 
     function toggleFullScreen() {
