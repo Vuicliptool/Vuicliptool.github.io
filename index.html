@@ -227,11 +227,13 @@
 
 <script>
     let currentMovie = null;
+    window.allMoviesList = []; // Khai báo biến lưu danh sách toàn cục
 
     async function loadMovies() {
         try {
             let response = await fetch('movies.json');
             let movies = await response.json();
+            window.allMoviesList = movies; // Lưu lại để dùng cho tính năng tự động mở link
             
             let htmlContent = '';
             if (movies.length === 0) {
@@ -260,17 +262,32 @@
         }
     }
 
-    loadMovies();
+    // Tự động tải phim và kiểm tra xem có link chia sẻ ?v= kèm theo không
+    window.addEventListener('DOMContentLoaded', async () => {
+        await loadMovies();
+        
+        const urlParams = new URLSearchParams(window.location.search);
+        const movieSlug = urlParams.get('v');
+        
+        if (movieSlug && window.allMoviesList.length > 0) {
+            let found = window.allMoviesList.find(m => {
+                let slug = encodeURIComponent(m.title.replace(/\s+/g, '-').toLowerCase());
+                return slug === movieSlug;
+            });
+            
+            if (found) {
+                openPlayer(encodeURIComponent(JSON.stringify(found)));
+            }
+        }
+    });
 
     function openPlayer(encodedMovie) {
         let movie = JSON.parse(decodeURIComponent(encodedMovie));
         currentMovie = movie;
         
-        // Gắn link phát video
         document.getElementById('videoIframe').src = movie.video;
         document.getElementById('playerModal').style.display = 'flex';
-
-        // Tự động thay đổi URL trên thanh địa chỉ thành link riêng của phim (ví dụ: ?v=ten-phim)
+        
         if (movie.title) {
             let slug = encodeURIComponent(movie.title.replace(/\s+/g, '-').toLowerCase());
             window.history.replaceState(null, '', `?v=${slug}`);
@@ -280,15 +297,12 @@
     function closePlayer() {
         document.getElementById('videoIframe').src = '';
         document.getElementById('playerModal').style.display = 'none';
-        
-        // Xóa tham số trên URL khi đóng player để trả về trang chủ sạch sẽ
         window.history.replaceState(null, '', window.location.pathname);
     }
 
     function shareMovie() {
         if (!currentMovie) return;
 
-        // Lấy chính xác URL hiện tại đang hiển thị trên thanh địa chỉ (có kèm theo phim đang xem)
         let shareUrl = window.location.href;
         let shareText = `Xem ngay phim "${currentMovie.title}" không quảng cáo tại đây:`;
 
@@ -307,7 +321,6 @@
         }
     }
 
-
     function toggleFullScreen() {
         var elem = document.getElementById('modalContent');
         if (!document.fullscreenElement) {
@@ -319,6 +332,7 @@
         }
     }
 </script>
+
 
 </body>
 </html>
