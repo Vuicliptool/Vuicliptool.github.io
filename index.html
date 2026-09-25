@@ -228,7 +228,6 @@
 <script>
     let currentMovie = null;
 
-    // Hàm load phim và kiểm tra ngay tham số ?v= ngay sau khi dữ liệu đã sẵn sàng
     async function loadMovies() {
         try {
             let response = await fetch('movies.json');
@@ -256,14 +255,14 @@
 
             document.getElementById('movieGrid').innerHTML = htmlContent;
 
-            // KIỂM TRA LINK CHIA SẺ ?v= NGAY SAU KHI ĐÃ CÓ DỮ LIỆU PHIM
+            // KIỂM TRA LINK CHIA SẺ THEO ID VIDEO KHI VỪA VÀO TRANG
             const urlParams = new URLSearchParams(window.location.search);
-            const movieSlug = urlParams.get('v');
+            const videoId = urlParams.get('v');
             
-            if (movieSlug) {
+            if (videoId) {
                 let found = movies.find(m => {
-                    let slug = encodeURIComponent(m.title.replace(/\s+/g, '-').toLowerCase());
-                    return slug === movieSlug;
+                    // Trích xuất ID từ link video hoặc download
+                    return m.download.includes(videoId) || m.video.includes(videoId);
                 });
                 
                 if (found) {
@@ -277,7 +276,6 @@
         }
     }
 
-    // Chạy hàm load khi vừa vào trang
     loadMovies();
 
     function openPlayer(encodedMovie) {
@@ -287,9 +285,10 @@
         document.getElementById('videoIframe').src = movie.video;
         document.getElementById('playerModal').style.display = 'flex';
         
-        if (movie.title) {
-            let slug = encodeURIComponent(movie.title.replace(/\s+/g, '-').toLowerCase());
-            window.history.replaceState(null, '', `?v=${slug}`);
+        // Lấy mã ID video Dailymotion (ví dụ: xb38v9e) gắn lên URL
+        let match = movie.download.match(/video\/([a-zA-Z0-9]+)/) || movie.video.match(/video=([a-zA-Z0-9]+)/);
+        if (match && match[1]) {
+            window.history.replaceState(null, '', `?v=${match[1]}`);
         }
     }
 
