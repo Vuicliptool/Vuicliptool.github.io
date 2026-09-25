@@ -278,7 +278,11 @@
     function shareMovie() {
         if (!currentMovie) return;
 
-        let shareUrl = currentMovie.download || window.location.href;
+        // Lấy domain hiện tại của bạn (ví dụ: https://vuicliptool.github.io)
+        let baseUrl = window.location.origin + window.location.pathname;
+        
+        // Bạn có thể kèm theo tên phim hoặc thông điệp tùy ý
+        let shareUrl = baseUrl; 
         let shareText = `Xem ngay phim "${currentMovie.title}" không quảng cáo tại đây:`;
 
         if (navigator.share) {
@@ -289,12 +293,13 @@
             }).catch((error) => console.log('Chia sẻ bị hủy', error));
         } else {
             navigator.clipboard.writeText(shareUrl).then(() => {
-                alert("Đã sao chép link phim vào bộ nhớ tạm!");
+                alert("Đã sao chép link trang web vào bộ nhớ tạm!");
             }).catch(err => {
                 console.error('Không thể copy link: ', err);
             });
         }
     }
+
 
     function toggleFullScreen() {
         var elem = document.getElementById('modalContent');
