@@ -266,23 +266,30 @@
         let movie = JSON.parse(decodeURIComponent(encodedMovie));
         currentMovie = movie;
         
+        // Gắn link phát video
         document.getElementById('videoIframe').src = movie.video;
         document.getElementById('playerModal').style.display = 'flex';
+
+        // Tự động thay đổi URL trên thanh địa chỉ thành link riêng của phim (ví dụ: ?v=ten-phim)
+        if (movie.title) {
+            let slug = encodeURIComponent(movie.title.replace(/\s+/g, '-').toLowerCase());
+            window.history.replaceState(null, '', `?v=${slug}`);
+        }
     }
 
     function closePlayer() {
         document.getElementById('videoIframe').src = '';
         document.getElementById('playerModal').style.display = 'none';
+        
+        // Xóa tham số trên URL khi đóng player để trả về trang chủ sạch sẽ
+        window.history.replaceState(null, '', window.location.pathname);
     }
 
     function shareMovie() {
         if (!currentMovie) return;
 
-        // Lấy domain hiện tại của bạn (ví dụ: https://vuicliptool.github.io)
-        let baseUrl = window.location.origin + window.location.pathname;
-        
-        // Bạn có thể kèm theo tên phim hoặc thông điệp tùy ý
-        let shareUrl = baseUrl; 
+        // Lấy chính xác URL hiện tại đang hiển thị trên thanh địa chỉ (có kèm theo phim đang xem)
+        let shareUrl = window.location.href;
         let shareText = `Xem ngay phim "${currentMovie.title}" không quảng cáo tại đây:`;
 
         if (navigator.share) {
@@ -293,7 +300,7 @@
             }).catch((error) => console.log('Chia sẻ bị hủy', error));
         } else {
             navigator.clipboard.writeText(shareUrl).then(() => {
-                alert("Đã sao chép link trang web vào bộ nhớ tạm!");
+                alert("Đã sao chép link chi tiết phim vào bộ nhớ tạm!");
             }).catch(err => {
                 console.error('Không thể copy link: ', err);
             });
