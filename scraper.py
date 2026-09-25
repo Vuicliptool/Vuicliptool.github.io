@@ -1,4 +1,5 @@
 import json
+import re
 import requests
 from bs4 import BeautifulSoup
 
@@ -19,8 +20,16 @@ try:
         items = soup.select('.movie-card, article, .grid > div')
         
         for item in items:
-            title_el = item.find(['h3', 'a'])
-            title = title_el.get_text(strip=True) if title_el else "Phim mới cập nhật"
+            # 🌟 Tinh chỉnh cách lấy tiêu đề chính xác, loại bỏ nhãn HOT và thời lượng
+            title = "Phim mới cập nhật"
+            # Thường tên phim nằm ở thẻ h3, h4 hoặc các thẻ chứa text phía dưới poster
+            title_candidates = item.find_all(['h3', 'h4', 'p', 'a'])
+            for el in title_candidates:
+                txt = el.get_text(strip=True)
+                # Lọc bỏ các text ngắn, chứa từ khóa rác hoặc trùng với thời lượng/badge
+                if txt and len(txt) > 3 and not txt.startswith("HOT") and not ":" in txt and "Full" not in txt:
+                    title = txt
+                    break
             
             link_el = item.find('a')
             detail_url = ""
@@ -38,12 +47,12 @@ try:
                     end = style.find(')', start)
                     poster = style[start:end].strip('\'"')
             
+            # Lấy thời lượng phim sạch sẽ
             dur_el = item.select_one('.duration')
             duration = dur_el.get_text(strip=True) if dur_el else "Full"
             
-            # Quét link iframe xem phim và link tải về
             video_embed = "https://geo.dailymotion.com/player.html?video=xb1j9wq"
-            download_url = detail_url if detail_url else url
+            download_url = video_embed
             
             if detail_url:
                 try:
@@ -51,19 +60,19 @@ try:
                     if detail_res.status_code == 200:
                         detail_soup = BeautifulSoup(detail_res.text, 'html.parser')
                         
-                        # Lấy iframe xem phim
                         iframes = detail_soup.find_all('iframe')
                         for iframe in iframes:
                             src = iframe.get('src', '')
-                            if any(keyword in src for keyword in ['dailymotion', 'player', 'embed', 'video']):
+                            if 'dailymotion.com' in src or 'player' in src:
                                 video_embed = src
                                 break
                         
-                        # Tìm nút/link tải về nếu có trên trang chi tiết
-                        dl_btn = detail_soup.select_one('a[download], a.download-btn, .download-link')
-                        if dl_btn and dl_btn.has_attr('href'):
-                            dl_href = dl_btn['href']
-                            download_url = dl_href if dl_href.startswith('http') else "https://fbwacth.com" + dl_href
+                        dm_match = re.search(r'video=([a-zA-Z0-9]+)', video_embed)
+                        if dm_match:
+                            vid_id = dm_match.group(1)
+                            download_url = f"https://www.dailymotion.com/video/{vid_id}"
+                        else:
+                            download_url = video_embed
                 except:
                     pass
             
@@ -79,10 +88,10 @@ try:
         if movies:
             with open('movies.json', 'w', encoding='utf-8') as f:
                 json.dump(movies, f, ensure_ascii=False, indent=4)
-            print(f"Đã cập nhật thành công {len(movies)} phim có kèm link tải!")
+            print(f"Đã cập nhật {len(movies)} phim với tên chuẩn xác!")
         else:
-            print("Không tìm thấy thẻ phim nào.")
+            print("Không tìm thấy phim.")
     else:
-        print(f"Lỗi kết nối trang gốc: {response.status_code}")
+        print(f"Lỗi kết nối: {response.status_code}")
 except Exception as e:
     print(f"Lỗi: {e}")
