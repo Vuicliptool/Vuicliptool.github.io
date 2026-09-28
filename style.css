@@ -1,428 +1,364 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* ==========================================================
+   1. CẤU HÌNH CHUNG & BIẾN MÀU SẮC (VARIABLES)
+   ================================================---------- */
+:root {
+    --bg: #0b0d12;
+    --surface: #12151c;
+    --surface-2: #1b1f29;
+    --text: #f5f7fb;
+    --text-secondary: #94a3b8;
+    --accent: #dfef45;
+    --accent-ink: #111500;
 }
 
-:root {
-    --text-primary: #ffffff;
-    --text-secondary: #94a3b8;
-    --card-bg: rgba(15, 23, 42, 0.7);
-    --code-bg: #0a0e1a;
-    --code-text: #10b981;
-    --error-bg: rgba(239, 68, 68, 0.1);
-    --warning-bg: rgba(251, 191, 36, 0.1);
+* { 
+    box-sizing: border-box; 
+    margin: 0;
+    padding: 0;
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    color: var(--text-primary);
-    line-height: 1.6;
+    background-color: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, sans-serif;
+    margin: 0;
+    padding: 0;
     overflow-x: hidden;
     min-height: 100vh;
 }
 
-/* ANIMATED RAINBOW DARK BACKGROUND */
-.bg-animation {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    background: linear-gradient(135deg, 
-        #000000 0%, 
-        #8b5cf6 16%, 
-        #3b82f6 33%, 
-        #10b981 50%, 
-        #fbbf24 66%, 
-        #ef4444 83%, 
-        #000000 100%);
-    background-size: 400% 400%;
-    animation: rainbowShift 20s ease infinite;
+/* ==========================================================
+   2. HEADER & BRANDING
+   ================================================---------- */
+.main-header {
+    background: var(--surface);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.bg-animation::before {
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.15) 0%, transparent 50%),
-        radial-gradient(circle at 40% 20%, rgba(16, 185, 129, 0.15) 0%, transparent 50%);
-}
-
-@keyframes rainbowShift {
-    0% { background-position: 0% 50%; }
-    25% { background-position: 50% 100%; }
-    50% { background-position: 100% 50%; }
-    75% { background-position: 50% 0%; }
-    100% { background-position: 0% 50%; }
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 40px 20px;
-    position: relative;
-    z-index: 1;
-}
-
-/* HEADER / LOGO */
-.header {
-    text-align: center;
-    padding: 80px 0 60px;
-}
-
-.logo {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 72px;
-    font-weight: 900;
-    background: linear-gradient(135deg, #8b5cf6, #3b82f6, #10b981, #fbbf24, #ef4444);
-    background-size: 200% 200%;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-    margin-bottom: 15px;
-    letter-spacing: 3px;
-    animation: logoGlow 3s ease-in-out infinite, rainbowText 8s ease infinite;
-    text-shadow: 0 0 30px rgba(139, 92, 246, 0.3);
-}
-
-@keyframes logoGlow {
-    0%, 100% { filter: brightness(1); }
-    50% { filter: brightness(1.3); }
-}
-
-@keyframes rainbowText {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.tagline {
-    font-family: 'Orbitron', sans-serif;
+.brand {
+    font-weight: bold;
     font-size: 18px;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 4px;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
 }
 
-/* SOCIAL LINKS - PENTAGON LAYOUT */
+.brand-logo {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+.brand-badge {
+    font-size: 13px; 
+    color: var(--accent);
+}
+
+/* ==========================================================
+   3. CONTAINER & LƯỚI HIỂN THỊ PHIM (MOVIE GRID)
+   ================================================---------- */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    font-size: 18px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--accent);
+    padding-left: 10px;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+@media (min-width: 768px) {
+    .movie-grid {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 20px;
+    }
+}
+
+.movie-card {
+    background: var(--surface);
+    border-radius: 8px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s;
+    border: 1px solid rgba(255,255,255,0.03);
+    cursor: pointer;
+}
+
+.movie-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--accent);
+}
+
+.poster {
+    position: relative;
+    width: 100%;
+    padding-top: 140%;
+    background-size: cover;
+    background-position: center;
+    background-color: var(--surface-2);
+}
+
+.duration {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    background: rgba(0, 0, 0, 0.75);
+    color: #fff;
+    padding: 2px 6px;
+    font-size: 11px;
+    border-radius: 4px;
+    z-index: 3;
+}
+
+.movie-info {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+
+.movie-title {
+    font-size: 14px;
+    font-weight: 600;
+    margin: 0 0 6px 0;
+    line-height: 1.4;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    color: var(--text);
+}
+
+.loading {
+    text-align: center;
+    color: var(--text-secondary);
+    padding: 40px;
+    font-size: 15px;
+}
+
+/* ==========================================================
+   4. CÁC LỚP PHỦ DẢI BĂNG (OVERLAY BANNERS) - DỄ DÀNG CHỈNH SỬA
+   ================================================---------- */
+
+/* 4.1. Lớp phủ ngoài Thumbnail (Trang chủ) */
+.poster-overlay-banner {
+    position: absolute;
+    bottom: 21%;                  /* Khoảng cách từ đáy lên: tăng số này nếu muốn đẩy lên cao */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 94%;                   /* Chiều dài của dải băng */
+    background: #f7eed6;          /* Màu nền giấy cũ */
+    color: #3d2817;               /* Màu chữ */
+    padding: 6px 10px;            /* Độ dày rộng theo chiều dọc và ngang */
+    font-size: 11px;              /* Cỡ chữ */
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    border-radius: 4px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.6);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    border: 1.5px dashed #c8b488; /* Viền nét đứt */
+    pointer-events: none;         /* Giúp click xuyên qua lớp phủ để bấm vào phim */
+    z-index: 2;
+}
+
+/* 4.2. Lớp phủ bên trong khung xem phim (Video Player Modal) */
+.video-overlay-banner {
+    position: absolute;
+    bottom: 25%;                  /* Vị trí lên xuống trong video */
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 480px;             /* Giới hạn chiều dài tối đa */
+    background: linear-gradient(135deg, #fbf3dc 0%, #f1e2bc 100%);
+    color: #2c1d11;
+    padding: 19px 16px;           /* Độ cao béo của dải băng */
+    font-size: 20.5px;            /* Kích thước chữ to rõ */
+    font-weight: 800;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    border-radius: 6px;
+    box-shadow: 0 6px 16px rgba(0,0,0,0.85);
+    border: 2px dashed #bfa575;
+    letter-spacing: 0.3px;
+    pointer-events: none;
+    z-index: 98;
+}
+
+/* ==========================================================
+   5. MODAL XEM PHIM (POPUP PLAYER)
+   ================================================---------- */
+#playerModal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw; height: 100vh;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-header {
+    position: absolute;
+    top: 15px; right: 20px;
+    display: flex; gap: 10px;
+    z-index: 1001;
+}
+
+.control-btn {
+    background: #333; color: #fff;
+    border: none; padding: 8px 14px;
+    font-size: 14px; font-weight: bold;
+    border-radius: 4px; cursor: pointer;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.control-btn.share { background: #3b5998; }
+.control-btn.close { background: #ef4444; }
+
+.modal-content {
+    position: relative;
+    width: 100vw; height: 100vh;
+    background: #000;
+    display: flex; justify-content: center; align-items: center;
+}
+
+.modal-content iframe {
+    width: 100%; height: 100%; border: 0;
+}
+
+/* Logo nổi bên trái góc trên video */
+.video-logo-overlay {
+    position: absolute;
+    top: 55px;
+    left: 15px;
+    width: 90px;
+    height: auto;
+    opacity: 0.95;
+    pointer-events: none;
+    z-index: 99;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
+}
+
+/* ==========================================================
+   6. FOOTER & NÚT MẠNG XÃ HỘI (SOCIAL PENTAGON)
+   ================================================---------- */
+footer {
+    text-align: center;
+    padding: 25px 20px;
+    color: var(--text-secondary);
+    font-size: 13px;
+    background: var(--surface);
+    border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-stats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-bottom: 15px;
+    flex-wrap: wrap;
+}
+
+.stat-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--surface-2);
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.03);
+}
+
+.stat-item strong {
+    color: var(--accent);
+    font-weight: 600;
+}
+
 .social-section {
     text-align: center;
-    margin: 60px 0;
+    margin: 30px 0;
 }
 
 .social-section h2 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 28px;
-    color: var(--text-primary);
-    margin-bottom: 40px;
+    font-size: 20px;
+    color: var(--text);
+    margin-bottom: 20px;
+    border: none;
+    padding: 0;
 }
 
 .social-pentagon {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 30px;
+    gap: 25px;
     max-width: 500px;
     margin: 0 auto;
 }
 
 .social-btn {
-    width: 80px;
-    height: 80px;
+    width: 60px;
+    height: 60px;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    font-size: 32px;
+    font-size: 24px;
     color: white;
     transition: all 0.3s ease;
-    border: 3px solid rgba(255, 255, 255, 0.2);
-    position: relative;
-    overflow: hidden;
-}
-
-.social-btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    opacity: 0;
-    transition: opacity 0.3s ease;
+    border: 2px solid rgba(255, 255, 255, 0.2);
 }
 
 .social-btn:hover {
-    transform: scale(1.15) translateY(-5px);
-    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-    border-color: rgba(255, 255, 255, 0.5);
-}
-
-.social-btn:hover::before {
-    opacity: 1;
-}
-
-.social-btn.zalo {
-    background: linear-gradient(135deg, #0068ff, #0099ff);
+    transform: scale(1.1) translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .social-btn.telegram {
     background: linear-gradient(135deg, #0088cc, #00aaff);
 }
 
-.social-btn.youtube {
-    background: linear-gradient(135deg, #ff0000, #cc0000);
-}
-
-.social-btn.tiktok {
-    background: linear-gradient(135deg, #000000, #333333);
-    border-color: rgba(255, 255, 255, 0.4);
-}
-
 .social-btn.group-zalo {
     background: linear-gradient(135deg, #0068ff, #4da6ff);
 }
 
+.social-btn.youtube {
+    background: linear-gradient(135deg, #ff0000, #cc0000);
+}
+
 .social-label {
     display: block;
-    margin-top: 10px;
-    font-size: 12px;
+    margin-top: 8px;
+    font-size: 11px;
     color: var(--text-secondary);
     font-weight: 600;
-}
-
-/* CARDS */
-.card {
-    background: var(--card-bg);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-radius: 20px;
-    padding: 40px;
-    margin-bottom: 30px;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-}
-
-.card:hover {
-    border-color: rgba(139, 92, 246, 0.5);
-    box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
-}
-
-.card-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 28px;
-    color: var(--text-primary);
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-/* STEPS */
-.step {
-    margin-bottom: 40px;
-}
-
-.step-title {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 20px;
-    color: var(--text-primary);
-    margin-bottom: 15px;
-    display: flex;
-    align-items: center;
-    gap: 15px;
-}
-
-.step-number {
-    background: linear-gradient(135deg, #8b5cf6, #3b82f6);
-    color: white;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 900;
-    font-size: 18px;
-    flex-shrink: 0;
-}
-
-.step-text {
-    color: var(--text-secondary);
-    font-size: 16px;
-    line-height: 1.8;
-    margin-bottom: 15px;
-}
-
-.step-text a {
-    color: #3b82f6;
-    font-weight: 600;
-    text-decoration: none;
-}
-
-.step-text a:hover {
-    text-decoration: underline;
-}
-
-/* CODE BLOCKS */
-.code-block {
-    background: var(--code-bg);
-    border-radius: 12px;
-    padding: 20px;
-    margin: 15px 0;
-    position: relative;
-    border: 1px solid rgba(16, 185, 129, 0.3);
-    overflow-x: auto;
-}
-
-.code-block pre {
-    color: var(--code-text);
-    font-family: 'Courier New', monospace;
-    font-size: 14px;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    margin: 0;
-}
-
-.copy-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: var(--code-text);
-    color: #000;
-    border: none;
-    padding: 8px 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 700;
-    font-size: 13px;
-    transition: all 0.3s ease;
-    font-family: 'Orbitron', sans-serif;
-}
-
-.copy-btn:hover {
-    background: #34d399;
-    transform: scale(1.05);
-}
-
-/* ERROR BOXES */
-.error-section {
-    margin-top: 40px;
-}
-
-.error-section h3 {
-    font-family: 'Orbitron', sans-serif;
-    font-size: 22px;
-    color: #ef4444;
-    margin-bottom: 25px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.error-box {
-    background: var(--error-bg);
-    border-left: 5px solid #ef4444;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 20px;
-    border: 1px solid rgba(239, 68, 68, 0.3);
-}
-
-.error-title {
-    color: #ef4444;
-    font-weight: 700;
-    font-size: 16px;
-    margin-bottom: 10px;
-    font-family: 'Orbitron', sans-serif;
-}
-
-.error-text {
-    color: var(--text-secondary);
-    margin-bottom: 15px;
-    line-height: 1.8;
-}
-
-/* FOOTER */
-.footer {
-    text-align: center;
-    margin-top: 60px;
-    padding: 40px 0;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    color: var(--text-secondary);
-    font-size: 14px;
-}
-
-/* RESPONSIVE */
-@media (max-width: 768px) {
-    .logo {
-        font-size: 48px;
-    }
-    
-    .tagline {
-        font-size: 14px;
-        letter-spacing: 2px;
-    }
-    
-    .header {
-        padding: 60px 0 40px;
-    }
-    
-    .card {
-        padding: 25px;
-    }
-    
-    .card-title {
-        font-size: 22px;
-    }
-    
-    .social-pentagon {
-        gap: 20px;
-    }
-    
-    .social-btn {
-        width: 65px;
-        height: 65px;
-        font-size: 26px;
-    }
-    
-    .step-title {
-        font-size: 18px;
-    }
-    
-    .code-block {
-        padding: 15px;
-    }
-    
-    .code-block pre {
-        font-size: 12px;
-    }
-    
-    .copy-btn {
-        padding: 6px 12px;
-        font-size: 11px;
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        font-size: 36px;
-    }
-    
-    .container {
-        padding: 20px 15px;
-    }
-    
-    .social-btn {
-        width: 55px;
-        height: 55px;
-        font-size: 22px;
-    }
 }
