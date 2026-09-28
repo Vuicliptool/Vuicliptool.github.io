@@ -5,25 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="pageTitle">Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo</title>
     
-    <!-- Các thẻ Open Graph mặc định để phòng hờ -->
     <meta property="og:title" id="metaTitle" content="Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo">
     <meta property="og:description" id="metaDesc" content="Xem phim không quảng cáo cùng Vuicliptool">
     <meta property="og:image" id="metaImage" content="https://vuicliptool.github.io/logo.svg">
     <meta property="og:url" id="metaUrl" content="https://vuicliptool.github.io/">
     <meta property="og:type" content="website">
 
-    <!-- Font + Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Tệp CSS chính đã được tối ưu -->
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<!-- HEADER -->
 <header class="main-header">
     <a class="brand" href="#">
         <img src="logo.svg" alt="Logo" class="brand-logo"> <strong>Vuicliptool</strong>
@@ -31,7 +27,6 @@
     <span class="brand-badge">Không Quảng Cáo</span>
 </header>
 
-<!-- MAIN CONTAINER: DANH SÁCH PHIM -->
 <main class="container">
     <section>
         <h2>Danh Sách Phim Mới</h2>
@@ -41,7 +36,6 @@
     </section>
 </main>
 
-<!-- MODAL XEM PHIM (POPUP) -->
 <div id="playerModal">
     <div class="modal-header">
         <button class="control-btn share" onclick="shareMovie()"><i class="fas fa-link"></i> Chia Sẻ</button>
@@ -49,17 +43,14 @@
         <button class="control-btn close" onclick="closePlayer()">Đóng ✕</button>
     </div>
     <div class="modal-content" id="modalContent">
-        <!-- Logo nổi trên video -->
         <img src="logo.svg" alt="Vuicliptool Logo" class="video-logo-overlay">
         
-        <!-- Dải băng che link cũ trong video -->
         <div class="video-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
 
         <iframe id="videoIframe" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; fullscreen; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </div>
 
-<!-- FOOTER -->
 <footer>
     <div class="footer-stats">
         <div class="stat-item">
@@ -70,7 +61,6 @@
         </div>
     </div>
 
-    <!-- KẾT NỐI MẠNG XÃ HỘI -->
     <div class="social-section">
         <h2>Kết nối với chúng tôi</h2>
         <div class="social-pentagon">
@@ -95,7 +85,6 @@
         </div>
     </div>
 
-    <!-- BỘ ĐẾM HISTATS -->
     <div style="display: flex; justify-content: center; align-items: center; margin: 15px 0;">
         <div id="histats_counter"></div>
         <script type="text/javascript">var _Hasync= _Hasync|| [];
@@ -113,7 +102,6 @@
     <p>© 2026 Vuicliptool.github.io</p>
 </footer>
 
-<!-- JAVASCRIPT XỬ LÝ DỮ LIỆU & GIAO DIỆN -->
 <script>
     let currentMovie = null;
 
@@ -150,10 +138,19 @@
             const videoId = urlParams.get('v');
             
             if (videoId) {
-                let found = movies.find(m => m.download.includes(videoId) || m.video.includes(videoId));
+                let found = movies.find(m => m.video.includes(videoId) || m.download.includes(videoId));
                 if (found) {
-                    let foundEncoded = encodeURIComponent(JSON.stringify(found));
-                    openPlayer(foundEncoded);
+                    currentMovie = found;
+                    document.getElementById('videoIframe').src = found.video;
+                    document.getElementById('playerModal').style.display = 'flex';
+                    
+                    // Cập nhật thẻ Meta Open Graph khi load qua tham số ?v=
+                    let fullPosterUrl = found.poster.startsWith('http') ? found.poster : window.location.origin + '/' + found.poster;
+                    document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${found.title} - Vuicliptool`);
+                    document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${found.title} cực hay, không quảng cáo.`);
+                    document.getElementById('metaImage').setAttribute('content', fullPosterUrl);
+                    document.getElementById('metaUrl').setAttribute('content', window.location.href);
+                    document.getElementById('pageTitle').innerText = `Xem phim: ${found.title}`;
                 }
             }
 
@@ -206,7 +203,7 @@
         document.getElementById('metaUrl').setAttribute('content', currentUrl);
         document.getElementById('pageTitle').innerText = `Xem phim: ${movie.title}`;
 
-        let match = movie.download.match(/video\/([a-zA-Z0-9]+)/) || movie.video.match(/video=([a-zA-Z0-9]+)/);
+        let match = movie.download.match(/video\/([a-zA-Z0-9]+)/) || movie.video.match(/video\/([a-zA-Z0-9]+)/);
         if (match && match[1]) {
             window.history.replaceState(null, '', `?v=${match[1]}`);
         }
@@ -229,7 +226,7 @@
         if (!currentMovie) return;
 
         // Lấy mã video ID từ link download hoặc video để tạo link chia sẻ qua p.html
-        let match = currentMovie.download.match(/video\/([a-zA-Z0-9]+)/) || currentMovie.video.match(/video=([a-zA-Z0-9]+)/);
+        let match = currentMovie.download.match(/video\/([a-zA-Z0-9]+)/) || currentMovie.video.match(/video\/([a-zA-Z0-9]+)/);
         let videoId = match && match[1] ? match[1] : '';
 
         // Trỏ link chia sẻ đi qua p.html để Facebook nhận diện đúng ảnh thumbnail
