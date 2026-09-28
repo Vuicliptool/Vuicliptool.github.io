@@ -1,8 +1,8 @@
+
 import json
 import requests
 
 # Danh sách các kênh Dailymotion nguồn phim mà bạn muốn tổng hợp
-# Bạn có thể thêm tên user khác vào danh sách này (ví dụ: ["MovieReel", "ShortDrama1018", "kenhkhac"])
 channels = ["ducanawm829", "MovieReel"]
 
 all_movies = []
@@ -34,7 +34,8 @@ for channel in channels:
                     else:
                         duration = "Full"
                     
-                    video_embed = f"https://geo.dailymotion.com/player.html?video={vid_id}"
+                    # ĐÃ SỬA: Dùng định dạng embed chuẩn của Dailymotion để không bị lỗi Forbidden
+                    video_embed = f"https://www.dailymotion.com/embed/video/{vid_id}"
                     download_url = f"https://www.dailymotion.com/video/{vid_id}"
                     
                     if poster:
