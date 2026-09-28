@@ -1,232 +1,30 @@
 <!doctype html>
 <html lang="vi">
 <head>
-<!-- Font + Icons -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo</title>
+    
+    <!-- Font + Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Tệp CSS chính đã được tối ưu -->
     <link rel="stylesheet" href="style.css">
-
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo</title>
-    <style>
-        :root {
-            --bg: #0b0d12;
-            --surface: #12151c;
-            --surface-2: #1b1f29;
-            --text: #f5f7fb;
-            --text-secondary: #94a3b8;
-            --accent: #dfef45;
-            --accent-ink: #111500;
-        }
-        * { box-sizing: border-box; }
-        body {
-            background-color: var(--bg);
-            color: var(--text);
-            font-family: system-ui, -apple-system, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: var(--surface);
-            padding: 15px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
-        }
-        .brand {
-            font-weight: bold;
-            font-size: 18px;
-            color: var(--text);
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        .brand-logo {
-            width: 28px;
-            height: 28px;
-            object-fit: contain;
-            border-radius: 4px;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-        }
-        h2 {
-            font-size: 18px;
-            margin-bottom: 15px;
-            border-left: 4px solid var(--accent);
-            padding-left: 10px;
-        }
-        .movie-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-            gap: 15px;
-            margin-bottom: 40px;
-        }
-        @media (min-width: 768px) {
-            .movie-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: 20px;
-            }
-        }
-        .movie-card {
-            background: var(--surface);
-            border-radius: 8px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s;
-            border: 1px solid rgba(255,255,255,0.03);
-            cursor: pointer;
-        }
-        .movie-card:hover {
-            transform: translateY(-4px);
-            border-color: var(--accent);
-        }
-        .poster {
-            position: relative;
-            width: 100%;
-            padding-top: 140%;
-            background-size: cover;
-            background-position: center;
-            background-color: var(--surface-2);
-        }
-        .duration {
-            position: absolute;
-            bottom: 8px;
-            right: 8px;
-            background: rgba(0, 0, 0, 0.75);
-            color: #fff;
-            padding: 2px 6px;
-            font-size: 11px;
-            border-radius: 4px;
-        }
-        .movie-info {
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            justify-content: space-between;
-        }
-        .movie-title {
-            font-size: 14px;
-            font-weight: 600;
-            margin: 0 0 6px 0;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-            color: var(--text);
-        }
-        .loading {
-            text-align: center;
-            color: var(--text-secondary);
-            padding: 40px;
-            font-size: 15px;
-        }
-
-        /* Modal xem phim popup toàn màn hình */
-        #playerModal {
-            display: none;
-            position: fixed;
-            top: 0; left: 0;
-            width: 100vw; height: 100vh;
-            background: rgba(0, 0, 0, 0.95);
-            z-index: 1000;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .modal-header {
-            position: absolute;
-            top: 15px; right: 20px;
-            display: flex; gap: 10px;
-            z-index: 1001;
-        }
-        .control-btn {
-            background: #333; color: #fff;
-            border: none; padding: 8px 14px;
-            font-size: 14px; font-weight: bold;
-            border-radius: 4px; cursor: pointer;
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .control-btn.share { background: #3b5998; }
-        .control-btn.close { background: #ef4444; }
-        
-        .modal-content {
-            position: relative;
-            width: 100vw; height: 100vh;
-            background: #000;
-            display: flex; justify-content: center; align-items: center;
-        }
-        .modal-content iframe {
-            width: 100%; height: 100%; border: 0;
-        }
-        
-        /* Logo nổi trên video */
-        .video-logo-overlay {
-            position: absolute;
-            top: 55px;
-            left: 15px;
-            width: 90px;
-            height: auto;
-            opacity: 0.95;
-            pointer-events: none;
-            z-index: 99;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.8));
-        }
-
-        /* Phần thống kê Footer */
-        footer {
-            text-align: center;
-            padding: 25px 20px;
-            color: var(--text-secondary);
-            font-size: 13px;
-            background: var(--surface);
-            border-top: 1px solid rgba(255,255,255,0.05);
-        }
-        .footer-stats {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 25px;
-            margin-bottom: 10px;
-            flex-wrap: wrap;
-        }
-        .stat-item {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            background: var(--surface-2);
-            padding: 5px 12px;
-            border-radius: 20px;
-            border: 1px solid rgba(255,255,255,0.03);
-        }
-        .stat-item strong {
-            color: var(--accent);
-            font-weight: 600;
-        }
-    </style>
 </head>
 <body>
 
-<header>
+<!-- HEADER -->
+<header class="main-header">
     <a class="brand" href="#">
-        <img src="logo.png" alt="Logo" class="brand-logo"> <strong>Vuicliptool</strong>
+        <img src="logo.svg" alt="Logo" class="brand-logo"> <strong>Vuicliptool</strong>
     </a>
-    <span style="font-size: 13px; color: var(--accent);">Không Quảng Cáo</span>
+    <span class="brand-badge">Không Quảng Cáo</span>
 </header>
 
+<!-- MAIN CONTAINER: DANH SÁCH PHIM -->
 <main class="container">
     <section>
         <h2>Danh Sách Phim Mới</h2>
@@ -236,19 +34,25 @@
     </section>
 </main>
 
+<!-- MODAL XEM PHIM (POPUP) -->
 <div id="playerModal">
     <div class="modal-header">
-        <button class="control-btn share" onclick="shareMovie()">🔗 Chia Sẻ</button>
-        <button class="control-btn" onclick="toggleFullScreen()">⛶ Phóng To</button>
+        <button class="control-btn share" onclick="shareMovie()"><i class="fas fa-link"></i> Chia Sẻ</button>
+        <button class="control-btn" onclick="toggleFullScreen()"><i class="fas fa-expand"></i> Phóng To</button>
         <button class="control-btn close" onclick="closePlayer()">Đóng ✕</button>
     </div>
     <div class="modal-content" id="modalContent">
-        <img src="logo.png" alt="Vuicliptool Logo" class="video-logo-overlay">
+        <!-- Logo nổi trên video -->
+        <img src="logo.svg" alt="Vuicliptool Logo" class="video-logo-overlay">
         
+        <!-- Dải băng che link cũ trong video -->
+        <div class="video-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
+
         <iframe id="videoIframe" src="" allow="accelerometer; autoplay; encrypted-media; gyroscope; fullscreen; picture-in-picture; web-share" allowfullscreen></iframe>
     </div>
 </div>
 
+<!-- FOOTER -->
 <footer>
     <div class="footer-stats">
         <div class="stat-item">
@@ -258,51 +62,51 @@
             <span>🟢 Đang online:</span> <strong id="onlineUsers">--</strong>
         </div>
     </div>
-    <!-- SOCIAL LINKS - PENTAGON/CIRCLE LAYOUT -->
-        <div class="social-section">
-            <h2>Kết nối với chúng tôi</h2>
-            <div class="social-pentagon">
-                
-                <div style="text-align: center;">
-                    <a href="https://t.me/vuiclip_tool_termux" target="_blank" class="social-btn telegram" title="Telegram">
-                        <i class="fab fa-telegram-plane"></i>
-                    </a>
-                    <span class="social-label">Telegram</span>
-                </div>
-                <div style="text-align: center;">
-                    <a href="https://zalo.me/g/gidiwv418" target="_blank" class="social-btn group-zalo" title="Group Zalo">
-                        <i class="fas fa-users"></i>
-                    </a>
-                    <span class="social-label">Group Zalo</span>
-                </div>
-                
-                <div style="text-align: center;">
-                    <a href="https://youtube.com/@vuiclip-tool-termux4228" target="_blank" class="social-btn youtube" title="YouTube">
-                        <i class="fab fa-youtube"></i>
-                    </a>
-                    <span class="social-label">YouTube</span>
-                </div>
+
+    <!-- KẾT NỐI MẠNG XÃ HỘI -->
+    <div class="social-section">
+        <h2>Kết nối với chúng tôi</h2>
+        <div class="social-pentagon">
+            <div style="text-align: center;">
+                <a href="https://t.me/vuiclip_tool_termux" target="_blank" class="social-btn telegram" title="Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <span class="social-label">Telegram</span>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://zalo.me/g/gidiwv418" target="_blank" class="social-btn group-zalo" title="Group Zalo">
+                    <i class="fas fa-users"></i>
+                </a>
+                <span class="social-label">Group Zalo</span>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://youtube.com/@vuiclip-tool-termux4228" target="_blank" class="social-btn youtube" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <span class="social-label">YouTube</span>
             </div>
         </div>
-        <!-- GUIDE -->
-    <p>© 2026 Vuicliptool.github.io</p>
-    
-    <div style="display: flex; justify-content: center; align-items: center; margin: 15px 0;">
-    <div id="histats_counter"></div>
-    <script type="text/javascript">var _Hasync= _Hasync|| [];
-    _Hasync.push(['Histats.start', '1,5054460,4,7,200,30,00011111']);
-    _Hasync.push(['Histats.fasi', '1']);
-    _Hasync.push(['Histats.track_hits', '']);
-    (function() {
-    var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-    hs.src = ('//s10.histats.com/js15_as.js');
-    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-    })();</script>
-    <noscript><a href="/" target="_blank"><img  src="//sstatic1.histats.com/0.gif?5054460&101" alt="" border="0"></a></noscript>
     </div>
 
+    <!-- BỘ ĐẾM HISTATS -->
+    <div style="display: flex; justify-content: center; align-items: center; margin: 15px 0;">
+        <div id="histats_counter"></div>
+        <script type="text/javascript">var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,5054460,4,7,200,30,00011111']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();</script>
+        <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5054460&101" alt="" border="0"></a></noscript>
+    </div>
+
+    <p>© 2026 Vuicliptool.github.io</p>
 </footer>
 
+<!-- JAVASCRIPT XỬ LÝ DỮ LIỆU & GIAO DIỆN -->
 <script>
     let currentMovie = null;
 
@@ -322,6 +126,7 @@
                 htmlContent += `
                     <article class="movie-card" onclick="openPlayer('${movieData}')">
                         <div class="poster" style="background-image:url('${movie.poster}')">
+                            <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
                             <span class="duration">${movie.duration}</span>
                         </div>
                         <div class="movie-info">
@@ -333,7 +138,6 @@
 
             document.getElementById('movieGrid').innerHTML = htmlContent;
 
-            // KIỂM TRA LINK CHIA SẺ THEO ID VIDEO KHI VỪA VÀO TRANG
             const urlParams = new URLSearchParams(window.location.search);
             const videoId = urlParams.get('v');
             
@@ -355,17 +159,10 @@
 
     loadMovies();
 
-    // Xử lý bộ đếm lượt truy cập và online trong footer
     function initStats() {
-        // Tổng truy cập (Giả lập tăng thêm cơ bản dựa trên mốc khởi điểm thực tế + đếm session)
         let visits = localStorage.getItem('vuiclip_total_visits');
-        if (!visits) {
-            visits = 14250; // Mốc khởi điểm cho trang web sinh động
-        } else {
-            visits = parseInt(visits);
-        }
+        visits = visits ? parseInt(visits) : 14250;
         
-        // Kiểm tra xem trình duyệt này đã tính lượt trong phiên này chưa
         if (!sessionStorage.getItem('counted_session')) {
             visits += 1;
             localStorage.setItem('vuiclip_total_visits', visits);
@@ -374,13 +171,11 @@
         
         document.getElementById('totalVisits').innerText = visits.toLocaleString('vi-VN');
 
-        // Lượng người online (Dao động tự nhiên từ 12 đến 35 người cho sinh động)
         let baseOnline = Math.floor(Math.random() * 15) + 12;
         document.getElementById('onlineUsers').innerText = baseOnline;
 
-        // Cập nhật lại số online ngẫu nhiên nhẹ nhàng mỗi 15 giây
         setInterval(() => {
-            let fluctuation = Math.floor(Math.random() * 5) - 2; // -2 đến +2
+            let fluctuation = Math.floor(Math.random() * 5) - 2;
             baseOnline = Math.max(8, baseOnline + fluctuation);
             document.getElementById('onlineUsers').innerText = baseOnline;
         }, 15000);
@@ -439,5 +234,6 @@
         }
     }
 </script>
+
 </body>
 </html>
