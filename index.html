@@ -15,10 +15,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    
     <link rel="stylesheet" href="style.css">
-
-    <script src="https://geo.dailymotion.com/player.js"></script>
 </head>
 <body>
 
@@ -50,7 +47,7 @@
         
         <div class="video-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
 
-        <div id="dailymotion-player-container" style="width: 100%; height: 100%;"></div>
+        <iframe id="dailymotion-iframe" style="width: 100%; height: 100%; border: none;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
     </div>
 </div>
 
@@ -107,7 +104,6 @@
 
 <script>
     let currentMovie = null;
-    let currentDMPayer = null;
 
     async function loadMovies() {
         try {
@@ -137,7 +133,6 @@
 
             document.getElementById('movieGrid').innerHTML = htmlContent;
 
-            // Xử lý tự động mở phim khi có tham số ?v= trên URL
             const urlParams = new URLSearchParams(window.location.search);
             const videoId = urlParams.get('v');
             
@@ -186,35 +181,27 @@
     
         document.getElementById('playerModal').style.display = 'flex';
     
-        // Lấy mã video ID từ link download hoặc video
-        let match = movie.download.match(/video\/([a-zA-Z0-9]+)/) || movie.video.match(/video\/([a-zA-Z0-9]+)/);
-        let videoId = match && match[1] ? match[1] : '';
-
-        if (videoId) {
-            window.history.replaceState(null, '', `?v=${videoId}`);
-            
-            // Xóa player cũ trước khi tạo mới
-            document.getElementById('dailymotion-player-container').innerHTML = '';
-
-            // Khởi tạo Dailymotion Player SDK
-            if (typeof dailymotion !== 'undefined') {
-                dailymotion.createPlayer("dailymotion-player-container", {
-                    video: videoId,
-                    params: {
-                        autoplay: true,
-                        mute: false,
-                        "sharing-enable": false,
-                        "queue-enable": false
-                    }
-                }).then(player => {
-                    currentDMPayer = player;
-                }).catch(e => {
-                    console.error("Lỗi khởi tạo player Dailymotion:", e);
-                });
-            }
+        // Dùng luôn link nhúng từ movies.json (trường movie.video đã có dạng embed)
+        let embedUrl = movie.video;
+        if (!embedUrl.includes('embed')) {
+            let match = movie.download.match(/video\/([a-zA-Z0-9]+)/);
+            let videoId = match && match[1] ? match[1] : '';
+            embedUrl = `https://www.dailymotion.com/embed/video/${videoId}`;
         }
 
-        // Cập nhật thẻ Meta Open Graph khi mở phim
+        // Thêm tham số tự động chạy
+        if (!embedUrl.includes('autoplay')) {
+            embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1&mute=0';
+        }
+
+        document.getElementById('dailymotion-iframe').src = embedUrl;
+
+        let matchId = movie.download.match(/video\/([a-zA-Z0-9]+)/) || movie.video.match(/video\/([a-zA-Z0-9]+)/);
+        let videoId = matchId && matchId[1] ? matchId[1] : '';
+        if (videoId) {
+            window.history.replaceState(null, '', `?v=${videoId}`);
+        }
+
         let currentUrl = window.location.href;
         let fullPosterUrl = movie.poster.startsWith('http') ? movie.poster : window.location.origin + '/' + movie.poster;
 
@@ -226,16 +213,11 @@
     }
 
     function closePlayer() {
-        // Hủy/dừng player khi đóng popup
-        if (currentDMPayer) {
-            currentDMPayer.destroy();
-            currentDMPayer = null;
-        }
-
+        // Xóa src của iframe để tắt hẳn tiếng video khi đóng popup
+        document.getElementById('dailymotion-iframe').src = '';
         document.getElementById('playerModal').style.display = 'none';
         window.history.replaceState(null, '', window.location.pathname);
     
-        // Reset lại meta về mặc định khi đóng popup
         document.getElementById('metaTitle').setAttribute('content', 'Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo');
         document.getElementById('metaDesc').setAttribute('content', 'Xem phim không quảng cáo cùng Vuicliptool');
         document.getElementById('metaImage').setAttribute('content', window.location.origin + '/logo.svg');
