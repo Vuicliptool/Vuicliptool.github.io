@@ -114,6 +114,7 @@
 </footer>
 
 <!-- JAVASCRIPT XỬ LÝ DỮ LIỆU & GIAO DIỆN -->
+<!-- JAVASCRIPT XỬ LÝ DỮ LIỆU & GIAO DIỆN -->
 <script>
     let currentMovie = null;
 
@@ -145,14 +146,12 @@
 
             document.getElementById('movieGrid').innerHTML = htmlContent;
 
+            // Xử lý tự động mở phim nếu có tham số ?v= trên URL
             const urlParams = new URLSearchParams(window.location.search);
             const videoId = urlParams.get('v');
             
             if (videoId) {
-                let found = movies.find(m => {
-                    return m.download.includes(videoId) || m.video.includes(videoId);
-                });
-                
+                let found = movies.find(m => m.download.includes(videoId) || m.video.includes(videoId));
                 if (found) {
                     openPlayer(encodeURIComponent(JSON.stringify(found)));
                 }
@@ -192,21 +191,20 @@
 
     function openPlayer(encodedMovie) {
         let movie = JSON.parse(decodeURIComponent(encodedMovie));
-    currentMovie = movie;
+        currentMovie = movie;
     
         document.getElementById('videoIframe').src = movie.video;
         document.getElementById('playerModal').style.display = 'flex';
     
-    // --- CẬP NHẬT THẺ META OPEN GRAPH KHI CHIA SẺ ---
+        // Cập nhật thẻ Meta Open Graph khi click mở phim
         let currentUrl = window.location.href;
-        document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${movie.title} - Vuicliptool`);
-        document.getElementById('metaDesc', `Thưởng thức phim ${movie.title} cực hay, không quảng cáo.`);
-    
-    // Chuyển ảnh poster của phim thành ảnh preview khi share (Đảm bảo link poster là đường dẫn tuyệt đối đầy đủ https://...)
         let fullPosterUrl = movie.poster.startsWith('http') ? movie.poster : window.location.origin + '/' + movie.poster;
+
+        document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${movie.title} - Vuicliptool`);
+        document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${movie.title} cực hay, không quảng cáo.`);
         document.getElementById('metaImage').setAttribute('content', fullPosterUrl);
         document.getElementById('metaUrl').setAttribute('content', currentUrl);
-    // ------------------------------------------------
+        document.getElementById('pageTitle').innerText = `Xem phim: ${movie.title}`;
 
         let match = movie.download.match(/video\/([a-zA-Z0-9]+)/) || movie.video.match(/video=([a-zA-Z0-9]+)/);
         if (match && match[1]) {
@@ -219,20 +217,22 @@
         document.getElementById('playerModal').style.display = 'none';
         window.history.replaceState(null, '', window.location.pathname);
     
-    // Reset lại meta về mặc định khi đóng popup
+        // Reset lại meta về mặc định khi đóng popup
         document.getElementById('metaTitle').setAttribute('content', 'Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo');
+        document.getElementById('metaDesc').setAttribute('content', 'Xem phim không quảng cáo cùng Vuicliptool');
         document.getElementById('metaImage').setAttribute('content', window.location.origin + '/logo.svg');
         document.getElementById('metaUrl').setAttribute('content', window.location.origin + window.location.pathname);
+        document.getElementById('pageTitle').innerText = 'Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo';
     }
 
     function shareMovie() {
         if (!currentMovie) return;
 
-    // Lấy mã video ID từ link download hoặc video
+        // Lấy mã video ID từ link download hoặc video để tạo link chia sẻ qua p.html
         let match = currentMovie.download.match(/video\/([a-zA-Z0-9]+)/) || currentMovie.video.match(/video=([a-zA-Z0-9]+)/);
         let videoId = match && match[1] ? match[1] : '';
 
-    // Tạo đường dẫn chia sẻ đi qua trang trung gian p.html để Facebook nhận diện đúng thumbnail
+        // Trỏ link chia sẻ đi qua p.html để Facebook nhận diện đúng ảnh thumbnail
         let shareUrl = `${window.location.origin}/p.html?v=${videoId}`;
         let shareText = `Xem ngay phim "${currentMovie.title}" không quảng cáo tại đây:`;
 
@@ -244,13 +244,12 @@
             }).catch((error) => console.log('Chia sẻ bị hủy', error));
         } else {
             navigator.clipboard.writeText(shareUrl).then(() => {
-                alert("Đã sao chép link chia sẻ phim kèm ảnh thumbnail vào bộ nhớ tạm!");
+                alert("Đã sao chép link chia sẻ phim vào bộ nhớ tạm!");
             }).catch(err => {
                 console.error('Không thể copy link: ', err);
             });
         }
     }
-
 
     function toggleFullScreen() {
         var elem = document.getElementById('modalContent');
@@ -263,6 +262,7 @@
         }
     }
 </script>
+
 
 </body>
 </html>
