@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <title id="ogTitle">Xem Phim Không Quảng Cáo</title>
+    
+    <!-- Các thẻ Meta Open Graph cho Facebook Bot đọc -->
+    <meta property="og:title" id="ogMetaTitle" content="Vuicliptool — Xem Phim">
+    <meta property="og:description" content="Xem phim không quảng cáo cùng Vuicliptool">
+    <meta property="og:image" id="ogMetaImage" content="https://vuicliptool.github.io/logo.svg">
+    <meta property="og:url" id="ogMetaUrl" content="https://vuicliptool.github.io/">
+    <meta property="og:type" content="video.other">
+</head>
+<body>
+    <p>Đang chuyển hướng đến trang xem phim...</p>
+
+    <script>
+        async function redirectMovie() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoId = urlParams.get('v');
+            
+            if (!videoId) {
+                window.location.href = '/';
+                return;
+            }
+
+            try {
+                let response = await fetch('/movies.json');
+                let movies = await response.json();
+                let found = movies.find(m => m.download.includes(videoId) || m.video.includes(videoId));
+                
+                if (found) {
+                    let fullPosterUrl = found.poster.startsWith('http') ? found.poster : window.location.origin + '/' + found.poster;
+                    
+                    // Cập nhật thẻ meta ngay lập tức để Facebook Bot (nếu hỗ trợ chạy JS một phần) đọc được
+                    document.getElementById('ogTitle').innerText = `Xem phim: ${found.title}`;
+                    document.getElementById('ogMetaTitle').setAttribute('content', `Xem phim: ${found.title} - Vuicliptool`);
+                    document.getElementById('ogMetaImage').setAttribute('content', fullPosterUrl);
+                    document.getElementById('ogMetaUrl').setAttribute('content', window.location.href);
+
+                    // Chuyển hướng người dùng thật về trang chủ kèm mã video sau 0.5 giây để họ xem phim
+                    setTimeout(() => {
+                        window.location.href = `/?v=${videoId}`;
+                    }, 500);
+                } else {
+                    window.location.href = '/';
+                }
+            } catch (e) {
+                window.location.href = '/';
+            }
+        }
+        redirectMovie();
+    </script>
+</body>
+</html>
