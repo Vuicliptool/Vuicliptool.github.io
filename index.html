@@ -3,8 +3,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo</title>
+    <title id="pageTitle">Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo</title>
     
+    <!-- Các thẻ Open Graph mặc định để phòng hờ -->
+    <meta property="og:title" id="metaTitle" content="Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo">
+    <meta property="og:description" id="metaDesc" content="Xem phim không quảng cáo cùng Vuicliptool">
+    <meta property="og:image" id="metaImage" content="https://vuicliptool.github.io/logo.svg">
+    <meta property="og:url" id="metaUrl" content="https://vuicliptool.github.io/">
+    <meta property="og:type" content="website">
+
     <!-- Font + Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -185,11 +192,22 @@
 
     function openPlayer(encodedMovie) {
         let movie = JSON.parse(decodeURIComponent(encodedMovie));
-        currentMovie = movie;
-        
+    currentMovie = movie;
+    
         document.getElementById('videoIframe').src = movie.video;
         document.getElementById('playerModal').style.display = 'flex';
-        
+    
+    // --- CẬP NHẬT THẺ META OPEN GRAPH KHI CHIA SẺ ---
+        let currentUrl = window.location.href;
+        document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${movie.title} - Vuicliptool`);
+        document.getElementById('metaDesc', `Thưởng thức phim ${movie.title} cực hay, không quảng cáo.`);
+    
+    // Chuyển ảnh poster của phim thành ảnh preview khi share (Đảm bảo link poster là đường dẫn tuyệt đối đầy đủ https://...)
+        let fullPosterUrl = movie.poster.startsWith('http') ? movie.poster : window.location.origin + '/' + movie.poster;
+        document.getElementById('metaImage').setAttribute('content', fullPosterUrl);
+        document.getElementById('metaUrl').setAttribute('content', currentUrl);
+    // ------------------------------------------------
+
         let match = movie.download.match(/video\/([a-zA-Z0-9]+)/) || movie.video.match(/video=([a-zA-Z0-9]+)/);
         if (match && match[1]) {
             window.history.replaceState(null, '', `?v=${match[1]}`);
@@ -200,6 +218,11 @@
         document.getElementById('videoIframe').src = '';
         document.getElementById('playerModal').style.display = 'none';
         window.history.replaceState(null, '', window.location.pathname);
+    
+    // Reset lại meta về mặc định khi đóng popup
+        document.getElementById('metaTitle').setAttribute('content', 'Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo');
+        document.getElementById('metaImage').setAttribute('content', window.location.origin + '/logo.svg');
+        document.getElementById('metaUrl').setAttribute('content', window.location.origin + window.location.pathname);
     }
 
     function shareMovie() {
