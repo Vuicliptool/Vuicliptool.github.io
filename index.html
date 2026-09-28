@@ -114,7 +114,6 @@
 </footer>
 
 <!-- JAVASCRIPT XỬ LÝ DỮ LIỆU & GIAO DIỆN -->
-<!-- JAVASCRIPT XỬ LÝ DỮ LIỆU & GIAO DIỆN -->
 <script>
     let currentMovie = null;
 
@@ -146,14 +145,15 @@
 
             document.getElementById('movieGrid').innerHTML = htmlContent;
 
-            // Xử lý tự động mở phim nếu có tham số ?v= trên URL
+            // Xử lý tự động mở phim chuẩn xác khi có tham số ?v= trên URL
             const urlParams = new URLSearchParams(window.location.search);
             const videoId = urlParams.get('v');
             
             if (videoId) {
                 let found = movies.find(m => m.download.includes(videoId) || m.video.includes(videoId));
                 if (found) {
-                    openPlayer(encodeURIComponent(JSON.stringify(found)));
+                    let foundEncoded = encodeURIComponent(JSON.stringify(found));
+                    openPlayer(foundEncoded);
                 }
             }
 
@@ -262,7 +262,6 @@
         }
     }
 </script>
-
 
 </body>
 </html>
