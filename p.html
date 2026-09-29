@@ -84,6 +84,7 @@
             width: 100%;
             height: 100%;
             border: none;
+            background: #000;
         }
 
         .fallback-box {
@@ -91,8 +92,8 @@
             text-align: center;
         }
         .direct-btn {
-            background: linear-gradient(135deg, #2ed573, #7bed9f);
-            color: #111;
+            background: linear-gradient(135deg, #1877f2, #4893f5);
+            color: #fff;
             padding: 10px 20px;
             border-radius: 8px;
             text-decoration: none;
@@ -101,7 +102,7 @@
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            box-shadow: 0 4px 12px rgba(46, 213, 115, 0.3);
+            box-shadow: 0 4px 12px rgba(24, 119, 242, 0.3);
             transition: transform 0.2s;
         }
         .direct-btn:hover { transform: translateY(-2px); }
@@ -134,14 +135,14 @@
     <!-- KHUNG XEM PHIM CHÍNH -->
     <main class="player-container">
         <div class="video-box" id="videoBox">
-            <!-- Iframe chuẩn của Dailymotion -->
-            <iframe id="dailymotionIframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
+            <!-- Iframe chuẩn của Facebook Video Plugin -->
+            <iframe id="fbIframe" src="" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
         </div>
 
-        <!-- Nút dự phòng nếu iframe bị chặn -->
+        <!-- Nút dự phòng -->
         <div class="fallback-box" id="fallbackBox" style="display: none;">
             <a id="directStreamBtn" href="#" target="_blank" class="direct-btn">
-                <i class="fas fa-external-link-alt"></i> Xem trực tiếp trên Dailymotion (Nếu bị lỗi Forbidden)
+                <i class="fab fa-facebook"></i> Xem trực tiếp trên Facebook (Nếu không load được)
             </a>
         </div>
 
@@ -151,63 +152,48 @@
         </div>
     </main>
 
-    <!-- SCRIPT XỬ LÝ LẤY ID VÀ GẮN IFRAME CÓ XÁC THỰC ORIGIN -->
+    <!-- SCRIPT XỬ LÝ LẤY LINK FACEBOOK VÀ NHÚNG -->
     <script>
         async function initPlayer() {
             const urlParams = new URLSearchParams(window.location.search);
-            const videoId = urlParams.get('v');
-
-            if (!videoId) {
-                document.getElementById('displayTitle').innerText = "Không tìm thấy mã video!";
-                return;
-            }
-
-            let movieUrl = `https://www.dailymotion.com/video/${videoId}`;
+            const videoId = urlParams.get('v'); // Lưu ý: Tham số 'v' lúc này có thể là mã tùy ý hoặc bạn có thể truyền thẳng link
 
             try {
-                // Tải file movies.json để lấy thông tin tên phim
                 let movieRes = await fetch('movies.json');
                 let movies = await movieRes.json();
                 
-                let foundMovie = movies.find(m => m.video.includes(videoId) || (m.download && m.download.includes(videoId)));
+                // Tìm phim theo mã hoặc khớp chuỗi
+                let foundMovie = movies.find(m => m.video.includes(videoId) || videoId === "1");
 
                 if (foundMovie) {
                     let movieTitle = foundMovie.title;
+                    let fbVideoUrl = foundMovie.video;
+
                     document.getElementById('displayTitle').innerText = movieTitle;
                     document.getElementById('pageTitle').innerText = `Xem phim: ${movieTitle} - Vuicliptool`;
-                    document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${movieTitle} - Vuicliptool`);
                     
-                    if (foundMovie.video) {
-                        movieUrl = foundMovie.video;
+                    // Kích hoạt nút dự phòng mở link Facebook gốc
+                    let fallbackBox = document.getElementById('fallbackBox');
+                    let directBtn = document.getElementById('directStreamBtn');
+                    if (fallbackBox && directBtn) {
+                        directBtn.href = fbVideoUrl;
+                        fallbackBox.style.display = 'block';
                     }
 
-                    if(foundMovie.poster) {
-                        let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
-                        document.getElementById('metaImage').setAttribute('content', fullPoster);
-                    }
+                    // Tạo khung nhúng chuẩn của Facebook Plugin
+                    // Cấu trúc nhúng video Facebook: https://www.facebook.com/plugins/video.php?href=URL_ENCODE&show_text=false&width=560
+                    let encodedUrl = encodeURIComponent(fbVideoUrl);
+                    let embedUrl = `https://www.facebook.com/plugins/video.php?href=${encodedUrl}&show_text=false&width=900&autoplay=true`;
+                    
+                    document.getElementById('fbIframe').src = embedUrl;
                 } else {
-                    document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
+                    document.getElementById('displayTitle').innerText = "Không tìm thấy thông tin phim!";
                 }
 
             } catch (error) {
-                console.log("Không đọc được movies.json, dùng ID mặc định.");
-                document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
+                console.error("Lỗi đọc file:", error);
+                document.getElementById('displayTitle').innerText = "Không thể tải dữ liệu phim.";
             }
-
-            // Kích hoạt nút dự phòng dẫn đến link gốc
-            let fallbackBox = document.getElementById('fallbackBox');
-            let directBtn = document.getElementById('directStreamBtn');
-            if (fallbackBox && directBtn) {
-                directBtn.href = movieUrl;
-                fallbackBox.style.display = 'block';
-            }
-
-            // Lấy tên miền hiện tại để cấp quyền origin chống lỗi Forbidden
-            let currentOrigin = window.location.origin;
-
-            // Gắn đường dẫn nhúng iframe chính thức kèm tham số chống chặn
-            let iframeUrl = `https://www.dailymotion.com/video/${videoId}?autoplay=1&origin=${encodeURIComponent(currentOrigin)}`;
-            document.getElementById('dailymotionIframe').src = iframeUrl;
         }
 
         initPlayer();
