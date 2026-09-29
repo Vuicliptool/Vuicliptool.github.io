@@ -5,20 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="pageTitle">Xem Phim Không Quảng Cáo - Vuicliptool</title>
     
-    <!-- Meta tags hiển thị khi chia sẻ lên mạng xã hội -->
     <meta property="og:title" id="metaTitle" content="Xem Phim Không Quảng Cáo - Vuicliptool">
     <meta property="og:description" id="metaDesc" content="Thưởng thức video trọn vẹn, không quảng cáo cùng Vuicliptool.">
     <meta property="og:image" id="metaImage" content="https://vuicliptool.github.io/logo.svg">
     <meta property="og:url" id="metaUrl" content="https://vuicliptool.github.io/">
     <meta property="og:type" content="video.other">
 
-    <!-- Font + Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Tệp CSS chung nếu có, hoặc style trực tiếp cho gọn -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #0b0f19; color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
@@ -65,7 +64,7 @@
             justify-content: center;
             position: relative;
             width: 100%;
-            max-width: 1000px;
+            max-width: 900px;
             margin: 0 auto;
             padding: 20px;
         }
@@ -79,6 +78,13 @@
             position: relative;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
         }
 
         .video-logo-overlay {
@@ -121,18 +127,10 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
-
-        .loading-box {
-            text-align: center;
-            font-size: 16px;
-            color: #aaa;
-            padding: 40px;
-        }
     </style>
 </head>
 <body>
 
-    <!-- HEADER ĐIỀU HƯỚNG -->
     <header class="player-header">
         <a class="brand" href="index.html">
             <img src="logo.svg" alt="Logo"> <strong>Vuicliptool</strong>
@@ -140,74 +138,89 @@
         <a class="back-home-btn" href="index.html"><i class="fas fa-home"></i> Về Trang Chủ</a>
     </header>
 
-    <!-- KHUNG XEM PHIM CHÍNH -->
     <main class="player-container">
         <div class="video-box" id="videoBox">
             <img src="logo.svg" alt="Logo" class="video-logo-overlay">
             <div class="video-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
             
-            <!-- Vùng chứa nút hoặc thông điệp xử lý thay thế iframe nếu bị chặn -->
-            <div id="playerFallback" class="loading-box" style="display:flex; flex-direction:column; align-items:center; justify-content:center; height:100%;">
-                <p id="loadingText" style="margin-bottom: 15px;">Đang chuẩn bị luồng phát không quảng cáo...</p>
-                <a id="directWatchBtn" href="#" target="_blank" style="background: #ff4757; color: #fff; text-decoration: none; padding: 10px 25px; border-radius: 20px; font-weight: bold; display: none;">
-                    <i class="fas fa-play"></i> Bấm để xem trực tiếp
-                </a>
-            </div>
+            <video id="videoPlayer" controls autoplay playsinline></video>
         </div>
 
         <div class="movie-details">
-            <h1 class="movie-title" id="displayTitle">Đang tải thông tin phim...</h1>
+            <h1 class="movie-title" id="displayTitle">Đang tải luồng phát video...</h1>
             <p style="color: #888; font-size: 14px;">Thưởng thức các bộ phim đặc sắc hoàn toàn miễn phí, không bị làm phiền bởi quảng cáo.</p>
         </div>
     </main>
 
-    <!-- SCRIPT XỬ LÝ DỮ LIỆU PHIM -->
     <script>
-        async function initPlayerPage() {
+        async function initPlayer() {
             const urlParams = new URLSearchParams(window.location.search);
             const videoId = urlParams.get('v');
 
             if (!videoId) {
                 document.getElementById('displayTitle').innerText = "Không tìm thấy mã video!";
-                document.getElementById('loadingText').innerText = "Vui lòng chọn phim từ trang chủ.";
                 return;
             }
 
             try {
-                // Tải danh sách phim từ movies.json để lấy thông tin tiêu đề và poster
-                let response = await fetch('movies.json');
-                let movies = await response.json();
-                
-                let foundMovie = movies.find(m => m.video.includes(videoId) || m.download.includes(videoId));
+                // 1. Tự động gọi API Geo của Dailymotion để lấy link .m3u8 chuẩn xác
+                let geoApiUrl = `https://geo.dailymotion.com/videos/${videoId}`;
+                let response = await fetch(geoApiUrl);
+                let data = await response.json();
 
-                if (foundMovie) {
-                    // Cập nhật tiêu đề và thẻ Meta SEO cho đẹp khi chia sẻ
-                    document.getElementById('displayTitle').innerText = foundMovie.title;
-                    document.getElementById('pageTitle').innerText = `Xem phim: ${foundMovie.title} - Vuicliptool`;
-                    document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${foundMovie.title} - Vuicliptool`);
-                    document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${foundMovie.title} không quảng cáo.`);
-                    if(foundMovie.poster) {
-                        let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
-                        document.getElementById('metaImage').setAttribute('content', fullPoster);
+                // Lấy link stream m3u8 từ cấu trúc JSON trả về
+                let streamUrl = data.suối ? data.suối.url : (data.stream ? data.stream.url : null);
+
+                if (!streamUrl) {
+                    throw new Error("Không tìm thấy đường dẫn luồng phát!");
+                }
+
+                // 2. Lấy tên phim từ movies.json nếu có
+                try {
+                    let movieRes = await fetch('movies.json');
+                    let movies = await movieRes.json();
+                    let foundMovie = movies.find(m => m.video.includes(videoId) || m.download.includes(videoId));
+                    if (foundMovie) {
+                        document.getElementById('displayTitle').innerText = foundMovie.title;
+                        document.getElementById('pageTitle').innerText = `Xem phim: ${foundMovie.title} - Vuicliptool`;
+                        document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${foundMovie.title} - Vuicliptool`);
+                        document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${foundMovie.title} không quảng cáo.`);
+                        if(foundMovie.poster) {
+                            let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
+                            document.getElementById('metaImage').setAttribute('content', fullPoster);
+                        }
+                    } else {
+                        document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
                     }
-                } else {
+                } catch (e) {
                     document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
                 }
 
-                // Thiết lập nút chuyển hướng dự phòng thông minh nếu Dailymotion siết chặn iframe
-                let watchUrl = `https://www.dailymotion.com/video/${videoId}`;
-                let directBtn = document.getElementById('directWatchBtn');
-                directBtn.href = watchUrl;
-                directBtn.style.display = 'inline-flex';
-                document.getElementById('loadingText').innerText = "Trình phát đã sẵn sàng:";
+                // 3. Tiến hành phát link .m3u8 thông qua Hls.js hoặc trình duyệt hỗ trợ sẵn
+                var video = document.getElementById('videoPlayer');
+                
+                if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(streamUrl);
+                    hls.attachMedia(video);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        video.play().catch(err => console.log("Trình duyệt chặn tự động phát, cần người dùng bấm play."));
+                    });
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                    // Dành cho Safari / iOS
+                    video.src = streamUrl;
+                    video.addEventListener('loadedmetadata', function() {
+                        video.play().catch(err => console.log("Tự động phát bị chặn."));
+                    });
+                }
 
             } catch (error) {
-                console.error("Lỗi tải thông tin phim:", error);
-                document.getElementById('displayTitle').innerText = "Lỗi kết nối dữ liệu phim.";
+                console.error("Lỗi khởi tạo player:", error);
+                document.getElementById('displayTitle').innerText = "Không thể tải luồng phát video này.";
             }
         }
 
-        initPlayerPage();
+        initPlayer();
     </script>
 </body>
 </html>
