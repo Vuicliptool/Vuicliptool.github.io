@@ -152,75 +152,75 @@
         </div>
     </main>
 
-    <script>
-        async function initPlayer() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const videoId = urlParams.get('v');
+<script>
+    async function initPlayer() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoId = urlParams.get('v');
 
-            if (!videoId) {
-                document.getElementById('displayTitle').innerText = "Không tìm thấy mã video!";
-                return;
-            }
-
-            try {
-                // 1. Tự động gọi API Geo của Dailymotion để lấy link .m3u8 chuẩn xác
-                let geoApiUrl = `https://geo.dailymotion.com/videos/${videoId}`;
-                let response = await fetch(geoApiUrl);
-                let data = await response.json();
-
-                // Lấy link stream m3u8 từ cấu trúc JSON trả về
-                let streamUrl = data.suối ? data.suối.url : (data.stream ? data.stream.url : null);
-
-                if (!streamUrl) {
-                    throw new Error("Không tìm thấy đường dẫn luồng phát!");
-                }
-
-                // 2. Lấy tên phim từ movies.json nếu có
-                try {
-                    let movieRes = await fetch('movies.json');
-                    let movies = await movieRes.json();
-                    let foundMovie = movies.find(m => m.video.includes(videoId) || m.download.includes(videoId));
-                    if (foundMovie) {
-                        document.getElementById('displayTitle').innerText = foundMovie.title;
-                        document.getElementById('pageTitle').innerText = `Xem phim: ${foundMovie.title} - Vuicliptool`;
-                        document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${foundMovie.title} - Vuicliptool`);
-                        document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${foundMovie.title} không quảng cáo.`);
-                        if(foundMovie.poster) {
-                            let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
-                            document.getElementById('metaImage').setAttribute('content', fullPoster);
-                        }
-                    } else {
-                        document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
-                    }
-                } catch (e) {
-                    document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
-                }
-
-                // 3. Tiến hành phát link .m3u8 thông qua Hls.js hoặc trình duyệt hỗ trợ sẵn
-                var video = document.getElementById('videoPlayer');
-                
-                if (Hls.isSupported()) {
-                    var hls = new Hls();
-                    hls.loadSource(streamUrl);
-                    hls.attachMedia(video);
-                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                        video.play().catch(err => console.log("Trình duyệt chặn tự động phát, cần người dùng bấm play."));
-                    });
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    // Dành cho Safari / iOS
-                    video.src = streamUrl;
-                    video.addEventListener('loadedmetadata', function() {
-                        video.play().catch(err => console.log("Tự động phát bị chặn."));
-                    });
-                }
-
-            } catch (error) {
-                console.error("Lỗi khởi tạo player:", error);
-                document.getElementById('displayTitle').innerText = "Không thể tải luồng phát video này.";
-            }
+        if (!videoId) {
+            document.getElementById('displayTitle').innerText = "Không tìm thấy mã video!";
+            return;
         }
 
-        initPlayer();
-    </script>
+        try {
+            // Gọi API Geo để lấy thông tin JSON
+            let geoApiUrl = `https://geo.dailymotion.com/videos/${videoId}`;
+            let response = await fetch(geoApiUrl);
+            let data = await response.json();
+
+            // Đọc đúng cấu trúc chuẩn xác từ JSON: data.stream.url
+            let streamUrl = data.stream && data.stream.url ? data.stream.url : null;
+
+            if (!streamUrl) {
+                throw new Error("Không tìm thấy đường dẫn luồng phát trong dữ liệu JSON!");
+            }
+
+            // Tải tên phim từ movies.json
+            try {
+                let movieRes = await fetch('movies.json');
+                let movies = await movieRes.json();
+                let foundMovie = movies.find(m => m.video.includes(videoId) || (m.download && m.download.includes(videoId)));
+                if (foundMovie) {
+                    document.getElementById('displayTitle').innerText = foundMovie.title;
+                    document.getElementById('pageTitle').innerText = `Xem phim: ${foundMovie.title} - Vuicliptool`;
+                    document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${foundMovie.title} - Vuicliptool`);
+                    document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${foundMovie.title} không quảng cáo.`);
+                    if(foundMovie.poster) {
+                        let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
+                        document.getElementById('metaImage').setAttribute('content', fullPoster);
+                    }
+                } else {
+                    document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
+                }
+            } catch (e) {
+                document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
+            }
+
+            // Phát video bằng Hls.js
+            var video = document.getElementById('videoPlayer');
+            
+            if (Hls.isSupported()) {
+                var hls = new Hls();
+                hls.loadSource(streamUrl);
+                hls.attachMedia(video);
+                hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                    video.play().catch(err => console.log("Cần tương tác để phát."));
+                });
+            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                video.src = streamUrl;
+                video.addEventListener('loadedmetadata', function() {
+                    video.play().catch(err => console.log("Cần tương tác để phát."));
+                });
+            }
+
+        } catch (error) {
+            console.error("Lỗi khởi tạo player:", error);
+            document.getElementById('displayTitle').innerText = "Không thể tải luồng phát video do lỗi CORS hoặc kết nối.";
+        }
+    }
+
+    initPlayer();
+</script>
+
 </body>
 </html>
