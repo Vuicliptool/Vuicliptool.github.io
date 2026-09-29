@@ -1,58 +1,89 @@
-
+import time
 import json
-import requests
+from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
+from bs4 import BeautifulSoup
 
-# Danh sách các kênh Dailymotion nguồn phim mà bạn muốn tổng hợp
-channels = ["ducanawm829", "MovieReel"]
+def scrape_facebook_reels():
+    # Cấu hình Chrome chạy ẩn (headless) trên GitHub Actions
+    chrome_options = Options()
+    chrome_options.add_argument("--headless=new")  # Chế độ ẩn giao diện mới nhất của Chrome
+    chrome_options.add_argument("--no-sandbox")
+    chrome_options.add_argument("--disable-dev-shm-usage")
+    chrome_options.add_argument("--disable-gpu")
+    chrome_options.add_argument("--window-size=1920,1080")
+    
+    # Giả lập User-Agent trình duyệt điện thoại để trang m.facebook.com trả về giao diện di động dễ cào
+    chrome_options.add_argument("user-agent=Mozilla/5.0 (iPhone; CPU iPhone OS 16_0 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.0 Mobile/15E148 Safari/604.1")
 
-all_movies = []
-seen_ids = {}
+    print("Đang khởi động trình duyệt Chrome ẩn...")
+    service = Service(ChromeDriverManager().install())
+    driver = webdriver.Chrome(service=service, options=chrome_options)
 
-for channel in channels:
-    api_url = f"https://api.dailymotion.com/user/{channel}/videos?limit=50&fields=id,title,thumbnail_url,duration"
+    # Link trang Reels Facebook mục tiêu
+    target_url = "https://m.facebook.com/profile.php?id=100095001184360&name=xhp_nt__fblite__profile__tab_bar&profile_tab_item_selected=reels"
+    
     try:
-        response = requests.get(api_url, timeout=15)
-        if response.status_code == 200:
-            data = response.json()
-            items = data.get('list', [])
-            
-            for item in items:
-                vid_id = item.get('id', '')
-                # Tránh lấy trùng video nếu các kênh đăng chung nội dung
-                if vid_id and vid_id not in seen_ids:
-                    seen_ids[vid_id] = True
-                    
-                    title = item.get('title', 'Phim mới cập nhật')
-                    poster = item.get('thumbnail_url', '')
-                    
-                    # Xử lý thời lượng video
-                    duration_sec = item.get('duration', 0)
-                    if duration_sec:
-                        mins = duration_sec // 60
-                        secs = duration_sec % 60
-                        duration = f"{mins}:{secs:02d}"
-                    else:
-                        duration = "Full"
-                    
-                    # ĐÃ SỬA: Dùng định dạng embed chuẩn của Dailymotion để không bị lỗi Forbidden
-                    video_embed = f"https://www.dailymotion.com/embed/video/{vid_id}"
-                    download_url = f"https://www.dailymotion.com/video/{vid_id}"
-                    
-                    if poster:
-                        all_movies.append({
-                            "title": title,
-                            "duration": duration,
-                            "poster": poster,
-                            "video": video_embed,
-                            "download": download_url
-                        })
-    except Exception as e:
-        print(f"Lỗi khi quét kênh {channel}: {e}")
+        print(f"Đang truy cập: {target_url}")
+        driver.get(target_url)
+        time.sleep(6)  # Chờ trang tải hoàn tất
 
-# Lưu lại toàn bộ danh sách phim tổng hợp từ các kênh
-if all_movies:
-    with open('movies.json', 'w', encoding='utf-8') as f:
-        json.dump(all_movies, f, ensure_ascii=False, indent=4)
-    print(f"Đã tổng hợp thành công tổng cộng {len(all_movies)} phim từ các kênh!")
-else:
-    print("Không tìm thấy phim nào.")
+        print("Đang tiến hành cuộn trang để nạp thêm Reels...")
+        scrolled_times = 0
+        max_scrolls = 8  # Số lần cuộn trang (có thể tăng giảm tùy ý)
+        
+        while scrolled_times < max_scrolls:
+            driver.execute_script("window.scrollTo(0, document.body.scrollHeight);")
+            time.sleep(4)  # Chờ dữ liệu từ mạng tải về
+            scrolled_times += 1
+            print(f"Đã cuộn lần thứ {scrolled_times}/{max_scrolls}")
+
+        # Lấy mã nguồn sau khi cuộn
+        page_source = driver.page_source
+        soup = BeautifulSoup(page_source, 'html.parser')
+
+        reels_data = []
+        
+        # Quét các đường dẫn thẻ a trong trang
+        links = soup.find_all('a', href=True)
+        
+        for link in links:
+            href = link['href']
+            # Lọc các link chứa video hoặc reel của Facebook
+            if "/reel/" in href or "/watch/" in href or "video" in href:
+                full_link = href if href.startswith("https") else f"https://m.facebook.com{href}"
+                
+                # Lấy nội dung tiêu đề video nếu có
+                title = link.get_text(strip=True)
+                if not title or len(title) < 3:
+                    title = "Video Reels Facebook"
+
+                item = {
+                    "title": title,
+                    "video": full_link,
+                    "poster": "" # Có thể cập nhật nếu tìm thấy thẻ img bọc bên trong
+                }
+                
+                # Tránh lưu trùng lặp
+                if item not in reels_data:
+                    reels_data.append(item)
+
+        print(f"Tổng số video/reels thu thập được: {len(reels_data)}")
+
+        # Lưu dữ liệu trực tiếp vào file movies.json để GitHub Actions tự động commit
+        with open("movies.json", "w", encoding="utf-8") as f:
+            json.dump(reels_data, f, ensure_ascii=False, indent=4)
+        
+        print("Đã ghi file movies.json thành công!")
+
+    except Exception as e:
+        print(f"Đã xảy ra lỗi trong quá trình chạy scraper: {e}")
+        
+    finally:
+        driver.quit()
+        print("Đã đóng trình duyệt.")
+
+if __name__ == "__main__":
+    scrape_facebook_reels()
