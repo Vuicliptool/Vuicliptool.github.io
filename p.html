@@ -5,17 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="pageTitle">Xem Phim Không Quảng Cáo - Vuicliptool</title>
     
+    <!-- Meta tags hiển thị khi chia sẻ lên mạng xã hội -->
     <meta property="og:title" id="metaTitle" content="Xem Phim Không Quảng Cáo - Vuicliptool">
     <meta property="og:description" id="metaDesc" content="Thưởng thức video trọn vẹn, không quảng cáo cùng Vuicliptool.">
-    <meta property="og:image" id="metaImage" content="https://vuicliptool.github.io/logo.svg">
-    <meta property="og:url" id="metaUrl" content="https://vuicliptool.github.io/">
+    <meta property="og:image" id="metaImage" content="logo.svg">
+    <meta property="og:url" id="metaUrl" content="">
     <meta property="og:type" content="video.other">
 
+    <!-- Font + Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
+    <!-- Thư viện Hls.js hỗ trợ phát luồng .m3u8 -->
     <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
     
     <style>
@@ -127,10 +130,32 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
+
+        /* Nút dự phòng nếu bị lỗi CORS trên di động */
+        .fallback-box {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .direct-btn {
+            background: linear-gradient(135deg, #2ed573, #7bed9f);
+            color: #111;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(46, 213, 115, 0.3);
+            transition: transform 0.2s;
+        }
+        .direct-btn:hover { transform: translateY(-2px); }
     </style>
 </head>
 <body>
 
+    <!-- HEADER ĐIỀU HƯỚNG -->
     <header class="player-header">
         <a class="brand" href="index.html">
             <img src="logo.svg" alt="Logo"> <strong>Vuicliptool</strong>
@@ -138,73 +163,101 @@
         <a class="back-home-btn" href="index.html"><i class="fas fa-home"></i> Về Trang Chủ</a>
     </header>
 
+    <!-- KHUNG XEM PHIM CHÍNH -->
     <main class="player-container">
         <div class="video-box" id="videoBox">
             <img src="logo.svg" alt="Logo" class="video-logo-overlay">
             <div class="video-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
             
+            <!-- Thẻ Video HTML5 trực tiếp -->
             <video id="videoPlayer" controls autoplay playsinline></video>
         </div>
 
+        <!-- Nút dự phòng trường hợp trình duyệt chặn CORS -->
+        <div class="fallback-box" id="fallbackBox" style="display: none;">
+            <a id="directStreamBtn" href="#" target="_blank" class="direct-btn">
+                <i class="fas fa-play-circle"></i> Xem trực tiếp luồng dự phòng (Nếu màn hình đen)
+            </a>
+        </div>
+
         <div class="movie-details">
-            <h1 class="movie-title" id="displayTitle">Đang tải luồng phát video...</h1>
+            <h1 class="movie-title" id="displayTitle">Đang tải thông tin phim...</h1>
             <p style="color: #888; font-size: 14px;">Thưởng thức các bộ phim đặc sắc hoàn toàn miễn phí, không bị làm phiền bởi quảng cáo.</p>
         </div>
     </main>
 
-<script>
-    async function initPlayer() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const videoId = urlParams.get('v');
+    <!-- SCRIPT XỬ LÝ PHÁT VIDEO -->
+    <script>
+        async function initPlayer() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const videoId = urlParams.get('v');
 
-        if (!videoId) {
-            document.getElementById('displayTitle').innerText = "Không tìm thấy mã video!";
-            return;
-        }
-
-        try {
-            let movieRes = await fetch('movies.json');
-            let movies = await movieRes.json();
-            
-            let foundMovie = movies.find(m => m.video.includes(videoId) || (m.download && m.download.includes(videoId)) || (m.stream_url && m.stream_url.includes(videoId)));
-
-            if (!foundMovie || !foundMovie.stream_url) {
-                throw new Error("Không tìm thấy link luồng phát!");
+            if (!videoId) {
+                document.getElementById('displayTitle').innerText = "Không tìm thấy mã video!";
+                return;
             }
 
-            // Hiển thị thông tin phim
-            document.getElementById('displayTitle').innerText = foundMovie.title;
-            document.getElementById('pageTitle').innerText = `Xem phim: ${foundMovie.title} - Vuicliptool`;
+            try {
+                let movieRes = await fetch('movies.json');
+                let movies = await movieRes.json();
+                
+                let foundMovie = movies.find(m => m.video.includes(videoId) || (m.download && m.download.includes(videoId)) || (m.stream_url && m.stream_url.includes(videoId)));
 
-            var video = document.getElementById('videoPlayer');
-            let streamUrl = foundMovie.stream_url;
+                if (!foundMovie || !foundMovie.stream_url) {
+                    throw new Error("Không tìm thấy link luồng phát trong dữ liệu!");
+                }
 
-            // Sử dụng Hls.js chuẩn mực, kèm theo sự kiện bắt lỗi chi tiết
-            if (Hls.isSupported()) {
-                var hls = new Hls();
-                hls.loadSource(streamUrl);
-                hls.attachMedia(video);
-                hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    console.log("Manifest đã sẵn sàng, hãy bấm play.");
-                });
-                hls.on(Hls.Events.ERROR, function(event, data) {
-                    console.error("Hls error:", data);
-                    // Fallback nếu hls lỗi: gán thẳng src cho trình duyệt tự xử lý (Safari / một số trình duyệt hỗ trợ native)
+                // Cập nhật giao diện thông tin phim
+                document.getElementById('displayTitle').innerText = foundMovie.title;
+                document.getElementById('pageTitle').innerText = `Xem phim: ${foundMovie.title} - Vuicliptool`;
+                document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${foundMovie.title} - Vuicliptool`);
+                document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${foundMovie.title} không quảng cáo.`);
+                if(foundMovie.poster) {
+                    let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
+                    document.getElementById('metaImage').setAttribute('content', fullPoster);
+                }
+
+                var video = document.getElementById('videoPlayer');
+                let streamUrl = foundMovie.stream_url;
+
+                // Kích hoạt nút dự phòng
+                let fallbackBox = document.getElementById('fallbackBox');
+                let directBtn = document.getElementById('directStreamBtn');
+                if (fallbackBox && directBtn) {
+                    directBtn.href = streamUrl;
+                    fallbackBox.style.display = 'block';
+                }
+
+                // Tiến hành phát stream .m3u8
+                if (Hls.isSupported()) {
+                    var hls = new Hls();
+                    hls.loadSource(streamUrl);
+                    hls.attachMedia(video);
+                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+                        video.play().catch(err => console.log("Trình duyệt yêu cầu tương tác thủ công để phát."));
+                    });
+                    hls.on(Hls.Events.ERROR, function(event, data) {
+                        console.warn("HLS warning/error:", data);
+                        if (data.fatal) {
+                            video.src = streamUrl;
+                        }
+                    });
+                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
                     video.src = streamUrl;
-                });
-            } else {
-                video.src = streamUrl;
+                    video.addEventListener('loadedmetadata', function() {
+                        video.play().catch(err => console.log("Tự động phát bị chặn."));
+                    });
+                } else {
+                    video.src = streamUrl;
+                }
+
+            } catch (error) {
+                console.error("Lỗi:", error);
+                document.getElementById('displayTitle').innerText = "Không thể tải luồng phát video.";
             }
-
-        } catch (error) {
-            console.error("Lỗi:", error);
-            document.getElementById('displayTitle').innerText = "Không thể tải luồng phát video.";
         }
-    }
 
-    initPlayer();
-</script>
-
-
+        initPlayer();
+    </script>
 </body>
 </html>
