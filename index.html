@@ -5,239 +5,284 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title id="pageTitle">Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo</title>
     
+    <!-- Các thẻ Open Graph mặc định để phòng hờ -->
     <meta property="og:title" id="metaTitle" content="Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo">
     <meta property="og:description" id="metaDesc" content="Xem phim không quảng cáo cùng Vuicliptool">
-    <meta property="og:image" id="metaImage" content="logo.svg">
-    <meta property="og:url" id="metaUrl" content="">
+    <meta property="og:image" id="metaImage" content="https://vuicliptool.github.io/logo.svg">
+    <meta property="og:url" id="metaUrl" content="https://vuicliptool.github.io/">
+    <meta property="og:type" content="website">
 
+    <!-- Font + Icons -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #0b0f19; color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
-        
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: rgba(15, 23, 42, 0.9);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            text-decoration: none;
-            color: #fff;
-            font-family: 'Orbitron', sans-serif;
-            font-weight: bold;
-            font-size: 18px;
-        }
-        .brand img { width: 32px; height: 32px; }
-        .no-ads { font-size: 13px; color: #ffda79; background: rgba(255, 218, 121, 0.1); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255, 218, 121, 0.3); }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            flex: 1;
-            width: 100%;
-        }
-
-        h2.section-title {
-            font-family: 'Orbitron', sans-serif;
-            font-size: 20px;
-            margin-bottom: 20px;
-            border-left: 4px solid #ff4757;
-            padding-left: 10px;
-        }
-
-        /* Danh sách phim dạng lưới */
-        .movies-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-            gap: 20px;
-        }
-
-        .movie-card {
-            background: rgba(255, 255, 255, 0.03);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            transition: transform 0.2s, box-shadow 0.2s;
-            cursor: pointer;
-            display: flex;
-            flex-direction: column;
-        }
-        .movie-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
-            border-color: rgba(255, 71, 87, 0.4);
-        }
-
-        .movie-poster {
-            width: 100%;
-            aspect-ratio: 2/3;
-            background-size: cover;
-            background-position: center;
-            background-color: #1a1a1a;
-        }
-
-        .movie-info {
-            padding: 12px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            justify-content: space-between;
-        }
-
-        .movie-name {
-            font-size: 14px;
-            font-weight: 600;
-            margin-bottom: 10px;
-            line-height: 1.4;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .watch-btn {
-            background: linear-gradient(135deg, #ff4757, #ff6b81);
-            color: #fff;
-            text-decoration: none;
-            text-align: center;
-            padding: 8px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-        }
-
-        /* Thống kê & Chân trang */
-        .stats-footer {
-            margin-top: 40px;
-            background: rgba(255, 255, 255, 0.02);
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 25px 20px;
-            text-align: center;
-        }
-        .stats-badges {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 15px;
-            flex-wrap: wrap;
-        }
-        .badge {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 13px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 15px;
-        }
-        .social-btn {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.05);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #fff;
-            text-decoration: none;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: background 0.2s;
-        }
-        .social-btn:hover { background: rgba(255, 71, 87, 0.2); border-color: #ff4757; }
-        
-        .loading { text-align: center; padding: 40px; color: #888; font-size: 15px; grid-column: 1 / -1; }
-    </style>
+    <!-- Tệp CSS chính -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <header>
-        <a class="brand" href="index.html">
-            <img src="logo.svg" alt="Logo"> <strong>Vuicliptool</strong>
-        </a>
-        <div class="no-ads"><i class="fas fa-shield-alt"></i> Không Quảng Cáo</div>
-    </header>
+<!-- HEADER -->
+<header class="main-header">
+    <a class="brand" href="#">
+        <img src="logo.svg" alt="Logo" class="brand-logo"> <strong>Vuicliptool</strong>
+    </a>
+    <span class="brand-badge">Không Quảng Cáo</span>
+</header>
 
-    <main class="container">
-        <h2 class="section-title">Danh Sách Phim Mới</h2>
-        
-        <div id="moviesGrid" class="movies-grid">
+<!-- MAIN CONTAINER: DANH SÁCH PHIM -->
+<main class="container">
+    <!-- KHU VỰC 1: PHIM MỚI CẬP NHẬT (HIỂN THỊ TỪNG TẬP) -->
+    <section style="margin-bottom: 30px;">
+        <h2>Danh Sách Phim Mới</h2>
+        <div id="movieGrid" class="movie-grid">
             <div class="loading">Đang tải danh sách phim...</div>
         </div>
-    </main>
+    </section>
 
-    <footer class="stats-footer">
-        <div class="stats-badges">
-            <div class="badge"><i class="fas fa-eye" style="color: #ffda79;"></i> Tổng truy cập: <b>14.258</b></div>
-            <div class="badge"><i class="fas fa-circle" style="color: #2ed573; font-size: 10px;"></i> Đang online: <b>14</b></div>
+    <!-- KHU VỰC 2: KHO PHIM BỘ (GOM NHÓM THEO TÊN) -->
+    <section>
+        <h2 style="border-top: 1px solid #333; padding-top: 20px;">Kho Phim Bộ</h2>
+        <div id="seriesGrid" class="movie-grid">
+            <div class="loading">Đang tải phim bộ...</div>
         </div>
-        <p style="color: #666; font-size: 13px; margin-bottom: 15px;">Kết nối với chúng tôi</p>
-        <div class="social-links">
-            <a href="#" class="social-btn"><i class="fab fa-telegram-plane"></i></a>
-            <a href="#" class="social-btn"><i class="fas fa-users"></i></a>
-            <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
-        </div>
-        <p style="color: #444; font-size: 12px; margin-top: 20px;">© 2026 Vuicliptool.github.io</p>
-    </footer>
+    </section>
+</main>
 
-    <script>
+
+<!-- MODAL XEM PHIM (POPUP) -->
+<div id="playerModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9998; flex-direction:column;">
+    <div class="modal-header" style="display:flex; justify-content:flex-end; padding:10px; gap:10px; background:#111;">
+        <button class="control-btn share" onclick="shareMovie()" style="background:#333; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer;"><i class="fas fa-link"></i> Chia Sẻ</button>
+        <button class="control-btn" onclick="toggleFullScreen()" style="background:#333; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer;"><i class="fas fa-expand"></i> Phóng To</button>
+        <button class="control-btn close" onclick="closePlayer()" style="background:#e50914; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer;">Đóng ✕</button>
+    </div>
+    <div class="modal-content" id="modalContent" style="position:relative; flex:1; display:flex; justify-content:center; align-items:center;">
+        <img src="logo.svg" alt="Vuicliptool Logo" class="video-logo-overlay" style="position:absolute; top:15px; left:15px; width:40px; z-index:10; opacity:0.8;">
+        <!-- Dải băng che link cũ trong video -->
+        <div class="video-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
+        <iframe id="videoIframe" src="" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; encrypted-media; gyroscope; fullscreen; picture-in-picture; web-share" allowfullscreen></iframe>
+    </div>
+</div>
+
+<!-- MODAL CHỌN TẬP PHIM BỘ -->
+<div id="seriesModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
+    <div style="background:#1a1a1a; width:90%; max-width:500px; border-radius:12px; padding:20px; border:1px solid #333; max-height:80vh; overflow-y:auto;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:15px; border-bottom:1px solid #333; padding-bottom:10px;">
+            <h3 id="seriesModalTitle" style="color:#fff; font-size:18px; margin:0;">Chọn Tập Phim</h3>
+            <button onclick="closeSeriesModal()" style="background:none; border:none; color:#fff; font-size:20px; cursor:pointer;">✕</button>
+        </div>
+        <div id="episodeListGrid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap:10px;">
+            <!-- Danh sách tập được load tự động -->
+        </div>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="footer-stats">
+        <div class="stat-item">
+            <span>👁️ Tổng truy cập:</span> <strong id="totalVisits">--</strong>
+        </div>
+        <div class="stat-item">
+            <span>🟢 Đang online:</span> <strong id="onlineUsers">--</strong>
+        </div>
+    </div>
+
+    <!-- KẾT NỐI MẠNG XÃ HỘI -->
+    <div class="social-section">
+        <h2>Kết nối với chúng tôi</h2>
+        <div class="social-pentagon">
+            <div style="text-align: center;">
+                <a href="https://t.me/vuiclip_tool_termux" target="_blank" class="social-btn telegram" title="Telegram">
+                    <i class="fab fa-telegram-plane"></i>
+                </a>
+                <span class="social-label">Telegram</span>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://zalo.me/g/gidiwv418" target="_blank" class="social-btn group-zalo" title="Group Zalo">
+                    <i class="fas fa-users"></i>
+                </a>
+                <span class="social-label">Group Zalo</span>
+            </div>
+            <div style="text-align: center;">
+                <a href="https://youtube.com/@vuiclip-tool-termux4228" target="_blank" class="social-btn youtube" title="YouTube">
+                    <i class="fab fa-youtube"></i>
+                </a>
+                <span class="social-label">YouTube</span>
+            </div>
+        </div>
+    </div>
+
+    <p>© 2026 Vuicliptool.github.io</p>
+</footer>
+
+<!-- JAVASCRIPT XỬ LÝ DỮ LIỆU & GIAO DIỆN -->
+<script>
+    let currentMovie = null;
+
         async function loadMovies() {
-            try {
-                let response = await fetch('movies.json');
-                let movies = await response.json();
-                let grid = document.getElementById('moviesGrid');
-                
-                if (!movies || movies.length === 0) {
-                    grid.innerHTML = '<div class="loading">Chưa có phim nào trong danh sách.</div>';
-                    return;
-                }
-
-                let html = '';
-                movies.forEach(movie => {
-                    // Trích xuất mã video ID từ link (ví dụ lấy đoạn xbdsgji)
-                    let matchId = movie.video.match(/video\/([a-zA-Z0-9]+)/) || (movie.download && movie.download.match(/video\/([a-zA-Z0-9]+)/));
-                    let videoId = matchId && matchId[1] ? matchId[1] : '';
-
-                    // Đường dẫn khi bấm vào sẽ mở trang p.html kèm mã video
-                    let targetUrl = videoId ? `p.html?v=${videoId}` : '#';
-
-                    html += `
-                        <div class="movie-card" onclick="window.location.href='${targetUrl}'">
-                            <div class="movie-poster" style="background-image: url('${movie.poster || ''}')"></div>
-                            <div class="movie-info">
-                                <div class="movie-name">${movie.title || 'Phim mới'}</div>
-                                <a href="${targetUrl}" class="watch-btn"><i class="fas fa-play"></i> Xem Ngay</a>
-                            </div>
-                        </div>
-                    `;
-                });
-
-                grid.innerHTML = html;
-            } catch (error) {
-                console.error("Lỗi tải danh sách phim:", error);
-                document.getElementById('moviesGrid').innerHTML = '<div class="loading">Không thể tải dữ liệu danh sách phim.</div>';
+        try {
+            let response = await fetch('movies.json');
+            let movies = await response.json();
+            
+            if (movies.length === 0) {
+                document.getElementById('movieGrid').innerHTML = '<div class="loading">Chưa có phim nào.</div>';
+                document.getElementById('seriesGrid').innerHTML = '<div class="loading">Chưa có phim bộ nào.</div>';
+                return;
             }
+
+            // --- 1. HIỂN THỊ 10 PHIM MỚI NHẤT (TỪNG TẬP RIÊNG BIỆT) ---
+            let latestMovies = movies.slice(0, 10); // Lấy 10 phim mới nhất
+            let latestHtml = '';
+            
+            latestMovies.forEach(movie => {
+                let movieData = encodeURIComponent(JSON.stringify(movie));
+                latestHtml += `
+                    <article class="movie-card" onclick="openPlayer('${movieData}')" style="cursor:pointer;">
+                        <div class="poster" style="background-image:url('${movie.poster}')">
+                            <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
+                            <span class="duration">${movie.episode || 'Full HD'}</span>
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">${movie.title}</h3>
+                        </div>
+                    </article>
+                `;
+            });
+            document.getElementById('movieGrid').innerHTML = latestHtml;
+
+
+            // --- 2. HIỂN THỊ KHO PHIM BỘ (GOM NHÓM CÙNG TÊN) ---
+            let groupedMovies = {};
+            movies.forEach(movie => {
+                let key = movie.series || movie.title; 
+                if (!groupedMovies[key]) {
+                    groupedMovies[key] = {
+                        title: key,
+                        poster: movie.poster,
+                        episodes: []
+                    };
+                }
+                groupedMovies[key].episodes.push(movie);
+            });
+
+            let seriesHtml = '';
+            Object.values(groupedMovies).forEach(group => {
+                let groupData = encodeURIComponent(JSON.stringify(group));
+                let totalEp = group.episodes.length;
+                
+                seriesHtml += `
+                    <article class="movie-card" onclick="openSeriesModal('${groupData}')" style="cursor:pointer;">
+                        <div class="poster" style="background-image:url('${group.poster}')">
+                            <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
+                            <span class="duration">${totalEp} Tập</span>
+                        </div>
+                        <div class="movie-info">
+                            <h3 class="movie-title">${group.title}</h3>
+                            <p style="font-size: 12px; color: #aaa; margin-top: 4px;">Trọn bộ (${totalEp} tập)</p>
+                        </div>
+                    </article>
+                `;
+            });
+            document.getElementById('seriesGrid').innerHTML = seriesHtml;
+
+        } catch (error) {
+            console.error(error);
+            document.getElementById('movieGrid').innerHTML = '<div class="loading">Không thể tải dữ liệu từ movies.json</div>';
+        }
+    }
+
+    loadMovies();
+
+
+    // Hàm mở bảng chọn tập phim bộ
+    function openSeriesModal(encodedGroup) {
+        let group = JSON.parse(decodeURIComponent(encodedGroup));
+        
+        // Nếu phim chỉ có đúng 1 tập, bật xem luôn
+        if (group.episodes.length === 1) {
+            openPlayer(encodeURIComponent(JSON.stringify(group.episodes[0])));
+            return;
         }
 
-        loadMovies();
-    </script>
+        document.getElementById('seriesModalTitle').innerText = group.title;
+        let epHtml = '';
+        
+        group.episodes.forEach(ep => {
+            let epData = encodeURIComponent(JSON.stringify(ep));
+            let label = ep.episode || "Tập";
+            epHtml += `
+                <button onclick="selectEpisode('${epData}')" style="background:#2a2a2a; color:#fff; border:1px solid #444; padding:10px; border-radius:6px; cursor:pointer; font-weight:600; text-align:center;">
+                    ${label}
+                </button>
+            `;
+        });
+
+        document.getElementById('episodeListGrid').innerHTML = epHtml;
+        document.getElementById('seriesModal').style.display = 'flex';
+    }
+
+    function closeSeriesModal() {
+        document.getElementById('seriesModal').style.display = 'none';
+    }
+
+    function selectEpisode(encodedMovie) {
+        closeSeriesModal();
+        openPlayer(encodedMovie);
+    }
+
+    function openPlayer(encodedMovie) {
+        let movie = JSON.parse(decodeURIComponent(encodedMovie));
+        currentMovie = movie;
+    
+        document.getElementById('videoIframe').src = movie.video;
+        document.getElementById('playerModal').style.display = 'flex';
+    
+        let currentUrl = window.location.href;
+        document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${movie.title} - Vuicliptool`);
+        document.getElementById('metaImage').setAttribute('content', movie.poster);
+    }
+
+    function closePlayer() {
+        document.getElementById('videoIframe').src = '';
+        document.getElementById('playerModal').style.display = 'none';
+    }
+
+    function shareMovie() {
+        if (!currentMovie) return;
+        let shareUrl = window.location.origin;
+        if (navigator.clipboard) {
+            navigator.clipboard.writeText(shareUrl).then(() => {
+                alert("Đã sao chép link trang web!");
+            });
+        }
+    }
+
+    function toggleFullScreen() {
+        var elem = document.getElementById('modalContent');
+        if (!document.fullscreenElement) {
+            if (elem.requestFullscreen) { elem.requestFullscreen(); }
+        } else {
+            if (document.exitFullscreen) { document.exitFullscreen(); }
+        }
+    }
+
+    // Thống kê giả lập
+    function initStats() {
+        let visits = localStorage.getItem('vuiclip_total_visits');
+        visits = visits ? parseInt(visits) : 14250;
+        if (!sessionStorage.getItem('counted_session')) {
+            visits += 1;
+            localStorage.setItem('vuiclip_total_visits', visits);
+            sessionStorage.setItem('counted_session', 'true');
+        }
+        document.getElementById('totalVisits').innerText = visits.toLocaleString('vi-VN');
+        document.getElementById('onlineUsers').innerText = Math.floor(Math.random() * 15) + 12;
+    }
+    initStats();
+</script>
+
 </body>
 </html>
