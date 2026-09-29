@@ -86,6 +86,26 @@
             border: none;
         }
 
+        .fallback-box {
+            margin-top: 15px;
+            text-align: center;
+        }
+        .direct-btn {
+            background: linear-gradient(135deg, #2ed573, #7bed9f);
+            color: #111;
+            padding: 10px 20px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(46, 213, 115, 0.3);
+            transition: transform 0.2s;
+        }
+        .direct-btn:hover { transform: translateY(-2px); }
+
         .movie-details {
             width: 100%;
             margin-top: 20px;
@@ -118,13 +138,20 @@
             <iframe id="dailymotionIframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
         </div>
 
+        <!-- Nút dự phòng nếu iframe bị chặn -->
+        <div class="fallback-box" id="fallbackBox" style="display: none;">
+            <a id="directStreamBtn" href="#" target="_blank" class="direct-btn">
+                <i class="fas fa-external-link-alt"></i> Xem trực tiếp trên Dailymotion (Nếu bị lỗi Forbidden)
+            </a>
+        </div>
+
         <div class="movie-details">
             <h1 class="movie-title" id="displayTitle">Đang tải thông tin phim...</h1>
             <p style="color: #888; font-size: 14px;">Thưởng thức các bộ phim đặc sắc hoàn toàn miễn phí.</p>
         </div>
     </main>
 
-    <!-- SCRIPT XỬ LÝ LẤY ID VÀ GẮN IFRAME -->
+    <!-- SCRIPT XỬ LÝ LẤY ID VÀ GẮN IFRAME CÓ XÁC THỰC ORIGIN -->
     <script>
         async function initPlayer() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -135,20 +162,31 @@
                 return;
             }
 
+            let movieUrl = `https://www.dailymotion.com/video/${videoId}`;
+
             try {
-                // Tải file movies.json để lấy thông tin tên phim (nếu có)
+                // Tải file movies.json để lấy thông tin tên phim
                 let movieRes = await fetch('movies.json');
                 let movies = await movieRes.json();
                 
                 let foundMovie = movies.find(m => m.video.includes(videoId) || (m.download && m.download.includes(videoId)));
 
-                let movieTitle = foundMovie ? foundMovie.title : `Phim ID: ${videoId}`;
-                document.getElementById('displayTitle').innerText = movieTitle;
-                document.getElementById('pageTitle').innerText = `Xem phim: ${movieTitle} - Vuicliptool`;
-                
-                if(foundMovie && foundMovie.poster) {
-                    let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
-                    document.getElementById('metaImage').setAttribute('content', fullPoster);
+                if (foundMovie) {
+                    let movieTitle = foundMovie.title;
+                    document.getElementById('displayTitle').innerText = movieTitle;
+                    document.getElementById('pageTitle').innerText = `Xem phim: ${movieTitle} - Vuicliptool`;
+                    document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${movieTitle} - Vuicliptool`);
+                    
+                    if (foundMovie.video) {
+                        movieUrl = foundMovie.video;
+                    }
+
+                    if(foundMovie.poster) {
+                        let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
+                        document.getElementById('metaImage').setAttribute('content', fullPoster);
+                    }
+                } else {
+                    document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
                 }
 
             } catch (error) {
@@ -156,8 +194,19 @@
                 document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
             }
 
-            // Gắn trực tiếp đường dẫn nhúng iframe chính thức của Dailymotion
-            let iframeUrl = `https://www.dailymotion.com/embed/video/${videoId}?autoplay=1`;
+            // Kích hoạt nút dự phòng dẫn đến link gốc
+            let fallbackBox = document.getElementById('fallbackBox');
+            let directBtn = document.getElementById('directStreamBtn');
+            if (fallbackBox && directBtn) {
+                directBtn.href = movieUrl;
+                fallbackBox.style.display = 'block';
+            }
+
+            // Lấy tên miền hiện tại để cấp quyền origin chống lỗi Forbidden
+            let currentOrigin = window.location.origin;
+
+            // Gắn đường dẫn nhúng iframe chính thức kèm tham số chống chặn
+            let iframeUrl = `https://www.dailymotion.com/embed/video/${videoId}?autoplay=1&origin=${encodeURIComponent(currentOrigin)}`;
             document.getElementById('dailymotionIframe').src = iframeUrl;
         }
 
