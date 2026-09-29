@@ -18,9 +18,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
-    <!-- Thư viện Hls.js hỗ trợ phát luồng .m3u8 -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
-    
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { background-color: #0b0f19; color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
@@ -83,38 +80,10 @@
             border: 1px solid rgba(255,255,255,0.1);
         }
 
-        video {
+        iframe {
             width: 100%;
             height: 100%;
-            object-fit: contain;
-            display: block;
-        }
-
-        .video-logo-overlay {
-            position: absolute;
-            top: 15px;
-            left: 15px;
-            width: 35px;
-            height: 35px;
-            z-index: 5;
-            opacity: 0.85;
-            pointer-events: none;
-        }
-
-        .video-overlay-banner {
-            position: absolute;
-            bottom: 15px;
-            left: 50%;
-            transform: translateX(-50%);
-            background: rgba(0, 0, 0, 0.7);
-            color: #ffda79;
-            padding: 6px 16px;
-            border-radius: 20px;
-            font-size: 12px;
-            z-index: 5;
-            pointer-events: none;
-            border: 1px solid rgba(255, 218, 121, 0.3);
-            white-space: nowrap;
+            border: none;
         }
 
         .movie-details {
@@ -130,27 +99,6 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
-
-        /* Nút dự phòng nếu bị lỗi CORS trên di động */
-        .fallback-box {
-            margin-top: 15px;
-            text-align: center;
-        }
-        .direct-btn {
-            background: linear-gradient(135deg, #2ed573, #7bed9f);
-            color: #111;
-            padding: 10px 20px;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 14px;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(46, 213, 115, 0.3);
-            transition: transform 0.2s;
-        }
-        .direct-btn:hover { transform: translateY(-2px); }
     </style>
 </head>
 <body>
@@ -166,27 +114,17 @@
     <!-- KHUNG XEM PHIM CHÍNH -->
     <main class="player-container">
         <div class="video-box" id="videoBox">
-            <img src="logo.svg" alt="Logo" class="video-logo-overlay">
-            <div class="video-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
-            
-            <!-- Thẻ Video HTML5 trực tiếp -->
-            <video id="videoPlayer" controls autoplay playsinline></video>
-        </div>
-
-        <!-- Nút dự phòng trường hợp trình duyệt chặn CORS -->
-        <div class="fallback-box" id="fallbackBox" style="display: none;">
-            <a id="directStreamBtn" href="#" target="_blank" class="direct-btn">
-                <i class="fas fa-play-circle"></i> Xem trực tiếp luồng dự phòng (Nếu màn hình đen)
-            </a>
+            <!-- Iframe chuẩn của Dailymotion -->
+            <iframe id="dailymotionIframe" src="" allowfullscreen allow="autoplay; encrypted-media"></iframe>
         </div>
 
         <div class="movie-details">
             <h1 class="movie-title" id="displayTitle">Đang tải thông tin phim...</h1>
-            <p style="color: #888; font-size: 14px;">Thưởng thức các bộ phim đặc sắc hoàn toàn miễn phí, không bị làm phiền bởi quảng cáo.</p>
+            <p style="color: #888; font-size: 14px;">Thưởng thức các bộ phim đặc sắc hoàn toàn miễn phí.</p>
         </div>
     </main>
 
-    <!-- SCRIPT XỬ LÝ PHÁT VIDEO -->
+    <!-- SCRIPT XỬ LÝ LẤY ID VÀ GẮN IFRAME -->
     <script>
         async function initPlayer() {
             const urlParams = new URLSearchParams(window.location.search);
@@ -198,63 +136,29 @@
             }
 
             try {
+                // Tải file movies.json để lấy thông tin tên phim (nếu có)
                 let movieRes = await fetch('movies.json');
                 let movies = await movieRes.json();
                 
-                let foundMovie = movies.find(m => m.video.includes(videoId) || (m.download && m.download.includes(videoId)) || (m.stream_url && m.stream_url.includes(videoId)));
+                let foundMovie = movies.find(m => m.video.includes(videoId) || (m.download && m.download.includes(videoId)));
 
-                if (!foundMovie || !foundMovie.stream_url) {
-                    throw new Error("Không tìm thấy link luồng phát trong dữ liệu!");
-                }
-
-                // Cập nhật giao diện thông tin phim
-                document.getElementById('displayTitle').innerText = foundMovie.title;
-                document.getElementById('pageTitle').innerText = `Xem phim: ${foundMovie.title} - Vuicliptool`;
-                document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${foundMovie.title} - Vuicliptool`);
-                document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${foundMovie.title} không quảng cáo.`);
-                if(foundMovie.poster) {
+                let movieTitle = foundMovie ? foundMovie.title : `Phim ID: ${videoId}`;
+                document.getElementById('displayTitle').innerText = movieTitle;
+                document.getElementById('pageTitle').innerText = `Xem phim: ${movieTitle} - Vuicliptool`;
+                
+                if(foundMovie && foundMovie.poster) {
                     let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
                     document.getElementById('metaImage').setAttribute('content', fullPoster);
                 }
 
-                var video = document.getElementById('videoPlayer');
-                let streamUrl = foundMovie.stream_url;
-
-                // Kích hoạt nút dự phòng
-                let fallbackBox = document.getElementById('fallbackBox');
-                let directBtn = document.getElementById('directStreamBtn');
-                if (fallbackBox && directBtn) {
-                    directBtn.href = streamUrl;
-                    fallbackBox.style.display = 'block';
-                }
-
-                // Tiến hành phát stream .m3u8
-                if (Hls.isSupported()) {
-                    var hls = new Hls();
-                    hls.loadSource(streamUrl);
-                    hls.attachMedia(video);
-                    hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                        video.play().catch(err => console.log("Trình duyệt yêu cầu tương tác thủ công để phát."));
-                    });
-                    hls.on(Hls.Events.ERROR, function(event, data) {
-                        console.warn("HLS warning/error:", data);
-                        if (data.fatal) {
-                            video.src = streamUrl;
-                        }
-                    });
-                } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-                    video.src = streamUrl;
-                    video.addEventListener('loadedmetadata', function() {
-                        video.play().catch(err => console.log("Tự động phát bị chặn."));
-                    });
-                } else {
-                    video.src = streamUrl;
-                }
-
             } catch (error) {
-                console.error("Lỗi:", error);
-                document.getElementById('displayTitle').innerText = "Không thể tải luồng phát video.";
+                console.log("Không đọc được movies.json, dùng ID mặc định.");
+                document.getElementById('displayTitle').innerText = `Phim ID: ${videoId}`;
             }
+
+            // Gắn trực tiếp đường dẫn nhúng iframe chính thức của Dailymotion
+            let iframeUrl = `https://www.dailymotion.com/embed/video/${videoId}?autoplay=1`;
+            document.getElementById('dailymotionIframe').src = iframeUrl;
         }
 
         initPlayer();
