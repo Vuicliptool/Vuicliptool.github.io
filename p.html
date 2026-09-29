@@ -163,42 +163,37 @@
         }
 
         try {
-            // Đọc trực tiếp từ movies.json, lấy luôn link .m3u8 đã chuẩn bị sẵn
             let movieRes = await fetch('movies.json');
             let movies = await movieRes.json();
             
-            let foundMovie = movies.find(m => m.video.includes(videoId) || (m.download && m.download.includes(videoId)));
+            let foundMovie = movies.find(m => m.video.includes(videoId) || (m.download && m.download.includes(videoId)) || (m.stream_url && m.stream_url.includes(videoId)));
 
             if (!foundMovie || !foundMovie.stream_url) {
-                throw new Error("Không tìm thấy link luồng phát trong cơ sở dữ liệu!");
+                throw new Error("Không tìm thấy link luồng phát!");
             }
 
-            // Cập nhật tiêu đề
+            // Hiển thị thông tin phim
             document.getElementById('displayTitle').innerText = foundMovie.title;
             document.getElementById('pageTitle').innerText = `Xem phim: ${foundMovie.title} - Vuicliptool`;
-            document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${foundMovie.title} - Vuicliptool`);
-            document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${foundMovie.title} không quảng cáo.`);
-            if(foundMovie.poster) {
-                let fullPoster = foundMovie.poster.startsWith('http') ? foundMovie.poster : window.location.origin + '/' + foundMovie.poster;
-                document.getElementById('metaImage').setAttribute('content', fullPoster);
-            }
 
-            // Tiến hành phát trực tiếp link .m3u8 qua Hls.js
             var video = document.getElementById('videoPlayer');
             let streamUrl = foundMovie.stream_url;
 
+            // Sử dụng Hls.js chuẩn mực, kèm theo sự kiện bắt lỗi chi tiết
             if (Hls.isSupported()) {
                 var hls = new Hls();
                 hls.loadSource(streamUrl);
                 hls.attachMedia(video);
                 hls.on(Hls.Events.MANIFEST_PARSED, function() {
-                    video.play().catch(err => console.log("Cần tương tác để phát."));
+                    console.log("Manifest đã sẵn sàng, hãy bấm play.");
                 });
-            } else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+                hls.on(Hls.Events.ERROR, function(event, data) {
+                    console.error("Hls error:", data);
+                    // Fallback nếu hls lỗi: gán thẳng src cho trình duyệt tự xử lý (Safari / một số trình duyệt hỗ trợ native)
+                    video.src = streamUrl;
+                });
+            } else {
                 video.src = streamUrl;
-                video.addEventListener('loadedmetadata', function() {
-                    video.play().catch(err => console.log("Cần tương tác để phát."));
-                });
             }
 
         } catch (error) {
@@ -209,6 +204,7 @@
 
     initPlayer();
 </script>
+
 
 </body>
 </html>
