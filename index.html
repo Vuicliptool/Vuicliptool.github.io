@@ -7,259 +7,237 @@
     
     <meta property="og:title" id="metaTitle" content="Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo">
     <meta property="og:description" id="metaDesc" content="Xem phim không quảng cáo cùng Vuicliptool">
-    <meta property="og:image" id="metaImage" content="https://vuicliptool.github.io/logo.svg">
-    <meta property="og:url" id="metaUrl" content="https://vuicliptool.github.io/">
-    <meta property="og:type" content="website">
+    <meta property="og:image" id="metaImage" content="logo.svg">
+    <meta property="og:url" id="metaUrl" content="">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #0b0f19; color: #fff; font-family: 'Inter', sans-serif; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: rgba(15, 23, 42, 0.9);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: #fff;
+            font-family: 'Orbitron', sans-serif;
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .brand img { width: 32px; height: 32px; }
+        .no-ads { font-size: 13px; color: #ffda79; background: rgba(255, 218, 121, 0.1); padding: 5px 12px; border-radius: 20px; border: 1px solid rgba(255, 218, 121, 0.3); }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            flex: 1;
+            width: 100%;
+        }
+
+        h2.section-title {
+            font-family: 'Orbitron', sans-serif;
+            font-size: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid #ff4757;
+            padding-left: 10px;
+        }
+
+        /* Danh sách phim dạng lưới */
+        .movies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 20px;
+        }
+
+        .movie-card {
+            background: rgba(255, 255, 255, 0.03);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+            cursor: pointer;
+            display: flex;
+            flex-direction: column;
+        }
+        .movie-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.4);
+            border-color: rgba(255, 71, 87, 0.4);
+        }
+
+        .movie-poster {
+            width: 100%;
+            aspect-ratio: 2/3;
+            background-size: cover;
+            background-position: center;
+            background-color: #1a1a1a;
+        }
+
+        .movie-info {
+            padding: 12px;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+            justify-content: space-between;
+        }
+
+        .movie-name {
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 10px;
+            line-height: 1.4;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .watch-btn {
+            background: linear-gradient(135deg, #ff4757, #ff6b81);
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            padding: 8px;
+            border-radius: 8px;
+            font-size: 13px;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+
+        /* Thống kê & Chân trang */
+        .stats-footer {
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.02);
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 25px 20px;
+            text-align: center;
+        }
+        .stats-badges {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+        .badge {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        .social-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            text-decoration: none;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: background 0.2s;
+        }
+        .social-btn:hover { background: rgba(255, 71, 87, 0.2); border-color: #ff4757; }
+        
+        .loading { text-align: center; padding: 40px; color: #888; font-size: 15px; grid-column: 1 / -1; }
+    </style>
 </head>
 <body>
 
-<header class="main-header">
-    <a class="brand" href="#">
-        <img src="logo.svg" alt="Logo" class="brand-logo"> <strong>Vuicliptool</strong>
-    </a>
-    <span class="brand-badge">Không Quảng Cáo</span>
-</header>
+    <header>
+        <a class="brand" href="index.html">
+            <img src="logo.svg" alt="Logo"> <strong>Vuicliptool</strong>
+        </a>
+        <div class="no-ads"><i class="fas fa-shield-alt"></i> Không Quảng Cáo</div>
+    </header>
 
-<main class="container">
-    <section>
-        <h2>Danh Sách Phim Mới</h2>
-        <div id="movieGrid" class="movie-grid">
+    <main class="container">
+        <h2 class="section-title">Danh Sách Phim Mới</h2>
+        
+        <div id="moviesGrid" class="movies-grid">
             <div class="loading">Đang tải danh sách phim...</div>
         </div>
-    </section>
-</main>
+    </main>
 
-<div id="playerModal">
-    <div class="modal-header">
-        <button class="control-btn share" onclick="shareMovie()"><i class="fas fa-link"></i> Chia Sẻ</button>
-        <button class="control-btn" onclick="toggleFullScreen()"><i class="fas fa-expand"></i> Phóng To</button>
-        <button class="control-btn close" onclick="closePlayer()">Đóng ✕</button>
-    </div>
-    
-    <div class="modal-content" id="modalContent" style="background: #000; display: flex; flex-direction: column; align-items: center; justify-content: center; position: relative;">
-        <img src="logo.svg" alt="Vuicliptool Logo" class="video-logo-overlay">
-        
-        <div class="video-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
-
-        <iframe id="dailymotion-iframe" style="width: 100%; height: 100%; border: none;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
-    </div>
-</div>
-
-<footer>
-    <div class="footer-stats">
-        <div class="stat-item">
-            <span>👁️ Tổng truy cập:</span> <strong id="totalVisits">--</strong>
+    <footer class="stats-footer">
+        <div class="stats-badges">
+            <div class="badge"><i class="fas fa-eye" style="color: #ffda79;"></i> Tổng truy cập: <b>14.258</b></div>
+            <div class="badge"><i class="fas fa-circle" style="color: #2ed573; font-size: 10px;"></i> Đang online: <b>14</b></div>
         </div>
-        <div class="stat-item">
-            <span>🟢 Đang online:</span> <strong id="onlineUsers">--</strong>
+        <p style="color: #666; font-size: 13px; margin-bottom: 15px;">Kết nối với chúng tôi</p>
+        <div class="social-links">
+            <a href="#" class="social-btn"><i class="fab fa-telegram-plane"></i></a>
+            <a href="#" class="social-btn"><i class="fas fa-users"></i></a>
+            <a href="#" class="social-btn"><i class="fab fa-youtube"></i></a>
         </div>
-    </div>
+        <p style="color: #444; font-size: 12px; margin-top: 20px;">© 2026 Vuicliptool.github.io</p>
+    </footer>
 
-    <div class="social-section">
-        <h2>Kết nối với chúng tôi</h2>
-        <div class="social-pentagon">
-            <div style="text-align: center;">
-                <a href="https://t.me/vuiclip_tool_termux" target="_blank" class="social-btn telegram" title="Telegram">
-                    <i class="fab fa-telegram-plane"></i>
-                </a>
-                <span class="social-label">Telegram</span>
-            </div>
-            <div style="text-align: center;">
-                <a href="https://zalo.me/g/gidiwv418" target="_blank" class="social-btn group-zalo" title="Group Zalo">
-                    <i class="fas fa-users"></i>
-                </a>
-                <span class="social-label">Group Zalo</span>
-            </div>
-            <div style="text-align: center;">
-                <a href="https://youtube.com/@vuiclip-tool-termux4228" target="_blank" class="social-btn youtube" title="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-                <span class="social-label">YouTube</span>
-            </div>
-        </div>
-    </div>
-
-    <div style="display: flex; justify-content: center; align-items: center; margin: 15px 0;">
-        <div id="histats_counter"></div>
-        <script type="text/javascript">var _Hasync= _Hasync|| [];
-        _Hasync.push(['Histats.start', '1,5054460,4,7,200,30,00011111']);
-        _Hasync.push(['Histats.fasi', '1']);
-        _Hasync.push(['Histats.track_hits', '']);
-        (function() {
-        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
-        hs.src = ('//s10.histats.com/js15_as.js');
-        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
-        })();</script>
-        <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5054460&101" alt="" border="0"></a></noscript>
-    </div>
-
-    <p>© 2026 Vuicliptool.github.io</p>
-</footer>
-
-<script>
-    let currentMovie = null;
-
-    async function loadMovies() {
-        try {
-            let response = await fetch('movies.json');
-            let movies = await response.json();
-            
-            let htmlContent = '';
-            if (movies.length === 0) {
-                document.getElementById('movieGrid').innerHTML = '<div class="loading">Chưa có phim nào.</div>';
-                return;
-            }
-
-            movies.forEach(movie => {
-                let movieData = encodeURIComponent(JSON.stringify(movie));
-                htmlContent += `
-                    <article class="movie-card" onclick="openPlayer('${movieData}')">
-                        <div class="poster" style="background-image:url('${movie.poster}')">
-                            <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
-                            <span class="duration">${movie.duration}</span>
-                        </div>
-                        <div class="movie-info">
-                            <h3 class="movie-title">${movie.title}</h3>
-                        </div>
-                    </article>
-                `;
-            });
-
-            document.getElementById('movieGrid').innerHTML = htmlContent;
-
-            const urlParams = new URLSearchParams(window.location.search);
-            const videoId = urlParams.get('v');
-            
-            if (videoId) {
-                let found = movies.find(m => m.video.includes(videoId) || m.download.includes(videoId));
-                if (found) {
-                    openPlayer(encodeURIComponent(JSON.stringify(found)));
+    <script>
+        async function loadMovies() {
+            try {
+                let response = await fetch('movies.json');
+                let movies = await response.json();
+                let grid = document.getElementById('moviesGrid');
+                
+                if (!movies || movies.length === 0) {
+                    grid.innerHTML = '<div class="loading">Chưa có phim nào trong danh sách.</div>';
+                    return;
                 }
+
+                let html = '';
+                movies.forEach(movie => {
+                    // Trích xuất mã video ID từ link (ví dụ lấy đoạn xbdsgji)
+                    let matchId = movie.video.match(/video\/([a-zA-Z0-9]+)/) || (movie.download && movie.download.match(/video\/([a-zA-Z0-9]+)/));
+                    let videoId = matchId && matchId[1] ? matchId[1] : '';
+
+                    // Đường dẫn khi bấm vào sẽ mở trang p.html kèm mã video
+                    let targetUrl = videoId ? `p.html?v=${videoId}` : '#';
+
+                    html += `
+                        <div class="movie-card" onclick="window.location.href='${targetUrl}'">
+                            <div class="movie-poster" style="background-image: url('${movie.poster || ''}')"></div>
+                            <div class="movie-info">
+                                <div class="movie-name">${movie.title || 'Phim mới'}</div>
+                                <a href="${targetUrl}" class="watch-btn"><i class="fas fa-play"></i> Xem Ngay</a>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                grid.innerHTML = html;
+            } catch (error) {
+                console.error("Lỗi tải danh sách phim:", error);
+                document.getElementById('moviesGrid').innerHTML = '<div class="loading">Không thể tải dữ liệu danh sách phim.</div>';
             }
-
-        } catch (error) {
-            console.error(error);
-            document.getElementById('movieGrid').innerHTML = '<div class="loading">Không thể tải dữ liệu từ movies.json</div>';
-        }
-    }
-
-    loadMovies();
-
-    function initStats() {
-        let visits = localStorage.getItem('vuiclip_total_visits');
-        visits = visits ? parseInt(visits) : 14250;
-        
-        if (!sessionStorage.getItem('counted_session')) {
-            visits += 1;
-            localStorage.setItem('vuiclip_total_visits', visits);
-            sessionStorage.setItem('counted_session', 'true');
-        }
-        
-        document.getElementById('totalVisits').innerText = visits.toLocaleString('vi-VN');
-
-        let baseOnline = Math.floor(Math.random() * 15) + 12;
-        document.getElementById('onlineUsers').innerText = baseOnline;
-
-        setInterval(() => {
-            let fluctuation = Math.floor(Math.random() * 5) - 2;
-            baseOnline = Math.max(8, baseOnline + fluctuation);
-            document.getElementById('onlineUsers').innerText = baseOnline;
-        }, 15000);
-    }
-
-    initStats();
-
-    function openPlayer(encodedMovie) {
-        let movie = JSON.parse(decodeURIComponent(encodedMovie));
-        currentMovie = movie;
-    
-        document.getElementById('playerModal').style.display = 'flex';
-    
-        // Dùng luôn link nhúng từ movies.json (trường movie.video đã có dạng embed)
-        let embedUrl = movie.video;
-        if (!embedUrl.includes('embed')) {
-            let match = movie.download.match(/video\/([a-zA-Z0-9]+)/);
-            let videoId = match && match[1] ? match[1] : '';
-            embedUrl = `https://www.dailymotion.com/embed/video/${videoId}`;
         }
 
-        // Thêm tham số tự động chạy
-        if (!embedUrl.includes('autoplay')) {
-            embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1&mute=0';
-        }
-
-        document.getElementById('dailymotion-iframe').src = embedUrl;
-
-        let matchId = movie.download.match(/video\/([a-zA-Z0-9]+)/) || movie.video.match(/video\/([a-zA-Z0-9]+)/);
-        let videoId = matchId && matchId[1] ? matchId[1] : '';
-        if (videoId) {
-            window.history.replaceState(null, '', `?v=${videoId}`);
-        }
-
-        let currentUrl = window.location.href;
-        let fullPosterUrl = movie.poster.startsWith('http') ? movie.poster : window.location.origin + '/' + movie.poster;
-
-        document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${movie.title} - Vuicliptool`);
-        document.getElementById('metaDesc').setAttribute('content', `Thưởng thức phim ${movie.title} cực hay, không quảng cáo.`);
-        document.getElementById('metaImage').setAttribute('content', fullPosterUrl);
-        document.getElementById('metaUrl').setAttribute('content', currentUrl);
-        document.getElementById('pageTitle').innerText = `Xem phim: ${movie.title}`;
-    }
-
-    function closePlayer() {
-        // Xóa src của iframe để tắt hẳn tiếng video khi đóng popup
-        document.getElementById('dailymotion-iframe').src = '';
-        document.getElementById('playerModal').style.display = 'none';
-        window.history.replaceState(null, '', window.location.pathname);
-    
-        document.getElementById('metaTitle').setAttribute('content', 'Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo');
-        document.getElementById('metaDesc').setAttribute('content', 'Xem phim không quảng cáo cùng Vuicliptool');
-        document.getElementById('metaImage').setAttribute('content', window.location.origin + '/logo.svg');
-        document.getElementById('metaUrl').setAttribute('content', window.location.origin + window.location.pathname);
-        document.getElementById('pageTitle').innerText = 'Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo';
-    }
-
-    function shareMovie() {
-        if (!currentMovie) return;
-
-        let match = currentMovie.download.match(/video\/([a-zA-Z0-9]+)/) || currentMovie.video.match(/video\/([a-zA-Z0-9]+)/);
-        let videoId = match && match[1] ? match[1] : '';
-
-        let shareUrl = `${window.location.origin}/p.html?v=${videoId}`;
-        let shareText = `Xem ngay phim "${currentMovie.title}" không quảng cáo tại đây:`;
-
-        if (navigator.share) {
-            navigator.share({
-                title: currentMovie.title,
-                text: shareText,
-                url: shareUrl,
-            }).catch((error) => console.log('Chia sẻ bị hủy', error));
-        } else {
-            navigator.clipboard.writeText(shareUrl).then(() => {
-                alert("Đã sao chép link chia sẻ phim vào bộ nhớ tạm!");
-            }).catch(err => {
-                console.error('Không thể copy link: ', err);
-            });
-        }
-    }
-
-    function toggleFullScreen() {
-        var elem = document.getElementById('modalContent');
-        if (!document.fullscreenElement) {
-            if (elem.requestFullscreen) { elem.requestFullscreen(); }
-            else if (elem.webkitRequestFullscreen) { elem.webkitRequestFullscreen(); }
-        } else {
-            if (document.exitFullscreen) { document.exitFullscreen(); }
-            else if (document.webkitExitFullscreen) { document.webkitExitFullscreen(); }
-        }
-    }
-</script>
-
+        loadMovies();
+    </script>
 </body>
 </html>
