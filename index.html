@@ -3,13 +3,13 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title id="pageTitle">Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo</title>
+    <title>Vuiclip — Xem Phim & Tải Video Không Quảng Cáo</title>
     
-    <!-- Các thẻ Open Graph mặc định để phòng hờ -->
-    <meta property="og:title" id="metaTitle" content="Vuicliptool — Xem Phim & Tải Video Không Quảng Cáo">
-    <meta property="og:description" id="metaDesc" content="Xem phim không quảng cáo cùng Vuicliptool">
-    <meta property="og:image" id="metaImage" content="https://vuicliptool.github.io/logo.svg">
-    <meta property="og:url" id="metaUrl" content="https://vuicliptool.github.io/">
+    <!-- Open Graph mặc định -->
+    <meta property="og:title" content="Vuiclip — Xem Phim & Tải Video Không Quảng Cáo">
+    <meta property="og:description" content="Xem phim không quảng cáo cùng Vuiclip">
+    <meta property="og:image" content="logo.png">
+    <meta property="og:url" content="https://vuiclip.mobie.in/">
     <meta property="og:type" content="website">
 
     <!-- Font + Icons -->
@@ -22,13 +22,37 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selectors = [
+        'iframe[src*="googleads"]',
+        'iframe[id^="google_ads_iframe"]',
+        'div[id^="div-gpt-ad"]',
+        'a[href*="://xtgem.com"]'
+    ];
+    selectors.forEach(function(selector) {
+        document.querySelectorAll(selector).forEach(ad => ad.remove());
+    });
+});
+</script>
 
 <!-- HEADER -->
 <header class="main-header">
-    <a class="brand" href="#">
-        <img src="logo.svg" alt="Logo" class="brand-logo"> <strong>Vuicliptool</strong>
+    <a class="brand" href="index.html">
+        <div class="logo-wrap">
+            <img src="logo.png" alt="Vuiclip" class="brand-logo">
+        </div>
+        <div class="brand-info">
+            <strong>Vui<span>clip</span></strong>
+            <small>Phim hay mỗi ngày</small>
+        </div>
     </a>
-    <span class="brand-badge">Không Quảng Cáo</span>
+    <div class="header-right">
+        <div class="brand-badge">
+            <span class="badge-icon">⚡</span>
+            <span>Không Quảng Cáo</span>
+        </div>
+    </div>
 </header>
 
 <!-- MAIN CONTAINER -->
@@ -72,21 +96,6 @@
     </section>
 </main>
 
-<!-- MODAL XEM PHIM (POPUP) -->
-<div id="playerModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:9998; flex-direction:column;">
-    <div class="modal-header" style="display:flex; justify-content:flex-end; padding:10px; gap:10px; background:#111;">
-        <button class="control-btn share" onclick="shareMovie()" style="background:#333; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer;"><i class="fas fa-link"></i> Chia Sẻ</button>
-        <button class="control-btn" onclick="toggleFullScreen()" style="background:#333; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer;"><i class="fas fa-expand"></i> Phóng To</button>
-        <button class="control-btn close" onclick="closePlayer()" style="background:#e50914; color:#fff; border:none; padding:8px 12px; border-radius:4px; cursor:pointer;">Đóng ✕</button>
-    </div>
-    <div class="modal-content" id="modalContent" style="position:relative; flex:1; display:flex; justify-content:center; align-items:center;">
-        <img src="logo.svg" alt="Vuicliptool Logo" class="video-logo-overlay">
-        <!-- Dải băng che link cũ trong video -->
-        <div class="video-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
-        <iframe id="videoIframe" src="" style="width:100%; height:100%; border:none;" allow="accelerometer; autoplay; encrypted-media; gyroscope; fullscreen; picture-in-picture; web-share" allowfullscreen></iframe>
-    </div>
-</div>
-
 <!-- MODAL CHỌN TẬP PHIM BỘ -->
 <div id="seriesModal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:9999; justify-content:center; align-items:center;">
     <div style="background:#1a1a1a; width:90%; max-width:500px; border-radius:12px; padding:20px; border:1px solid #333; max-height:80vh; overflow-y:auto;">
@@ -94,54 +103,52 @@
             <h3 id="seriesModalTitle" style="color:#fff; font-size:18px; margin:0;">Chọn Tập Phim</h3>
             <button onclick="closeSeriesModal()" style="background:none; border:none; color:#fff; font-size:20px; cursor:pointer;">✕</button>
         </div>
-        <div id="episodeListGrid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap:10px;">
-            <!-- Danh sách tập được load tự động -->
-        </div>
+        <div id="episodeListGrid" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(100px, 1fr)); gap:10px;"></div>
     </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
     <div class="footer-stats">
-        <div class="stat-item">
-            <span>👁️ Tổng truy cập:</span> <strong id="totalVisits">--</strong>
-        </div>
-        <div class="stat-item">
-            <span>🟢 Đang online:</span> <strong id="onlineUsers">--</strong>
-        </div>
+        <div class="stat-item"><span>👁️ Tổng truy cập:</span> <strong id="totalVisits">--</strong></div>
+        <div class="stat-item"><span>🟢 Đang online:</span> <strong id="onlineUsers">--</strong></div>
     </div>
-
-    <!-- KẾT NỐI MẠNG XÃ HỘI -->
     <div class="social-section">
         <h2>Kết nối với chúng tôi</h2>
         <div class="social-pentagon">
             <div style="text-align: center;">
-                <a href="https://t.me/vuiclip_tool_termux" target="_blank" class="social-btn telegram" title="Telegram">
-                    <i class="fab fa-telegram-plane"></i>
-                </a>
+                <a href="https://t.me/vuiclip_tool_termux" target="_blank" class="social-btn telegram"><i class="fab fa-telegram-plane"></i></a>
                 <span class="social-label">Telegram</span>
             </div>
             <div style="text-align: center;">
-                <a href="https://zalo.me/g/gidiwv418" target="_blank" class="social-btn group-zalo" title="Group Zalo">
-                    <i class="fas fa-users"></i>
-                </a>
+                <a href="https://zalo.me/g/gidiwv418" target="_blank" class="social-btn group-zalo"><i class="fas fa-users"></i></a>
                 <span class="social-label">Group Zalo</span>
             </div>
             <div style="text-align: center;">
-                <a href="https://youtube.com/@vuiclip-tool-termux4228" target="_blank" class="social-btn youtube" title="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
+                <a href="https://youtube.com/@vuiclip-tool-termux4228" target="_blank" class="social-btn youtube"><i class="fab fa-youtube"></i></a>
                 <span class="social-label">YouTube</span>
             </div>
         </div>
     </div>
-
-    <p>© 2026 Vuicliptool.github.io</p>
+    <div style="display: flex; justify-content: center; align-items: center; margin: 15px 0;">
+        <div id="histats_counter"></div>
+        <script type="text/javascript">var _Hasync= _Hasync|| [];
+        _Hasync.push(['Histats.start', '1,5054460,4,7,200,30,00011111']);
+        _Hasync.push(['Histats.fasi', '1']);
+        _Hasync.push(['Histats.track_hits', '']);
+        (function() {
+        var hs = document.createElement('script'); hs.type = 'text/javascript'; hs.async = true;
+        hs.src = ('//s10.histats.com/js15_as.js');
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(hs);
+        })();</script>
+        <noscript><a href="/" target="_blank"><img src="//sstatic1.histats.com/0.gif?5054460&101" alt="" border="0"></a></noscript>
+    </div>
+    <p>© 2026 Vuiclip.mobie.in</p>
 </footer>
 
-<!-- JAVASCRIPT XỬ LÝ DỮ LIỆU & GIAO DIỆN -->
+<!-- JAVASCRIPT INDEX -->
 <script>
-        let allMoviesData = [];
+    let allMoviesData = [];
     let allSingleMovies = [];
     let allSeriesMovies = [];
     let showAllSingle = false;
@@ -149,26 +156,16 @@
 
     async function loadMovies() {
         try {
-            let response = await fetch('movies.json');
+            let response = await fetch('movies.txt');
             let movies = await response.json();
-            allMoviesData = movies; // Lưu trữ dữ liệu gốc phục vụ tìm kiếm
-            
-            if (movies.length === 0) {
-                document.getElementById('movieGrid').innerHTML = '<div class="loading">Chưa có phim nào.</div>';
-                document.getElementById('singleGrid').innerHTML = '<div class="loading">Chưa có phim lẻ nào.</div>';
-                document.getElementById('seriesGrid').innerHTML = '<div class="loading">Chưa có phim bộ nào.</div>';
-                return;
-            }
-
+            allMoviesData = movies;
+            if (movies.length === 0) return;
             processMoviesData(movies);
-
         } catch (error) {
-            console.error(error);
-            document.getElementById('movieGrid').innerHTML = '<div class="loading">Không thể tải dữ liệu từ movies.json</div>';
+            console.error("Lỗi tải file movies.txt:", error);
         }
     }
 
-    // Xử lý phân loại dữ liệu
     function processMoviesData(movies) {
         let tempGroup = {};
         movies.forEach(movie => {
@@ -186,29 +183,20 @@
                 allSingleMovies.push(movie);
             } else {
                 if (!groupedSeries[key]) {
-                    groupedSeries[key] = {
-                        title: key,
-                        poster: movie.poster,
-                        episodes: tempGroup[key]
-                    };
+                    groupedSeries[key] = { title: key, poster: movie.poster, episodes: tempGroup[key] };
                 }
             }
         });
 
         allSeriesMovies = Object.values(groupedSeries);
-
-        // Render mặc định
-        renderLatestMovies(movies.slice(0, 10), tempGroup);
-        renderSingleMovies();
+        renderLatestMovies(movies.slice(0, 10), tempGroup, movies);
+        renderSingleMovies(movies);
         renderSeriesMovies();
     }
 
-    // --- HÀM TÌM KIẾM PHIM ---
     function handleSearch() {
         let keyword = document.getElementById('searchInput').value.toLowerCase().trim();
-        
         if (keyword === "") {
-            // Nếu ô tìm kiếm trống, hiển thị lại đầy đủ các mục bình thường
             document.getElementById('latestSection').style.display = 'block';
             document.getElementById('singleSection').style.display = 'block';
             document.getElementById('seriesSection').style.display = 'block';
@@ -216,92 +204,81 @@
             return;
         }
 
-        // Khi đang tìm kiếm, ẩn các tiêu đề mục mặc định để gom kết quả tìm kiếm vào một chỗ gọn gàng
         document.getElementById('latestSection').style.display = 'none';
         document.getElementById('singleSection').style.display = 'block';
-        document.getElementById('seriesSection').style.display = 'none'; // Chỉ hiển thị chung kết quả vào ô Phim Lẻ/Kết quả tìm kiếm
+        document.getElementById('seriesSection').style.display = 'none';
         document.getElementById('singleMoreBtnContainer').style.display = 'none';
-
-        // Lọc phim lẻ khớp từ khóa
-        let matchedSingle = allSingleMovies.filter(m => m.title.toLowerCase().includes(keyword));
-        
-        // Lọc phim bộ khớp từ khóa
-        let matchedSeries = allSeriesMovies.filter(s => s.title.toLowerCase().includes(keyword));
 
         let searchHtml = '';
 
-        // Hiển thị kết quả phim lẻ khớp
-        matchedSingle.forEach(movie => {
-            let movieData = encodeURIComponent(JSON.stringify(movie));
-            searchHtml += `
-                <article class="movie-card" onclick="openPlayer('${movieData}')" style="cursor:pointer;">
-                    <div class="poster" style="background-image:url('${movie.poster}')">
-                        <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
-                        <span class="duration">Phim Lẻ</span>
-                    </div>
-                    <div class="movie-info">
-                        <h3 class="movie-title">${movie.title}</h3>
-                    </div>
-                </article>
-            `;
+        // [ĐÃ SỬA]: Tính toán chuyển ID ngược lại (Phim cũ nhất ID=0, mới nhất ID lớn nhất)
+        allMoviesData.forEach((movie, index) => {
+            if (movie.title.toLowerCase().includes(keyword)) {
+                let isSeries = !!movie.series;
+                let label = isSeries ? (movie.episode || 'Tập') : 'Phim Lẻ';
+                
+                // Công thức quy đổi ID: tổng số phim - 1 - vị trí index thật
+                let fixedId = allMoviesData.length - 1 - index;
+                let watchUrl = `watch.html?id=${fixedId}`;
+
+                searchHtml += `
+                    <article class="movie-card" onclick="window.location.href='${watchUrl}'">
+                        <div class="poster" style="background-image:url('${movie.poster}')">
+                            <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuiclip.mobie.in</div>
+                            <span class="duration">${label}</span>
+                        </div>
+                        <div class="movie-info"><h3 class="movie-title">${movie.title}</h3></div>
+                    </article>
+                `;
+            }
         });
 
-        // Hiển thị kết quả phim bộ khớp (bấm vào mở bảng chọn tập)
-        matchedSeries.forEach(group => {
-            let groupData = encodeURIComponent(JSON.stringify(group));
-            let totalEp = group.episodes.length;
-            searchHtml += `
-                <article class="movie-card" onclick="openSeriesModal('${groupData}')" style="cursor:pointer;">
-                    <div class="poster" style="background-image:url('${group.poster}')">
-                        <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
-                        <span class="duration">${totalEp} Tập</span>
-                    </div>
-                    <div class="movie-info">
-                        <h3 class="movie-title">${group.title}</h3>
-                        <p style="font-size: 12px; color: #aaa; margin-top: 4px;">Phim bộ (${totalEp} tập)</p>
-                    </div>
-                </article>
-            `;
-        });
-
-        let singleGrid = document.getElementById('singleGrid');
-        // Đổi tiêu đề phần Kho Phim Lẻ thành "Kết Quả Tìm Kiếm" tạm thời cho trực quan
         document.querySelector('#singleSection h2').innerText = `Kết quả tìm kiếm cho: "${keyword}"`;
-
-        if (searchHtml === '') {
-            singleGrid.innerHTML = '<div class="loading" style="grid-column: 1/-1;">Không tìm thấy phim phù hợp!</div>';
-        } else {
-            singleGrid.innerHTML = searchHtml;
-        }
+        document.getElementById('singleGrid').innerHTML = searchHtml === '' ? '<div class="loading" style="grid-column: 1/-1;">Không tìm thấy phim phù hợp!</div>' : searchHtml;
     }
 
-    // Hàm render Phim Mới
-    function renderLatestMovies(latestMovies, tempGroup) {
+    function renderLatestMovies(latestMovies, tempGroup, fullMovies) {
         let latestHtml = '';
-        latestMovies.forEach(movie => {
-            let movieData = encodeURIComponent(JSON.stringify(movie));
-            let label = (tempGroup[movie.series || movie.title].length > 1) ? (movie.episode || 'Tập') : 'Phim Lẻ';
-            latestHtml += `
-                <article class="movie-card" onclick="openPlayer('${movieData}')" style="cursor:pointer;">
-                    <div class="poster" style="background-image:url('${movie.poster}')">
-                        <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
-                        <span class="duration">${label}</span>
-                    </div>
-                    <div class="movie-info">
-                        <h3 class="movie-title">${movie.title}</h3>
-                    </div>
-                </article>
-            `;
+    latestMovies.forEach(movie => {
+            let realIndex = fullMovies.findIndex(m => m === movie);
+            let key = movie.series || movie.title;
+            let isSeries = tempGroup[key] && tempGroup[key].length > 1;
+            let label = isSeries ? (movie.episode || 'Tập') : 'Phim Lẻ';
+        
+            if (isSeries) {
+                let group = { title: key, poster: movie.poster, episodes: tempGroup[key] };
+                let groupData = encodeURIComponent(JSON.stringify(group));
+                latestHtml += `
+                    <article class="movie-card" onclick="openSeriesModal('${groupData}')">
+                        <div class="poster" style="background-image:url('${movie.poster}')">
+                            <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuiclip.mobie.in</div>
+                            <span class="duration">${label}</span>
+                        </div>
+                        <div class="movie-info"><h3 class="movie-title">${movie.title}</h3></div>
+                    </article>
+                `;
+            } else {
+                let fixedId = fullMovies.length - 1 - realIndex;
+                let watchUrl = `watch.html?id=${fixedId}`;
+                latestHtml += `
+                    <article class="movie-card" onclick="window.location.href='${watchUrl}'">
+                        <div class="poster" style="background-image:url('${movie.poster}')">
+                            <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuiclip.mobie.in</div>
+                            <span class="duration">${label}</span>
+                        </div>
+                        <div class="movie-info"><h3 class="movie-title">${movie.title}</h3></div>
+                    </article>
+                `;
+            }
         });
         document.getElementById('movieGrid').innerHTML = latestHtml;
     }
 
-    // Hàm render Phim Lẻ
-    function renderSingleMovies() {
+
+    function renderSingleMovies(fullMovies) {
         document.querySelector('#singleSection h2').innerText = 'Kho Phim Lẻ';
         let singleGrid = document.getElementById('singleGrid');
         let btnContainer = document.getElementById('singleMoreBtnContainer');
-        
         if (allSingleMovies.length === 0) {
             singleGrid.innerHTML = '<div class="loading" style="grid-column: 1/-1;">Chưa có phim lẻ nào.</div>';
             btnContainer.style.display = 'none';
@@ -310,13 +287,17 @@
 
         let displayedMovies = showAllSingle ? allSingleMovies : allSingleMovies.slice(0, 10);
         let singleHtml = '';
-
         displayedMovies.forEach(movie => {
-            let movieData = encodeURIComponent(JSON.stringify(movie));
+            let realIndex = allMoviesData.findIndex(m => m === movie);
+            
+            // [ĐÃ SỬA]: Quy đổi ID cho kho phim lẻ
+            let fixedId = allMoviesData.length - 1 - realIndex;
+            let watchUrl = `watch.html?id=${fixedId}`;
+
             singleHtml += `
-                <article class="movie-card" onclick="openPlayer('${movieData}')" style="cursor:pointer;">
+                <article class="movie-card" onclick="window.location.href='${watchUrl}'">
                     <div class="poster" style="background-image:url('${movie.poster}')">
-                        <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
+                        <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuiclip.mobie.in</div>
                         <span class="duration">Full HD</span>
                     </div>
                     <div class="movie-info">
@@ -326,22 +307,16 @@
                 </article>
             `;
         });
-
         singleGrid.innerHTML = singleHtml;
-
-        if (allSingleMovies.length > 10) {
-            btnContainer.style.display = 'block';
+        btnContainer.style.display = allSingleMovies.length > 10 ? 'block' : 'none';
+        if(btnContainer.style.display === 'block') {
             btnContainer.querySelector('button').innerText = showAllSingle ? 'Thu gọn ▲' : 'Xem thêm phim lẻ ▼';
-        } else {
-            btnContainer.style.display = 'none';
         }
     }
 
-    // Hàm render Phim Bộ
     function renderSeriesMovies() {
         let seriesGrid = document.getElementById('seriesGrid');
         let btnContainer = document.getElementById('seriesMoreBtnContainer');
-
         if (allSeriesMovies.length === 0) {
             seriesGrid.innerHTML = '<div class="loading" style="grid-column: 1/-1;">Chưa có phim bộ nào.</div>';
             btnContainer.style.display = 'none';
@@ -350,14 +325,13 @@
 
         let displayedSeries = showAllSeries ? allSeriesMovies : allSeriesMovies.slice(0, 10);
         let seriesHtml = '';
-
         displayedSeries.forEach(group => {
             let groupData = encodeURIComponent(JSON.stringify(group));
             let totalEp = group.episodes.length;
             seriesHtml += `
-                <article class="movie-card" onclick="openSeriesModal('${groupData}')" style="cursor:pointer;">
+                <article class="movie-card" onclick="openSeriesModal('${groupData}')">
                     <div class="poster" style="background-image:url('${group.poster}')">
-                        <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuicliptool.github.io</div>
+                        <div class="poster-overlay-banner">Xem phim không quảng cáo tại vuiclip.mobie.in</div>
                         <span class="duration">${totalEp} Tập</span>
                     </div>
                     <div class="movie-info">
@@ -367,144 +341,48 @@
                 </article>
             `;
         });
-
         seriesGrid.innerHTML = seriesHtml;
-
-        if (allSeriesMovies.length > 10) {
-            btnContainer.style.display = 'block';
+        btnContainer.style.display = allSeriesMovies.length > 10 ? 'block' : 'none';
+        if(btnContainer.style.display === 'block') {
             btnContainer.querySelector('button').innerText = showAllSeries ? 'Thu gọn ▲' : 'Xem thêm phim bộ ▼';
-        } else {
-            btnContainer.style.display = 'none';
         }
     }
 
     function toggleShowAll(type) {
-        if (type === 'single') {
-            showAllSingle = !showAllSingle;
-            renderSingleMovies();
-        } else if (type === 'series') {
-            showAllSeries = !showAllSeries;
-            renderSeriesMovies();
-        }
+        if (type === 'single') { showAllSingle = !showAllSingle; renderSingleMovies(allMoviesData); }
+        else if (type === 'series') { showAllSeries = !showAllSeries; renderSeriesMovies(); }
     }
 
-    // Các hàm modal xem phim giữ nguyên
     function openSeriesModal(encodedGroup) {
         let group = JSON.parse(decodeURIComponent(encodedGroup));
         if (group.episodes.length === 1) {
-            openPlayer(encodeURIComponent(JSON.stringify(group.episodes[0])));
+            let ep = group.episodes[0];
+            let realIndex = allMoviesData.findIndex(m => m.video === ep.video);
+            
+            // [ĐÃ SỬA]: Quy đổi ID khi phim bộ chỉ có 1 tập
+            let fixedId = allMoviesData.length - 1 - realIndex;
+            window.location.href = `watch.html?id=${fixedId}`;
             return;
         }
         document.getElementById('seriesModalTitle').innerText = group.title;
         let epHtml = '';
         group.episodes.forEach(ep => {
-            let epData = encodeURIComponent(JSON.stringify(ep));
-            let label = ep.episode || "Tập";
-            epHtml += `
-                <button onclick="selectEpisode('${epData}')" style="background:#2a2a2a; color:#fff; border:1px solid #444; padding:10px; border-radius:6px; cursor:pointer; font-weight:600; text-align:center;">
-                    ${label}
-                </button>
-            `;
+            let realIndex = allMoviesData.findIndex(m => m.video === ep.video);
+            
+            // [ĐÃ SỬA]: Quy đổi ID cho từng tập phim trong Modal phim bộ
+            let fixedId = allMoviesData.length - 1 - realIndex;
+            let watchUrl = `watch.html?id=${fixedId}`;
+            
+            epHtml += `<button onclick="window.location.href='${watchUrl}'" style="background:#2a2a2a; color:#fff; border:1px solid #444; padding:10px; border-radius:6px; cursor:pointer; font-weight:600; text-align:center;">${ep.episode || "Tập"}</button>`;
         });
         document.getElementById('episodeListGrid').innerHTML = epHtml;
         document.getElementById('seriesModal').style.display = 'flex';
     }
 
-    function closeSeriesModal() {
-        document.getElementById('seriesModal').style.display = 'none';
+    function closeSeriesModal() { 
+        document.getElementById('seriesModal').style.display = 'none'; 
     }
 
-    function selectEpisode(encodedMovie) {
-        closeSeriesModal();
-        openPlayer(encodedMovie);
-    }
-
-    function openPlayer(encodedMovie) {
-        let movie = JSON.parse(decodeURIComponent(encodedMovie));
-        document.getElementById('videoIframe').src = movie.video;
-        document.getElementById('playerModal').style.display = 'flex';
-    }
-
-    function closePlayer() {
-        document.getElementById('videoIframe').src = '';
-        document.getElementById('playerModal').style.display = 'none';
-    }
-
-    loadMovies();
-
-    // Hàm mở bảng chọn tập phim bộ
-    function openSeriesModal(encodedGroup) {
-        let group = JSON.parse(decodeURIComponent(encodedGroup));
-        
-        // Nếu phim chỉ có đúng 1 tập, bật xem luôn
-        if (group.episodes.length === 1) {
-            openPlayer(encodeURIComponent(JSON.stringify(group.episodes[0])));
-            return;
-        }
-
-        document.getElementById('seriesModalTitle').innerText = group.title;
-        let epHtml = '';
-        
-        group.episodes.forEach(ep => {
-            let epData = encodeURIComponent(JSON.stringify(ep));
-            let label = ep.episode || "Tập";
-            epHtml += `
-                <button onclick="selectEpisode('${epData}')" style="background:#2a2a2a; color:#fff; border:1px solid #444; padding:10px; border-radius:6px; cursor:pointer; font-weight:600; text-align:center;">
-                    ${label}
-                </button>
-            `;
-        });
-
-        document.getElementById('episodeListGrid').innerHTML = epHtml;
-        document.getElementById('seriesModal').style.display = 'flex';
-    }
-
-    function closeSeriesModal() {
-        document.getElementById('seriesModal').style.display = 'none';
-    }
-
-    function selectEpisode(encodedMovie) {
-        closeSeriesModal();
-        openPlayer(encodedMovie);
-    }
-
-    function openPlayer(encodedMovie) {
-        let movie = JSON.parse(decodeURIComponent(encodedMovie));
-        currentMovie = movie;
-    
-        document.getElementById('videoIframe').src = movie.video;
-        document.getElementById('playerModal').style.display = 'flex';
-    
-        let currentUrl = window.location.href;
-        document.getElementById('metaTitle').setAttribute('content', `Xem phim: ${movie.title} - Vuicliptool`);
-        document.getElementById('metaImage').setAttribute('content', movie.poster);
-    }
-
-    function closePlayer() {
-        document.getElementById('videoIframe').src = '';
-        document.getElementById('playerModal').style.display = 'none';
-    }
-
-    function shareMovie() {
-        if (!currentMovie) return;
-        let shareUrl = window.location.origin;
-        if (navigator.clipboard) {
-            navigator.clipboard.writeText(shareUrl).then(() => {
-                alert("Đã sao chép link trang web!");
-            });
-        }
-    }
-
-    function toggleFullScreen() {
-        var elem = document.getElementById('modalContent');
-        if (!document.fullscreenElement) {
-            if (elem.requestFullscreen) { elem.requestFullscreen(); }
-        } else {
-            if (document.exitFullscreen) { document.exitFullscreen(); }
-        }
-    }
-
-    // Thống kê giả lập
     function initStats() {
         let visits = localStorage.getItem('vuiclip_total_visits');
         visits = visits ? parseInt(visits) : 14250;
@@ -516,8 +394,9 @@
         document.getElementById('totalVisits').innerText = visits.toLocaleString('vi-VN');
         document.getElementById('onlineUsers').innerText = Math.floor(Math.random() * 15) + 12;
     }
+    
     initStats();
+    loadMovies();
 </script>
-
 </body>
 </html>
