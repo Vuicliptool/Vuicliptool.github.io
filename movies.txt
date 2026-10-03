@@ -1,5 +1,12 @@
 [
     {
+        "title": "(Full) Cha bị con trai cưng hãm hại, may mắn có năng lực nhìn thấu hiểu đại dương, cùng Cô phát triển ngành hải sản, đánh bại các thế lực cạnh tranh, xây dựng đế chế mới",
+        "series": "Cha bị con trai cưng hãm hại, may mắn có năng lực nhìn thấu hiểu đại dương, cùng Cô phát triển ngành hải sản, đánh bại các thế lực cạnh tranh, xây dựng đế chế mới",
+        "episode": "Full",
+        "video": "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fm.facebook.com%2Fwatch%2F%3Fv%3D1797792321246247%26_rdr&show_text=false&width=267&t=0",
+        "poster": "https://scontent.fdad3-6.fna.fbcdn.net/v/t15.5256-10/831495662_1932074077768806_6876988291081920921_n.jpg?stp=dst-jpg_tt6&cstp=mx720x960&ctp=s720x960&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=50ce42&_nc_ohc=8MOatJ2otUUQ7kNvwGV45uR&_nc_oc=Adr-d60zAkTZwjLUQ8tJLm8o_bHnD4lF4hqx9u0FfiQKicwOPJVJMCdB1LYviD1RlR5yt0KRfDyN06Z9sxLNCMPQ&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=akllZrA2nPP702_YhTKWmA&_nc_ss=70289&oh=00_AQP2ASzFsi0E1L6i0qgY5fQ8lm5utztkJeLYqdsgcqDAIA&oe=6AC710EF"
+    },
+    {
         "title": "(Full) Chàng Trai Đi Xem Mắt Giùm Bạn Thân, Ai Ngờ Lại Cưới Được Nữ Chủ Tịch Xinh Đẹp 1 Bước Đổi Đời_3",
         "series": "Chàng Trai Đi Xem Mắt Giùm Bạn Thân, Ai Ngờ Lại Cưới Được Nữ Chủ Tịch Xinh Đẹp 1 Bước Đổi Đời_3",
         "episode": "Full",
