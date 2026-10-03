@@ -7,30 +7,30 @@
         "poster": "https://scontent.fdad3-6.fna.fbcdn.net/v/t15.5256-10/832591596_1045344571833638_574102634599008803_n.jpg?stp=dst-jpg_tt6&cstp=mx1080x1440&ctp=s960x960&_nc_cat=105&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=be8305&_nc_ohc=MiYHVbGLtTAQ7kNvwHEZyQx&_nc_oc=Adoo_Nih5nvpLCu6xNsQPhSxCMMll7v87E8hSJV0VQ3E0P4MIvdKEDZKO7Tay5dwRjAfYt_7gIO52SUXJmmA9i98&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=8Ax7hqbA94v8mOSunkkabA&_nc_ss=70289&oh=00_AQOE79tBhugPJSUn9ape2OXQ_fYZ75HLLiU5lqDX1ruWoA&oe=6AC6F1EE"
     },
     {
-        "title": "(Tập 1) Thần Y Giả m=ù Ẩn Danh, Vung Châm Diệt Sạch Sát Thủ Bảo Vệ Nữ Tổng Tài Khiến Cô Say Đắm_2 moviereview ngôntình tổngtài reviewphim dieuthuyenreview",
-        "series": "Thần Y Giả m=ù Ẩn Danh, Vung Châm Diệt Sạch Sát Thủ Bảo Vệ Nữ Tổng Tài Khiến Cô Say Đắm_2 moviereview ngôntình tổngtài reviewphim dieuthuyenreview",
-        "episode": "Tập 1",
+        "title": "(Full) Thần Y Giả m=ù Ẩn Danh, Vung Châm Diệt Sạch Sát Thủ Bảo Vệ Nữ Tổng Tài Khiến Cô Say Đắm_2 ",
+        "series": "Thần Y Giả m=ù Ẩn Danh, Vung Châm Diệt Sạch Sát Thủ Bảo Vệ Nữ Tổng Tài Khiến Cô Say Đắm_2 ",
+        "episode": "Full",
         "video": "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fdieuthuyenreview%2Fvideos%2Fth%25E1%25BA%25A7n-y-gi%25E1%25BA%25A3-m%25C3%25B9-%25E1%25BA%25A9n-danh-vung-ch%25C3%25A2m-di%25E1%25BB%2587t-s%25E1%25BA%25A1ch-s%25C3%25A1t-th%25E1%25BB%25A7-b%25E1%25BA%25A3o-v%25E1%25BB%2587-n%25E1%25BB%25AF-t%25E1%25BB%2595ng-t%25C3%25A0i-khi%25E1%25BA%25BFn-c%25C3%25B4-sa%2F1135113062368886%2F%3Fshare_url%3Dhttps%253A%252F%252Fwww.facebook.com%252Fshare%252Fv%252F1BvzFD4Fnm%252F%26rdid%3DXD7MZZnD0nRbQw4y&show_text=false&width=267&t=0",
         "poster": "https://scontent.fdad3-6.fna.fbcdn.net/v/t15.5256-10/832559718_1091354703593592_7765366494519059953_n.jpg?stp=dst-jpg_tt6&cstp=mx720x960&ctp=s720x960&_nc_cat=106&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=be8305&_nc_ohc=oGE9yF8INa4Q7kNvwENc1du&_nc_oc=Adq09K5Lb87Yc1m6KcJjc5ahI4vv3SmLg48s-go45OPEzQH--e9xYdgYrRMJaMR9-Q4dacz5asDPhCgvNIUBT17G&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=5p2ipOTQ_u9KqOgqQD5chw&_nc_ss=70289&oh=00_AQOyBSJSxRbaKbiS9e0xfQ81QMPaNcyO2Y06FEOPys3t5g&oe=6AC71DCB"
     },
     {
-        "title": "(Tập 1) Chiến Thần Ẩn Danh Làm Bảo Vệ Bị Khinh Thường, Một Mình Đại Náo Hào Môn Cứu Tiểu Thư Son lì Mooekiss bền màu https //s.shopee.vn/5Ar0pfpLVL",
-        "series": "Chiến Thần Ẩn Danh Làm Bảo Vệ Bị Khinh Thường, Một Mình Đại Náo Hào Môn Cứu Tiểu Thư Son lì Mooekiss bền màu https //s.shopee.vn/5Ar0pfpLVL",
-        "episode": "Tập 1",
+        "title": "(Full) Chiến Thần Ẩn Danh Làm Bảo Vệ Bị Khinh Thường, Một Mình Đại Náo Hào Môn Cứu Tiểu Thư Son lì Mooekiss bền màu https //s.shopee.vn/5Ar0pfpLVL",
+        "series": "Chiến Thần Ẩn Danh Làm Bảo Vệ Bị Khinh Thường, Một Mình Đại Náo Hào Môn Cứu Tiểu Thư ",
+        "episode": "Full",
         "video": "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fm.facebook.com%2Fwatch%2F%3Fv%3D1389795966638004%26_rdr&show_text=false&width=267&t=0",
         "poster": "https://scontent.fdad3-6.fna.fbcdn.net/v/t15.5256-10/834168430_1858093968691919_2517577591476294302_n.jpg?stp=dst-jpg_tt6&cstp=mx720x960&ctp=s720x960&_nc_cat=108&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=50ce42&_nc_ohc=d76t6T7J0kQQ7kNvwHAZkI7&_nc_oc=AdqM81Tfu5Whnt87QJKG8nZmTu7kPiVorP3wm7rOO4-abW5ITTd4TH5eRNO20_H94MNu352TMrCiegs7loHvJIXF&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=yXQNfrTQQBcrkIk-LETf-w&_nc_ss=70289&oh=00_AQN9BgZnmxchmJU9s62gHifl_qmoZ74kEug00MVlWeRm3w&oe=6AC6E25A"
     },
     {
-        "title": "(Tập 1) Chàng Trai Nghèo Có Đôi Mắt Thần Xuyên Thấu, Tái Xuất Trở Thành Ông Trùm Tài Phiệt ! Áo thun cổ tròn ôm body https //s.shopee.vn/6AjZjmVBsP",
-        "series": "Chàng Trai Nghèo Có Đôi Mắt Thần Xuyên Thấu, Tái Xuất Trở Thành Ông Trùm Tài Phiệt ! Áo thun cổ tròn ôm body https //s.shopee.vn/6AjZjmVBsP",
-        "episode": "Tập 1",
+        "title": "(Full) Chàng Trai Nghèo Có Đôi Mắt Thần Xuyên Thấu, Tái Xuất Trở Thành Ông Trùm Tài Phiệt ",
+        "series": "Chàng Trai Nghèo Có Đôi Mắt Thần Xuyên Thấu, Tái Xuất Trở Thành Ông Trùm Tài Phiệt ",
+        "episode": "Full",
         "video": "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fm.facebook.com%2Fwatch%2F%3Fv%3D2297769487653198%26_rdr&show_text=false&width=267&t=0",
         "poster": "https://scontent.fdad3-6.fna.fbcdn.net/v/t15.5256-10/833938019_2578586415940656_3371898912159842029_n.jpg?stp=dst-jpg_tt6&cstp=mx720x960&ctp=s720x960&_nc_cat=101&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=50ce42&_nc_ohc=iuEjFDVVNnsQ7kNvwHF4ijd&_nc_oc=AdozvbCDwIGfBEAcNF67UwevxJIR_9d4KuF8Ip9jwwTZqBzrg_b72-_xZvG3lAyUGH-QFjq474cHfZ19SjUEvDbQ&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=oj1TJkQDOLc9XTkimaY2Rg&_nc_ss=70289&oh=00_AQOUamZ2u3HQS4qgKCNSJniFvUq7bnYSa-xk4UJzcwQ_qQ&oe=6AC70B4B"
     },
     {
-        "title": "(Tập 1) Chàng Trai Nghèo Thức Tỉnh Mắt Thần, Tái Xuất Trở Thành Ông Trùm Khiến Cả Hào Môn Kinh Ngạc Quần ống rộng giả váy https //s.shopee.vn/1gHANYAKaD",
-        "series": "Chàng Trai Nghèo Thức Tỉnh Mắt Thần, Tái Xuất Trở Thành Ông Trùm Khiến Cả Hào Môn Kinh Ngạc Quần ống rộng giả váy https //s.shopee.vn/1gHANYAKaD",
-        "episode": "Tập 1",
+        "title": "(Full) Chàng Trai Nghèo Thức Tỉnh Mắt Thần, Tái Xuất Trở Thành Ông Trùm Khiến Cả Hào Môn Kinh Ngạc Quần ống rộng giả váy https //s.shopee.vn/1gHANYAKaD",
+        "series": "Chàng Trai Nghèo Thức Tỉnh Mắt Thần, Tái Xuất Trở Thành Ông Trùm Khiến Cả Hào Môn Kinh Ngạc Quần ống rộng giả váy l",
+        "episode": "Full",
         "video": "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fm.facebook.com%2Fwatch%2F%3Fv%3D2519687068513700%26_rdr&show_text=false&width=267&t=0",
         "poster": "https://scontent.fdad3-6.fna.fbcdn.net/v/t15.5256-10/836616597_2475583126298524_1684702287598637964_n.jpg?stp=dst-jpg_tt6&cstp=mx720x960&ctp=s720x960&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=50ce42&_nc_ohc=gC6KHZAspNsQ7kNvwHIBJTb&_nc_oc=AdpdOSL6UUYcQJboYt2dkNIx1-RQ7sUv7P-5KMnN6nMe9zixH730X3GfsYsMFSqi4zYstbqRRuq2Hx5vAyNTXKru&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=sNT2mXPHRflZmHiAfDS2xQ&_nc_ss=70289&oh=00_AQOXCfL2LQDmT46EIY1LxO8TvQtYiGjzIalDqppOCvRFMQ&oe=6AC6E96F"
     },
