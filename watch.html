@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="vi">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title id="pageTitle">Đang tải phim... — Vuiclip</title>
+    <meta property="og:title" id="metaTitle" content="Xem phim không quảng cáo — Vuiclip">
+    <meta property="og:image" id="metaImage" content="logo.png">
+    <meta property="og:type" content="video.movie">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Tệp CSS chính -->
+    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        *{box-sizing:border-box} body{margin:0;background:#000;color:#fff;font-family:'Inter',sans-serif;min-height:100vh}
+       .watch-container{position:relative;width:100vw;height:100vh;background:#000;display:flex;justify-content:center;align-items:center}
+       .video-wrapper{position:absolute;inset:0;background:#000;z-index:1}
+       .floating-top-bar{position:absolute;top:15px;left:15px;right:15px;display:flex;justify-content:space-between;align-items:center;z-index:10;pointer-events:none}
+       .top-left-group,.top-right-group{display:flex;align-items:center;gap:10px;pointer-events:auto}
+       .floating-btn{background:rgba(0,0,0,0.6);color:#fff;border:1px solid rgba(255,255,255,0.15);padding:8px 14px;border-radius:20px;cursor:pointer;font-size:13px;display:flex;align-items:center;gap:6px;backdrop-filter:blur(5px);text-decoration:none}
+       .floating-btn.close-btn{background:rgba(220,53,69,0.8)}
+       .brand-avatar{width:32px;height:32px;border-radius:50%;border:1px solid rgba(255,255,255,0.3)}
+       .floating-title-section{position:absolute;bottom:85px;left:15px;right:15px;z-index:5;text-align:center;pointer-events:none}
+        #movieHeading{font-family:'Orbitron';font-size:16px;font-weight:700;color:#f3d499;text-shadow:0 2px 4px rgba(0,0,0,0.8)}
+       .custom-bottom-bar{position:absolute;bottom:0;left:0;right:0;z-index:15;background:linear-gradient(to top, rgba(0,0,0,0.9), transparent);padding:18px 15px 12px;display:flex;justify-content:space-between;align-items:center}
+       .bottom-left,.bottom-right{display:flex;align-items:center;gap:8px}
+       .bottom-btn{background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.15);color:#fff;width:38px;height:38px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer}
+       .bottom-btn.main{background:#f3d499;color:#000;width:44px;height:44px}
+       .speed-dropdown{position:absolute;bottom:48px;right:0;background:rgba(20,20,20,0.95);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:6px;min-width:120px;display:none}
+       .speed-dropdown.show{display:block}
+       .speed-item{padding:8px 12px;border-radius:8px;font-size:13px;cursor:pointer}
+       .speed-item.active{background:#f3d499;color:#000;font-weight:700}
+       .toast{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,0.85);padding:12px 18px;border-radius:22px;font-size:13px;z-index:30;opacity:0;pointer-events:none;transition:0.2s;text-align:center;max-width:80%}
+       .toast.show{opacity:1}
+    </style>
+</head>
+<body>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    var selectors = [
+        'iframe[src*="googleads"]',
+        'iframe[id^="google_ads_iframe"]',
+        'div[id^="div-gpt-ad"]',
+        'a[href*="://xtgem.com"]'
+    ];
+    selectors.forEach(function(selector) {
+        document.querySelectorAll(selector).forEach(ad => ad.remove());
+    });
+});
+</script>
+<main class="watch-container">
+    <div class="floating-top-bar">
+        <div class="top-left-group">
+            <img src="logo.png" alt="Avatar" class="brand-avatar">
+            <button class="floating-btn" onclick="shareMovie()"><i class="fas fa-share-alt"></i> Chia Sẻ</button>
+        </div>
+        <div class="top-right-group">
+            <button class="floating-btn" onclick="toggleFullScreen()"><i class="fas fa-expand"></i> Phóng To</button>
+            <a href="index.html" class="floating-btn close-btn"><i class="fas fa-times"></i> Đóng X</a>
+        </div>
+    </div>
+    
+     <!-- Các lớp phủ logo & banner quảng bá -->
+    <img src="logo.png" alt="Logo" class="video-logo-overlay">
+    <!--<div class="video-overlay-banner">Xem phim không quảng cáo tại vuiclip.mobie.in</div>-->
+
+    <div id="videoContainer" class="video-wrapper">
+        <iframe id="videoIframe" src="" style="width:100%;height:100%;border:none;" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <div class="floating-title-section"><h1 id="movieHeading">Đang tải phim...</h1></div>
+
+    <!-- THANH ĐIỀU KHIỂN DƯỚI -->
+    <div class="custom-bottom-bar">
+        <div class="bottom-left">
+            <button class="bottom-btn" onclick="playPrev()" id="prevBtn" style="display:none;"><i class="fas fa-backward"></i></button>
+            <button class="bottom-btn main" onclick="togglePlayHint()"><i class="fas fa-play"></i></button>
+            <button class="bottom-btn" onclick="playNext()" id="nextBtn" style="display:none;"><i class="fas fa-forward"></i></button>
+            <span style="font-size:11px;opacity:0.7" id="epInfo"></span>
+        </div>
+        <div class="bottom-right">
+            <div style="position:relative">
+                <button class="floating-btn" onclick="toggleSpeedMenu()"><i class="fas fa-tachometer-alt"></i> <span id="speedLabel">1x</span></button>
+                <div class="speed-dropdown" id="speedDropdown">
+                    <div class="speed-item active" data-speed="1">1x Thường</div>
+                    <div class="speed-item" data-speed="1.5">1.5x</div>
+                    <div class="speed-item" data-speed="2">2x</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="toast" id="toast"></div>
+</main>
+
+<script>
+// Hàm chống tối màn hình (Wake Lock API)
+    async function requestWakeLock() {
+        if ('wakeLock' in navigator) {
+            try {
+                let wakeLock = await navigator.wakeLock.request('screen');
+                document.addEventListener('visibilitychange', async () => {
+                    if (wakeLock !== null && document.visibilityState === 'visible') {
+                        wakeLock = await navigator.wakeLock.request('screen');
+                    }
+                });
+            } catch (err) {
+                console.log(`Wake Lock error: ${err.name}, ${err.message}`);
+            }
+        }
+    }
+    function getQueryParam(p) { return new URLSearchParams(window.location.search).get(p); }
+    function showToast(m) { const t = document.getElementById('toast'); t.textContent = m; t.classList.add('show'); setTimeout(() => t.classList.remove('show'), 2500); }
+    
+    let moviesData = [], currentFixedId = 0;
+
+    window.addEventListener('DOMContentLoaded', async () => {// Kích hoạt chống tắt/tối màn hình
+        requestWakeLock();
+        let idParam = getQueryParam('id');
+        currentFixedId = idParam !== null ? parseInt(idParam) : 0;
+
+        try {
+            let res = await fetch('movies.txt');
+            if (!res.ok) throw new Error('Không thể tải file movies.txt');
+            
+            moviesData = await res.json();
+            if (!moviesData || moviesData.length === 0) {
+                document.getElementById('movieHeading').innerText = 'Danh sách phim trống!';
+                return;
+            }
+
+            // Quy đổi ID ngược lại để lấy đúng vị trí trong mảng dữ liệu
+            let actualIndex = moviesData.length - 1 - currentFixedId;
+            
+            // Đảm bảo index hợp lệ
+            if (actualIndex < 0 || actualIndex >= moviesData.length) {
+                actualIndex = 0;
+                currentFixedId = moviesData.length - 1;
+            }
+
+            let movie = moviesData[actualIndex];
+
+            // Gán dữ liệu lên giao diện
+            document.getElementById('pageTitle').innerText = (movie.title || 'Xem phim') + ' — Vuiclip';
+            document.getElementById('movieHeading').innerText = movie.title || 'Không có tên phim';
+            document.getElementById('epInfo').innerText = ` ${currentFixedId + 1}/${moviesData.length}`;
+            
+            // Gán đường dẫn video vào iframe
+            if (movie.video) {
+                document.getElementById('videoIframe').src = movie.video;
+            } else {
+                showToast('Không tìm thấy nguồn video!');
+            }
+
+            // Bật/tắt nút chuyển tập
+            document.getElementById('prevBtn').style.display = currentFixedId > 0 ? 'flex' : 'none';
+            document.getElementById('nextBtn').style.display = currentFixedId < moviesData.length - 1 ? 'flex' : 'none';
+
+        } catch (e) {
+            console.error(e);
+            document.getElementById('movieHeading').innerText = 'Lỗi tải dữ liệu phim!';
+        }
+    });
+
+    function togglePlayHint() { showToast('Bấm Play trực tiếp trên video nhé'); }
+    function toggleSpeedMenu() { document.getElementById('speedDropdown').classList.toggle('show'); }
+    
+    document.querySelectorAll('.speed-item').forEach(i => i.addEventListener('click', () => {
+        document.querySelectorAll('.speed-item').forEach(x => x.classList.remove('active')); 
+        i.classList.add('active');
+        document.getElementById('speedLabel').innerText = i.dataset.speed + 'x';
+        document.getElementById('speedDropdown').classList.remove('show');
+        showToast('Hiện tại tốc độ phát là 1x');
+    }));
+
+    function playNext() {
+        let nextFixedId = currentFixedId + 1; 
+        if (nextFixedId < moviesData.length) {
+            location.href = '?id=' + nextFixedId;
+        } else {
+            showToast('Đã là phim mới nhất');
+        }
+    }
+    
+    function playPrev() {
+        let prevFixedId = currentFixedId - 1; 
+        if (prevFixedId >= 0) {
+            location.href = '?id=' + prevFixedId;
+        } else {
+            showToast('Đã là phim cũ nhất');
+        }
+    }
+
+    async function shareMovie() {
+        const movieTitle = document.getElementById('movieHeading').innerText;
+        const shareData = { title: movieTitle, text: `Xem phim không quảng cáo: ${movieTitle}`, url: window.location.href };
+        if (navigator.share) {
+            try { await navigator.share(shareData); } catch (err) {}
+        } else {
+            navigator.clipboard.writeText(window.location.href).then(() => { alert("Đã sao chép liên kết phim!"); });
+        }
+    }
+    
+    function toggleFullScreen() {
+        let el = document.getElementById('videoContainer'); 
+        if (!document.fullscreenElement) el.requestFullscreen(); 
+        else document.exitFullscreen();
+    }
+</script>
+</body>
+</html>
