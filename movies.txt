@@ -1,5 +1,12 @@
 [
     {
+        "title": "(Full) Tiến Sĩ Kỹ Thuật xuyên không về cổ đại",
+        "series": "Tiến Sĩ Kỹ Thuật xuyên không về cổ đại",
+        "episode": "Full",
+        "video": "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fm.facebook.com%2Fwatch%2F%3Fv%3D2143443253231341%26_rdr&show_text=false&width=267&t=0",
+        "poster": "https://scontent.fdad3-6.fna.fbcdn.net/v/t15.5256-10/824045188_1100750825822579_5887178086858688851_n.jpg?stp=dst-jpg_tt6&cstp=mx720x960&ctp=s720x960&_nc_cat=109&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=50ce42&_nc_ohc=mSd1lPGgYEQQ7kNvwHnNQlM&_nc_oc=AdpwkakHwrlkcN1bMERi2m_j9pO8bAzPz7duDD-5IzOu3e9j3n6duTtOmxl2I91tVlMt-20MvoMepFk1nG-rG8A3&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=Kw0Pny2TIh1M3l1oauTRAA&_nc_ss=70289&oh=00_AQMMNolX4uwlVDG2oVVcvsbAO0iNZa8UYH2syR65JB-lDA&oe=6AC7BA7D"
+    },
+    {
         "title": "(Full) Cha bị con trai cưng hãm hại, may mắn có năng lực nhìn thấu hiểu đại dương, cùng Cô phát triển ngành hải sản, đánh bại các thế lực cạnh tranh, xây dựng đế chế mới",
         "series": "Cha bị con trai cưng hãm hại, may mắn có năng lực nhìn thấu hiểu đại dương, cùng Cô phát triển ngành hải sản, đánh bại các thế lực cạnh tranh, xây dựng đế chế mới",
         "episode": "Full",
