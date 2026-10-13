@@ -1,5 +1,12 @@
 [
     {
+        "title": "(Full) Chàng Trai Nghèo Sở Hữu Đôi Mắt Thần Nhìn Xuyên Thấu Và Cái Kết !",
+        "series": "Chàng Trai Nghèo Sở Hữu Đôi Mắt Thần Nhìn Xuyên Thấu Và Cái Kết !",
+        "episode": "Full",
+        "video": "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fwww.facebook.com%2Fdieuthuyenreview%2Fvideos%2Fch%25C3%25A0ng-trai-ngh%25C3%25A8o-s%25E1%25BB%259F-h%25E1%25BB%25AFu-%25C4%2591%25C3%25B4i-m%25E1%25BA%25AFt-th%25E1%25BA%25A7n-nh%25C3%25ACn-xuy%25C3%25AAn-th%25E1%25BA%25A5u-v%25C3%25A0-c%25C3%25A1i-k%25E1%25BA%25BFt-moviereview-ng%25C3%25B4n%2F1762797491624536%2F%3Fshare_url%3Dhttps%253A%252F%252Fwww.facebook.com%252Fshare%252Fv%252F1E2Abc7zTB%252F%26rdid%3DMgZQBbIOwddaWpiz&show_text=false&width=267&t=0",
+        "poster": "https://scontent.fdad3-6.fna.fbcdn.net/v/t15.5256-10/838702952_1773298773978051_6988342670911421022_n.jpg?stp=dst-jpg_tt6&cstp=mx720x960&ctp=s720x960&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=be8305&_nc_ohc=TTlPZzs_gh4Q7kNvwH1hxy5&_nc_oc=AdounHD00dSw8W1wx7mplBtYFNtWa4IsTMDHa0MurqUBNEG4X7xjaz32BGOVacz5q6_Emdan-aSBdk20AaexBFnB&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=ZcCKE3OsiE47PJDWJCRa5A&_nc_ss=70289&oh=00_AQNp9_dMd3AeOCCPJTGDf33NmM2zyaxSvZ5w1lpQNLl7hg&oe=6AD3FBEC"
+    },
+    {
         "title": "(Full) Tiến Sĩ Kỹ Thuật xuyên không về cổ đại",
         "series": "Tiến Sĩ Kỹ Thuật xuyên không về cổ đại",
         "episode": "Full",
