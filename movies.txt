@@ -1,5 +1,12 @@
 [
     {
+        "title": "(Full) Trọn bộ_Một người đàn ông trung niên bị giữ lương, một tấm vé số đã thay đổi cuộc đời ông! Ông lặng lẽ trở về quê hương, nhưng những người thân mưu mô của ông đã đến gõ cửa!",
+        "series": "Trọn bộ_Một người đàn ông trung niên bị giữ lương, một tấm vé số đã thay đổi cuộc đời ông! Ông lặng lẽ trở về quê hương, nhưng những người thân mưu mô của ông đã đến gõ cửa!",
+        "episode": "Full",
+        "video": "https://www.facebook.com/plugins/video.php?height=476&href=https%3A%2F%2Fm.facebook.com%2Fwatch%2F%3Fv%3D2003312390358396%26_rdr&show_text=false&width=267&t=0",
+        "poster": "https://scontent.fdad3-6.fna.fbcdn.net/v/t15.5256-10/842207265_1409790860726832_5717444397060016325_n.jpg?stp=dst-jpg_tt6&cstp=mx720x1280&ctp=s960x960&_nc_cat=100&_nc_map=urlgen_bucketless&ccb=1-7&_nc_sid=50ce42&_nc_ohc=jnMGuFeVcMMQ7kNvwHjXpzN&_nc_oc=AdqN-0uAAaNdoxJyPBOsnBtueDBVomEX8ZJS0Tpw-VK01U8vVVa7c1W0VOWAa1SSqUi8hPoPxz46zQCh25JvNGgx&_nc_zt=23&_nc_ht=scontent.fdad3-6.fna&_nc_gid=35dVXTQMfwcoL_iOk_VtmA&_nc_ss=70289&oh=00_AQNDKBd_npDwR-0QpdQ_xGmbpwWQVQ4DYaVRO5412FeKbQ&oe=6AD6B635"
+    },
+    {
         "title": "(Full) Chàng Trai Nghèo Sở Hữu Đôi Mắt Thần Nhìn Xuyên Thấu Và Cái Kết !",
         "series": "Chàng Trai Nghèo Sở Hữu Đôi Mắt Thần Nhìn Xuyên Thấu Và Cái Kết !",
         "episode": "Full",
