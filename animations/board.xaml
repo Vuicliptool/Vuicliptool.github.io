@@ -1,0 +1,98 @@
+<UserControl x:Class="projectname.Paths.board" d:DesignHeight="400" d:DesignWidth="400" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" FontFamily="{StaticResource PhoneFontFamilyNormal}">
+    <UserControl.Resources>
+        <Storyboard x:Name="sb">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.05"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="grid1" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.05"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid Width="400" Height="400">
+        <Grid>
+            <Path Fill="#D2A56D" Data="M22.9,49.2c0,2.4,2,4.4,4.4,4.4h0.2c2.4,0,4.4-1.9,4.4-4.4v-5.6V26.3h-9.1v17.3V49.2z"/>
+            <Path Fill="#9B6A48" Data="M24.1,50.1c0,0,3.5-0.6,6.5-5.2c0,3.3-0.2,5.2-1.1,6.3C27.8,53.1,24.6,51.9,24.1,50.1z"/>
+            <Path Fill="#9B6A48" Data="M23.8,44.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,43.6,22.7,44.6,23.8,44.2z"/>
+            <Path Fill="#C19161" Data="M23.8,48.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,47.6,22.7,48.7,23.8,48.2z"/>
+            <Path Fill="#C19161" Data="M23.8,37c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2C21.7,36.4,22.7,37.4,23.8,37z"/>
+            <Path Fill="#9B6A48" Data="M23.8,33.2c0,0,6.2-5.2,7.8-6.8c0,0,0,0,0-0.1h-3.4c-2.5,2.3-4.3,4.1-5.3,5.1&#xA;  C21.7,32.5,22.7,33.6,23.8,33.2z"/>
+            <Path Fill="#D2A56D" Data="M358.1,49.2c0,2.4,2,4.4,4.4,4.4h0.2c2.4,0,4.4-1.9,4.4-4.4v-5.6V26.3h-9.1v17.3V49.2z"/>
+            <Path Fill="#9B6A48" Data="M359.4,50.1c0,0,3.5-0.6,6.5-5.2c0,3.3-0.2,5.2-1.1,6.3C363,53.1,359.8,51.9,359.4,50.1z"/>
+            <Path Fill="#9B6A48" Data="M359,44.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C356.9,43.6,357.9,44.6,359,44.2z"/>
+            <Path Fill="#C19161" Data="M359,48.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C356.9,47.6,357.9,48.7,359,48.2z"/>
+            <Path Fill="#C19161" Data="M359,37c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2C356.9,36.4,357.9,37.4,359,37z"/>
+            <Path Fill="#9B6A48" Data="M359,33.2c0,0,6.2-5.2,7.8-6.8c0,0,0,0,0-0.1h-3.4c-2.5,2.3-4.3,4.1-5.3,5.1&#xA;  C356.9,32.5,357.9,33.6,359,33.2z"/>
+        </Grid>
+        <Grid x:Name="grid" RenderTransformOrigin="0.069,0.125">
+            <Grid.RenderTransform>
+                <CompositeTransform ScaleY="0.05"/>
+            </Grid.RenderTransform>
+            <Path Fill="#A29A84" Data="M380.7,70.2c0.3-10.5,0.6-19.4,1-25.2c0.2-4-2.8-9.9-6.8-9.8c-3.9,0-9.9,2.4-18,2.3&#xA;  c-19.7-0.4-16.4,0.7-69,0.7H120.5c-52.7,0-63.6-1.1-83.3-0.7c-8.1,0.1-13.9,0.2-17.8,0.1c-4.1,0-7.3,3.4-7,7.4&#xA;  c0.4,5.9,0.7,14.6,1,25.2c0.4,16.3-1.7,104.6-2.1,122.5c-0.1,3.8,5,10.3,8.8,10.1c30.7-1.1,31.8-1.3,100.4-1.3h167.4&#xA;  c68.6,0,55.5,0.1,86.1,1.3c3.8,0.1,6.9-2.9,6.8-6.7c-0.1-8.4-0.3-21.9-0.3-35.6l-2-4l-10.4-2.2l12.4-5.1&#xA;  C380.4,137.7,380.5,76.9,380.7,70.2z M36.3,54.2c-0.5,2.9-2.9,5.3-5.7,5.7c-4.8,0.8-8.9-3.3-8.1-8.1c0.5-2.9,2.9-5.3,5.7-5.7&#xA;  C33,45.2,37.1,49.3,36.3,54.2z M363.4,59.9c-2.9-0.5-5.3-2.9-5.7-5.7c-0.8-4.8,3.3-8.9,8.1-8.1c2.9,0.5,5.3,2.9,5.7,5.7&#xA;  C372.4,56.6,368.3,60.7,363.4,59.9z"/>
+            <Path Fill="#E8DFBF" Data="M378.7,66.2c0.3-10.5,0.6-19.4,1-25.2c0.2-4-3-7.4-7-7.4c-3.9,0-9.6,0-17.8-0.1c-19.7-0.4-16.4,0.7-69,0.7&#xA;  H118.5c-52.7,0-63.6-1.1-83.3-0.7c-8.1,0.1-13.9,0.2-17.8,0.1c-4.1,0-7.3,3.4-7,7.4c0.4,5.9,0.7,14.6,1,25.2&#xA;  c0.4,16.3,0.3,108-0.1,126c-0.1,3.8,3,6.9,6.8,6.7c30.7-1.1,31.8-1.3,100.4-1.3h167.4c68.6,0,55.5,0.1,86.1,1.3&#xA;  c3.8,0.1,6.9-2.9,6.8-6.7c-0.1-8.4-0.3-21.9-0.3-35.6l-16.5-4.6l16.5-6.7C378.4,133.7,378.5,72.9,378.7,66.2z M34.3,50.2&#xA;  c-0.5,2.9-2.9,5.3-5.7,5.7c-4.8,0.8-8.9-3.3-8.1-8.1c0.5-2.9,2.9-5.3,5.7-5.7C31,41.2,35.1,45.3,34.3,50.2z M361.4,55.9&#xA;  c-2.9-0.5-5.3-2.9-5.7-5.7c-0.8-4.8,3.3-8.9,8.1-8.1c2.9,0.5,5.3,2.9,5.7,5.7C370.4,52.6,366.3,56.7,361.4,55.9z"/>
+            <Path Fill="#FEFBED" Data="M361.9,152.1l7.2-2.9c-0.1-13.4,0.4-75.7,1.6-88.5c-15.3,8.7-28.2-6.9-19.7-19.4&#xA;  c-39.3,2.3-65.1,1.4-65.1,1.4l0,0H118.3c0,0-40,0.9-79.4-1.4c8.4,12.5-4.4,28-19.7,19.4c2.4,24,1.9,96.4,0.1,127.9&#xA;  c-0.1,1.2,0.9,2.3,2.2,2.2c50.1-1.6,84.2-1,96.8-1h167.6c12.6,0,32.4-0.6,82.5,1c1.2,0.1,2.3-1,2.2-2.2c-0.7-12.7-1.2-24-1.4-34.4&#xA;  L361.9,152.1z"/>
+        </Grid>
+        <Grid x:Name="grid1" RenderTransformOrigin="0.067,0.032" Opacity="0">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Path Fill="#D2A56D" Data="M31.9,12.4V21v22.6v5.6c0,2.5-2,4.4-4.4,4.4h-0.2c-2.4,0-4.4-2-4.4-4.4v-5.6V21v-8.6c0-2.5,2-4.4,4.4-4.4&#xA;  h0.2C29.9,8,31.9,10,31.9,12.4z"/>
+            <Path Fill="#9B6A48" Data="M30.5,11.3c0,0-3.5,0.6-6.5,5.2c0-3.3,0.2-5.2,1.1-6.3C26.8,8.3,30,9.5,30.5,11.3z"/>
+            <Path Fill="#9B6A48" Data="M24.1,50.1c0,0,3.5-0.6,6.5-5.2c0,3.3-0.2,5.2-1.1,6.3C27.8,53.1,24.6,51.8,24.1,50.1z"/>
+            <Path Fill="#9B6A48" Data="M23.8,44.1c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,43.5,22.7,44.5,23.8,44.1z"/>
+            <Path Fill="#C19161" Data="M23.8,48.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,47.5,22.7,48.6,23.8,48.2z"/>
+            <Path Fill="#C19161" Data="M23.8,36.9c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,36.3,22.7,37.4,23.8,36.9z"/>
+            <Path Fill="#9B6A48" Data="M23.8,33.1c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,32.4,22.7,33.5,23.8,33.1z"/>
+            <Path Fill="#C19161" Data="M23.8,26.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,25.5,22.7,26.6,23.8,26.2z"/>
+            <Path Fill="#9B6A48" Data="M23.8,22.3c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,21.7,22.7,22.7,23.8,22.3z"/>
+            <Path Fill="#D2A56D" Data="M367.2,12.4V21v22.6v5.6c0,2.5-2,4.4-4.4,4.4h-0.2c-2.4,0-4.4-2-4.4-4.4v-5.6V21v-8.6c0-2.5,2-4.4,4.4-4.4&#xA;  h0.2C365.2,8,367.2,10,367.2,12.4z" UseLayoutRounding="False"/>
+            <Path Fill="#9B6A48" Data="M365.7,11.3c0,0-3.5,0.6-6.5,5.2c0-3.3,0.2-5.2,1.1-6.3C362.1,8.3,365.3,9.5,365.7,11.3z" UseLayoutRounding="False"/>
+            <Path Fill="#9B6A48" Data="M359.4,50.1c0,0,3.5-0.6,6.5-5.2c0,3.3-0.2,5.2-1.1,6.3C363,53.1,359.8,51.8,359.4,50.1z" UseLayoutRounding="False"/>
+            <Path Fill="#9B6A48" Data="M359,44.1c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C356.9,43.5,357.9,44.5,359,44.1z" UseLayoutRounding="False"/>
+            <Path Fill="#C19161" Data="M359,48.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C356.9,47.5,357.9,48.6,359,48.2z" UseLayoutRounding="False"/>
+            <Path Fill="#C19161" Data="M359,36.9c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C356.9,36.3,357.9,37.4,359,36.9z" UseLayoutRounding="False"/>
+            <Path Fill="#9B6A48" Data="M359,33.1c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C356.9,32.4,357.9,33.5,359,33.1z" UseLayoutRounding="False"/>
+            <Path Fill="#C19161" Data="M359,26.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C356.9,25.5,357.9,26.6,359,26.2z" UseLayoutRounding="False"/>
+            <Path Fill="#9B6A48" Data="M359,22.3c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C356.9,21.7,357.9,22.7,359,22.3z" UseLayoutRounding="False"/>
+        </Grid>
+        <Grid>
+            <Path Fill="#9AF2F7" Data="M40,12.6c0,6.9-5.6,12.6-12.6,12.6s-12.6-5.6-12.6-12.6S20.4,0,27.4,0S40,5.6,40,12.6z"/>
+            <Path Fill="#0F9EB2" Data="M34.4,12.6c0,3.9-3.1,7-7,7s-7-3.1-7-7s3.1-7,7-7S34.4,8.7,34.4,12.6z"/>
+            <Path Fill="#9AF2F7" Data="M375,12.6c0,6.9-5.6,12.6-12.6,12.6s-12.6-5.6-12.6-12.6S355.5,0,362.5,0S375,5.6,375,12.6z"/>
+            <Path Fill="#0F9EB2" Data="M369.5,12.6c0,3.9-3.1,7-7,7s-7-3.1-7-7s3.1-7,7-7S369.5,8.7,369.5,12.6z"/>
+        </Grid>
+        <Grid>
+            <Path Fill="#D2A56D" Data="M31.9,21.1v-8.6c0-2.4-2-4.4-4.4-4.4h-0.2c-2.4,0-4.4,1.9-4.4,4.4v8.6v5.3h9.1V21.1z"/>
+            <Path Fill="#9B6A48" Data="M30.5,11.4c0,0-3.5,0.6-6.5,5.2c0-3.3,0.2-5.2,1.1-6.3C26.8,8.3,30,9.6,30.5,11.4z"/>
+            <Path Fill="#9B6A48" Data="M29.5,25.2c-0.5,0.4-0.9,0.8-1.3,1.2h3.4C33.1,24.8,32.6,22.4,29.5,25.2z"/>
+            <Path Fill="#C19161" Data="M23.8,26.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,25.6,22.7,26.7,23.8,26.2z"/>
+            <Path Fill="#9B6A48" Data="M23.8,22.4c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C21.7,21.7,22.7,22.8,23.8,22.4z"/>
+            <Path Fill="#D2A56D" Data="M367.2,21.1v-8.6c0-2.4-2-4.4-4.4-4.4h-0.2c-2.4,0-4.4,1.9-4.4,4.4v8.6v5.3h9.1V21.1z"/>
+            <Path Fill="#9B6A48" Data="M365.7,11.4c0,0-3.5,0.6-6.5,5.2c0-3.3,0.2-5.2,1.1-6.3C362.1,8.3,365.3,9.6,365.7,11.4z"/>
+            <Path Fill="#9B6A48" Data="M364.8,25.2c-0.5,0.4-0.9,0.8-1.3,1.2h3.4C368.4,24.8,367.9,22.4,364.8,25.2z"/>
+            <Path Fill="#C19161" Data="M359.1,26.2c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C357,25.6,357.9,26.7,359.1,26.2z"/>
+            <Path Fill="#9B6A48" Data="M359.1,22.4c0,0,6.2-5.2,7.8-6.8c1.6-1.6,1-4-2.1-1.2c-3.1,2.8-5.4,5.1-6.6,6.2&#xA;  C357,21.7,357.9,22.8,359.1,22.4z"/>
+        </Grid>
+        <Grid x:Name="box1_2" RenderTransformOrigin="-0.061,-0.171" Width="300" Height="100" Background="#ff0000" Margin="0,0,0,0">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateX="-4" TranslateY="-83" ScaleY="0.05"/>
+            </Grid.RenderTransform>
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,0 +1,1179 @@
+[
+  {
+    "name": "Games",
+    "lessons": [
+          {
+            "name": "tập viết câu",
+    		"thumb": "write",
+            "intro": [
+
+            {
+                        "animation": {
+                          "name": "game",
+                          "game": "danhvan2",
+                          "values": [
+
+                            "bạn thân",
+                            "ăn ngon",
+                            "con lợn",
+                            "số bốn",
+                            "sơn đỏ",
+                            "mũ len",
+                            "con nhện",
+                            "bên trên",
+                            "chín giờ",
+                            "con giun",
+                            "bún bò"
+                          ]
+                        }
+                      },
+
+              {
+                "animations": [
+                  {
+                    "name": "game",
+                    "game": "tapviet",
+                    "values": [
+                      "n2_g_u p2_h_u s2_u v2_u",
+                       "n2_g_u p2_h_u s2_u v2_u"
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+      {
+        "name": "puzzle1",
+		"thumb": "puzzle1",
+        "intro": [
+
+          {
+            "animations": [
+
+
+              {
+                "name": "game",
+                "game": "puzzle1",
+                "values": [
+                  "a"
+                ]
+              },
+              {
+                "name": "game",
+                "game": "puzzle1",
+                "values": [
+                  "e"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+		{
+        "name": "puzzle2",
+		"thumb": "puzzle2",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "puzzle2",
+                "phuam": "c",
+                "values": [
+                  "a",
+                  "o",
+                  "ô",
+                  "ơ",
+                  "u",
+                  "ư"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "puzzle3",
+		"thumb": "puzzle3",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "puzzle3",
+                "amcuoi": "n",
+                "values": [
+                  "a",
+                  "ă",
+                  "â",
+                  "e",
+                  "ê",
+                  "i",
+                  "o",
+                  "ô",
+                  "ơ",
+                  "u"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "puzzle4",
+		"thumb": "puzzle4",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "puzzle4",
+                "values": [
+                  "chân",
+                  "thần",
+                  "phấn",
+                  "bẩn",
+                  "nhẫn",
+                  "thận"
+                ]
+              }
+            ]
+          },
+		  {
+            "animations": [
+              {
+                "name": "game",
+                "game": "puzzle4",
+                "values": [
+                  "chuyên",
+                  "nguyễn",
+                  "huyện",
+                  "tuyết",
+                  "nguyệt"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "ghep van",
+		"thumb": "ghep van",
+        "intro": [
+          {
+			"animations": [
+              {
+                "name": "game",
+                "game": "ghep van",
+                "van": "ản",
+                "text": "board#Chúng ta tiếp tục với vần#ản",
+                "values": [
+                  "bản",
+                  "cản",
+                  "nản",
+                  "nhản",
+                  "phản",
+                  "sản",
+                  "thản"
+                ]
+              }
+			]
+		  }
+        ]
+      },
+      {
+        "name": "bán âm",
+		"thumb": "bán âm",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "banam",
+                "values": [
+                  "uy",
+                  "uê",
+                  "uơ",
+                  "uyê",
+                  "uya",
+                  "uâ",
+                  "oa",
+                  "oe",
+                  "oă"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "mole",
+		"thumb": "mole",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "mole",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "à",
+                  "a",
+                  "á",
+                  "ả",
+                  "ã",
+                  "ạ"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "mole",
+		"thumb": "mole",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "mole",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "siêu",
+                  "nhiều",
+                  "biếu",
+                  "tiểu",
+                  "liễu",
+                  "điệu"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+	  
+      {
+        "name": "goal",
+		"thumb": "goal",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "goal",
+                "type": 3,
+                "questions": 5,
+                "values": [
+                  "o",
+                  "ò",
+                  "ó",
+                  "ỏ",
+                  "õ",
+                  "ọ"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+	  
+      {
+        "name": "goal",
+		"thumb": "goal",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "goal",
+                "type": 3,
+                "questions": 5,
+                "values": [
+                  "xoắn",
+                  "hoắm",
+                  "hoặc",
+                  "khoắng",
+                  "ngoặc"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "racing",
+		"thumb": "racing",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "racing",
+                "type": 3,
+                "questions": 5,
+                "values": [
+                  "ô",
+                  "ồ",
+                  "ố",
+                  "ổ",
+                  "ỗ",
+                  "ộ"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "racing",
+		"thumb": "racing",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "racing",
+                "type": 2,
+                "questions": 5,
+                "values": [
+                  "uốc",
+                  "uổng",
+                  "uồm",
+                  "uội",
+                  "uốt"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "bee",
+		"thumb": "bee",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "bee",
+                "type": 3,
+                "questions": 5,
+                "values": [
+                  "ơ",
+                  "ờ",
+                  "ớ",
+                  "ở",
+                  "ỡ",
+                  "ợ"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "bee",
+		"thumb": "bee",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "bee",
+                "type": 3,
+                "questions": 5,
+                "values": [
+                  "cuốc",
+                  "đuốc",
+                  "ruốc",
+                  "chuốc",
+                  "nhuốc",
+                  "thuốc",
+                  "buộc",
+                  "cuộc",
+                  "luộc"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "memory",
+		"thumb": "memory",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "memory",
+                "type": 3,
+                "values": [
+                  "e",
+                  "è",
+                  "é",
+                  "ẻ",
+                  "ẽ",
+                  "ẹ"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "memory",
+		"thumb": "memory",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "memory",
+                "type": 3,
+                "values": [
+                  "buôn",
+                  "luôn",
+                  "muôn",
+                  "tuôn",
+                  "khuôn",
+                  "buồn",
+                  "luồn",
+                  "tuồn",
+                  "cuốn",
+                  "muốn"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "box matching",
+		"thumb": "box",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "box matching",
+                "type": 3,
+                "questions": 5,
+                "values": [
+                  "ê",
+                  "ề",
+                  "ế",
+                  "ể",
+                  "ễ"
+                ],
+                "options": [
+                  "a",
+                  "à",
+                  "á",
+                  "ả",
+                  "ã",
+                  "ạ",
+                  "o",
+                  "ò",
+                  "ó",
+                  "ỏ",
+                  "õ",
+                  "ọ",
+                  "ô",
+                  "ồ",
+                  "ố",
+                  "ổ",
+                  "ỗ",
+                  "ộ",
+                  "ơ",
+                  "ờ",
+                  "ớ",
+                  "ở",
+                  "ỡ",
+                  "ợ"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "box matching",
+		"thumb": "box",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "box matching",
+                "type": 3,
+                "questions": 5,
+                "values": [
+                  "vuông",
+                  "chuồng",
+                  "xuống",
+                  "thuổng",
+                  "muỗng"
+                ],
+                "options": [
+                  "ruộng",
+                  "buông",
+                  "đuông",
+                  "huông",
+                  "nuông",
+                  "vuông"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "select balloon",
+		"thumb": "balloon",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "select balloon",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "i",
+                  "ì",
+                  "í",
+                  "ỉ",
+                  "ĩ",
+                  "ị"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "select balloon",
+		"thumb": "balloon",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "select balloon",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "duôm",
+                  "chuôm",
+                  "buồm",
+                  "nhuốm",
+                  "luộm",
+                  "thuộm",
+                  "nhuộm"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "select apple",
+		"thumb": "apple",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "select apple",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "u",
+                  "ù",
+                  "ú",
+                  "ủ",
+                  "ũ",
+                  "ụ"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "select apple",
+		"thumb": "apple",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "select apple",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "đuôi",
+                  "chuối",
+                  "tuổi",
+                  "muỗi",
+                  "nguội"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "select crab",
+		"thumb": "crab",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "select crab",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "ư",
+                  "ừ",
+                  "ứ",
+                  "ử",
+                  "ữ",
+                  "ự"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "select crab",
+		"thumb": "crab",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "select crab",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "buốt",
+                  "muốt",
+                  "nuốt",
+                  "suốt",
+                  "tuốt",
+                  "vuốt",
+                  "buột",
+                  "ruột",
+                  "tuột",
+                  "vuột",
+                  "chuột"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "select octopus",
+		"thumb": "octopus",
+        "intro": [
+          {
+            "animations": [
+              {
+                "name": "game",
+                "game": "select octopus",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "y",
+                  "ỳ",
+                  "ý",
+                  "ỷ",
+                  "ỹ",
+                  "ỵ"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "select octopus",
+		"thumb": "octopus",
+        "intro": [
+		  {
+            "animations": [
+              {
+                "name": "game",
+                "game": "select octopus",
+                "type": 3,
+                "questions": 3,
+                "values": [
+                  "hoa",
+                  "nhòa",
+                  "xóa",
+                  "khoan",
+                  "toán",
+                  "ngoạm",
+                  "hoạt",
+                  "hoành",
+                  "thoáng",
+                  "kkhoai",
+                  "xoài",
+                  "thoại",
+                  "xoay"
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      
+      {
+        "name": "danhvan1",
+		"thumb": "danhvan1",
+        "intro": [
+          {
+            "animation": {
+              "name": "game",
+              "game": "danhvan1",
+              "type": "amdau",
+              "text": "Chúng mình cùng tập đánh vần các tiếng có âm đầu là âm#g#second#gh#second#ng#second#ngh",
+              "values": [
+                "gà",
+                "gõ",
+                "gỗ",
+                "gơ",
+                "gụ",
+                "gư",
+                "ghẹ",
+                "ghế",
+                "ghi",
+                "ngã",
+                "ngó",
+                "ngộ",
+                "ngỡ",
+                "ngủ",
+                "ngừ",
+                "nghé",
+                "nghệ",
+                "nghĩ"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "danhvan1",
+		"thumb": "danhvan1",
+        "intro": [
+		  {
+            "animation": {
+              "name": "game",
+              "game": "danhvan1",
+              "text": "Bài ôn tập tổng hợp",
+              "values": [
+                "ngoao",
+                "ngoáy",
+                "ngoạm",
+                "hoắm",
+                "ngoặc",
+                "nhoẻn",
+                "loẹt",
+                "xoong",
+                "thuở",
+                "khuya",
+                "huýt",
+                "tuýp",
+                "huynh",
+                "huênh",
+                "nguệch"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "danhvan2",
+		"thumb": "danhvan2",
+        "intro": [
+          {
+            "animation": {
+              "name": "game",
+              "game": "danhvan2",
+              "text": "Chúng mình cùng tập đánh vần các từ ghép có âm đầu là âm#c",
+              "values": [
+                "có cà",
+                "có cá",
+                "có cỗ",
+                "cổ cò",
+                "cá cờ",
+                "cụ cố"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "danhvan2",
+		"thumb": "danhvan2",
+        "intro": [
+		  {
+            "animation": {
+              "name": "game",
+              "game": "danhvan2",
+              "text": "Bài ôn tập từ ghép",
+              "values": [
+                "ngoao ngoao",
+                "viết ngoáy",
+                "sâu hoắm",
+                "dấu ngoặc",
+                "nhoẻn cười",
+                "lòe loẹt",
+                "cái xoong",
+                "thuở xưa",
+                "đêm khuya",
+                "huýt sáo",
+                "đèn tuýp",
+                "phụ huynh",
+                "huỳnh huỵch",
+                "huênh hoang",
+                "nguệch ngoạc"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "danhvan3",
+		"thumb": "danhvan3",
+        "intro": [
+          {
+            "animation": {
+              "name": "game",
+              "game": "danhvan3",
+              "text": "chúng mình tập đánh vần cả câu nhé",
+              "values": [
+                "Cò có cá: cô có cờ, bé có cả cờ.",
+                "Cô có cờ.",
+                "Cờ cu cũ.",
+                "Cỗ có cá.",
+                "Có cả cà cơ."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "danhvan3",
+		"thumb": "danhvan3",
+        "intro": [
+          {
+            "animation": {
+              "name": "game",
+              "game": "danhvan3",
+              "text": "chúng mình tập đánh vần cả câu nhé",
+              "values": [
+                "Mèo kêu ngoao ngoao.",
+                "Bé không nên viết ngoáy.",
+                "Cần cẩu ngoạm kiện hàng.",
+                "Giếng khoan sâu hoắm.",
+                "Bé làm bài tập: điền âm hoặc vần thích hợp.",
+                "Bức tranh bé tô màu lòe loẹt.",
+                "Bé giúp mẹ lấy cái xoong nấu canh.",
+                "Bé đi xem xiếc có chú voi huơ cái vòi dài.",
+                "Bà say sưa kể chuyện thuở xưa.",
+                "Đêm đã khuya, mẹ vẫn cặm cụi làm việc.",
+                "Bé tập huýt sáo, khi đang đi trên xe buýt.",
+                "Bố tháo và lau chùi chiếc đèn tuýp cho sạch.",
+                "Chủ nhật, bố và mẹ đi họp phụ huynh cho hai anh em.",
+                "Mẹ dạy bé chớ nói huênh hoang.",
+                "Bé nắn nót viết từng chữ và không viết nguệch ngoạc."
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "connection",
+		"thumb": "connection",
+        "intro": [
+          {
+			"animations": [
+			  {
+				"name": "game",
+				"game": "connection",
+				"values1": [
+				  "đắt",
+				  "thìa",
+				  "gì",
+				  "bố",
+				  "mẹ",
+				  "thư",
+				  "bơi"
+				],
+				"values2": [
+				  "mắc",
+				  "muỗng",
+				  "chi",
+				  "ba",
+				  "má",
+				  "thơ",
+				  "lội"
+				]
+			  }
+			]
+		  }
+        ]
+      },
+      {
+        "name": "options",
+		"thumb": "options",
+        "intro": [
+          {
+			"animations": [
+			  {
+				"name": "game",
+				"game": "options",
+				"values1": [
+				  "ruộng được san phẳng thành nhiều bậc ở vùng sườn đồi, sườn núi",
+				  "núi hình chóp nón, có miệng ở đỉnh phun ra những chất nóng chảy từ lòng đất sâu gọi là nham thạch một cách thường xuyên hoặc theo từng thời kì",
+				  "khối băng lớn trông như hòn đảo trôi lềnh bềnh trên biển ở vùng cực Trái Đất",
+				  "vùng đất trũng thấp, tương đối rộng và phẳng giữa hai sườn dốc hoặc núi",
+				  "hang động ăn sâu vào trong núi",
+				  "vùng đất bằng rộng lớn, chỉ có cỏ mọc",
+				  "chỗ dòng sông, dòng suối chảy vượt qua một vách đá cao nằm chắn ngang rồi đổ mạnh xuống",
+				  "vùng rộng lớn có khí hậu rất khô, có nhiều cát, không có nước, hầu như không có cây cối và động vật sinh sống"
+				],
+				"values2": [
+				  "ruộng bậc thang",
+				  "núi lửa",
+				  "núi băng",
+				  "thung lũng",
+				  "động",
+				  "thảo nguyên",
+				  "thác",
+				  "sa mạc"
+				]
+			  }
+			]
+		  }
+        ]
+      },
+      {
+        "name": "dongthungchai",
+		"thumb": "chai dấu",
+        "intro": [
+        {
+                    "animation": {
+                      "name": "game",
+                      "game": "dongthungchai",
+                      "type": "van",
+                      "text": "Chúng mình cùng tập đánh vần các tiếng có âm cuối là âm#ch#second#nh",
+                      "values": [
+                      "ếch",
+                        "xanh",
+                        "chanh",
+                        "bệnh",
+                        "sinh",
+                        "tính",
+                        "kính",
+                        "khênh",
+                        "khách",
+                        "sạch",
+                        "gạch",
+
+                        "lệch",
+                        "lịch",
+                        "thích",
+                        "kịch"
+                      ]
+                    }
+                  },
+        {
+                    "animation": {
+                      "name": "game",
+                      "game": "dongthungchai",
+                      "type": "amdau",
+                      "values": [
+                        "bệch",
+                        "kệch",
+                        "lệch",
+                        "chệch",
+                        "nghệch",
+                        "hếch",
+                        "lếch",
+                        "thếch",
+                        "chếch",
+                        "nhếch",
+                        "nghếch"
+                      ]
+                    }
+                  },
+          {
+            "animation": {
+              "name": "game",
+              "game": "dongthungchai",
+			  "type": "dau",
+              "values": [
+                "à",
+                  "a",
+                  "á",
+                  "ả",
+                  "ã",
+                  "ạ","à",
+                  "a",
+                  "á",
+                  "ả",
+                  "ã",
+                  "ạ","à",
+                  "a",
+                  "á",
+                  "ả",
+                  "ã",
+                  "ạ"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dongthungchai",
+		"thumb": "chai van",
+        "intro": [
+          {
+            "animation": {
+              "name": "game",
+              "game": "dongthungchai",
+			  "type": "van",
+              "values": [
+                "ca",
+                  "cà",
+                  "cá",
+                  "cả",
+                  "cạ",
+                  "co",
+                  "cò",
+                  "có",
+                  "cỏ",
+                  "cọ",
+                  "cô",
+                  "cồ",
+                  "cố",
+                  "cổ",
+                  "cỗ",
+                  "cộ",
+                  "cơ",
+                  "cờ",
+                  "cớ",
+                  "cỡ",
+                  "cu",
+                  "cù",
+                  "cú",
+                  "củ",
+                  "cũ",
+                  "cụ",
+                  "cư",
+                  "cừ",
+                  "cứ",
+                  "cử",
+                  "cữ"
+              ]
+            }
+          }
+        ]
+      },
+      {
+        "name": "dongthungchai",
+		"thumb": "chai van",
+        "intro": [
+          {
+            "animation": {
+              "name": "game",
+              "game": "dongthungchai",
+			  "type": "amdau",
+              "values": [
+                 "nâu",
+                  "trâu",
+                  "cầu",
+                  "gấu",
+                  "cẩu",
+                  "mẫu",
+                  "đậu",
+                  "cậu",
+                  "dậu",
+                  "đậu",
+                  "hậu",
+                  "lậu",
+                  "tậu",
+                  "chậu",
+                  "nhậu",
+                  "dẫu",
+                  "mẫu",
+                  "nẫu",
+                  "ngẫu",
+                  "cẩu",
+                  "đẩu",
+                  "lẩu",
+                  "mẩu",
+                  "tẩu",
+                  "vẩu",
+                  "xẩu",
+                  "chẩu",
+                  "tấu",
+                  "giấu",
+                  "ngấu",
+                  "khấu",
+                  "thấu",
+                  "trấu",
+                  "bấu",
+                  "cấu",
+                  "dấu",
+                  "đấu",
+                  "gấu",
+                  "hấu",
+                  "nấu",
+                  "sấu",
+                  "chầu",
+                  "giầu",
+                  "ngầu",
+                  "nhầu",
+                  "thầu",
+                  "bầu",
+                  "cầu",
+                  "dầu",
+                  "đầu",
+                  "hầu",
+                  "lầu",
+                  "sầu",
+                  "tầu",
+                  "tâu",
+                  "vâu",
+                  "xâu",
+                  "ngâu",
+                  "thâu",
+                  "trâu",
+                  "bâu",
+                  "câu",
+                  "dâu",
+                  "đâu",
+                  "lâu",
+                  "nâu",
+                  "râu",
+                  "sâu"
+              ]
+            }
+          }
+        ]
+      }
+
+    ]
+  }
+]

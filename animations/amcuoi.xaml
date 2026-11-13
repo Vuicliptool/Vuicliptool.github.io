@@ -1,0 +1,425 @@
+<UserControl x:Class="projectname.Paths.amcuoi" d:DesignHeight="400" d:DesignWidth="400" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" FontFamily="{StaticResource PhoneFontFamilyNormal}">
+    <UserControl.Resources>
+        <Storyboard x:Name="sb1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path2" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.7500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.7500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.7500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.7500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.7500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.7500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path3" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path4" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path4" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path4" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path5" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path5" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path6" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.7500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path6" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.7500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path6" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.7500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path7" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path7" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path7" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path8" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.2500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.2500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path8" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.2500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path9" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path9" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path9" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path10" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.7500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path10" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.7500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path10" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7500000" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.7500000" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path11" Storyboard.TargetProperty="(UIElement.Opacity)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path11" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path11" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0.2"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04" Value="1">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid Width="400" Height="400">
+        <Path x:Name="path" Fill="#F4821F" Data="M53.6,76.6V56.9c0-1.9-0.3-3.7-0.8-5.3c-0.6-1.9-1.5-3.4-2.7-4.6c-2.2-2.1-4.8-3.1-7.8-3.1s-5.7,1-7.8,3.1&#xD;&#xA;	c-1.2,1.1-2.1,2.6-2.6,4.4c-0.5,1.6-0.7,3.3-0.7,5.1v20.1h-4.6v-36h4.6v4.6h0.1c2.4-3.7,6.1-5.5,11.1-5.5s9,1.6,11.8,4.8&#xD;&#xA;	c2.7,3.1,4,7.2,4,12.3v19.8C58.2,76.6,53.6,76.6,53.6,76.6z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path1" Fill="#F4821F" Data="M151.5,76.6V55.8c0-3.5-0.7-6.3-2.2-8.3c-1.7-2.4-4.2-3.6-7.6-3.6s-5.9,1.2-7.5,3.6&#xD;&#xA;	c-1.5,2.1-2.2,4.9-2.2,8.3v20.8h-4.6V55.8c0-3.5-0.8-6.3-2.2-8.3c-1.7-2.4-4.2-3.6-7.5-3.6c-3.4,0-5.9,1.2-7.6,3.6&#xD;&#xA;	c-1.5,2.1-2.2,4.9-2.2,8.3v20.8h-4.6v-36h4.6v4.1c2.1-3.4,5.4-5.1,9.8-5.1c5.5,0,9.5,2.3,12.1,6.9c2.9-4.6,6.9-6.9,12.1-6.9&#xD;&#xA;	c4.5,0,8,1.5,10.7,4.5c2.5,2.8,3.8,6.5,3.8,11v21.4L151.5,76.6L151.5,76.6z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path2" Fill="#F4821F" Data="M209.9,44.8v31.8h-4.6V44.8h-7.6v-4.1h7.6V28h4.6v12.7h8.6v4.1H209.9z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path3" Fill="#F4821F" Data="M295.2,72.1c-3.7,3.6-8.3,5.4-13.7,5.4c-6.1,0-10.7-2.4-14-7.2h-0.1v18.9h-4.6V40.7h4.6V47h0.1&#xD;&#xA;	c3.4-4.8,8.1-7.2,14-7.2c5.4,0,9.9,1.8,13.6,5.4c3.8,3.6,5.7,8.1,5.7,13.5C300.8,63.9,298.9,68.5,295.2,72.1z M292,48.1&#xD;&#xA;	c-2.8-2.8-6.3-4.2-10.6-4.2c-4,0-7.5,1.5-10.3,4.4s-4.1,6.4-4.1,10.4s1.4,7.5,4.1,10.3c2.8,2.9,6.2,4.3,10.3,4.3&#xD;&#xA;	c4.2,0,7.7-1.4,10.5-4.1c2.8-2.8,4.2-6.3,4.2-10.5C296.2,54.5,294.8,50.9,292,48.1z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path4" Fill="#F4821F" Data="M376.6,66c-3.9,7.6-9.8,11.5-17.9,11.5c-5.4,0-9.9-1.8-13.6-5.4c-3.8-3.6-5.7-8.1-5.7-13.4s1.9-9.7,5.7-13.5&#xD;&#xA;	c3.8-3.7,8.3-5.5,13.6-5.5c4,0,7.5,1,10.8,3.1s5.7,5,7.1,8.7h-5.1c-2.7-5.1-6.9-7.6-12.7-7.6c-4.1,0-7.6,1.4-10.5,4.2&#xD;&#xA;	s-4.4,6.3-4.4,10.4c0,4.2,1.4,7.7,4.3,10.5s6.4,4.3,10.6,4.3c5.9,0,10.2-2.4,12.7-7.3H376.6z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path5" Fill="#F4821F" Data="M63.7,202.6c-3.9,7.6-9.8,11.5-17.9,11.5c-5.4,0-9.9-1.8-13.6-5.4c-3.8-3.6-5.7-8.1-5.7-13.4&#xD;&#xA;	c0-5.3,1.9-9.7,5.7-13.5c3.8-3.7,8.3-5.5,13.6-5.5c4,0,7.5,1,10.8,3.1s5.7,5,7.1,8.7h-5.1c-2.7-5.1-6.9-7.6-12.7-7.6&#xD;&#xA;	c-4.1,0-7.6,1.4-10.5,4.2S31,191,31,195.1c0,4.2,1.4,7.7,4.3,10.5s6.4,4.3,10.6,4.3c5.9,0,10.2-2.4,12.7-7.3H63.7z M97.5,213.2&#xD;&#xA;	v-19.8c0-1.9-0.3-3.7-0.8-5.3c-0.6-1.9-1.5-3.4-2.7-4.6c-2.2-2.1-4.8-3.1-7.8-3.1s-5.7,1-7.8,3.1c-1.2,1.1-2.1,2.6-2.6,4.4&#xD;&#xA;	c-0.5,1.6-0.7,3.3-0.7,5.1v20.1h-4.6v-48.7H75v17.3h0.1c2.4-3.7,6.1-5.5,11.1-5.5s9,1.6,11.8,4.8c2.7,3.1,4,7.2,4,12.3v19.8&#xD;&#xA;	L97.5,213.2L97.5,213.2z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path6" Fill="#F4821F" Data="M193.5,213.6v-19.8c0-1.9-0.3-3.7-0.8-5.3c-0.6-1.9-1.5-3.4-2.7-4.6c-2.2-2.1-4.8-3.1-7.8-3.1&#xD;&#xA;	s-5.7,1-7.8,3.1c-1.2,1.1-2.1,2.6-2.6,4.4c-0.5,1.6-0.7,3.3-0.7,5.1v20.1h-4.6v-36h4.6v4.6h0.1c2.4-3.7,6.1-5.5,11.1-5.5&#xD;&#xA;	s9,1.6,11.8,4.8c2.7,3.1,4,7.2,4,12.3v19.8L193.5,213.6L193.5,213.6z M233.3,213.6v-19.8c0-1.9-0.3-3.7-0.8-5.3&#xD;&#xA;	c-0.6-1.9-1.5-3.4-2.7-4.6c-2.2-2.1-4.8-3.1-7.8-3.1s-5.7,1-7.8,3.1c-1.2,1.1-2.1,2.6-2.6,4.4c-0.5,1.6-0.7,3.3-0.7,5.1v20.1h-4.6&#xD;&#xA;	V165h4.6v17.3h0.1c2.4-3.7,6.1-5.5,11.1-5.5s9,1.6,11.8,4.8c2.7,3.1,4,7.2,4,12.3v19.8h-4.6V213.6z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path7" Fill="#F4821F" Data="M325.7,213.6v-19.8c0-1.9-0.3-3.7-0.8-5.3c-0.6-1.9-1.5-3.4-2.7-4.6c-2.2-2.1-4.8-3.1-7.8-3.1&#xD;&#xA;	s-5.7,1-7.8,3.1c-1.2,1.1-2.1,2.6-2.6,4.4c-0.5,1.6-0.7,3.3-0.7,5.1v20.1h-4.6v-36h4.6v4.6h0.1c2.4-3.7,6.1-5.5,11.1-5.5&#xD;&#xA;	s9,1.6,11.8,4.8c2.7,3.1,4,7.2,4,12.3v19.8L325.7,213.6L325.7,213.6z M374.3,208c0,1.4,0,2.5-0.1,3.5c-0.1,1.2-0.2,2.4-0.4,3.4&#xD;&#xA;	c-0.5,2.4-1.4,4.5-2.8,6.3c-3.4,4.4-8.1,6.6-14.3,6.6c-4.4,0-8.2-1.1-11.5-3.4c-3.4-2.3-5.7-5.6-6.9-9.8h4.9c2.4,6,6.9,9.1,13.5,9.1&#xD;&#xA;	c4,0,7.2-1.2,9.6-3.7c2.3-2.4,3.5-5.7,3.5-9.7v-3.2h-0.1c-1.3,2.4-3.2,4.3-5.9,5.6c-2.4,1.2-5.1,1.9-8,1.9c-5.2,0-9.7-1.8-13.3-5.4&#xD;&#xA;	c-3.7-3.6-5.5-8.1-5.5-13.3s1.8-9.7,5.5-13.5c3.7-3.7,8.1-5.6,13.4-5.6c6.1,0,10.7,2.5,13.9,7.4h0.1v-6.4h4.6V208H374.3z&#xD;&#xA;	 M365.9,185.3c-2.8-3-6.2-4.4-10.1-4.4c-4,0-7.4,1.5-10.1,4.4s-4.1,6.3-4.1,10.4c0,4,1.4,7.4,4.1,10.3c2.8,2.9,6.1,4.4,10.1,4.4&#xD;&#xA;	c3.9,0,7.3-1.5,10.1-4.4c2.8-2.9,4.1-6.3,4.1-10.3S368.6,188.2,365.9,185.3z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path8" Fill="#3A85DA" Data="M29.5,324.1v-8.3h4.6v8.3H29.5z M29.5,364.4v-36h4.6v36H29.5z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path9" Fill="#3A85DA" Data="M135.2,377.1h-4.8l6.2-13.8l-14-34.8h4.9l11.4,28.7l12.2-28.7h4.8L135.2,377.1z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path10" Fill="#3A85DA" Data="M259.9,359.7c-3.7,3.7-8.1,5.6-13.3,5.6c-5.1,0-9.5-1.8-13.2-5.5s-5.6-8-5.6-13.1c0-5.2,1.8-9.7,5.5-13.5&#xD;&#xA;	s8.1-5.7,13.3-5.7c5.1,0,9.5,1.9,13.3,5.6c3.7,3.7,5.6,8.2,5.6,13.3C265.4,351.6,263.5,356,259.9,359.7z M256.6,336&#xD;&#xA;	c-2.8-2.9-6.1-4.3-10-4.3c-4,0-7.4,1.5-10.2,4.5c-2.7,2.9-4,6.4-4,10.4c0,3.9,1.4,7.3,4.1,10.2c2.8,2.9,6.1,4.3,10.1,4.3&#xD;&#xA;	c4.1,0,7.5-1.5,10.2-4.4c2.7-2.9,4-6.4,4-10.5C260.8,342.3,259.4,338.9,256.6,336z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="path11" Fill="#3A85DA" Data="M365.4,364.4v-5.6h-0.1c-1,2.1-2.6,3.7-4.8,4.9c-2,1-4.2,1.6-6.7,1.6c-5.4,0-9.5-1.8-12.4-5.4&#xD;&#xA;	c-1.2-1.5-2-3.3-2.5-5.5c-0.4-1.8-0.6-3.8-0.6-6.1v-19.8h4.6v19.8c0,4,0.8,7.1,2.4,9.2c1.8,2.4,4.7,3.7,8.5,3.7c3,0,5.6-1,7.6-2.9&#xD;&#xA;	c1.5-1.4,2.5-3,3-4.9c0.5-1.5,0.7-3.5,0.7-5.8v-19h4.6v36h-4.3V364.4z" RenderTransformOrigin="0.5,0.5" Opacity="0">
+            <Path.RenderTransform>
+                <CompositeTransform ScaleX="0.2" ScaleY="0.2"/>
+            </Path.RenderTransform>
+        </Path>
+    </Grid>
+</UserControl>

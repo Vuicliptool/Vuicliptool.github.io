@@ -1,0 +1,79 @@
+<UserControl x:Class="projectname.Paths.unlock" d:DesignHeight="400" d:DesignWidth="400" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" FontFamily="{StaticResource PhoneFontFamilyNormal}">
+    <UserControl.Resources>
+        <Storyboard x:Name="sb">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="grid" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.1000000" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.3000000" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.4000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.5000000" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.6000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.7000000" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.8000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.9000000" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:00.9500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.0500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.1000000" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.1500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2000000" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.2500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.3000000" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.3500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.4000000" Value="14"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.4500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.7000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="grid1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.3500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.7000000" Value="54">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="grid2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.3500000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.7000000" Value="5">
+                    <EasingDoubleKeyFrame.EasingFunction>
+                        <BackEase EasingMode="EaseInOut"/>
+                    </EasingDoubleKeyFrame.EasingFunction>
+                </EasingDoubleKeyFrame>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid x:Name="grid" Width="400" Height="400" RenderTransformOrigin="0.499,0.452">
+        <Grid.RenderTransform>
+            <CompositeTransform/>
+        </Grid.RenderTransform>
+        <Grid x:Name="grid2" RenderTransformOrigin="0.271,0.299">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Path Fill="#EC652B" Data="M127.458,44.541c-18.694,8.884-33.074,10.433-38.332,27.902c-7.145,23.73,3.428,60.255,9.049,72.922&#xD;&#xA;		c1.001,2.237,2.884,3.958,5.201,4.724c2.081,0.68,4.326,0.533,6.266-0.392c0.218-0.104,0.432-0.215,0.644-0.343l14.229-8.404&#xD;&#xA;		c2.249-1.296,1.988-20.026,0.875-22.393c-3.709-7.937-9.514-9.944-4.938-25.188c2.716-9.054,9.314-15.973,20.173-21.136&#xD;&#xA;		c10.811-5.137,20.3-5.896,29.016-2.337c13.77,5.621,23.737,21.448,28.178,30.652c1.143,2.372,3.861,3.489,6.278,2.573l14.596-5.394&#xD;&#xA;		c0.24-0.093,0.48-0.19,0.715-0.303c2.162-1.028,3.846-2.861,4.703-5.135c0.959-2.514,0.042-20.463-1.2-22.856&#xD;&#xA;		c-6.505-12.505-19.54-18.575-41.89-27.791C164.173,34.682,146.144,35.657,127.458,44.541">
+            </Path>
+            <Path Fill="#E89C2E" Data="M126.653,35.391c-18.694,8.885-31.933,21.499-37.19,38.969c-7.145,23.73,2.287,49.188,7.908,61.856&#xD;&#xA;		c1.001,2.237,2.884,3.958,5.2,4.723c2.082,0.681,4.326,0.534,6.266-0.391c0.219-0.103,0.432-0.215,0.644-0.343l14.229-8.403&#xD;&#xA;		c2.249-1.297,2.793-10.877,1.679-13.243c-3.709-7.938-10.318-19.094-5.742-34.338c2.716-9.055,9.314-15.974,20.173-21.136&#xD;&#xA;		c10.811-5.138,20.301-5.896,29.016-2.337c13.77,5.621,23.738,21.448,28.178,30.652c1.143,2.372,3.861,3.489,6.278,2.573&#xD;&#xA;		l14.596-5.394c0.239-0.093,0.48-0.19,0.714-0.303c2.163-1.028,3.847-2.861,4.704-5.135c0.958-2.515,0.846-11.314-0.396-13.707&#xD;&#xA;		c-6.505-12.505-20.345-27.725-42.694-36.941C163.368,25.532,145.339,26.507,126.653,35.391">
+            </Path>
+            <Path Fill="#F8E855" Data="M125.952,27.421c-18.694,8.885-30.815,22.245-36.073,39.714c-7.145,23.73,1.169,48.443,6.79,61.11&#xD;&#xA;		c1.001,2.237,2.884,3.958,5.201,4.723c2.081,0.681,4.326,0.534,6.266-0.391c0.218-0.103,0.432-0.215,0.644-0.343l14.23-8.403&#xD;&#xA;		c2.249-1.297,3.104-4.114,1.991-6.48c-3.709-7.938-10.63-25.857-6.054-41.102c2.716-9.055,9.314-15.974,20.173-21.136&#xD;&#xA;		c10.811-5.138,20.301-5.896,29.016-2.337c13.77,5.621,23.737,21.448,28.178,30.652c1.143,2.372,3.861,3.489,6.279,2.573&#xD;&#xA;		l14.595-5.394c0.24-0.093,0.48-0.19,0.715-0.303c2.162-1.028,3.846-2.861,4.703-5.135c0.959-2.515,0.79-5.33-0.451-7.723&#xD;&#xA;		c-6.505-12.505-20.288-33.708-42.639-42.925C162.667,17.563,144.638,18.538,125.952,27.421">
+            </Path>
+            <Path Fill="#FFFFFF" Data="M101.504,113.789c-2.043,0.18-4.011-1.063-4.67-3.096c-0.516-1.595-12.411-39.314,8.169-61.607&#xD;&#xA;		c19.951-21.61,40.923-24.055,41.806-24.149c2.505-0.28,4.688,1.53,4.949,4.001c0.262,2.471-1.53,4.687-4.001,4.949&#xD;&#xA;		c-0.167,0.019-18.618,2.323-36.141,21.304c-16.993,18.406-6.329,52.392-6.219,52.733c0.761,2.364-0.538,4.899-2.901,5.662&#xD;&#xA;		C102.167,113.693,101.834,113.759,101.504,113.789z">
+            </Path>
+        </Grid>
+        <Grid x:Name="grid1" RenderTransformOrigin="0.274,0.427">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Path Fill="#EC652B" Data="M313.514,193.839l-45.171-81.219c-4.714-9.909-16.5-14.191-26.291-9.536L93.633,159.488&#xD;&#xA;		c-9.792,4.66-7.036,27.388-2.324,37.292l45.933,96.623c6.74,14.182,23.567,20.274,37.571,13.618l126.301-60.042&#xD;&#xA;		C323.675,235.792,320.253,208.019,313.514,193.839z M221.298,241.925c-4.727,2.247-10.39,0.197-12.669-4.593l-7.835-16.482&#xD;&#xA;		c-9.391,0.35-18.582-4.882-22.922-14.001c-5.789-12.186-0.719-26.707,11.329-32.434c12.04-5.726,26.504-0.49,32.293,11.694&#xD;&#xA;		c1.03,2.166-5.104,9.491-5.104,9.491s-1.405,4.745,1.506,17.12l7.835,16.482C228.009,233.993,226.012,239.687,221.298,241.925z">
+            </Path>
+            <Path Fill="#E89C2E" Data="M314.123,195.521l-46.585-92.051c-4.714-9.909-16.5-14.192-26.291-9.536L95.66,158.139&#xD;&#xA;		c-9.792,4.66-9.868,19.588-5.156,29.492l45.933,96.622c6.74,14.183,23.566,20.275,37.571,13.619l126.3-60.043&#xD;&#xA;		C314.313,231.174,320.863,209.7,314.123,195.521z M217.09,203.57l7.835,16.482c2.278,4.79,0.281,10.483-4.432,12.723&#xD;&#xA;		c-4.727,2.248-10.391,0.197-12.669-4.594l-7.835-16.482c-9.391,0.351-18.582-4.881-22.922-14.001&#xD;&#xA;		c-5.789-12.186-0.719-26.707,11.329-32.433c12.039-5.727,26.708-0.587,32.293,11.693&#xD;&#xA;		C227.037,190.921,212.579,192.024,217.09,203.57z">
+            </Path>
+            <Path Fill="#F8E855" Data="M312.77,192.123l-45.933-96.622c-4.714-9.909-16.499-14.192-26.291-9.536L99,153.253&#xD;&#xA;		c-9.792,4.66-13.909,16.503-9.197,26.408l45.933,96.622c6.74,14.184,23.567,20.276,37.571,13.619l126.301-60.042&#xD;&#xA;		C313.612,223.204,319.509,206.302,312.77,192.123z M224.224,212.083c2.279,4.791,0.282,10.483-4.432,12.723&#xD;&#xA;		c-4.727,2.248-10.39,0.197-12.669-4.593l-7.835-16.482c-9.392,0.351-18.583-4.881-22.922-14.002&#xD;&#xA;		c-5.79-12.185-0.719-26.706,11.328-32.433c12.039-5.726,26.504-0.49,32.293,11.695c4.341,9.124,2.591,19.551-3.599,26.61&#xD;&#xA;		L224.224,212.083z">
+            </Path>
+            <Path Fill="#FFFFFF" Data="M123.08,224.186c-1.676,0.147-3.355-0.704-4.186-2.29c-2.183-4.184-21.396-41.033-23.406-47.131&#xD;&#xA;		c-3.417-10.355,2.452-17.186,22.425-26.085c2.168-0.974,4.706,0.007,5.671,2.176c0.965,2.164-0.007,4.705-2.175,5.671&#xD;&#xA;		c-19.952,8.894-18.684,12.742-17.758,15.549c1.356,4.113,14.415,29.668,22.863,45.84c1.099,2.106,0.282,4.7-1.819,5.799&#xD;&#xA;		C124.174,223.983,123.627,224.137,123.08,224.186z">
+            </Path>
+        </Grid>
+    </Grid>
+</UserControl>

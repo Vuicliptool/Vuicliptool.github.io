@@ -1,0 +1,1043 @@
+<UserControl x:Class="projectname.Paths.box" d:DesignHeight="400" d:DesignWidth="400" xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" mc:Ignorable="d" FontFamily="{StaticResource PhoneFontFamilyNormal}">
+    <UserControl.Resources>
+        <Storyboard x:Name="sb1">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="180"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gear1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-720"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="-720"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="-720"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="-1440"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gear2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-720"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="-720"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="-720"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="-1440"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gear3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-720"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="-720"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="-720"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="-1440"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepgiua" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepphai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepphai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="-60"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7000000" Value="-60"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="-36"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="keptrai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="keptrai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.7000000" Value="60"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="36"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="41"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="41"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="28"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="28"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="24"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="24"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="41"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="41"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="13"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="13"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="8"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="8"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.2000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="-96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="-96"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="180"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="180"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="-50"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="280"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="280"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="50"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="242"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="62"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="62"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="62"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="62"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="64"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="64"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="-32.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="-32.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="242"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="242"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="12"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:04.5000000" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="64.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="340"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="340"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="112"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="64.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:07" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sb2">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-420"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepgiua" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepphai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="keptrai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-51"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-51"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-51"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-26"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-26"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-26"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepgiua" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepphai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepphai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="keptrai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="keptrai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-38"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-38"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-38"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="1.35"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="1.35"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepgiua" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gear1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-2160"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gear2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-2160"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gear3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-2160"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-420"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-320"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="62"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-32.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-32.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-32.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="24.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="24.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="24.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="112"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="112"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-258"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="64.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="64.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+        <Storyboard x:Name="sb3">
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-320"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepgiua" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepphai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="keptrai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="62"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="62"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="62"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="33"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="33"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="33"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="10"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepgiua" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepphai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepphai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="-36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="keptrai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="57"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="keptrai" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="36"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="arm1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-96"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="-38"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-38"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-38"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gear1" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-2160"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gear2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-2160"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="gear3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-1440"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-2160"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="-50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-420"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="50"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-320"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.ScaleY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="1.35"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="1.35"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="1"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="1"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="path" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="kepgiua" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.Rotation)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="62"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="112"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="112"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="112"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="112"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-259"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box1_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="-32.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01" Value="-32.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:01.5000000" Value="-32.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:02" Value="24.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="24.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="24.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="12"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-360"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="112"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="112"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="-259"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="64.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3_2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="64.5"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="64.5"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box2" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+            <DoubleAnimationUsingKeyFrames Storyboard.TargetName="box3" Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateY)">
+                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:03.5000000" Value="0"/>
+                <EasingDoubleKeyFrame KeyTime="00:00:05.5000000" Value="0"/>
+            </DoubleAnimationUsingKeyFrames>
+        </Storyboard>
+    </UserControl.Resources>
+    <Grid Width="400" Height="400">
+        <Path x:Name="path" Fill="#453C74" Data="M251.5,20.3h15.8v97.2h-15.8V20.3z" RenderTransformOrigin="0.647,0.08">
+            <Path.RenderTransform>
+                <CompositeTransform/>
+            </Path.RenderTransform>
+        </Path>
+        <Grid x:Name="kepgiua" RenderTransformOrigin="0.65,0.269">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Path Fill="#4FC3C4" Data="M269,91.1h-18.4c-3.3,2.7-5.4,6.8-5.4,11.3l0,13.3l29.2,0l0-13.3C274.3,97.8,272.2,93.8,269,91.1z">
+            </Path>
+            <Path Fill="#453C74" Data="M245.7,115.7h28.2c1.7,0,3.1,1.4,3.1,3.1v1h-34.5v-1C242.6,117.1,244,115.7,245.7,115.7z">
+            </Path>
+            <Path Fill="#20A69F" Data="M278.3,135.1l-34.7,0c-4.2,0-7.7-3.4-7.7-7.7l0,0c0-4.2,3.4-7.7,7.7-7.7l34.7,0c4.2,0,7.7,3.4,7.7,7.7l0,0&#xD;&#xA;		C286,131.7,282.5,135.1,278.3,135.1z">
+            </Path>
+        </Grid>
+        <Grid x:Name="kepphai" RenderTransformOrigin="0.698,0.318">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Path Fill="#453C74" Data="M290.6,147l13.2,9.6l-31.9,28c-1.8,1.6-4.4,1.7-6.3,0.3l-1.6-1.1L290.6,147z">
+            </Path>
+            <Path Fill="#4FC3C4" Data="M274.9,121.5c-2.3,1.8-3.1,5-2,7.8l11.9,27.6c2.5,6,9.8,8.4,15.5,5.2l0,0c6-3.4,7.4-11.4,2.9-16.6l-19.2-23&#xD;&#xA;		C281.7,119.7,277.7,119.3,274.9,121.5L274.9,121.5z">
+            </Path>
+            <Path Fill="#453C74" Data="M293.8,148.1c-2.9,0.5-4.4,3.7-2.9,6.2c0.8,1.5,2.6,2.4,4.4,2.1c2.9-0.5,4.4-3.7,2.9-6.2&#xD;&#xA;		C297.3,148.6,295.5,147.8,293.8,148.1z">
+            </Path>
+            <Path Fill="#453C74" Data="M278.8,124.1c-2.2,0.4-3.3,2.9-2.2,4.8c0.7,1.2,2,1.8,3.4,1.6c2.2-0.4,3.3-2.9,2.2-4.8&#xD;&#xA;		C281.5,124.5,280.1,123.8,278.8,124.1z">
+            </Path>
+        </Grid>
+        <Grid x:Name="keptrai" RenderTransformOrigin="0.607,0.317">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Path Fill="#453C74" Data="M258.2,183.5l-1.6,1.1c-1.9,1.4-4.5,1.3-6.3-0.3l-31.9-28l13.2-9.6L258.2,183.5z">
+            </Path>
+            <Path Fill="#4FC3C4" Data="M247.3,121.3c-2.8-2.2-6.9-1.8-9.1,1l-19.2,23c-4.4,5.2-3,13.2,2.9,16.6l0,0c5.7,3.2,12.9,0.8,15.5-5.2&#xD;&#xA;		l11.9-27.6C250.4,126.3,249.6,123.1,247.3,121.3L247.3,121.3z">
+            </Path>
+            <Path Fill="#453C74" Data="M223.9,150c-1.4,2.6,0.1,5.7,2.9,6.2c1.7,0.3,3.5-0.5,4.4-2.1c1.4-2.6-0.1-5.7-2.9-6.2&#xD;&#xA;		C226.6,147.6,224.8,148.4,223.9,150z">
+            </Path>
+            <Path Fill="#453C74" Data="M240,125.5c-1.1,1.9,0,4.4,2.2,4.8c1.4,0.2,2.7-0.4,3.4-1.6c1.1-1.9,0-4.4-2.2-4.8&#xD;&#xA;		C242.1,123.6,240.7,124.3,240,125.5z">
+            </Path>
+        </Grid>
+        <Path x:Name="path1" Fill="#453C74" Data="M142.2,11.5h122v15.8h-122V11.5z" RenderTransformOrigin="0.372,0.047">
+            <Path.RenderTransform>
+                <CompositeTransform/>
+            </Path.RenderTransform>
+        </Path>
+        <Grid x:Name="arm3" RenderTransformOrigin="0.649,0.047">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Path Fill="#4FC3C4" Data="M263.1,36.7h-18.6c-2.1,0-3.9-1.7-3.9-3.9V5.9c0-2.1,1.7-3.9,3.9-3.9h18.6c9.6,0,17.3,7.7,17.3,17.3l0,0&#xD;&#xA;		C280.5,28.9,272.7,36.7,263.1,36.7z">
+            </Path>
+            <Path Fill="#453C74" Data="M263.2,27.6c-4.7,1.9-10-0.3-12-4.9c-1.9-4.7,0.3-10,4.9-12c4.6-2,10,0.3,12,4.9&#xD;&#xA;		C270,20.4,267.8,25.7,263.2,27.6z M257.6,14.4c-2.7,1.1-3.9,4.2-2.8,6.9c1.1,2.7,4.2,3.9,6.9,2.8c2.7-1.1,3.9-4.2,2.8-6.9&#xD;&#xA;		C263.4,14.5,260.3,13.2,257.6,14.4z">
+            </Path>
+        </Grid>
+        <Grid x:Name="arm2" RenderTransformOrigin="0.117,0.244">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Path Fill="#312A52" Data="M25.8,92.5c-0.2-0.4-6.1-10.5-8.3-23.4c-3-17.7,2.2-32.1,15.2-41.7c9.5-7,20.4-9.7,31.5-7.8&#xD;&#xA;		c12.8,2.2,23.5,10.2,26.7,15l-5.6,3.8C83.1,35.3,74.1,28.2,63,26.3c-9.3-1.6-18.2,0.6-26.3,6.6C25.8,41.1,21.5,52.9,24.1,68&#xD;&#xA;		c2,11.7,7.4,21,7.5,21.1L25.8,92.5z">
+            </Path>
+            <Path Fill="#453C74" Data="M80.6,38.5l11.9-8.2c1-0.7,2.4-0.5,3.1,0.6l0.4,0.6c0.7,1,0.5,2.4-0.6,3.1l-11.9,8.2&#xD;&#xA;		c-1,0.7-2.4,0.5-3.1-0.6L80,41.6C79.3,40.6,79.5,39.2,80.6,38.5z">
+            </Path>
+            <Path Fill="#312A52" Data="M32.7,109.3L32.7,109.3c-3.9-5.1-2.9-12.3,2.1-16.2L91,49.9l14.1,18.4l-56.2,43.2&#xD;&#xA;		C43.8,115.3,36.6,114.4,32.7,109.3z">
+            </Path>
+            <Path Fill="#453C74" Data="M79.3,49.6l23.1,30c0.8,1,0.6,2.5-0.4,3.2l-3.4,2.6c-1,0.8-2.5,0.6-3.2-0.4L72.3,55c-0.8-1-0.6-2.5,0.4-3.2&#xD;&#xA;		l3.4-2.6C77.1,48.4,78.5,48.6,79.3,49.6z">
+            </Path>
+            <Path Fill="#4FC3C4" Data="M99.3,84.2c1.2,1.6,3.5,1.8,4.9,0.5l57.6-50.5c7.7-6.8,8.9-18.5,2.6-26.6l0,0c-6.3-8.1-17.9-10-26.4-4.2&#xD;&#xA;		L74.8,46.5c-1.6,1.1-2,3.3-0.8,4.9L99.3,84.2z">
+            </Path>
+            <Path Fill="#453C74" Data="M154.5,30.5c-6.1,3.2-13.7,0.9-16.9-5.1s-0.9-13.7,5.1-16.9c6.1-3.2,13.7-0.9,16.9,5.1&#xD;&#xA;		C162.8,19.7,160.5,27.3,154.5,30.5z M145.2,13.1c-3.5,1.9-4.9,6.3-3,9.8c1.9,3.5,6.3,4.9,9.8,3c3.5-1.9,4.9-6.3,3-9.8&#xD;&#xA;		C153.1,12.5,148.7,11.2,145.2,13.1z">
+            </Path>
+        </Grid>
+        <Grid x:Name="arm1" RenderTransformOrigin="0.113,0.501">
+            <Grid.RenderTransform>
+                <CompositeTransform/>
+            </Grid.RenderTransform>
+            <Path Fill="#4FC3C4" Data="M46,232.4L46,232.4c-20.7,0.1-37.6-16.7-37.7-37.5l-0.3-94.2C8,80,24.8,63.1,45.5,63.1l0,0&#xD;&#xA;		c20.7-0.1,37.6,16.7,37.7,37.5l0.3,94.2C83.6,215.5,66.8,232.3,46,232.4z">
+            </Path>
+            <Path Fill="#453C74" Data="M41.7,78.7c-10.5,3-16.5,14-13.5,24.5c3,10.5,14,16.5,24.5,13.5c10.5-3,16.5-14,13.5-24.5&#xD;&#xA;		C63.2,81.8,52.2,75.7,41.7,78.7z M50.5,109.1c-6.3,1.8-12.8-1.8-14.6-8.1C34,94.7,37.7,88.2,44,86.4c6.3-1.8,12.8,1.8,14.6,8.1&#xD;&#xA;		S56.8,107.3,50.5,109.1z">
+            </Path>
+        </Grid>
+        <Grid x:Name="box1" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateX="180"/>
+            </Grid.RenderTransform>
+            <Path Fill="#E78D43" Data="M221.7,244.2h78.4v39.2h-78.4V244.2z">
+            </Path>
+            <Path Fill="#FBB478" Data="M226.5,244.2h68.9v39.2h-68.9V244.2z">
+            </Path>
+        </Grid>
+        <Grid x:Name="box2" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateX="180"/>
+            </Grid.RenderTransform>
+            <Path Fill="#E78D43" Data="M221.7,244.2h78.4v39.2h-78.4V244.2z">
+            </Path>
+            <Path Fill="#FBB478" Data="M226.5,244.2h68.9v39.2h-68.9V244.2z">
+            </Path>
+        </Grid>
+        <Grid x:Name="box3" RenderTransformOrigin="0.5,0.5">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateX="280"/>
+            </Grid.RenderTransform>
+            <Path Fill="#E78D43" Data="M221.7,244.2h78.4v39.2h-78.4V244.2z"/>
+            <Path Fill="#FBB478" Data="M226.5,244.2h68.9v39.2h-68.9V244.2z">
+            </Path>
+        </Grid>
+        <Grid x:Name="box1_2" RenderTransformOrigin="0.5,0.5" Width="80" Height="40" Background="#ff0000" d:IsHidden="True">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateX="242" TranslateY="64"/>
+            </Grid.RenderTransform>
+            <Path Fill="#E78D43" Data="M221.7,244.2h78.4v39.2h-78.4V244.2z">
+            </Path>
+        </Grid>
+        <Grid x:Name="box2_2" RenderTransformOrigin="0.5,0.5" Width="80" Height="40" Background="#ff0000" Margin="160,180,160,180" d:IsHidden="True">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateX="242" TranslateY="64"/>
+            </Grid.RenderTransform>
+            <Path Fill="#E78D43" Data="M221.7,244.2h78.4v39.2h-78.4V244.2z"/>
+        </Grid>
+        <Grid x:Name="box3_2" RenderTransformOrigin="0.5,0.5" Width="80" Height="40" Background="#ff0000" Margin="160,180,160,180" d:IsHidden="True">
+            <Grid.RenderTransform>
+                <CompositeTransform TranslateX="340" TranslateY="64"/>
+            </Grid.RenderTransform>
+            <Path Fill="#E78D43" Data="M221.7,244.2h78.4v39.2h-78.4V244.2z"/>
+        </Grid>
+
+        <Grid x:Name="khung">
+            <Path Fill="#20A69F" Data="M400,285H94.5c-9.7,0-17.5,7.8-17.5,17.5c0,4.8,2,9.2,5.1,12.4c3.2,3.2,7.5,5.1,12.4,5.1H400V285z"/>
+            <Path Fill="#453C74" Data="M400,318.4H94.5c-8.8,0-15.9-7.2-15.9-15.9s7.2-15.9,15.9-15.9H400v-3.1H94.5c-10.5,0-19,8.5-19,19&#xA;  s8.5,19,19,19H400V318.4z"/>
+            <Path Fill="#453C74" Data="M117.1,256.6l-6.8-4.4c11.2-17.5,11.2-33.5,0-46.1c-18.7-20.9-56.6-4.4-56.9-4.2l-3.3-7.4&#xA;  c0.4-0.2,10.9-4.8,24.1-6.5c18.1-2.3,32.7,2.1,42.2,12.7C130,216.1,130.3,236,117.1,256.6z"/>
+            <Path Fill="#312A52" Data="M85.3,235.7H4v-34.9c0-22.5,18.2-40.7,40.7-40.7l0,0c22.5,0,40.7,18.2,40.7,40.7L85.3,235.7L85.3,235.7z"/>
+            <Path Fill="#4FC3C4" Data="M33,186.3c-7.7,6.7-8.5,18.4-1.8,26.1c6.7,7.7,18.4,8.5,26.1,1.9c7.7-6.7,8.5-18.4,1.8-26.1&#xA;  C52.4,180.4,40.7,179.6,33,186.3z M52.3,208.6c-4.6,4-11.6,3.5-15.6-1.1c-4-4.6-3.5-11.6,1.1-15.6c4.6-4,11.6-3.5,15.6,1.1&#xA;  C57.4,197.7,57,204.6,52.3,208.6z"/>
+            <Path Fill="#453C74" Data="M91.5,231.7H1.9c-0.7,0-1.3,0.1-1.9,0.3v30c0.6,0.2,1.3,0.3,1.9,0.3h89.6c4,0,7.2-3.2,7.2-7.2v-16.2&#xA;  C98.7,234.9,95.5,231.7,91.5,231.7z"/>
+            <Path Fill="#4FC3C4" Data="M0,274.3V400h134.8V279.5c0-2.8-0.6-4.3-0.9-5.2H0z"/>
+            <Path Fill="#4FC3C4" Data="M0,246.3v31.3h134.5c-1.7-14.8-17.9-25.2-40.3-31.3H0z"/>
+            <Path Fill="#453C74" Data="M135.4,373H0v27h140.3v-22.1C140.3,375.2,138.1,373,135.4,373z"/>
+            <Path Fill="#453C74" Data="M24.6,299.9L24.6,299.9c-2.7,0-5-2.2-5-5l0,0c0-2.7,2.2-5,5-5l0,0c2.7,0,5,2.2,5,5l0,0&#xA;  C29.5,297.7,27.3,299.9,24.6,299.9z M41.4,299.9L41.4,299.9c-2.7,0-5-2.2-5-5l0,0c0-2.7,2.2-5,5-5l0,0c2.7,0,5,2.2,5,5l0,0&#xA;  C46.4,297.7,44.2,299.9,41.4,299.9z M58.3,299.9L58.3,299.9c-2.7,0-5-2.2-5-5l0,0c0-2.7,2.2-5,5-5l0,0c2.7,0,5,2.2,5,5l0,0&#xA;  C63.3,297.7,61,299.9,58.3,299.9z M75.2,299.9L75.2,299.9c-2.7,0-5-2.2-5-5l0,0c0-2.7,2.2-5,5-5l0,0c2.7,0,5,2.2,5,5l0,0&#xA;  C80.1,297.7,77.9,299.9,75.2,299.9z"/>
+            <Path Fill="#453C74" Data="M7.2,252.2H5c-1.7,1-3.4,2.1-5,3.2v1.7C2.2,255.3,4.7,253.7,7.2,252.2z"/>
+            <Path Fill="#453C74" Data="M0,253.5c0.7-0.4,1.4-0.9,2-1.3H0V253.5z"/>
+            <Path Fill="#453C74" Data="M8.6,262.4h2.2c3-4.4,7.6-7.4,12-10.2h-2.2C16.2,254.9,11.6,258,8.6,262.4z"/>
+            <Path Fill="#453C74" Data="M5.6,262.4c3-4.4,7.6-7.4,12-10.2h-2.2c-4.5,2.7-9,5.8-12,10.2H5.6z"/>
+            <Path Fill="#453C74" Data="M0.4,262.4c3-4.4,7.6-7.4,12-10.2h-2.2c-3.7,2.2-7.4,4.7-10.2,7.9v2.3H0.4z"/>
+            <Path Fill="#453C74" Data="M99.3,262.5c-2.8,3.2-2.4,8.1,0.8,10.8c3.2,2.8,8.1,2.4,10.8-0.8c2.8-3.2,2.4-8.1-0.8-10.8&#xA;  C106.9,258.9,102.1,259.3,99.3,262.5z M101.6,264.5c1.7-1.9,4.6-2.1,6.5-0.4s2.1,4.6,0.4,6.5c-1.7,1.9-4.6,2.1-6.5,0.4&#xA;  C100.2,269.3,100,266.4,101.6,264.5z"/>
+            <Path Fill="#32ADAA" Data="M107.5,306.7c0,0,5.5,6.9,5.5,13.9c0,6.9,0,52.5,0,52.5H97.1v-67.3L107.5,306.7z"/>
+        </Grid>
+        <Path x:Name="gear1" Fill="#312A52" Data="M203.4,295.4c-0.5-1-1.3-2-2.6-1.2c-1.2,0.7-2,0.4-3-0.4c-0.8-0.7-1.7-1.2-2.6-1.7c-1-0.5-1.6-1.1-1.5-2.3&#xA; c0.1-1.6-0.9-2-2.2-2c-1.2,0-2.6-0.2-2.7,1.7c0,1.3-0.8,2-2,2.4c-0.8,0.3-1.6,0.6-2.2,1.1c-1.1,0.9-2.1,1.1-3.4,0.3&#xA; c-1.3-0.9-2.1,0.1-2.7,1.1c-0.6,1-1.4,2.1,0,3c1.3,0.8,1.6,1.7,1.2,3.1c-0.2,0.8-0.1,1.7,0,2.6c0.1,1.2-0.2,2.1-1.3,2.7&#xA; c-1.6,0.8-1,2-0.4,3.2c0.6,1.1,1.3,2,2.8,1.3c0.7-0.4,1.5-0.7,2.2,0c1.2,1,2.6,1.8,3.9,2.5c0.7,0.4,0.9,1,0.9,1.8&#xA; c-0.1,1.7,1,2.1,2.4,2.1c1.3,0,2.6,0,2.6-1.8c0-1.2,0.7-1.8,1.8-2.2c0.9-0.3,1.8-0.8,2.6-1.3c1-0.7,1.9-0.9,3-0.2&#xA; c1.4,0.9,2.1-0.1,2.8-1.1c0.7-1,1.3-2.1-0.1-3c-1.2-0.8-1.4-1.7-1.1-3c0.2-0.8,0.2-1.6,0.1-2.3c-0.1-1.3,0-2.4,1.4-3.1&#xA; C204.7,297.8,204,296.5,203.4,295.4z M191.1,306.6c-2.4,0.2-4.5-1.5-4.7-3.9c-0.2-2.4,1.5-4.5,3.9-4.7c2.4-0.2,4.5,1.6,4.7,3.9&#xA; C195.3,304.3,193.5,306.4,191.1,306.6z" RenderTransformOrigin="0.476,0.756">
+            <Path.RenderTransform>
+                <CompositeTransform/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="gear2" Fill="#312A52" Data="M298.3,295.4c-0.5-1-1.3-2-2.6-1.2c-1.2,0.7-2,0.4-3-0.4c-0.8-0.7-1.7-1.2-2.6-1.7c-1-0.5-1.6-1.1-1.5-2.3&#xA; c0.1-1.6-0.9-2-2.2-2c-1.2,0-2.6-0.2-2.7,1.7c0,1.3-0.8,2-2,2.4c-0.8,0.3-1.6,0.6-2.2,1.1c-1.1,0.9-2.1,1.1-3.4,0.3&#xA; c-1.3-0.9-2.1,0.1-2.7,1.1c-0.6,1-1.4,2.1,0,3c1.3,0.8,1.6,1.7,1.2,3.1c-0.2,0.8-0.1,1.7,0,2.6c0.1,1.2-0.2,2.1-1.3,2.7&#xA; c-1.6,0.8-1,2-0.4,3.2c0.6,1.1,1.3,2,2.8,1.3c0.7-0.4,1.5-0.7,2.2,0c1.2,1,2.6,1.8,3.9,2.5c0.7,0.4,0.9,1,0.9,1.8&#xA; c-0.1,1.7,1,2.1,2.4,2.1c1.3,0,2.6,0,2.6-1.8c0-1.2,0.7-1.8,1.8-2.2c0.9-0.3,1.8-0.8,2.6-1.3c1-0.7,1.9-0.9,3-0.2&#xA; c1.4,0.9,2.1-0.1,2.8-1.1c0.7-1,1.3-2.1-0.1-3c-1.2-0.8-1.4-1.7-1.1-3c0.2-0.8,0.2-1.6,0.1-2.3c-0.1-1.3,0-2.4,1.4-3.1&#xA; C299.6,297.8,298.8,296.5,298.3,295.4z M285.9,306.6c-2.4,0.2-4.5-1.5-4.7-3.9c-0.2-2.4,1.5-4.5,3.9-4.7c2.4-0.2,4.5,1.6,4.7,3.9&#xA; C290.1,304.3,288.3,306.4,285.9,306.6z" RenderTransformOrigin="0.714,0.756">
+            <Path.RenderTransform>
+                <CompositeTransform/>
+            </Path.RenderTransform>
+        </Path>
+        <Path x:Name="gear3" Fill="#312A52" Data="M392.9,295.4c-0.5-1-1.3-2-2.6-1.2c-1.2,0.7-2,0.4-3-0.4c-0.8-0.7-1.7-1.2-2.6-1.7c-1-0.5-1.6-1.1-1.5-2.3&#xA; c0.1-1.6-0.9-2-2.2-2c-1.2,0-2.6-0.2-2.7,1.7c0,1.3-0.8,2-2,2.4c-0.8,0.3-1.6,0.6-2.2,1.1c-1.1,0.9-2.1,1.1-3.4,0.3&#xA; c-1.3-0.9-2.1,0.1-2.7,1.1c-0.6,1-1.4,2.1,0,3c1.3,0.8,1.6,1.7,1.2,3.1c-0.2,0.8-0.1,1.7,0,2.6c0.1,1.2-0.2,2.1-1.3,2.7&#xA; c-1.6,0.8-1,2-0.4,3.2c0.6,1.1,1.3,2,2.8,1.3c0.7-0.4,1.5-0.7,2.2,0c1.2,1,2.6,1.8,3.9,2.5c0.7,0.4,0.9,1,0.9,1.8&#xA; c-0.1,1.7,1,2.1,2.4,2.1c1.3,0,2.6,0,2.6-1.8c0-1.2,0.7-1.8,1.8-2.2c0.9-0.3,1.8-0.8,2.6-1.3c1-0.7,1.9-0.9,3-0.2&#xA; c1.4,0.9,2.1-0.1,2.8-1.1c0.7-1,1.3-2.1-0.1-3c-1.2-0.8-1.4-1.7-1.1-3c0.2-0.8,0.2-1.6,0.1-2.3c-0.1-1.3,0-2.4,1.4-3.1&#xA; C394.2,297.8,393.4,296.5,392.9,295.4z M380.6,306.6c-2.4,0.2-4.5-1.5-4.7-3.9c-0.2-2.4,1.5-4.5,3.9-4.7c2.4-0.2,4.5,1.6,4.7,3.9&#xA; C384.7,304.3,382.9,306.4,380.6,306.6z" RenderTransformOrigin="0.95,0.756">
+            <Path.RenderTransform>
+                <CompositeTransform/>
+            </Path.RenderTransform>
+        </Path>
+    </Grid>
+</UserControl>
