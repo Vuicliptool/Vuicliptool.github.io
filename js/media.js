@@ -1,6 +1,6 @@
 /**
  * js/media.js
- * Quản lý âm thanh, hình ảnh SVG và phát nhạc nền thông minh (bg_home.mp3 vs bg_lesson.mp3)
+ * Quản lý âm thanh (hanoi/, effects/games/, dấu phẩy -> gạch dưới), hình ảnh SVG và nhạc nền tự động
  */
 window.AppTV = window.AppTV || {};
 
@@ -9,9 +9,14 @@ window.AppTV = window.AppTV || {};
   const bgmAudio = new Audio();
   bgmAudio.loop = true;
   bgmAudio.volume = 0.25;
-    // Thay dòng: let bgmEnabled = false;
-  let bgmEnabled = localStorage.getItem('APPTV_BGM_MUTED') !== '1';
+
+  let bgmEnabled = true;
+  try {
+    bgmEnabled = localStorage.getItem('APPTV_BGM_MUTED') !== '1';
+  } catch (e) {}
+
   let currentBgmTrack = '';
+  let desiredBgmTrack = 'bg_home';
 
   function toTelexFilename(str) {
     if (!str) return '';
@@ -81,33 +86,41 @@ window.AppTV = window.AppTV || {};
   function playSoundToken(token) {
     return new Promise((resolve) => {
       if (!token) return resolve();
-      let clean = token.trim().replace(/^~+/, '');
+      let clean = String(token).trim().replace(/^~+/, '');
       if (!clean || clean === 'second') {
-        return setTimeout(resolve, 800);
+        return setTimeout(resolve, 750);
       }
       stopActiveAudio();
 
+      // Trong data.txt có dấu phẩy (vd: "bài này, chúng ta...") nhưng tên file mp3 đổi thành dấu gạch dưới "_"
+      const norm = clean.replace(/,/g, '_');
       const lower = clean.toLowerCase();
-      const candidates = [
-        `Sounds/hanoi/${clean}.mp3`,
+      const lowerNorm = norm.toLowerCase();
+
+      const rawCandidates = [
+        `Sounds/hanoi/${lowerNorm}.mp3`,
         `Sounds/hanoi/${lower}.mp3`,
-        `Sounds/effects/${clean}.mp3`,
-        `Sounds/effects/${lower}.mp3`,
-        `Sounds/${clean}.mp3`,
-        `Sounds/${lower}.mp3`,
-        `assets/Sounds/hanoi/${clean}.mp3`,
+        `Sounds/hanoi/${norm}.mp3`,
+        `Sounds/hanoi/${clean}.mp3`,
+        `Sounds/effects/games/${lowerNorm}.mp3`,
+        `Sounds/effects/${lowerNorm}.mp3`,
+        `Sounds/${lowerNorm}.mp3`,
+        `assets/Sounds/hanoi/${lowerNorm}.mp3`,
         `assets/Sounds/hanoi/${lower}.mp3`,
-        `assets/Sounds/effects/${clean}.mp3`,
-        `assets/Sounds/${clean}.mp3`
+        `assets/Sounds/effects/games/${lowerNorm}.mp3`,
+        `assets/Sounds/effects/${lowerNorm}.mp3`,
+        `assets/Sounds/${lowerNorm}.mp3`
       ];
+      const candidates = Array.from(new Set(rawCandidates));
 
       let idx = 0;
       const audio = new Audio();
       activeAudio = audio;
 
       function tryPlay() {
+        if (activeAudio !== audio) return resolve();
         if (idx >= candidates.length) {
-          setTimeout(resolve, 350);
+          setTimeout(resolve, 260);
           return;
         }
         audio.src = candidates[idx++];
@@ -119,65 +132,132 @@ window.AppTV = window.AppTV || {};
     });
   }
 
+  // Phát tuần tự 1 danh sách token giọng đọc, hỗ trợ hủy giữa chừng qua checkCancelled()
+  async function playSoundSequence(tokens, checkCancelled) {
+    for (const tk of tokens) {
+      if (typeof checkCancelled === 'function' && checkCancelled()) return;
+      if (tk) await playSoundToken(tk);
+    }
+  }
+
   function stopActiveAudio() {
     if (activeAudio) {
-      activeAudio.pause();
+      try { activeAudio.pause(); } catch (e) {}
       activeAudio = null;
     }
   }
 
   function playEffect(name) {
-    const a = new Audio(`Sounds/${name}.mp3`);
-    a.onerror = () => {
-      const b = new Audio(`assets/Sounds/${name}.mp3`);
-      b.play().catch(() => {});
-    };
-    a.play().catch(() => {});
+    if (!name) return;
+    const clean = String(name).trim().replace(/\.mp3$/i, '');
+    const candidates = [
+      `Sounds/${clean}.mp3`,
+      `Sounds/effects/games/${clean}.mp3`,
+      `Sounds/effects/${clean}.mp3`,
+      `assets/Sounds/${clean}.mp3`,
+      `assets/Sounds/effects/games/${clean}.mp3`
+    ];
+    let i = 0;
+    const a = new Audio();
+    function next() {
+      if (i >= candidates.length) return;
+      a.src = candidates[i++];
+      a.play().catch(next);
+    }
+    a.onerror = next;
+    next();
+  }
+
+  function playGameEffect(name) {
+    if (!name) return;
+    const clean = String(name).trim().replace(/\.mp3$/i, '');
+    const candidates = [
+      `Sounds/effects/games/${clean}.mp3`,
+      `Sounds/effects/${clean}.mp3`,
+      `Sounds/${clean}.mp3`,
+      `assets/Sounds/effects/games/${clean}.mp3`,
+      `assets/Sounds/${clean}.mp3`
+    ];
+    let i = 0;
+    const a = new Audio();
+    function next() {
+      if (i >= candidates.length) return;
+      a.src = candidates[i++];
+      a.play().catch(next);
+    }
+    a.onerror = next;
+    next();
+  }
+
+  function playWritingFail() {
+    const r = Math.floor(Math.random() * 3) + 1;
+    playSoundToken(`fail${r}`);
+  }
+
+  function syncBgmButtonUI() {
+    const btn = document.getElementById('toggleBgmBtn');
+    if (!btn) return;
+    btn.textContent = bgmEnabled ? '🔊 Nhạc: Bật' : '🔇 Nhạc: Tắt';
   }
 
   function playBgm(trackName) {
-    if (!bgmEnabled) return;
-    const trackPath = `Sounds/${trackName}.mp3`;
-    if (currentBgmTrack !== trackName) {
+    if (trackName) desiredBgmTrack = trackName;
+    syncBgmButtonUI();
+    if (!bgmEnabled || !desiredBgmTrack) return;
+
+    const trackPath = `Sounds/${desiredBgmTrack}.mp3`;
+    if (currentBgmTrack !== desiredBgmTrack) {
       bgmAudio.src = trackPath;
+      currentBgmTrack = desiredBgmTrack;
+    }
+    if (bgmAudio.paused) {
       bgmAudio.play().catch(() => {
-        bgmAudio.src = `assets/Sounds/${trackName}.mp3`;
+        bgmAudio.src = `assets/Sounds/${desiredBgmTrack}.mp3`;
         bgmAudio.play().catch(() => {});
       });
-      currentBgmTrack = trackName;
-    } else if (bgmAudio.paused) {
-      bgmAudio.play().catch(() => {});
     }
   }
 
   function stopBgm() {
     bgmAudio.pause();
     currentBgmTrack = '';
+    desiredBgmTrack = null;
   }
 
   function toggleBgm(btnEl, defaultTrack = 'bg_home') {
     bgmEnabled = !bgmEnabled;
+    try {
+      localStorage.setItem('APPTV_BGM_MUTED', bgmEnabled ? '0' : '1');
+    } catch (e) {}
+
     if (bgmEnabled) {
       playBgm(defaultTrack);
-      if (btnEl) btnEl.textContent = '🔊 Nhạc: Bật';
     } else {
-      stopBgm();
-      if (btnEl) btnEl.textContent = '🔇 Nhạc: Tắt';
+      bgmAudio.pause();
+      currentBgmTrack = '';
+    }
+    syncBgmButtonUI();
+  }
+
+  function unlockBgmOnInteraction() {
+    if (bgmEnabled && desiredBgmTrack && bgmAudio.paused) {
+      playBgm(desiredBgmTrack);
     }
   }
-    function playWritingFail() {
-    const r = Math.floor(Math.random() * 3) + 1;
-    playSoundToken(`fail${r}`);
-  }
+  document.addEventListener('touchstart', unlockBgmOnInteraction, { passive: true });
+  document.addEventListener('click', unlockBgmOnInteraction, { passive: true });
+  document.addEventListener('DOMContentLoaded', syncBgmButtonUI);
 
   ns.Media = {
     toTelexFilename,
     resolveSvgCandidates,
     createSmartSvgElement,
     playSoundToken,
-    playWritingFail,
+    playSoundSequence,
     stopActiveAudio,
     playEffect,
+    playGameEffect,
+    playWritingFail,
     playBgm,
     stopBgm,
     toggleBgm
