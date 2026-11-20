@@ -3,79 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Bé Vui Học Tiếng Việt - Bài Học</title>
+  <title>Bé Vui Học Tiếng Việt - Danh Sách Bài Học</title>
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#2b7de9">
-  <link rel="stylesheet" href="css/style.css?v=20261115" />
+  <!-- Phông chữ tròn mềm thân thiện cho trẻ em (tự dự phòng font hệ thống khi offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- Giữ nguyên style.css gốc và nạp thêm lessons-theme.css để nâng cấp giao diện 3D đồng bộ với index.html -->
+  <link rel="stylesheet" href="css/style.css?v=20261123" />
+  <link rel="stylesheet" href="css/lessons-theme.css?v=20261123" />
 </head>
-<body>
+<body class="lessons-body" data-mod="data">
 
-  <!-- Phần tử ẩn giữ tương thích ngược nếu trình duyệt còn lưu cache main.js cũ -->
+  <!-- Phần tử ẩn giữ tương thích ngược với các script cũ -->
   <span id="topBackBtn" style="display:none;"></span>
 
-  <!-- THANH TIÊU ĐỀ TRANG BÀI HỌC -->
-  <header class="app-topbar">
-    <a href="index.html" class="back-circle-btn" id="backToHomeBtn" title="Quay lại chọn môn" style="text-decoration:none;">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+  <!-- ==================== PHÔNG NỀN BẦU TRỜI & MÂY TRÔI ĐỒNG BỘ TRANG CHỦ ==================== -->
+  <div class="lessons-sky-bg" aria-hidden="true">
+    <div class="l-sun-glow"></div>
+    <div class="l-cloud l-cloud-1"></div>
+    <div class="l-cloud l-cloud-2"></div>
+    <div class="l-cloud l-cloud-3"></div>
+    <div class="l-star l-star-1">✦</div>
+    <div class="l-star l-star-2">★</div>
+    <div class="l-star l-star-3">✦</div>
+  </div>
+
+  <!-- ==================== 1. THANH TIÊU ĐỀ 3D & TIẾN ĐỘ MÔN HỌC ==================== -->
+  <header class="app-topbar lessons-topbar">
+    <a href="index.html" class="back-circle-btn" id="backToHomeBtn" title="Quay lại Trang chủ" style="text-decoration:none;">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
         <path d="M19 12H5M12 19l-7-7 7-7"/>
       </svg>
     </a>
 
-    <h1 class="topbar-title" id="topbarTitle">Tập đọc</h1>
+    <div class="topbar-center-col">
+      <h1 class="topbar-title" id="topbarTitle">📖 Tập đọc</h1>
+      <!-- Thanh tiến độ mini của môn đang xem -->
+      <div class="mod-progress-pill" id="modProgressPill">
+        <span class="mod-progress-star">⭐</span>
+        <span id="modProgressText">0 / 0 bài</span>
+        <div class="mod-progress-bar">
+          <div class="mod-progress-fill" id="modProgressFill" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
 
-    <div class="topbar-right" style="display:flex; align-items:center; gap:8px;">
-      <button type="button" class="btn-sm" id="toggleBgmBtn" title="Bật/Tắt nhạc nền">🔊 Nhạc: Bật</button>
+    <div class="topbar-right">
+      <button type="button" class="btn-sm bgm-btn-3d" id="toggleBgmBtn" title="Bật/Tắt nhạc nền">🔊 Nhạc</button>
       
     </div>
   </header>
-
-  <!-- THANH CHỌN NHANH MÔN HỌC -->
   
-
-  <!-- THANH TÌM KIẾM TRONG LESSONS -->
-  <div class="search-section" id="searchSection">
-    <input type="text" class="search-input" id="searchInput" placeholder="🔍 Tìm kiếm bài học..." />
+  <!-- ==================== 3. THANH TÌM KIẾM BÓNG BẨY ==================== -->
+  <div class="search-section lessons-search" id="searchSection">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" id="searchInput" placeholder="Tìm chữ cái, vần hoặc tên bài..." />
+      <button type="button" class="search-clear-btn" id="clearSearchBtn" title="Xóa từ khóa" style="display:none;">✕</button>
+    </div>
     <button type="button" class="search-circle-btn" id="searchBtn" title="Tìm kiếm">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
         <circle cx="11" cy="11" r="7"></circle>
         <line x1="20" y1="20" x2="16" y2="16"></line>
       </svg>
     </button>
   </div>
 
-  <!-- DANH SÁCH BÀI HỌC -->
-  <main id="mainContainer">
+  <!-- ==================== 4. DANH SÁCH CHỦ ĐỀ & THẺ BÀI HỌC ==================== -->
+  <main id="mainContainer" class="lessons-main">
     <div id="sectionsContainer" class="sections-container"></div>
   </main>
 
-  <!-- CHÂN TRANG ĐÁM MÂY & NÚT PLAY XANH LÁ -->
-  <div class="cloud-footer" id="cloudFooter">
+  <!-- ==================== 5. CHÂN TRANG ĐÁM MÂY & NÚT PLAY THÔNG MINH ==================== -->
+  <div class="cloud-footer lessons-cloud-footer" id="cloudFooter">
     <div class="cloud-wave"></div>
-    <button type="button" class="floating-play-btn" id="quickPlayBtn" title="Học ngay">
-      <svg viewBox="0 0 24 24" width="38" height="38" fill="white">
-        <path d="M8 5.14v14l11-7-11-7z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
-      </svg>
-    </button>
+    <div class="play-cta-group">
+      <div class="quick-play-tag" id="quickPlayLabel">Học tiếp ngay!</div>
+      <button type="button" class="floating-play-btn" id="quickPlayBtn" title="Học bài tiếp theo">
+        <svg viewBox="0 0 24 24" width="38" height="38" fill="white">
+          <path d="M8 5.14v14l11-7-11-7z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
   </div>
 
-  <!-- MÀN HÌNH VÀO BÀI HỌC (MODAL - Tắt nhạc nền) -->
+  <!-- ==================== 6. MÀN HÌNH VÀO BÀI HỌC (MODAL) ==================== -->
   <div class="stage-overlay" id="stageOverlay">
     <div class="stage-header">
-      <button type="button" class="back-circle-btn sm" id="closeStageBtn">
+      <button type="button" class="back-circle-btn sm" id="closeStageBtn" title="Quay lại danh sách">
         <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
           <path d="M19 12H5M12 19l-7-7 7-7"/>
         </svg>
       </button>
       <div class="stage-title" id="stageTitle">Bài học</div>
-      <button type="button" class="btn-sm" id="replayStepBtn">🔁 Nghe lại</button>
+      <div style="display:flex; align-items:center; gap:6px; min-width:42px; justify-content:flex-end;">
+        <button type="button" class="help-circle-btn" id="stageHelpBtn" title="Nghe lại hướng dẫn" style="display:none;">?</button>
+        <button type="button" class="btn-sm" id="replayStepBtn">🔁 Nghe lại</button>
+      </div>
     </div>
+
     <div class="stage-body" id="stageBody"></div>
+
     <div class="stage-footer">
       <button type="button" class="nav-btn" id="prevStepBtn">⬅ Trước</button>
       <div class="step-indicator" id="stepIndicator">1 / 1</div>
-      <button type="button" class="nav-btn" id="nextStepBtn">Tiếp ➡</button>    
+      <button type="button" class="nav-btn" id="nextStepBtn">Tiếp ➡</button>
     </div>
-        <!-- THANH 2 NÚT TRÒN THÔNG MINH (Ẩn khi đang viết, tự trượt lên khi xong chặng) -->
+
+    <!-- THANH 2 NÚT TRÒN THÔNG MINH (Ẩn khi đang giảng/chơi/viết, tự trượt lên khi xong chặng) -->
     <div class="smart-action-footer" id="smartActionFooter">
       <div class="smart-wave-bg"></div>
       <div class="smart-btn-row">
@@ -91,38 +127,15 @@
         </button>
       </div>
     </div>
-
   </div>
 
-  <!-- Các module JS -->
-  <script src="js/media.js?v=20261115"></script>
-  <script src="js/data-loader.js?v=20261115"></script>
-  <script src="js/writing-board.js?v=20261115"></script>
-  <script src="js/games-engine.js?v=20261115"></script>
-  <script src="js/xaml-parser.js?v=20261115"></script>
-  <script src="js/lesson-player.js?v=20261115"></script>
-  <script src="js/main.js?v=20261115"></script>
-  <script>
-    // Tự động đồng bộ đúng môn học được chọn từ index.html (kể cả khi trình duyệt lưu cache main.js cũ)
-    window.addEventListener('load', function () {
-      var targetMod = '';
-      try {
-        var params = new URLSearchParams(window.location.search);
-        targetMod = params.get('mod') || '';
-      } catch (e) {}
-      if (!targetMod && window.location.hash) {
-        targetMod = window.location.hash.replace(/^#/, '').trim();
-      }
-      if (!targetMod) {
-        try {
-          targetMod = localStorage.getItem('APPTV_CURRENT_MOD') || '';
-        } catch (e) {}
-      }
-      if (targetMod && ['data', 'write', 'thinking', 'games'].indexOf(targetMod) !== -1) {
-        var btn = document.querySelector('.mode-pill[data-mod="' + targetMod + '"]');
-        if (btn) btn.click();
-      }
-    });
-  </script>
+  <!-- Các module JS cốt lõi (cập nhật ?v=20261123 để trình duyệt nạp ngay bản mới) -->
+  <script src="js/media.js?v=20261123"></script>
+  <script src="js/data-loader.js?v=20261123"></script>
+  <script src="js/writing-board.js?v=20261123"></script>
+  <script src="js/games-engine.js?v=20261123"></script>
+  <script src="js/xaml-parser.js?v=20261123"></script>
+  <script src="js/lesson-player.js?v=20261123"></script>
+  <script src="js/main.js?v=20261123"></script>
 </body>
 </html>

@@ -1,0 +1,726 @@
+/**
+ * css/lessons-theme.css
+ * Nâng cấp giao diện 3D rực rỡ cho lessons.html, đồng bộ với css/home.css của index.html.
+ * Tích hợp đầy đủ CSS cho bảng Tập viết 3 cấp độ & thanh nút tròn thông minh để đảm bảo tương thích 100%.
+ */
+
+/* ==================== 1. NỀN BẦU TRỜI & MÀU CHỦ ĐẠO THEO TỪNG MÔN ==================== */
+body.lessons-body {
+  font-family: 'Nunito', 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  background: linear-gradient(180deg, #1b8ef2 0%, #38bdf8 48%, #7dd3fc 84%, #bae6fd 100%);
+  position: relative;
+  overflow: hidden;
+  transition: background 0.35s ease;
+}
+
+/* Đổi sắc bầu trời tinh tế khi chuyển môn học */
+body.lessons-body[data-mod="write"] {
+  background: linear-gradient(180deg, #1d74e8 0%, #3b9df8 50%, #7dd3fc 88%, #cffafe 100%);
+}
+body.lessons-body[data-mod="thinking"] {
+  background: linear-gradient(180deg, #6d28d9 0%, #8b5cf6 48%, #a78bfa 86%, #ddd6fe 100%);
+}
+body.lessons-body[data-mod="games"] {
+  background: linear-gradient(180deg, #0d9488 0%, #14b8a6 48%, #5eead4 86%, #ccfbf1 100%);
+}
+
+/* Lớp bầu trời trang trí phía sau (không cản thao tác chạm) */
+.lessons-sky-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.l-sun-glow {
+  position: absolute;
+  top: -42px;
+  right: -36px;
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(254, 240, 138, 0.55) 0%, rgba(254, 240, 138, 0) 70%);
+}
+
+.l-cloud {
+  position: absolute;
+  background: rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+}
+.l-cloud::before,
+.l-cloud::after {
+  content: '';
+  position: absolute;
+  background: inherit;
+  border-radius: 50%;
+}
+.l-cloud-1 {
+  top: 96px;
+  width: 96px;
+  height: 28px;
+  animation: lCloudDrift 34s linear infinite;
+}
+.l-cloud-1::before { width: 40px; height: 40px; top: -16px; left: 16px; }
+.l-cloud-1::after  { width: 30px; height: 30px; top: -10px; right: 14px; }
+
+.l-cloud-2 {
+  top: 240px;
+  width: 78px;
+  height: 22px;
+  opacity: 0.7;
+  animation: lCloudDrift 44s linear infinite reverse;
+}
+.l-cloud-2::before { width: 32px; height: 32px; top: -13px; left: 12px; }
+.l-cloud-2::after  { width: 24px; height: 24px; top: -8px; right: 12px; }
+
+.l-cloud-3 {
+  bottom: 140px;
+  width: 84px;
+  height: 24px;
+  opacity: 0.55;
+  animation: lCloudDrift 38s linear infinite;
+  animation-delay: -18s;
+}
+.l-cloud-3::before { width: 34px; height: 34px; top: -14px; left: 14px; }
+.l-cloud-3::after  { width: 26px; height: 26px; top: -9px; right: 14px; }
+
+@keyframes lCloudDrift {
+  from { transform: translateX(-120px); }
+  to   { transform: translateX(calc(100vw + 130px)); }
+}
+
+.l-star {
+  position: absolute;
+  color: rgba(254, 249, 195, 0.8);
+  font-size: 1rem;
+  animation: lTwinkle 3s ease-in-out infinite;
+}
+.l-star-1 { top: 130px; left: 14%; animation-delay: 0s; }
+.l-star-2 { top: 280px; right: 12%; animation-delay: 1.1s; }
+.l-star-3 { bottom: 190px; left: 8%; animation-delay: 2s; }
+
+@keyframes lTwinkle {
+  0%, 100% { transform: scale(0.8); opacity: 0.3; }
+  50%      { transform: scale(1.25); opacity: 0.95; }
+}
+
+/* Đưa toàn bộ khối giao diện nổi trên lớp bầu trời */
+.lessons-topbar,
+.lesson-mode-tabs,
+.lessons-search,
+.lessons-main {
+  position: relative;
+  z-index: 2;
+}
+
+/* ==================== 2. TOPBAR 3D & HUY HIỆU TIẾN ĐỘ ==================== */
+.lessons-topbar {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.24) 0%, rgba(255, 255, 255, 0.08) 100%);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.35);
+  padding: 10px 14px;
+  box-shadow: 0 6px 18px rgba(15, 23, 42, 0.14);
+  gap: 8px;
+}
+
+.lessons-topbar .back-circle-btn {
+  width: 44px;
+  height: 44px;
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 0 #0369a1, 0 6px 12px rgba(0, 0, 0, 0.2);
+  flex-shrink: 0;
+}
+
+.topbar-center-col {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.lessons-topbar .topbar-title {
+  font-size: 1.32rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 3px 0 rgba(15, 23, 42, 0.25), 0 4px 10px rgba(0, 0, 0, 0.2);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.mod-progress-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(255, 255, 255, 0.92);
+  color: #92400e;
+  padding: 2px 10px;
+  border-radius: 999px;
+  font-size: 0.74rem;
+  font-weight: 900;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.14);
+}
+.mod-progress-star { font-size: 0.85rem; }
+.mod-progress-bar {
+  width: 52px;
+  height: 7px;
+  background: #fde68a;
+  border-radius: 999px;
+  overflow: hidden;
+}
+.mod-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #f59e0b, #22c55e);
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.lessons-topbar .topbar-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.bgm-btn-3d {
+  background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
+  border: 2.5px solid #ffffff;
+  box-shadow: 0 3px 0 #15803d, 0 4px 8px rgba(0, 0, 0, 0.16);
+  padding: 6px 11px;
+  font-family: inherit;
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #ffffff;
+}
+.bgm-btn-3d:active { transform: translateY(2px); box-shadow: 0 1px 0 #15803d; }
+
+.compact-piggy {
+  width: 38px;
+  height: 38px;
+  background: rgba(255, 255, 255, 0.28);
+  border: 2px solid rgba(255, 255, 255, 0.75);
+  border-radius: 50%;
+}
+.compact-piggy .piggy-icon { font-size: 1.45rem; }
+
+/* ==================== 3. THANH CHUYỂN NHANH 4 MÔN HỌC ==================== */
+.lesson-mode-tabs {
+  display: flex;
+  gap: 8px;
+  padding: 8px 14px 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  justify-content: safe center;
+}
+.lesson-mode-tabs::-webkit-scrollbar { display: none; }
+
+.lesson-mode-tabs .mode-pill {
+  font-family: inherit;
+  padding: 7px 14px;
+  border-radius: 999px;
+  border: 2.5px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(15, 23, 42, 0.18);
+  transition: transform 0.15s, background 0.2s;
+}
+.lesson-mode-tabs .mode-pill:active { transform: translateY(2px); box-shadow: none; }
+
+.lesson-mode-tabs .mode-pill.active.tab-data {
+  background: linear-gradient(180deg, #ffb703, #f97316);
+  box-shadow: 0 4px 0 #c2410c;
+  border-color: #ffffff;
+}
+.lesson-mode-tabs .mode-pill.active.tab-write {
+  background: linear-gradient(180deg, #38bdf8, #2563eb);
+  box-shadow: 0 4px 0 #1d4ed8;
+  border-color: #ffffff;
+}
+.lesson-mode-tabs .mode-pill.active.tab-thinking {
+  background: linear-gradient(180deg, #c084fc, #7c3aed);
+  box-shadow: 0 4px 0 #5b21b6;
+  border-color: #ffffff;
+}
+.lesson-mode-tabs .mode-pill.active.tab-games {
+  background: linear-gradient(180deg, #4ade80, #16a34a);
+  box-shadow: 0 4px 0 #15803d;
+  border-color: #ffffff;
+}
+
+/* ==================== 4. THANH TÌM KIẾM BÓNG BẨY ==================== */
+.lessons-search {
+  max-width: 700px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 8px 14px 6px;
+  gap: 10px;
+}
+
+.search-input-wrap {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.lessons-search .search-input {
+  width: 100%;
+  height: 46px;
+  border-radius: 999px;
+  border: 3px solid #ffffff;
+  background: rgba(255, 255, 255, 0.96);
+  padding: 0 42px 0 18px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 800;
+  color: #1e293b;
+  box-shadow: 0 4px 0 rgba(14, 116, 144, 0.2), 0 6px 14px rgba(0, 0, 0, 0.1);
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 10px;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: none;
+  background: #e2e8f0;
+  color: #475569;
+  font-weight: 900;
+  font-size: 0.85rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lessons-search .search-circle-btn {
+  width: 48px;
+  height: 48px;
+  background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 0 #15803d, 0 6px 12px rgba(0, 0, 0, 0.18);
+}
+.lessons-search .search-circle-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #15803d; }
+
+/* ==================== 5. KHUNG CHỦ ĐỀ & THẺ BÀI HỌC 3D ==================== */
+.lessons-main {
+  padding: 10px 14px 126px;
+}
+
+.lessons-main .category-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0.18) 100%);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border: 3.5px solid rgba(255, 255, 255, 0.72);
+  border-radius: 28px;
+  padding: 30px 14px 18px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.18);
+  margin-top: 16px;
+}
+
+.lessons-main .ribbon-banner {
+  top: -20px;
+  background: linear-gradient(180deg, #fde047 0%, #f59e0b 100%);
+  color: #78350f;
+  font-size: 1.08rem;
+  font-weight: 900;
+  padding: 7px 26px;
+  border-radius: 999px;
+  border: 3px solid #ffffff;
+  box-shadow: 0 4px 0 #b45309, 0 6px 14px rgba(0, 0, 0, 0.2);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 58%;
+}
+.lessons-main .ribbon-banner::before,
+.lessons-main .ribbon-banner::after {
+  display: none;
+}
+
+.cat-count-chip {
+  background: rgba(255, 255, 255, 0.85);
+  color: #9a3412;
+  font-size: 0.72rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 999px;
+}
+
+.lessons-main .panel-grid {
+  gap: 15px;
+  margin-top: 6px;
+}
+
+/* Thẻ bài học 3D bóng bẩy */
+.lessons-main .lesson-card {
+  border-radius: 24px;
+  padding: 8px 8px 12px;
+  border: 3.5px solid #ffffff;
+  overflow: visible;
+  transition: transform 0.16s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.15s;
+}
+.lessons-main .lesson-card:active {
+  transform: translateY(4px) scale(0.97);
+}
+
+.lessons-main .lesson-card.theme-blue {
+  background: linear-gradient(180deg, #38bdf8 0%, #0284c7 100%);
+  box-shadow: 0 6px 0 #0369a1, 0 10px 18px rgba(3, 105, 161, 0.28);
+}
+.lessons-main .lesson-card.theme-yellow {
+  background: linear-gradient(180deg, #fbbf24 0%, #f97316 100%);
+  box-shadow: 0 6px 0 #c2410c, 0 10px 18px rgba(194, 65, 12, 0.28);
+}
+.lessons-main .lesson-card.theme-green {
+  background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
+  box-shadow: 0 6px 0 #15803d, 0 10px 18px rgba(21, 128, 61, 0.28);
+}
+
+/* Đánh dấu nổi bật bài học mới tiếp theo mà bé nên bấm */
+.lessons-main .lesson-card.is-next-lesson {
+  animation: nextCardGlow 2s ease-in-out infinite;
+}
+@keyframes nextCardGlow {
+  0%, 100% { box-shadow: 0 6px 0 #e11d48, 0 0 0 0 rgba(254, 240, 138, 0.85); }
+  50%      { box-shadow: 0 6px 0 #e11d48, 0 0 0 8px rgba(254, 240, 138, 0); }
+}
+
+.next-up-tag {
+  position: absolute;
+  top: -11px;
+  right: 10px;
+  z-index: 6;
+  background: linear-gradient(180deg, #ff5e7e, #e11d48);
+  color: #ffffff;
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 3px 9px;
+  border-radius: 999px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 3px 8px rgba(225, 29, 72, 0.45);
+}
+
+.lessons-main .lesson-white-box {
+  border-radius: 18px;
+  box-shadow: inset 0 3px 8px rgba(15, 23, 42, 0.08);
+}
+
+.lessons-main .lesson-title {
+  margin-top: 9px;
+  font-size: 0.98rem;
+  font-weight: 900;
+  color: #ffffff;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.28);
+}
+
+/* Thẻ Tư duy ngôn ngữ 3D */
+.lessons-main .thinking-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.94) 0%, #f5f3ff 100%);
+  border: 3.5px solid #ffffff;
+  box-shadow: 0 7px 0 #5b21b6, 0 12px 22px rgba(91, 33, 182, 0.25);
+  min-height: 225px;
+}
+
+/* Khung không tìm thấy bài học */
+.empty-search-card {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.94);
+  color: #334155;
+  border-radius: 26px;
+  border: 3.5px solid #ffffff;
+  padding: 28px 18px;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.16);
+}
+.empty-search-btn {
+  margin-top: 14px;
+  padding: 10px 22px;
+  border-radius: 999px;
+  border: 3px solid #ffffff;
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 0.95rem;
+  box-shadow: 0 4px 0 #0369a1;
+  cursor: pointer;
+}
+
+/* ==================== 6. CHÂN TRANG ĐÁM MÂY & NÚT PLAY THÔNG MINH ==================== */
+.lessons-cloud-footer {
+  height: 104px;
+}
+
+.lessons-cloud-footer .cloud-wave {
+  height: 46px;
+  background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
+  border-top: 4px solid #ffffff;
+  border-radius: 50% 50% 0 0 / 26px 26px 0 0;
+  box-shadow: 0 -4px 16px rgba(15, 23, 42, 0.14);
+}
+
+.play-cta-group {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-10px);
+}
+
+.quick-play-tag {
+  pointer-events: none;
+  background: linear-gradient(180deg, #fffbeb, #fef08a);
+  color: #9a3412;
+  font-size: 0.74rem;
+  font-weight: 900;
+  padding: 3px 12px;
+  border-radius: 999px;
+  border: 2px solid #ffffff;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  margin-bottom: 5px;
+  max-width: 210px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.lessons-cloud-footer .floating-play-btn {
+  width: 78px;
+  height: 78px;
+  transform: none;
+  background: linear-gradient(180deg, #ff5e7e 0%, #e11d48 100%);
+  border: 5px solid #ffffff;
+  box-shadow: 0 6px 0 #9f1239, 0 10px 22px rgba(159, 18, 57, 0.42);
+  animation: playPulse 2.3s ease-in-out infinite;
+}
+.lessons-cloud-footer .floating-play-btn:active {
+  animation: none;
+  transform: translateY(3px) scale(0.95);
+  box-shadow: 0 2px 0 #9f1239;
+}
+@keyframes playPulse {
+  0%, 100% { transform: scale(1); }
+  50%      { transform: scale(1.06); }
+}
+
+/* ==================== 7. BỔ SUNG ĐẦY ĐỦ CSS TẬP VIẾT 3 CẤP ĐỘ & THANH NÚT TRÒN ==================== */
+.stage-overlay .stage-header {
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.18);
+}
+
+.write-mode-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.72);
+  backdrop-filter: blur(4px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.write-mode-modal.open { display: flex; }
+
+.write-mode-choices {
+  display: flex;
+  gap: 36px;
+  align-items: center;
+  justify-content: center;
+}
+
+.mode-circle-choice {
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 900;
+  font-size: 1.05rem;
+  transition: transform 0.18s;
+}
+.mode-circle-choice:active { transform: scale(0.92); }
+.mode-circle-choice .circle-icon {
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.3rem;
+  border: 4px solid #ffffff;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+.mode-circle-choice.yellow .circle-icon { background: linear-gradient(180deg, #fbbf24, #d97706); }
+.mode-circle-choice.green .circle-icon  { background: linear-gradient(180deg, #4ade80, #16a34a); }
+
+.smart-write-wrapper {
+  width: 100%;
+  max-width: 480px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.write-progress-strip {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 6px 10px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 6px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 2px solid #bae6fd;
+}
+
+.write-progress-slot {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.write-progress-slot svg { width: 46px; height: 46px; }
+.write-progress-slot.done { transform: scale(1.12); }
+
+.write-level3-ref {
+  width: 112px;
+  height: 112px;
+  background: #ffffff;
+  border-radius: 14px;
+  border: 2px solid #7dd3fc;
+  padding: 4px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+.write-level3-ref svg { width: 100%; height: 100%; }
+
+.smart-oly-board,
+.write-demo-stage {
+  width: 100%;
+  max-width: 340px;
+  aspect-ratio: 1 / 1;
+  background: #ffffff;
+  border-radius: 22px;
+  box-shadow: 0 10px 26px rgba(15, 23, 42, 0.12);
+  border: 3px solid #7dd3fc;
+  padding: 6px;
+  touch-action: none;
+  position: relative;
+}
+.smart-oly-board.compact-for-l3 { max-width: 280px; }
+
+.writing-svg-board {
+  width: 100%;
+  height: 100%;
+  display: block;
+  touch-action: none;
+  overflow: visible;
+}
+
+.pulse-ring {
+  animation: dotPulse 1.1s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+@keyframes dotPulse {
+  0%, 100% { transform: scale(0.85); opacity: 0.7; }
+  50%      { transform: scale(1.45); opacity: 0.2; }
+}
+
+.shake-dot { animation: shakeDot 0.3s ease; }
+@keyframes shakeDot {
+  0%, 100% { opacity: 1; }
+  25%, 75% { opacity: 0.3; }
+}
+
+.tapviet-wrapper { max-width: 100%; }
+.tapviet-preview-bar {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  border: 2px solid #bae6fd;
+  padding: 6px 10px;
+  overflow-x: auto;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.06);
+}
+.tapviet-main-scroll {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 18px;
+  border: 3px solid #38bdf8;
+  overflow-x: auto;
+  padding: 8px 0;
+  touch-action: pan-x;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+.tapviet-main-svg { display: block; touch-action: none; }
+
+.smart-action-footer {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 102px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  transform: translateY(120%);
+  transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 120;
+}
+.smart-action-footer.show { transform: translateY(0); }
+
+.smart-wave-bg {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 54px;
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  border-top: 4px solid #bae6fd;
+  border-radius: 45% 45% 0 0 / 22px 22px 0 0;
+}
+
+.smart-btn-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 28px;
+  transform: translateY(-10px);
+}
+
+.smart-circle-btn {
+  pointer-events: auto;
+  width: 68px;
+  height: 68px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.28);
+  transition: transform 0.15s;
+}
+.smart-circle-btn:active { transform: scale(0.92); }
+.smart-circle-btn.replay { background: linear-gradient(180deg, #38bdf8, #0284c7); }
+.smart-circle-btn.next   { background: linear-gradient(180deg, #4ade80, #16a34a); }
