@@ -3,143 +3,299 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <title>Bé Vui Học Tiếng Việt - Chọn Môn</title>
+  <title>Bé Vui Học Tiếng Việt</title>
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#2b7de9">
-  <link rel="stylesheet" href="css/style.css" />
+  <meta name="theme-color" content="#38bdf8">
+  <!-- Phông chữ tròn mềm thân thiện cho trẻ em (tự dự phòng font hệ thống khi offline) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- CSS riêng cho Trang chủ để giữ trọn vẹn giao diện lessons.html không bị ảnh hưởng -->
+  <link rel="stylesheet" href="css/home.css?v=20261122" />
 </head>
-<body>
+<body class="home-body">
 
-  <!-- THANH TIÊU ĐỀ TRANG CHỦ -->
-  <header class="app-topbar">
-    <button class="back-circle-btn" id="topBackBtn" title="Ẩn / Hiện menu">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M4 6h16M4 12h16M4 18h16"/>
-      </svg>
-    </button>
-
-    <h1 class="topbar-title" id="topbarTitle">Bé Vui Học Tiếng Việt</h1>
-
-    <div class="topbar-right">
-      <button type="button" class="btn-sm" id="toggleBgmBtn" title="Bật/Tắt nhạc nền">🔊 Nhạc: Bật</button>
-
+  <!-- ==================== LỚP PHÔNG NỀN HOẠT HÌNH (BẦU TRỜI, MẶT TRỜI, MÂY, ĐỒI CỎ) ==================== -->
+  <div class="sky-world" aria-hidden="true">
+    <!-- Mặt trời cười tỏa nắng quay nhẹ -->
+    <div class="happy-sun">
+      <div class="sun-rays"></div>
+      <div class="sun-core">
+        <span class="sun-eye left"></span>
+        <span class="sun-eye right"></span>
+        <span class="sun-smile"></span>
+      </div>
     </div>
-  </header>
 
-  <!-- THANH TÌM KIẾM -->
-  <div class="search-section" id="searchSection">
-    <input type="text" class="search-input" id="homeSearchInput" placeholder="🔍 Tìm kiếm bài học..." />
-    <button class="search-circle-btn" id="homeSearchBtn" title="Tìm kiếm">
-      <svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
-        <circle cx="11" cy="11" r="7"></circle>
-        <line x1="20" y1="20" x2="16" y2="16"></line>
-      </svg>
-    </button>
+    <!-- Những đám mây trôi bồng bềnh -->
+    <div class="cloud cloud-1"></div>
+    <div class="cloud cloud-2"></div>
+    <div class="cloud cloud-3"></div>
+
+    <!-- Hạt sao & bong bóng lấp lánh nhẹ -->
+    <div class="sparkle sp-1">✦</div>
+    <div class="sparkle sp-2">★</div>
+    <div class="sparkle sp-3">✦</div>
+    <div class="sparkle sp-4">★</div>
+
+    <!-- Đồi cỏ xanh & hoa ở chân màn hình -->
+    <svg class="meadow-svg" viewBox="0 0 400 130" preserveAspectRatio="none">
+      <path d="M0,52 Q95,8 210,45 T400,34 L400,130 L0,130 Z" fill="#86efac"/>
+      <path d="M0,74 Q120,28 265,68 T400,56 L400,130 L0,130 Z" fill="#4ade80"/>
+      <path d="M0,96 Q170,60 400,92 L400,130 L0,130 Z" fill="#22c55e"/>
+      <!-- Bụi hoa nhỏ điểm xuyết -->
+      <circle cx="48" cy="96" r="4.5" fill="#fef08a"/>
+      <circle cx="56" cy="102" r="3.5" fill="#fda4af"/>
+      <circle cx="335" cy="90" r="4.5" fill="#fef08a"/>
+      <circle cx="352" cy="98" r="4" fill="#fff"/>
+      <circle cx="195" cy="106" r="3.5" fill="#fbcfe8"/>
+    </svg>
   </div>
 
-  <!-- ĐOÀN TÀU CHỞ CHỮ CHẠY SINH ĐỘNG -->
-  <div class="train-container">
-    <div class="train-animation">
-      🚂 🚃(A) 🚃(Ă) 🚃(Â) 🚃(B) 🚃(C) 🚃(Đ) 🚃(Ê) 🚃(O) 🚂💨 Chúc bé học giỏi! ✨
+  <!-- ==================== KHUNG NỘI DUNG CHÍNH TRANG CHỦ ==================== -->
+  <div class="home-shell">
+
+    <!-- 1. THANH TRÊN CÙNG: THÀNH TÍCH SAO + BẬT/TẮT NHẠC + GÓC PHỤ HUYNH -->
+    <header class="home-topbar">
+      <button type="button" class="star-trophy-pill" id="starSummaryBtn" title="Xem thành tích của bé">
+        <span class="trophy-star">⭐</span>
+        <span class="trophy-text" id="totalStarsText">0 bài</span>
+      </button>
+
+      <div class="topbar-actions">
+        <button type="button" class="bgm-pill-btn" id="toggleBgmBtn" title="Bật/Tắt nhạc nền">🔊 Nhạc: Bật</button>
+        <button type="button" class="parent-gear-btn" id="parentMenuBtn" title="Góc phụ huynh & Nạp dữ liệu">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="white" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="3"/>
+            <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 1 1-4 0v-.09a1.65 1.65 0 0 0-1-1.51 1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 1 1 0-4h.09a1.65 1.65 0 0 0 1.51-1 1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33h.01a1.65 1.65 0 0 0 1-1.51V3a2 2 0 1 1 4 0v.09a1.65 1.65 0 0 0 1 1.51h.01a1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82v.01a1.65 1.65 0 0 0 1.51 1H21a2 2 0 1 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+          </svg>
+        </button>
+      </div>
+    </header>
+
+    <!-- 2. KHỐI BANNER NHÂN VẬT & LOGO 3D (Bấm vào chú Cú để nghe lời chào!) -->
+    <section class="hero-banner">
+      <button type="button" class="mascot-btn" id="mascotBtn" title="Chạm vào bạn Cú để nghe chào nhé!">
+        <!-- Nhân vật Cú Thông Minh đội mũ cử nhân (SVG sắc nét, không cần ảnh ngoài) -->
+        <svg class="owl-svg" viewBox="0 0 120 120" width="84" height="84">
+          <!-- Bóng mờ dưới chân -->
+          <ellipse cx="60" cy="111" rx="34" ry="7" fill="rgba(14,116,144,0.22)"/>
+          <!-- Thân cú -->
+          <ellipse cx="60" cy="70" rx="36" ry="38" fill="#f59e0b" stroke="#b45309" stroke-width="3"/>
+          <!-- Bụng sáng -->
+          <ellipse cx="60" cy="79" rx="24" ry="25" fill="#fef3c7"/>
+          <!-- Vảy lông bụng -->
+          <path d="M49,73 Q53,78 57,73 M63,73 Q67,78 71,73 M56,84 Q60,89 64,84" fill="none" stroke="#f59e0b" stroke-width="2.5" stroke-linecap="round"/>
+          <!-- Cánh trái & cánh phải vẫy -->
+          <path class="owl-wing-l" d="M26,56 C12,62 12,84 27,88 C30,78 30,66 26,56 Z" fill="#d97706" stroke="#92400e" stroke-width="2.5"/>
+          <path class="owl-wing-r" d="M94,56 C108,62 108,84 93,88 C90,78 90,66 94,56 Z" fill="#d97706" stroke="#92400e" stroke-width="2.5"/>
+          <!-- Đôi mắt to long lanh -->
+          <circle cx="46" cy="52" r="14" fill="#ffffff" stroke="#b45309" stroke-width="2.5"/>
+          <circle cx="74" cy="52" r="14" fill="#ffffff" stroke="#b45309" stroke-width="2.5"/>
+          <circle class="owl-pupil" cx="48" cy="52" r="7" fill="#1e293b"/>
+          <circle class="owl-pupil" cx="72" cy="52" r="7" fill="#1e293b"/>
+          <circle cx="50" cy="49" r="2.6" fill="#ffffff"/>
+          <circle cx="74" cy="49" r="2.6" fill="#ffffff"/>
+          <!-- Má hồng -->
+          <ellipse cx="34" cy="63" rx="5.5" ry="3.2" fill="#fb7185" opacity="0.7"/>
+          <ellipse cx="86" cy="63" rx="5.5" ry="3.2" fill="#fb7185" opacity="0.7"/>
+          <!-- Mỏ vàng -->
+          <polygon points="60,57 54,66 60,71 66,66" fill="#fb923c" stroke="#c2410c" stroke-width="2" stroke-linejoin="round"/>
+          <!-- Mũ cử nhân học giỏi -->
+          <polygon points="60,12 24,25 60,36 96,25" fill="#1d4ed8" stroke="#1e3a8a" stroke-width="2.5" stroke-linejoin="round"/>
+          <path d="M40,30 L40,38 Q60,44 80,38 L80,30" fill="#2563eb" stroke="#1e3a8a" stroke-width="2.5"/>
+          <line x1="92" y1="26" x2="96" y2="41" stroke="#facc15" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="96" cy="43" r="3.5" fill="#facc15"/>
+          <!-- Chân nhỏ -->
+          <path d="M46,105 L42,111 M49,106 L49,112 M71,106 L71,112 M74,105 L78,111" stroke="#ea580c" stroke-width="3.2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <div class="hero-title-wrap">
+        <div class="hero-speech" id="heroSpeech">Chào bé yêu! Hôm nay học gì nào? ✨</div>
+        <h1 class="game-logo-title">
+          <span class="logo-sub">Bé Vui Học</span>
+          <span class="logo-main">Tiếng Việt</span>
+        </h1>
+      </div>
+    </section>
+
+    <!-- 3. THANH TÌM KIẾM BÀI HỌC NHANH -->
+    <div class="home-search-bar">
+      <input type="text" class="home-search-input" id="homeSearchInput" placeholder="Tìm chữ cái, vần hoặc bài học..." />
+      <button type="button" class="home-search-btn" id="homeSearchBtn" title="Tìm kiếm bài học">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="20" y1="20" x2="16" y2="16"></line>
+        </svg>
+      </button>
     </div>
-    <div class="train-track"></div>
+
+    <!-- 4. ĐOÀN TÀU CHỞ CHỮ CHẠY TỪ PHẢI SANG TRÁI TRÊN ĐƯỜNG RAY -->
+    <div class="express-train-strip" aria-hidden="true">
+      <div class="express-train-track">
+        <!-- Đoàn tàu kéo các toa chữ cái màu sắc nổi bật -->
+        <div class="train-consist">
+          <div class="locomotive">
+            <span class="steam s1">☁️</span>
+            <span class="steam s2">☁️</span>
+            <span class="loco-body">🚂</span>
+          </div>
+          <span class="train-car c-red">A</span>
+          <span class="train-car c-orange">Ă</span>
+          <span class="train-car c-yellow">Â</span>
+          <span class="train-car c-green">B</span>
+          <span class="train-car c-teal">C</span>
+          <span class="train-car c-blue">Đ</span>
+          <span class="train-car c-indigo">E</span>
+          <span class="train-car c-purple">Ê</span>
+          <span class="train-car c-pink">O</span>
+          <span class="train-car c-orange">Ô</span>
+          <span class="train-car c-green">Ơ</span>
+          <span class="train-banner-msg">✨ Chúc bé học thật giỏi! ✨</span>
+        </div>
+      </div>
+      <div class="railway-ties"></div>
+    </div>
+
+    <!-- 5. LƯỚI 2x2 CHỌN 4 MÔN HỌC CHÍNH (THẺ 3D BÓNG BẨY GIỐNG APP NỔI TIẾNG) -->
+    <main class="subject-grid-wrap">
+      <div class="subject-grid">
+
+        <!-- MÔN 1: TẬP ĐỌC -->
+        <a href="lessons.html?mod=data#data" class="subject-card card-reading" data-mod="data">
+          <span class="card-shine"></span>
+          <span class="card-badge" id="badge-data">Bắt đầu</span>
+          <div class="card-art">
+            <svg viewBox="0 0 110 90" width="84" height="68">
+              <!-- Sách mở 3D -->
+              <path d="M55,26 C40,17 18,18 10,25 L10,72 C22,66 42,67 55,76 Z" fill="#fffbeb" stroke="#d97706" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M55,26 C70,17 92,18 100,25 L100,72 C88,66 68,67 55,76 Z" fill="#ffffff" stroke="#d97706" stroke-width="3" stroke-linejoin="round"/>
+              <path d="M55,26 L55,76" stroke="#f59e0b" stroke-width="3"/>
+              <!-- Chữ cái bay lên từ trang sách -->
+              <text x="27" y="54" font-size="24" font-weight="900" fill="#ef4444">a</text>
+              <text x="69" y="53" font-size="22" font-weight="900" fill="#2563eb">ô</text>
+              <circle cx="55" cy="14" r="10" fill="#fde047"/>
+              <text x="55" y="19" text-anchor="middle" font-size="14" font-weight="900" fill="#b45309">A</text>
+            </svg>
+          </div>
+          <div class="card-title">Tập đọc</div>
+          <div class="card-sub">Đánh vần & ghép âm</div>
+          <div class="card-mini-bar"><div class="card-mini-fill" id="bar-data" style="width:0%"></div></div>
+        </a>
+
+        <!-- MÔN 2: TẬP VIẾT CHỮ Ô LY -->
+        <a href="lessons.html?mod=write#write" class="subject-card card-writing" data-mod="write">
+          <span class="card-shine"></span>
+          <span class="card-badge" id="badge-write">Bắt đầu</span>
+          <div class="card-art">
+            <svg viewBox="0 0 110 90" width="84" height="68">
+              <!-- Trang vở ô ly -->
+              <rect x="14" y="12" width="66" height="68" rx="10" fill="#ffffff" stroke="#0284c7" stroke-width="3"/>
+              <path d="M24,28 H70 M24,44 H70 M24,60 H70 M36,20 V72 M56,20 V72" stroke="#bae6fd" stroke-width="1.8"/>
+              <text x="45" y="58" text-anchor="middle" font-size="34" font-weight="900" fill="#7e22ce">ê</text>
+              <!-- Bút chì vàng vui nhộn -->
+              <g transform="translate(76, 48) rotate(-38)">
+                <rect x="-8" y="-26" width="16" height="40" rx="3" fill="#facc15" stroke="#a16207" stroke-width="2.5"/>
+                <polygon points="-8,14 8,14 0,28" fill="#fde68a" stroke="#a16207" stroke-width="2.5" stroke-linejoin="round"/>
+                <polygon points="-3,22 3,22 0,28" fill="#1e293b"/>
+                <rect x="-8" y="-32" width="16" height="8" rx="2" fill="#f43f5e" stroke="#9f1239" stroke-width="2"/>
+              </g>
+            </svg>
+          </div>
+          <div class="card-title">Tập viết ô ly</div>
+          <div class="card-sub">Tô nét chuẩn từng ly</div>
+          <div class="card-mini-bar"><div class="card-mini-fill" id="bar-write" style="width:0%"></div></div>
+        </a>
+
+        <!-- MÔN 3: TƯ DUY NGÔN NGỮ -->
+        <a href="lessons.html?mod=thinking#thinking" class="subject-card card-thinking" data-mod="thinking">
+          <span class="card-shine"></span>
+          <span class="card-badge" id="badge-thinking">Bắt đầu</span>
+          <div class="card-art">
+            <svg viewBox="0 0 110 90" width="84" height="68">
+              <!-- Tia sáng thông minh -->
+              <path d="M55,4 V11 M24,16 L30,22 M86,16 L80,22 M16,42 H23 M87,42 H94" stroke="#fef08a" stroke-width="3.5" stroke-linecap="round"/>
+              <!-- Bóng đèn ý tưởng -->
+              <path d="M55,16 C39,16 28,28 28,42 C28,53 35,60 41,66 L41,72 L69,72 L69,66 C75,60 82,53 82,42 C82,28 71,16 55,16 Z"
+                    fill="#fde047" stroke="#b45309" stroke-width="3"/>
+              <rect x="42" y="72" width="26" height="8" rx="3" fill="#94a3b8" stroke="#475569" stroke-width="2.5"/>
+              <rect x="46" y="80" width="18" height="6" rx="3" fill="#64748b"/>
+              <!-- Ngôi sao giữa bóng đèn -->
+              <polygon points="55,27 59,37 70,38 61,45 64,56 55,50 46,56 49,45 40,38 51,37" fill="#ffffff"/>
+            </svg>
+          </div>
+          <div class="card-title">Tư duy ngôn ngữ</div>
+          <div class="card-sub">Đố vui, thơ & chính tả</div>
+          <div class="card-mini-bar"><div class="card-mini-fill" id="bar-thinking" style="width:0%"></div></div>
+        </a>
+
+        <!-- MÔN 4: TRÒ CHƠI -->
+        <a href="lessons.html?mod=games#games" class="subject-card card-games" data-mod="games">
+          <span class="card-shine"></span>
+          <span class="card-badge" id="badge-games">Bắt đầu</span>
+          <div class="card-art">
+            <svg viewBox="0 0 110 90" width="84" height="68">
+              <!-- Tay cầm game bo tròn dễ thương -->
+              <path d="M30,28 H80 C93,28 100,40 97,56 C94,69 85,76 76,73 C70,71 67,62 62,60 H48 C43,62 40,71 34,73 C25,76 16,69 13,56 C10,40 17,28 30,28 Z"
+                    fill="#ffffff" stroke="#15803d" stroke-width="3.2" stroke-linejoin="round"/>
+              <!-- Phím chữ thập -->
+              <path d="M34,40 V54 M27,47 H41" stroke="#3b82f6" stroke-width="5.5" stroke-linecap="round"/>
+              <!-- 4 nút màu -->
+              <circle cx="76" cy="40" r="4.5" fill="#facc15"/>
+              <circle cx="84" cy="47" r="4.5" fill="#ef4444"/>
+              <circle cx="76" cy="54" r="4.5" fill="#22c55e"/>
+              <circle cx="68" cy="47" r="4.5" fill="#a855f7"/>
+              <!-- Vương miện nhỏ phía trên -->
+              <path d="M42,24 L46,12 L55,19 L64,12 L68,24 Z" fill="#facc15" stroke="#b45309" stroke-width="2" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <div class="card-title">Trò chơi</div>
+          <div class="card-sub">Vừa chơi vừa giỏi</div>
+          <div class="card-mini-bar"><div class="card-mini-fill" id="bar-games" style="width:0%"></div></div>
+        </a>
+
+      </div>
+
+      <!-- 6. NÚT HỌC TIẾP NHANH NỔI BẬT PHÍA DƯỚI -->
+      <div class="quick-continue-wrap">
+        <button type="button" class="quick-continue-btn" id="quickContinueBtn">
+          <span class="play-icon-circle">▶</span>
+          <span class="continue-labels">
+            <strong id="continueMainText">Học tiếp ngay!</strong>
+            <small id="continueSubText">Mở ngay môn bé đang học</small>
+          </span>
+        </button>
+      </div>
+    </main>
+
   </div>
 
-  <!-- MENU CHỌN 4 PHẦN HỌC (Dùng thẻ <a> kết hợp JS để chuyển trang mượt trên mọi trình duyệt & Xem trước) -->
-  <main class="menu-main-wrap">
-    <nav class="mode-switcher vertical-menu" id="modeSwitcher">
-      <a href="lessons.html?mod=data#data" class="mode-pill active" data-mod="data" onclick="return goToLessons(event, 'data')">
-        <span>📖 Tập đọc</span> <span>➔</span>
-      </a>
-      <a href="lessons.html?mod=write#write" class="mode-pill" data-mod="write" onclick="return goToLessons(event, 'write')">
-        <span>✍️ Tập viết chữ ô ly</span> <span>➔</span>
-      </a>
-      <a href="lessons.html?mod=thinking#thinking" class="mode-pill" data-mod="thinking" onclick="return goToLessons(event, 'thinking')">
-        <span>🧠 Tư duy ngôn ngữ</span> <span>➔</span>
-      </a>
-      <a href="lessons.html?mod=games#games" class="mode-pill" data-mod="games" onclick="return goToLessons(event, 'games')">
-        <span>🎮 Trò chơi</span> <span>➔</span>
-      </a>
-      
-    </nav>
-  </main>
+  <!-- ==================== HỘP THOẠI GÓC PHỤ HUYNH & THÀNH TÍCH ==================== -->
+  <div class="parent-modal" id="parentModal" role="dialog" aria-modal="true">
+    <div class="parent-card">
+      <div class="parent-card-header">
+        <h2>🏆 Bảng Thành Tích Của Bé</h2>
+        <button type="button" class="parent-close-btn" id="closeParentModalBtn">✕</button>
+      </div>
 
-  <!-- Các module JS -->
-  <script src="js/media.js"></script>
-  <script src="js/data-loader.js"></script>
-  <script>
-    function safeSetStorage(key, val) {
-      try {
-        if (window.localStorage) {
-          window.localStorage.setItem(key, val);
-        }
-      } catch (e) {}
-    }
+      <div class="progress-summary-list" id="progressSummaryList"></div>
 
-    function goToLessons(e, mod) {
-      safeSetStorage('APPTV_CURRENT_MOD', mod);
-      var qInput = document.getElementById('homeSearchInput');
-      var q = qInput ? (qInput.value || '').trim() : '';
-      safeSetStorage('APPTV_SEARCH_Q', q);
+      <div class="parent-tools">
+        <label class="parent-tool-btn upload-btn">
+          <span>🐖 Nạp lại 4 file dữ liệu (.txt)</span>
+          <input type="file" id="txtFileInput" multiple accept=".txt,.json" style="display:none" />
+        </label>
+        <button type="button" class="parent-tool-btn reset-btn" id="resetProgressBtn">
+          🔄 Đặt lại tiến độ học
+        </button>
+      </div>
+    </div>
+  </div>
 
-      var targetUrl = 'lessons.html?mod=' + encodeURIComponent(mod);
-      if (q) targetUrl += '&q=' + encodeURIComponent(q);
-      targetUrl += '#' + encodeURIComponent(mod);
-
-      if (e) e.preventDefault();
-      window.location.href = targetUrl;
-      return false;
-    }
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var ns = window.AppTV || {};
-
-      if (ns.DataLoader) {
-        ns.DataLoader.loadAllTxtFiles(function () {});
-      }
-
-      var topBackBtn = document.getElementById('topBackBtn');
-      if (topBackBtn) {
-        topBackBtn.addEventListener('click', function () {
-          if (ns.Media) ns.Media.playEffect('button');
-          var switcher = document.getElementById('modeSwitcher');
-          if (switcher) switcher.classList.toggle('collapsed');
-        });
-      }
-
-      var homeSearchBtn = document.getElementById('homeSearchBtn');
-      var homeSearchInput = document.getElementById('homeSearchInput');
-      if (homeSearchBtn) {
-        homeSearchBtn.addEventListener('click', function (e) {
-          goToLessons(e, 'data');
-        });
-      }
-      if (homeSearchInput) {
-        homeSearchInput.addEventListener('keydown', function (e) {
-          if (e.key === 'Enter') goToLessons(e, 'data');
-        });
-      }
-
-      var bgmBtn = document.getElementById('toggleBgmBtn');
-      if (bgmBtn && ns.Media) {
-        bgmBtn.addEventListener('click', function () {
-          ns.Media.toggleBgm(bgmBtn, 'bg_home');
-        });
-      }
-
-      var piggy = document.getElementById('txtFileInput');
-      if (piggy && ns.DataLoader) {
-        piggy.addEventListener('change', function (e) {
-          ns.DataLoader.handleManualFileUpload(e.target.files, function () {
-            alert('Đã nạp dữ liệu 4 file .txt thành công!');
-          });
-        });
-      }
-
-      if (ns.Media) {
-        ns.Media.playBgm('bg_home');
-      }
-    });
-  </script>
+  <!-- Các module JS cốt lõi + module điều phối trang chủ -->
+  <script src="js/media.js?v=20261122"></script>
+  <script src="js/data-loader.js?v=20261122"></script>
+  <script src="js/home.js?v=20261122"></script>
 </body>
 </html>
