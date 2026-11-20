@@ -1,17 +1,18 @@
 /**
  * js/media.js
- * Xử lý đường dẫn hình ảnh SVG (kèm fallback khi thiếu ảnh) và phát âm thanh MP3
+ * Quản lý âm thanh, hình ảnh SVG và phát nhạc nền thông minh (bg_home.mp3 vs bg_lesson.mp3)
  */
 window.AppTV = window.AppTV || {};
 
 (function (ns) {
   let activeAudio = null;
-  const bgmAudio = new Audio('Sounds/bg_home.mp3');
+  const bgmAudio = new Audio();
   bgmAudio.loop = true;
-  bgmAudio.volume = 0.2;
-  let bgmEnabled = false;
+  bgmAudio.volume = 0.25;
+    // Thay dòng: let bgmEnabled = false;
+  let bgmEnabled = localStorage.getItem('APPTV_BGM_MUTED') !== '1';
+  let currentBgmTrack = '';
 
-  // Chuyển nguyên âm tiếng Việt sang dạng tên file Telex trong thư mục images/
   function toTelexFilename(str) {
     if (!str) return '';
     return str
@@ -21,7 +22,6 @@ window.AppTV = window.AppTV || {};
       .replace(/Ê/g, 'Ee').replace(/Ô/g, 'Oo').replace(/Ơ/g, 'Ow').replace(/Ư/g, 'Uw');
   }
 
-  // Tạo danh sách đường dẫn ứng viên cho file SVG (hỗ trợ cả khi đặt trong hay ngoài thư mục assets/)
   function resolveSvgCandidates(rawPath) {
     if (!rawPath) return [];
     let clean = rawPath.trim().replace(/^\/+/, '');
@@ -46,7 +46,6 @@ window.AppTV = window.AppTV || {};
     ];
   }
 
-  // Tạo phần tử ảnh SVG thông minh, tự động hiện chữ/biểu tượng nếu không tìm thấy file SVG
   function createSmartSvgElement(rawPath, fallbackLabel = '📘') {
     const wrapper = document.createElement('div');
     wrapper.style.width = '100%';
@@ -64,7 +63,6 @@ window.AppTV = window.AppTV || {};
       if (idx < candidates.length) {
         img.src = candidates[idx++];
       } else {
-        // Nếu tất cả đường dẫn đều lỗi -> hiển thị chữ rút gọn để ô không bị trống
         img.remove();
         const fb = document.createElement('div');
         fb.className = 'thumb-fallback';
@@ -80,7 +78,6 @@ window.AppTV = window.AppTV || {};
     return wrapper;
   }
 
-  // Phát 1 từ hoặc hiệu ứng âm thanh
   function playSoundToken(token) {
     return new Promise((resolve) => {
       if (!token) return resolve();
@@ -138,18 +135,39 @@ window.AppTV = window.AppTV || {};
     a.play().catch(() => {});
   }
 
-  function toggleBgm(btnEl) {
-    bgmEnabled = !bgmEnabled;
-    if (bgmEnabled) {
+  function playBgm(trackName) {
+    if (!bgmEnabled) return;
+    const trackPath = `Sounds/${trackName}.mp3`;
+    if (currentBgmTrack !== trackName) {
+      bgmAudio.src = trackPath;
       bgmAudio.play().catch(() => {
-        bgmAudio.src = 'assets/Sounds/bg_home.mp3';
+        bgmAudio.src = `assets/Sounds/${trackName}.mp3`;
         bgmAudio.play().catch(() => {});
       });
+      currentBgmTrack = trackName;
+    } else if (bgmAudio.paused) {
+      bgmAudio.play().catch(() => {});
+    }
+  }
+
+  function stopBgm() {
+    bgmAudio.pause();
+    currentBgmTrack = '';
+  }
+
+  function toggleBgm(btnEl, defaultTrack = 'bg_home') {
+    bgmEnabled = !bgmEnabled;
+    if (bgmEnabled) {
+      playBgm(defaultTrack);
       if (btnEl) btnEl.textContent = '🔊 Nhạc: Bật';
     } else {
-      bgmAudio.pause();
+      stopBgm();
       if (btnEl) btnEl.textContent = '🔇 Nhạc: Tắt';
     }
+  }
+    function playWritingFail() {
+    const r = Math.floor(Math.random() * 3) + 1;
+    playSoundToken(`fail${r}`);
   }
 
   ns.Media = {
@@ -157,8 +175,11 @@ window.AppTV = window.AppTV || {};
     resolveSvgCandidates,
     createSmartSvgElement,
     playSoundToken,
+    playWritingFail,
     stopActiveAudio,
     playEffect,
+    playBgm,
+    stopBgm,
     toggleBgm
   };
 })(window.AppTV);
