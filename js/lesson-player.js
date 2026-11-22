@@ -223,14 +223,30 @@ window.AppTV = window.AppTV || {};
     modal.classList.add('open');
   }
 
+  // Lưu danh sách đối tượng XAML đang chạy trên màn hình Hoàn thành để hủy gọn khi đóng
+  let completeXamlWidgets = [];
+
+  function stopLessonCompletedAnimations() {
+    completeXamlWidgets.forEach(w => {
+      try { if (w && w.destroy) w.destroy(); } catch (e) {}
+    });
+    completeXamlWidgets = [];
+  }
+
   /**
-   * Màn hình HOÀN THÀNH giống video (04:18–04:29):
-   * Ruy-băng xanh lá "Hoàn thành", 3 ngôi sao bay có cánh + nhân vật vui vẻ + 3 nút tròn [Menu / Làm lại / Tiếp theo]
+   * Màn hình HOÀN THÀNH dùng đồ họa & hoạt ảnh gốc từ animations/lesson_completed.xaml
+   * kết hợp 3 ngôi sao có cánh từ animations/star3.xaml:
+   *  - Ruy-băng xanh lá "Hoàn thành"
+   *  - 3 ngôi sao vẫy cánh tỏa hào quang (star3.xaml)
+   *  - Bé nhảy ăn mừng, vung tay, nhún nhảy & chớp mắt (lesson_completed.xaml)
+   *  - 3 nút tròn 3D [Menu / Làm lại / Bài tiếp theo]
    */
   function showLessonCompletedScreen() {
     markCurrentLessonDone();
     setSmartActionBar(false);
     setHelpButton(null);
+    stopLessonCompletedAnimations();
+
     ns.Media.playEffect('lesson_complete');
     setTimeout(() => ns.Media.playEffect('star'), 450);
 
@@ -242,32 +258,17 @@ window.AppTV = window.AppTV || {};
       modal.innerHTML = `
         <div class="complete-ribbon">Hoàn thành</div>
 
-        <div class="complete-stars-row">
-          <div class="flying-star s1">🪽⭐🪽</div>
-          <div class="flying-star s2">🪽⭐🪽</div>
-          <div class="flying-star s3">🪽⭐🪽</div>
+        <!-- 3 ngôi sao có cánh (ưu tiên animations/star3.xaml, tự dự phòng SVG gọn nếu mở file://) -->
+        <div class="complete-stars-row" id="completeStarsRow">
+          <div class="complete-star-slot s1" data-idx="0"></div>
+          <div class="complete-star-slot s2" data-idx="1"></div>
+          <div class="complete-star-slot s3" data-idx="2"></div>
         </div>
 
-        <div class="complete-mascot">
-          <svg viewBox="0 0 140 160" width="138" height="158">
-            <circle cx="70" cy="46" r="28" fill="#fbd3b0" stroke="#92400e" stroke-width="2"/>
-            <path d="M42,42 C44,14 96,14 98,42 C86,28 54,28 42,42 Z" fill="#1e293b"/>
-            <circle cx="59" cy="46" r="3.5" fill="#0f172a"/>
-            <circle cx="81" cy="46" r="3.5" fill="#0f172a"/>
-            <path d="M58,56 Q70,68 82,56 Z" fill="#ef4444"/>
-            <path d="M44,82 L18,98" stroke="#fbbf24" stroke-width="12" stroke-linecap="round"/>
-            <path d="M96,82 L122,98" stroke="#fbbf24" stroke-width="12" stroke-linecap="round"/>
-            <circle cx="15" cy="100" r="7" fill="#fbd3b0"/>
-            <circle cx="125" cy="100" r="7" fill="#fbd3b0"/>
-            <rect x="44" y="74" width="52" height="38" rx="12" fill="#f59e0b"/>
-            <rect x="46" y="108" width="48" height="20" rx="6" fill="#2563eb"/>
-            <line x1="56" y1="128" x2="54" y2="148" stroke="#fbd3b0" stroke-width="10" stroke-linecap="round"/>
-            <line x1="84" y1="128" x2="86" y2="148" stroke="#fbd3b0" stroke-width="10" stroke-linecap="round"/>
-            <ellipse cx="52" cy="152" rx="11" ry="6" fill="#0d9488"/>
-            <ellipse cx="88" cy="152" rx="11" ry="6" fill="#0d9488"/>
-          </svg>
-        </div>
+        <!-- Nhân vật bé ăn mừng (ưu tiên animations/lesson_completed.xaml) -->
+        <div class="complete-mascot-stage" id="completeMascotStage"></div>
 
+        <!-- 3 nút điều hướng cuối bài: Danh sách / Học lại / Bài tiếp theo -->
         <div class="complete-btn-row">
           <button type="button" class="complete-round-btn menu" id="compMenuBtn" title="Danh sách bài học">
             <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round">
@@ -294,14 +295,17 @@ window.AppTV = window.AppTV || {};
     nextBtn.style.display = nextLesson ? 'flex' : 'none';
 
     modal.querySelector('#compMenuBtn').onclick = () => {
+      stopLessonCompletedAnimations();
       modal.classList.remove('open');
       closeStage();
     };
     modal.querySelector('#compReplayBtn').onclick = () => {
+      stopLessonCompletedAnimations();
       modal.classList.remove('open');
       startLessonAtStage(currentLesson, currentModule, currentLesson._catName, 0);
     };
     nextBtn.onclick = () => {
+      stopLessonCompletedAnimations();
       modal.classList.remove('open');
       if (nextLesson) {
         startLessonAtStage(nextLesson, currentModule, nextLesson._catName, 0);
@@ -311,6 +315,99 @@ window.AppTV = window.AppTV || {};
     };
 
     modal.classList.add('open');
+
+    // Nạp hoạt ảnh XAML bất đồng bộ (hủy ngay nếu người dùng đóng modal trước khi tải xong)
+    const myCompleteToken = ++stepRunToken;
+    mountLessonCompletedXaml(modal, myCompleteToken);
+  }
+
+  async function mountLessonCompletedXaml(modal, token) {
+    const mascotStage = modal.querySelector('#completeMascotStage');
+    const starSlots = Array.from(modal.querySelectorAll('.complete-star-slot'));
+    const canUseXaml = ns.XamlParser && typeof ns.XamlParser.createInteractiveXaml === 'function';
+
+    // 1. Nạp nhân vật chính từ animations/lesson_completed.xaml
+    let mascotWidget = null;
+    if (canUseXaml && mascotStage) {
+      mascotWidget = await ns.XamlParser.createInteractiveXaml('animations/lesson_completed.xaml', {
+        viewBox: '60 0 280 400',
+        textTargetName: null
+      });
+    }
+
+    if (token !== stepRunToken || !modal.classList.contains('open')) {
+      if (mascotWidget) mascotWidget.destroy();
+      return;
+    }
+
+    if (mascotStage) {
+      mascotStage.innerHTML = '';
+      if (mascotWidget) {
+        mascotStage.appendChild(mascotWidget.svg);
+        mascotWidget.playStoryboard('sb', { resetBefore: true, loop: true });
+        completeXamlWidgets.push(mascotWidget);
+      } else {
+        // Dự phòng SVG gọn nhẹ nếu trình xem trước offline chặn fetch(.xaml)
+        mascotStage.innerHTML = `
+          <div class="complete-mascot">
+            <svg viewBox="0 0 140 160" width="160" height="184">
+              <circle cx="70" cy="46" r="28" fill="#fbd3b0" stroke="#92400e" stroke-width="2"/>
+              <path d="M42,42 C44,14 96,14 98,42 C86,28 54,28 42,42 Z" fill="#1e293b"/>
+              <circle cx="59" cy="46" r="3.5" fill="#0f172a"/>
+              <circle cx="81" cy="46" r="3.5" fill="#0f172a"/>
+              <path d="M58,56 Q70,68 82,56 Z" fill="#ef4444"/>
+              <path d="M44,82 L18,62" stroke="#fbbf24" stroke-width="12" stroke-linecap="round"/>
+              <path d="M96,82 L122,62" stroke="#fbbf24" stroke-width="12" stroke-linecap="round"/>
+              <circle cx="15" cy="59" r="7" fill="#fbd3b0"/>
+              <circle cx="125" cy="59" r="7" fill="#fbd3b0"/>
+              <rect x="44" y="74" width="52" height="38" rx="12" fill="#f59e0b"/>
+              <rect x="46" y="108" width="48" height="20" rx="6" fill="#2563eb"/>
+              <line x1="56" y1="128" x2="54" y2="148" stroke="#fbd3b0" stroke-width="10" stroke-linecap="round"/>
+              <line x1="84" y1="128" x2="86" y2="148" stroke="#fbd3b0" stroke-width="10" stroke-linecap="round"/>
+              <ellipse cx="52" cy="152" rx="11" ry="6" fill="#0d9488"/>
+              <ellipse cx="88" cy="152" rx="11" ry="6" fill="#0d9488"/>
+            </svg>
+          </div>
+        `;
+      }
+    }
+
+    // 2. Nạp 3 ngôi sao có cánh từ animations/star3.xaml
+    for (let i = 0; i < starSlots.length; i++) {
+      const slot = starSlots[i];
+      let starWidget = null;
+      if (canUseXaml) {
+        starWidget = await ns.XamlParser.createInteractiveXaml('animations/star3.xaml', {
+          viewBox: '0 0 400 400',
+          textTargetName: null
+        });
+      }
+
+      if (token !== stepRunToken || !modal.classList.contains('open')) {
+        if (starWidget) starWidget.destroy();
+        return;
+      }
+
+      slot.innerHTML = '';
+      if (starWidget) {
+        slot.appendChild(starWidget.svg);
+        // Lệch nhịp vỗ cánh nhẹ giữa 3 ngôi sao cho sinh động tự nhiên
+        setTimeout(() => {
+          if (token === stepRunToken && modal.classList.contains('open')) {
+            starWidget.playStoryboard('sb', { resetBefore: true, loop: true });
+          }
+        }, i * 160);
+        completeXamlWidgets.push(starWidget);
+      } else {
+        // Dự phòng SVG sao vàng đẹp sắc nét, không bị xuống dòng
+        slot.innerHTML = `
+          <svg viewBox="0 0 120 100" width="100%" height="100%">
+            <polygon points="60,8 73,37 105,40 81,61 88,92 60,76 32,92 39,61 15,40 47,37"
+                     fill="#facc15" stroke="#ffffff" stroke-width="4" stroke-linejoin="round"/>
+          </svg>
+        `;
+      }
+    }
   }
 
   function openLesson(lesson, modName, catName) {
@@ -362,6 +459,7 @@ window.AppTV = window.AppTV || {};
     setSmartActionBar(false);
     setHelpButton(null);
 
+    stopLessonCompletedAnimations();
     const compModal = document.getElementById('lessonCompleteModal');
     if (compModal) compModal.classList.remove('open');
 
