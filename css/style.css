@@ -987,3 +987,676 @@ main {
   from { transform: translateX(100vw); }
   to { transform: translateX(-110%); }
 }
+/* =========================================================================
+   GIAO DIỆN PHẦN TẬP ĐỌC & TRÒ CHƠI TOÀN MÀN HÌNH (GIỐNG VIDEO MẪU)
+   ========================================================================= */
+
+/* Nút tròn dấu chấm hỏi (?) góc trên phải trong trò chơi */
+.help-circle-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(180deg, #60a5fa, #2563eb);
+  border: 2.5px solid #bae6fd;
+  color: #ffffff;
+  font-size: 1.35rem;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #1d4ed8;
+}
+.help-circle-btn:active { transform: translateY(2px); box-shadow: none; }
+
+/* Khung sân khấu trắng bo góc trên cho phần giảng Tập đọc */
+.reading-lecture-stage {
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  border-radius: 26px 26px 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  box-shadow: 0 -4px 18px rgba(0,0,0,0.08);
+}
+.reading-visual-box {
+  width: 100%;
+  max-width: 360px;
+  height: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.reading-visual-box img,
+.reading-visual-box svg {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+/* Chế độ toàn màn hình cho các trò chơi tương tác */
+.stage-body.fullscreen-game {
+  padding: 0;
+  background: #ffffff;
+  overflow: hidden;
+  justify-content: stretch;
+  align-items: stretch;
+}
+.game-full-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: none;
+}
+
+/* Thanh tiến độ màu xanh phía trên trong trò chơi */
+.game-progress-track {
+  position: absolute;
+  top: 10px;
+  left: 16px;
+  right: 16px;
+  height: 12px;
+  background: rgba(255,255,255,0.75);
+  border-radius: 999px;
+  overflow: hidden;
+  z-index: 25;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+.game-progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4ade80, #22c55e);
+  border-radius: 999px;
+  transition: width 0.25s ease;
+}
+
+/* ----- GAME 1: HỨNG TÁO RƠI (select apple) ----- */
+.apple-bg-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.apple-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 5;
+  pointer-events: none;
+}
+.falling-apple {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 68px;
+  height: 73px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.apple-letter {
+  position: absolute;
+  top: 56%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: 800;
+  color: #1e293b;
+}
+.apple-basket {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  pointer-events: none;
+  transition: transform 0.12s;
+}
+.apple-basket.basket-pop { transform: translateX(-50%) scale(1.12); }
+.apple-basket.basket-shake { animation: shakeHoriz 0.3s ease; }
+
+@keyframes shakeHoriz {
+  0%, 100% { transform: translateX(-50%); }
+  25% { transform: translateX(calc(-50% - 10px)); }
+  75% { transform: translateX(calc(-50% + 10px)); }
+}
+
+/* ----- GAME 1B: ARCADE TAP (Bóng bay, Cua, Bạch tuộc, Ong) ----- */
+.arcade-hint-badge {
+  position: absolute;
+  top: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255,255,255,0.92);
+  color: #1e293b;
+  padding: 6px 18px;
+  border-radius: 999px;
+  font-weight: 900;
+  font-size: 1rem;
+  z-index: 20;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+}
+.arcade-playfield {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+}
+.arcade-item {
+  position: absolute;
+  background: rgba(255,255,255,0.92);
+  border: 3px solid #ffffff;
+  border-radius: 50%;
+  width: 82px;
+  height: 82px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.2);
+  animation: floatBob 2.2s ease-in-out infinite;
+  transition: transform 0.18s, opacity 0.18s;
+}
+.arcade-item.popped { transform: scale(1.35); opacity: 0; }
+.arcade-item.wrong-shake { border-color: #ef4444; background: #fee2e2; }
+.arcade-emoji { font-size: 1.5rem; line-height: 1; }
+.arcade-lbl { font-size: 1.55rem; font-weight: 900; color: #1d4ed8; line-height: 1.05; }
+@keyframes floatBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+/* ----- GAME 2: KÉO THẢ MẢNH GHÉP (puzzle1) ----- */
+.puzzle1-stage {
+  display: flex;
+  flex-direction: column;
+  background: #ffffff;
+}
+.puzzle1-top-zone {
+  flex: 1;
+  background: #ffffff;
+}
+.puzzle1-bottom-zone {
+  flex: 1;
+  background: #e0f7ff;
+  border-top: 2px solid #bae6fd;
+}
+.puzzle1-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+}
+.puzzle-piece {
+  cursor: grab;
+  filter: drop-shadow(0 4px 6px rgba(37, 99, 235, 0.25));
+}
+.puzzle-piece:active { cursor: grabbing; }
+
+/* ----- GAME 3: BẢNG GỖ TREO HỎI DẤU THANH (dauthanh) ----- */
+.dauthanh-stage {
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 24px;
+}
+.wooden-boards-stack {
+  width: 100%;
+  max-width: 340px;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+.wooden-sign-btn {
+  position: relative;
+  width: 100%;
+  height: 122px;
+  background: linear-gradient(180deg, #fffdf5 0%, #f5edd8 100%);
+  border: 2.5px solid #d6c5a3;
+  border-radius: 10px;
+  box-shadow: 0 6px 0 #c9b58e, 0 10px 18px rgba(0,0,0,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.15s;
+}
+.wooden-sign-btn:active { transform: translateY(3px); }
+.wooden-sign-btn .rope {
+  position: absolute;
+  top: -16px;
+  width: 10px;
+  height: 28px;
+  border: 3px solid #d97706;
+  border-radius: 8px;
+  background: transparent;
+}
+.wooden-sign-btn .rope.left { left: 16px; }
+.wooden-sign-btn .rope.right { right: 16px; }
+.wooden-sign-btn .nail {
+  position: absolute;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #38bdf8;
+  border: 2px solid #0284c7;
+}
+.wooden-sign-btn .nail.left { left: 15px; }
+.wooden-sign-btn .nail.right { right: 15px; }
+.wooden-letter {
+  font-size: 4rem;
+  font-weight: 700;
+  color: #0284c7;
+  line-height: 1;
+}
+.wooden-sign-btn.correct .wooden-letter { color: #22c55e; transform: scale(1.1); transition: 0.2s; }
+.wooden-sign-btn.wrong { border-color: #ef4444; background: #fee2e2; }
+
+/* ----- GAME 4: BĂNG CHUYỀN ĐÓNG THÙNG CHAI (dongthungchai) ----- */
+.factory-stage {
+  background: #6c8ea4;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.conveyor-zone {
+  position: relative;
+  height: 44%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.bottles-track {
+  position: relative;
+  height: 120px;
+  width: 100%;
+  overflow: visible;
+}
+.glass-bottle {
+  position: absolute;
+  bottom: -2px;
+  width: 60px;
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  z-index: 10;
+}
+.glass-bottle.is-dragging { transform: scale(1.1); cursor: grabbing; }
+.bottle-text {
+  position: absolute;
+  top: 64%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #0284c7;
+  pointer-events: none;
+}
+.conveyor-belt {
+  height: 36px;
+  background: #4fa3c7;
+  border-top: 4px solid #1e293b;
+  border-bottom: 4px solid #1e293b;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.gear-wheel {
+  font-size: 1.45rem;
+  display: inline-block;
+  animation: spinGear 3.5s linear infinite;
+}
+@keyframes spinGear {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(-360deg); }
+}
+.boxes-zone {
+  flex: 1;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 22px 24px;
+  padding: 16px;
+}
+.carton-box-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.2s;
+}
+.carton-box-wrap.drag-over { transform: scale(1.1); filter: brightness(1.1); }
+.carton-box-wrap.box-bounce { animation: boxPop 0.3s ease; }
+@keyframes boxPop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.14); }
+}
+.carton-body {
+  width: 122px;
+  height: 92px;
+  background: linear-gradient(180deg, #fdba74 0%, #f59e0b 100%);
+  border: 3px solid #d97706;
+  border-radius: 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: inset 12px 0 0 rgba(255,255,255,0.22), 0 5px 12px rgba(0,0,0,0.22);
+}
+.carton-label {
+  font-size: 2.3rem;
+  font-weight: 900;
+  color: #c2410c;
+  background: rgba(255,255,255,0.28);
+  padding: 2px 16px;
+  border-radius: 999px;
+}
+.carton-label.tone-mark { font-size: 2.6rem; }
+.carton-wheels {
+  width: 132px;
+  height: 10px;
+  background: #cbd5e1;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 14px;
+  margin-top: 3px;
+}
+.carton-wheels .wheel {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #ef4444;
+  border: 2px solid #991b1b;
+  transform: translateY(3px);
+}
+
+/* ----- GAME 5: THỦ MÔN BẮT BÓNG (goal) ----- */
+.goal-bg-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+.goal-frame-box {
+  position: absolute;
+  top: 23%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 82%;
+  max-width: 320px;
+  height: 146px;
+  border: 6px solid #ffffff;
+  border-bottom: none;
+  border-radius: 8px 8px 0 0;
+  z-index: 10;
+}
+.goal-net {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(to right, rgba(255,255,255,0.45) 1.5px, transparent 1.5px),
+    linear-gradient(to bottom, rgba(255,255,255,0.45) 1.5px, transparent 1.5px);
+  background-size: 16px 16px;
+  background-color: rgba(15, 23, 42, 0.14);
+}
+.goal-targets-row {
+  position: absolute;
+  top: 10px;
+  left: 6px;
+  right: 6px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  z-index: 20;
+  transition: opacity 0.2s;
+}
+.goal-target-oval {
+  height: 62px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.94);
+  border: 3px solid #cbd5e1;
+  font-size: 1.9rem;
+  font-weight: 800;
+  color: #1e293b;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.15s;
+}
+.goal-target-oval:active { transform: scale(0.92); }
+.goalie-sprite {
+  position: absolute;
+  bottom: -14px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 15;
+  transition: left 0.45s cubic-bezier(0.22, 0.85, 0.36, 1), transform 0.3s;
+  pointer-events: none;
+}
+.soccer-ball {
+  position: absolute;
+  left: 50%;
+  top: 72%;
+  transform: translate(-50%, -50%);
+  font-size: 4rem;
+  z-index: 22;
+  pointer-events: none;
+  filter: drop-shadow(0 8px 10px rgba(0,0,0,0.3));
+}
+
+/* ----- GAME 6, 7, 8: MOLE, MEMORY, RACING ----- */
+.mole-stage {
+  background: linear-gradient(180deg, #86efac 0%, #4ade80 50%, #16a34a 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 76px 18px 24px;
+}
+.mole-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px 20px;
+  width: 100%;
+  max-width: 340px;
+}
+.mole-hole {
+  position: relative;
+  height: 132px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  overflow: hidden;
+}
+.mole-mound {
+  position: absolute;
+  bottom: 0;
+  width: 120px;
+  height: 30px;
+  border-radius: 50%;
+  background: #78350f;
+  border: 3px solid #451a03;
+  z-index: 3;
+}
+.mole-pop {
+  position: relative;
+  z-index: 2;
+  background: #fef3c7;
+  border: 3px solid #d97706;
+  border-radius: 40px 40px 10px 10px;
+  width: 92px;
+  height: 88px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transform: translateY(95px);
+  transition: transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.mole-hole.up .mole-pop { transform: translateY(-10px); }
+.mole-face { font-size: 1.5rem; }
+.mole-word { font-size: 1.5rem; font-weight: 900; color: #1e293b; }
+
+.memory-stage {
+  background: linear-gradient(135deg, #dbeafe, #ede9fe);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.memory-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+  max-width: 360px;
+}
+.memory-card {
+  aspect-ratio: 1 / 1.1;
+  border-radius: 18px;
+  border: 3px solid #fff;
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+  color: #fff;
+  font-size: 2rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 12px rgba(0,0,0,0.18);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.memory-card .mem-back { display: none; }
+.memory-card.flipped { background: #ffffff; color: #7e22ce; border-color: #a855f7; }
+.memory-card.flipped .mem-front { display: none; }
+.memory-card.flipped .mem-back { display: inline; }
+.memory-card.matched { background: #dcfce7; border-color: #22c55e; color: #15803d; opacity: 0.7; }
+
+.racing-stage {
+  background: #334155;
+  display: flex;
+  flex-direction: column;
+  padding-top: 40px;
+}
+.race-gates {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  padding: 14px;
+  z-index: 10;
+}
+.race-gate-btn {
+  height: 76px;
+  border-radius: 16px;
+  background: #ffffff;
+  border: 4px solid #facc15;
+  font-size: 2rem;
+  font-weight: 900;
+  color: #1e293b;
+  cursor: pointer;
+}
+.race-gate-btn.correct { background: #dcfce7; border-color: #22c55e; color: #15803d; }
+.race-gate-btn.wrong { background: #fee2e2; border-color: #ef4444; color: #b91c1c; }
+.race-road {
+  position: relative;
+  flex: 1;
+  display: flex;
+  justify-content: space-evenly;
+}
+.race-lane-line {
+  width: 6px;
+  height: 100%;
+  border-left: 6px dashed rgba(255,255,255,0.45);
+}
+.race-car {
+  position: absolute;
+  bottom: 36px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-90deg);
+  font-size: 3.6rem;
+  transition: left 0.35s ease;
+}
+
+/* ----- MÀN HÌNH HOÀN THÀNH BÀI HỌC (04:18–04:29 TRONG VIDEO) ----- */
+.complete-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(17, 24, 39, 0.92);
+  z-index: 250;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 46px 20px 44px;
+}
+.complete-overlay.open { display: flex; animation: fadeIn 0.3s ease; }
+
+.complete-ribbon {
+  background: linear-gradient(180deg, #4ade80 0%, #16a34a 100%);
+  color: #ffffff;
+  font-size: 1.85rem;
+  font-weight: 900;
+  padding: 12px 48px;
+  border-radius: 22px;
+  border: 3px solid #bbf7d0;
+  box-shadow: 0 8px 22px rgba(22, 163, 74, 0.45);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.25);
+}
+
+.complete-stars-row {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+}
+.flying-star {
+  font-size: 2.3rem;
+  animation: starFloat 1.6s ease-in-out infinite;
+  filter: drop-shadow(0 0 12px rgba(250, 204, 21, 0.8));
+}
+.flying-star.s2 { font-size: 2.8rem; animation-delay: 0.2s; transform: translateY(-16px); }
+.flying-star.s3 { animation-delay: 0.4s; }
+@keyframes starFloat {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-12px) scale(1.1); }
+}
+
+.complete-mascot {
+  animation: mascotBounce 1.4s ease-in-out infinite;
+}
+@keyframes mascotBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.complete-btn-row {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  justify-content: center;
+}
+.complete-round-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  border: 4px solid #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.4);
+  transition: transform 0.15s;
+}
+.complete-round-btn:active { transform: scale(0.92); }
+.complete-round-btn.menu { background: linear-gradient(180deg, #38bdf8, #0284c7); }
+.complete-round-btn.replay { background: linear-gradient(180deg, #fbbf24, #d97706); }
+.complete-round-btn.next { background: linear-gradient(180deg, #4ade80, #16a34a); }
