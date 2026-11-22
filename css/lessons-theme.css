@@ -1254,3 +1254,56 @@ body.lessons-body[data-mod="games"] {
   border: 2.5px solid #bae6fd;
   box-shadow: 0 4px 12px rgba(15, 23, 42, 0.14);
 }
+/* ==================== 13. MÀN HÌNH HOÀN THÀNH DÙNG LESSON_COMPLETED.XAML & STAR3.XAML ==================== */
+.complete-overlay {
+  padding: 36px 16px 36px;
+  gap: 8px;
+}
+
+.complete-stars-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 100%;
+  max-width: 360px;
+  height: 118px;
+  margin-top: 4px;
+}
+
+.complete-star-slot {
+  width: 104px;
+  height: 104px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: drop-shadow(0 0 14px rgba(250, 204, 21, 0.55));
+}
+.complete-star-slot.s2 {
+  width: 124px;
+  height: 124px;
+  transform: translateY(-14px);
+}
+.complete-star-slot svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
+
+.complete-mascot-stage {
+  width: min(76vw, 270px);
+  height: min(44vh, 310px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.35));
+}
+.complete-mascot-stage svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+  overflow: visible;
+}
