@@ -11,8 +11,8 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
   <!-- Giữ nguyên style.css gốc và nạp thêm lessons-theme.css để nâng cấp giao diện 3D đồng bộ với index.html -->
-  <link rel="stylesheet" href="css/style.css?v=20261123" />
-  <link rel="stylesheet" href="css/lessons-theme.css?v=20261123" />
+  <link rel="stylesheet" href="css/style.css?v=20261126" />
+  <link rel="stylesheet" href="css/lessons-theme.css?v=20261126" />
 </head>
 <body class="lessons-body" data-mod="data">
 
@@ -52,10 +52,21 @@
 
     <div class="topbar-right">
       <button type="button" class="btn-sm bgm-btn-3d" id="toggleBgmBtn" title="Bật/Tắt nhạc nền">🔊 Nhạc</button>
-      
+      <label class="piggy-btn compact-piggy" title="Nạp lại 4 file .txt nếu cần">
+        <span class="piggy-icon">🐖</span>
+        <input type="file" id="txtFileInput" multiple accept=".txt,.json" style="display:none" />
+      </label>
     </div>
   </header>
-  
+
+  <!-- ==================== 2. THANH CHUYỂN NHANH 4 MÔN HỌC ==================== -->
+  <nav class="lesson-mode-tabs" id="modeSwitcher" aria-label="Chuyển nhanh môn học">
+    <button type="button" class="mode-pill tab-data active" data-mod="data">📖 Tập đọc</button>
+    <button type="button" class="mode-pill tab-write" data-mod="write">✍️ Tập viết</button>
+    <button type="button" class="mode-pill tab-thinking" data-mod="thinking">🧠 Tư duy</button>
+    <button type="button" class="mode-pill tab-games" data-mod="games">🎮 Trò chơi</button>
+  </nav>
+
   <!-- ==================== 3. THANH TÌM KIẾM BÓNG BẨY ==================== -->
   <div class="search-section lessons-search" id="searchSection">
     <div class="search-input-wrap">
@@ -129,13 +140,13 @@
     </div>
   </div>
 
-  <!-- Các module JS cốt lõi (cập nhật ?v=20261123 để trình duyệt nạp ngay bản mới) -->
-  <script src="js/media.js?v=20261123"></script>
-  <script src="js/data-loader.js?v=20261123"></script>
-  <script src="js/writing-board.js?v=20261123"></script>
-  <script src="js/games-engine.js?v=20261123"></script>
-  <script src="js/xaml-parser.js?v=20261123"></script>
-  <script src="js/lesson-player.js?v=20261123"></script>
-  <script src="js/main.js?v=20261123"></script>
+  <!-- Các module JS cốt lõi (cập nhật ?v=20261126 để trình duyệt nạp ngay bản mới) -->
+  <script src="js/media.js?v=20261126"></script>
+  <script src="js/data-loader.js?v=20261126"></script>
+  <script src="js/writing-board.js?v=20261126"></script>
+  <script src="js/games-engine.js?v=20261126"></script>
+  <script src="js/xaml-parser.js?v=20261126"></script>
+  <script src="js/lesson-player.js?v=20261126"></script>
+  <script src="js/main.js?v=20261126"></script>
 </body>
 </html>
