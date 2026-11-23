@@ -1,0 +1,541 @@
+/**
+ * css/sgk-theme.css
+ * Giao diện chuyên biệt cho nhánh học theo Sách Giáo Khoa Tiếng Việt 1 - Tập 1 (Kết nối tri thức)
+ */
+
+body.sgk-body {
+  background: linear-gradient(180deg, #0284c7 0%, #38bdf8 46%, #7dd3fc 78%, #86efac 100%);
+}
+
+/* ==================== 1. THANH CHỌN TUẦN HỌC ==================== */
+.sgk-week-tabs {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  gap: 7px;
+  padding: 8px 14px 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.sgk-week-tabs::-webkit-scrollbar { display: none; }
+
+.week-tab-btn {
+  font-family: inherit;
+  padding: 6px 13px;
+  border-radius: 999px;
+  border: 2.5px solid rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 0.82rem;
+  white-space: nowrap;
+  cursor: pointer;
+  box-shadow: 0 3px 0 rgba(15, 23, 42, 0.16);
+  transition: transform 0.14s, background 0.18s;
+}
+.week-tab-btn:active { transform: translateY(2px); box-shadow: none; }
+.week-tab-btn.active {
+  background: linear-gradient(180deg, #fde047, #f59e0b);
+  color: #78350f;
+  border-color: #ffffff;
+  box-shadow: 0 4px 0 #b45309;
+}
+
+/* ==================== 2. THẺ BÀI HỌC SGK ==================== */
+.sgk-lesson-card .lesson-white-box {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 26px 8px 10px;
+}
+
+.sgk-card-main-text {
+  font-size: 1.55rem;
+  font-weight: 900;
+  color: #0369a1;
+  text-align: center;
+  line-height: 1.18;
+  word-break: break-word;
+}
+.sgk-card-main-text.long {
+  font-size: 1.18rem;
+}
+.sgk-card-main-text.review {
+  font-size: 1rem;
+  color: #7c3aed;
+}
+
+.sgk-page-chip {
+  position: absolute;
+  bottom: 6px;
+  right: 6px;
+  background: #e0f2fe;
+  color: #0369a1;
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1.5px solid #bae6fd;
+}
+
+.sgk-card-code {
+  position: absolute;
+  top: 6px;
+  left: 7px;
+  background: #fef3c7;
+  color: #9a3412;
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 2px 7px;
+  border-radius: 999px;
+  z-index: 3;
+}
+
+.sgk-lesson-card .lock-badge {
+  left: auto;
+  right: 6px;
+  top: 4px;
+  transform: rotate(6deg);
+  width: 28px;
+  height: 28px;
+}
+.sgk-lesson-card .lock-badge svg {
+  width: 26px;
+  height: 26px;
+}
+
+/* ==================== 3. THANH HEADER MÀN HÌNH HỌC SGK ==================== */
+.sgk-stage-header {
+  gap: 8px;
+}
+.sgk-stage-title-wrap {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.sgk-stage-title-wrap .stage-title {
+  font-size: 1.05rem;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+.sgk-stage-step-dots {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.sgk-step-pill {
+  font-size: 0.68rem;
+  font-weight: 900;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.22);
+  color: rgba(255, 255, 255, 0.85);
+}
+.sgk-step-pill.active {
+  background: #fde047;
+  color: #78350f;
+}
+.sgk-step-pill.done {
+  background: #4ade80;
+  color: #14532d;
+}
+
+.sgk-stage-actions {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.sgk-book-btn {
+  background: linear-gradient(180deg, #fbbf24, #d97706);
+  border: 2px solid #ffffff;
+  color: #ffffff;
+  font-family: inherit;
+  font-weight: 900;
+  padding: 6px 11px;
+  font-size: 0.8rem;
+  white-space: nowrap;
+}
+
+/* ==================== 4. CHẶNG 1: BẢNG ĐỌC ÂM - TIẾNG - CÂU SGK ==================== */
+.sgk-read-board {
+  width: 100%;
+  max-width: 540px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 96px;
+}
+
+.sgk-read-card {
+  background: #ffffff;
+  border-radius: 24px;
+  border: 3.5px solid #bae6fd;
+  padding: 16px;
+  box-shadow: 0 8px 20px rgba(15, 23, 42, 0.1);
+}
+
+.sgk-section-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+.sgk-section-heading h3 {
+  font-size: 0.96rem;
+  font-weight: 900;
+  color: #0369a1;
+}
+
+.sgk-mini-speak {
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  color: #ffffff;
+  border: 2px solid #bae6fd;
+  border-radius: 999px;
+  padding: 5px 12px;
+  font-family: inherit;
+  font-size: 0.78rem;
+  font-weight: 900;
+  cursor: pointer;
+}
+.sgk-mini-speak:active { transform: scale(0.95); }
+
+/* Các thẻ âm / vần mục tiêu to rõ */
+.sgk-target-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+.sgk-target-tile {
+  min-width: 78px;
+  padding: 12px 18px;
+  border-radius: 20px;
+  border: 3px solid #fdba74;
+  background: linear-gradient(180deg, #fffbeb 0%, #fef3c7 100%);
+  color: #c2410c;
+  font-family: inherit;
+  font-size: 2.2rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 5px 0 #f59e0b;
+  transition: transform 0.14s, background 0.15s;
+}
+.sgk-target-tile:active { transform: translateY(3px); box-shadow: 0 2px 0 #f59e0b; }
+.sgk-target-tile.speaking {
+  background: linear-gradient(180deg, #fde047, #f59e0b);
+  color: #ffffff;
+  transform: scale(1.06);
+}
+
+/* Lưới tiếng / từ luyện đọc chạm vào là phát âm */
+.sgk-syllable-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+.sgk-syllable-btn {
+  padding: 12px 6px;
+  border-radius: 16px;
+  border: 2.5px solid #cbd5e1;
+  background: #f8fafc;
+  color: #1e293b;
+  font-family: inherit;
+  font-size: 1.35rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #cbd5e1;
+  transition: transform 0.14s, border-color 0.15s, background 0.15s;
+}
+.sgk-syllable-btn:active { transform: translateY(3px); box-shadow: 0 1px 0 #cbd5e1; }
+.sgk-syllable-btn.speaking {
+  background: #dcfce7;
+  border-color: #22c55e;
+  color: #15803d;
+  transform: scale(1.05);
+}
+
+/* Câu ứng dụng: chạm từng tiếng để nghe đọc */
+.sgk-sentence-words {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  justify-content: center;
+  background: #fffbeb;
+  border: 2px solid #fde68a;
+  border-radius: 16px;
+  padding: 12px;
+}
+.sgk-word-chip {
+  background: #ffffff;
+  border: 2px solid #fcd34d;
+  border-radius: 12px;
+  padding: 5px 10px;
+  font-family: inherit;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #1e293b;
+  cursor: pointer;
+  transition: transform 0.12s, background 0.12s;
+}
+.sgk-word-chip.speaking,
+.sgk-word-chip:active {
+  background: #fef08a;
+  border-color: #f59e0b;
+  transform: scale(1.06);
+}
+
+/* Bộ chọn nhanh cấp độ luyện viết trong SGK */
+.sgk-write-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  flex-wrap: wrap;
+}
+.sgk-lvl-chip {
+  font-family: inherit;
+  padding: 5px 12px;
+  border-radius: 999px;
+  border: 2px solid #93c5fd;
+  background: #ffffff;
+  color: #1d4ed8;
+  font-weight: 900;
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.sgk-lvl-chip.active {
+  background: linear-gradient(180deg, #3b82f6, #1d4ed8);
+  color: #ffffff;
+  border-color: #1d4ed8;
+}
+
+/* ==================== 5. HỘP THOẠI XEM TRANG SÁCH GỐC (FlipHTML5) ==================== */
+.sgk-book-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.76);
+  backdrop-filter: blur(4px);
+  z-index: 300;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+}
+.sgk-book-modal.open { display: flex; }
+
+.sgk-book-dialog {
+  width: 100%;
+  max-width: 780px;
+  height: 88vh;
+  background: #ffffff;
+  border-radius: 22px;
+  border: 3.5px solid #38bdf8;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 20px 44px rgba(0, 0, 0, 0.45);
+}
+
+.sgk-book-dialog-header {
+  background: linear-gradient(90deg, #0284c7, #38bdf8);
+  color: #ffffff;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  font-size: 0.95rem;
+}
+
+.sgk-external-link {
+  background: rgba(255, 255, 255, 0.24);
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 11px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: 0.78rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+}
+
+.sgk-book-close-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.25);
+  color: #ffffff;
+  font-weight: 900;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.sgk-book-header-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sgk-tool-mini-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.65);
+  background: rgba(255, 255, 255, 0.22);
+  color: #ffffff;
+  font-size: 0.85rem;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.sgk-tool-mini-btn:active { transform: scale(0.92); }
+
+/* Vùng đọc ảnh trang sách sạch quảng cáo */
+.sgk-book-reader-wrap {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  background: #1e293b;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.sgk-book-loading {
+  position: absolute;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  color: #e2e8f0;
+  font-weight: 800;
+  font-size: 0.95rem;
+  background: rgba(15, 23, 42, 0.65);
+  z-index: 5;
+  padding: 16px;
+  text-align: center;
+}
+.sgk-book-loading.show { display: flex; }
+
+.sgk-book-img-scroller {
+  flex: 1;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 8px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.sgk-book-page-img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.45);
+  transition: width 0.2s ease;
+  user-select: none;
+}
+
+/* Thanh lật trang ở đáy hộp thoại */
+.sgk-book-footer {
+  background: #f8fafc;
+  border-top: 2px solid #e2e8f0;
+  padding: 9px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sgk-page-nav-btn {
+  font-family: inherit;
+  background: linear-gradient(180deg, #38bdf8, #0284c7);
+  color: #ffffff;
+  border: 2px solid #ffffff;
+  border-radius: 999px;
+  padding: 7px 14px;
+  font-size: 0.85rem;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow: 0 3px 0 #0369a1;
+}
+.sgk-page-nav-btn:active { transform: translateY(2px); box-shadow: none; }
+.sgk-page-nav-btn:disabled { opacity: 0.4; cursor: default; box-shadow: none; }
+
+.sgk-page-counter {
+  font-weight: 900;
+  font-size: 0.9rem;
+  color: #0369a1;
+  text-align: center;
+}
+
+/* Thanh chỉ dẫn đúng số trang trên Hành Trang Số */
+.sgk-page-guide-bar {
+  background: #fef9c3;
+  color: #854d0e;
+  border-bottom: 2px solid #fde047;
+  padding: 7px 12px;
+  font-size: 0.84rem;
+  font-weight: 800;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.sgk-local-zoom-tools {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.sgk-tool-mini-btn.dark {
+  background: #0284c7;
+  border-color: #ffffff;
+}
+
+/* Khung nhúng Hành Trang Số trọn vẹn 100% (không còn cắt biên quảng cáo) */
+.sgk-book-frame-wrap {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  overflow: hidden;
+  background: #f8fafc;
+}
+
+.sgk-book-iframe {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: none;
+  background: #ffffff;
+}
+
+/* Thanh gợi ý nhỏ dưới đáy phòng trường hợp trình duyệt chặn cookie bên thứ 3 trong iframe */
+.sgk-book-notice-bar {
+  background: #f1f5f9;
+  color: #475569;
+  border-top: 1.5px solid #e2e8f0;
+  padding: 7px 12px;
+  font-size: 0.76rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.35;
+}

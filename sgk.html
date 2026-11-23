@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>SGK Tiếng Việt 1 - Tập Một (Kết Nối Tri Thức)</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#0ea5e9">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
+  <!-- Tái sử dụng trọn bộ CSS trò chơi & luyện viết, bổ sung sgk-theme.css -->
+  <link rel="stylesheet" href="css/style.css?v=20261130" />
+  <link rel="stylesheet" href="css/lessons-theme.css?v=20261130" />
+  <link rel="stylesheet" href="css/sgk-theme.css?v=20261130" />
+</head>
+<body class="lessons-body sgk-body">
+
+  <!-- Phông nền bầu trời & đồi xanh đồng bộ bìa SGK Tiếng Việt 1 -->
+  <div class="lessons-sky-bg" aria-hidden="true">
+    <div class="l-sun-glow"></div>
+    <div class="l-cloud l-cloud-1"></div>
+    <div class="l-cloud l-cloud-2"></div>
+    <div class="l-cloud l-cloud-3"></div>
+    <div class="l-star l-star-1">✦</div>
+    <div class="l-star l-star-2">★</div>
+  </div>
+
+  <!-- 1. THANH TIÊU ĐỀ SGK LỚP 1 -->
+  <header class="app-topbar lessons-topbar sgk-topbar">
+    <a href="index.html" class="back-circle-btn" title="Quay lại Trang chủ" style="text-decoration:none;">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M19 12H5M12 19l-7-7 7-7"/>
+      </svg>
+    </a>
+
+    <div class="topbar-center-col">
+      <h1 class="topbar-title">📚 SGK Tiếng Việt 1 · Tập 1</h1>
+      <div class="mod-progress-pill">
+        <span class="mod-progress-star">⭐</span>
+        <span id="sgkProgressText">0 / 85 bài</span>
+        <div class="mod-progress-bar">
+          <div class="mod-progress-fill" id="sgkProgressFill" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="topbar-right">
+      <button type="button" class="btn-sm bgm-btn-3d" id="toggleBgmBtn" title="Bật/Tắt nhạc nền">🔊 Nhạc</button>
+    </div>
+  </header>
+
+  <!-- 2. THANH CHỌN NHANH THEO TUẦN HỌC (Tuần 1 -> Tuần 17) -->
+  <nav class="sgk-week-tabs" id="sgkWeekTabs" aria-label="Chọn tuần học"></nav>
+
+  <!-- 3. THANH TÌM KIẾM BÀI HỌC / VẦN / SỐ TRANG -->
+  <div class="search-section lessons-search">
+    <div class="search-input-wrap">
+      <input type="text" class="search-input" id="sgkSearchInput" placeholder="Tìm bài (vd: Bài 12, an, uyên, trang 20)..." />
+      <button type="button" class="search-clear-btn" id="sgkClearSearchBtn" title="Xóa tìm kiếm" style="display:none;">✕</button>
+    </div>
+    <button type="button" class="search-circle-btn" id="sgkSearchBtn" title="Tìm kiếm">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="11" cy="11" r="7"></circle>
+        <line x1="20" y1="20" x2="16" y2="16"></line>
+      </svg>
+    </button>
+  </div>
+
+  <!-- 4. DANH SÁCH BÀI HỌC THEO TUẦN -->
+  <main id="sgkMainContainer" class="lessons-main">
+    <div id="sgkSectionsContainer" class="sections-container"></div>
+  </main>
+
+  <!-- 5. CHÂN TRANG ĐÁM MÂY & NÚT PLAY HỌC BÀI TIẾP THEO -->
+  <div class="cloud-footer lessons-cloud-footer">
+    <div class="cloud-wave"></div>
+    <div class="play-cta-group">
+      <div class="quick-play-tag" id="sgkQuickPlayLabel">▶ Học tiếp ngay!</div>
+      <button type="button" class="floating-play-btn" id="sgkQuickPlayBtn" title="Mở bài học tiếp theo">
+        <svg viewBox="0 0 24 24" width="38" height="38" fill="white">
+          <path d="M8 5.14v14l11-7-11-7z" stroke="white" stroke-width="2" stroke-linejoin="round"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- 6. MÀN HÌNH HỌC TỪNG BÀI SGK (3 CHẶNG: ĐỌC -> VIẾT Ô LY -> TRÒ CHƠI) -->
+  <div class="stage-overlay" id="sgkStageOverlay">
+    <div class="stage-header sgk-stage-header">
+      <button type="button" class="back-circle-btn sm" id="sgkCloseStageBtn" title="Quay lại mục lục">
+        <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M19 12H5M12 19l-7-7 7-7"/>
+        </svg>
+      </button>
+
+      <div class="sgk-stage-title-wrap">
+        <div class="stage-title" id="sgkStageTitle">Bài 1: A a</div>
+        <div class="sgk-stage-step-dots" id="sgkStepDots"></div>
+      </div>
+
+      <div class="sgk-stage-actions">
+        <button type="button" class="btn-sm sgk-book-btn" id="sgkOpenBookBtn" title="Mở trang sách giáo khoa gốc">📖 Sách</button>
+        <button type="button" class="help-circle-btn" id="sgkHelpBtn" title="Nghe lại hướng dẫn" style="display:none;">?</button>
+      </div>
+    </div>
+
+    <div class="stage-body" id="sgkStageBody"></div>
+
+    <!-- THANH 2 NÚT TRÒN THÔNG MINH (Tự ẩn khi đang viết/chơi, trượt lên khi xong chặng) -->
+    <div class="smart-action-footer" id="sgkSmartFooter">
+      <div class="smart-wave-bg"></div>
+      <div class="smart-btn-row">
+        <button type="button" class="smart-circle-btn replay" id="sgkSmartReplayBtn" title="Làm lại chặng này">
+          <svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/>
+          </svg>
+        </button>
+        <button type="button" class="smart-circle-btn next" id="sgkSmartNextBtn" title="Sang chặng tiếp theo">
+          <svg viewBox="0 0 24 24" width="34" height="34" fill="none" stroke="white" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7. TRÌNH XEM SÁCH GIÁO KHOA CHÍNH THỨC — HÀNH TRANG SỐ (0% QUẢNG CÁO) -->
+  <div class="sgk-book-modal" id="sgkBookModal" role="dialog" aria-modal="true">
+    <div class="sgk-book-dialog">
+      <!-- Thanh tiêu đề hộp thoại sách -->
+      <div class="sgk-book-dialog-header">
+        <strong id="sgkBookModalTitle">📖 SGK Tiếng Việt 1 · Tập 1</strong>
+        <div class="sgk-book-header-tools">
+          <a href="https://hanhtrangso.nxbgd.vn/ebook/read/tieng-viet-1-tap-mot-409"
+             target="_blank"
+             rel="noopener noreferrer"
+             class="sgk-external-link"
+             id="sgkBookExternalLink"
+             title="Mở sách toàn màn hình trên trình duyệt">Mở trên Chrome ↗</a>
+          <button type="button" class="sgk-book-close-btn" id="sgkBookCloseBtn" title="Đóng">✕</button>
+        </div>
+      </div>
+
+      <!-- Thanh chỉ dẫn đúng số trang bài đang học -->
+      <div class="sgk-page-guide-bar" id="sgkPageGuideBar">
+        <span id="sgkPageGuideText">📌 Bài đang học nằm ở <b>Trang 14</b> của sách Hành Trang Số</span>
+        <div class="sgk-local-zoom-tools" id="sgkLocalZoomTools" style="display:none;">
+          <button type="button" class="sgk-tool-mini-btn dark" id="sgkZoomOutBtn" title="Thu nhỏ">➖</button>
+          <button type="button" class="sgk-tool-mini-btn dark" id="sgkZoomInBtn" title="Phóng to">➕</button>
+        </div>
+      </div>
+
+      <!-- Chế độ chính: Nhúng trực tiếp trang sách điện tử Hành Trang Số (NXB Giáo dục VN — sạch 100% quảng cáo) -->
+      <div class="sgk-book-frame-wrap" id="sgkBookFrameWrap">
+        <iframe
+          class="sgk-book-iframe"
+          id="sgkBookIframe"
+          allow="fullscreen"
+          referrerpolicy="no-referrer-when-downgrade"
+          title="SGK Tiếng Việt 1 Tập 1 - Hành Trang Số NXB Giáo dục Việt Nam">
+        </iframe>
+      </div>
+
+      <!-- Chế độ tùy chọn đọc ảnh ngoại tuyến (tự kích hoạt nếu đặt useLocalPages: true và chép ảnh vào data/sgk1_pages/) -->
+      <div class="sgk-book-reader-wrap" id="sgkBookReaderWrap" style="display:none;">
+        <div class="sgk-book-img-scroller" id="sgkBookImgScroller">
+          <img id="sgkBookPageImg" class="sgk-book-page-img" alt="Trang sách giáo khoa" />
+        </div>
+      </div>
+
+      <!-- Thanh hỗ trợ ở đáy hộp thoại -->
+      <div class="sgk-book-notice-bar" id="sgkBookNoticeBar">
+        <span>💡 Nếu khung sách yêu cầu đăng nhập hoặc trình duyệt chặn nhúng, bấm <b>"Mở trên Chrome ↗"</b> để đọc toàn màn hình.</span>
+      </div>
+
+      <!-- Thanh lật trang (chỉ hiện khi bật chế độ ảnh ngoại tuyến) -->
+      <div class="sgk-book-footer" id="sgkBookFooter" style="display:none;">
+        <button type="button" class="sgk-page-nav-btn" id="sgkPrevPageBtn">⬅ Trang trước</button>
+        <span class="sgk-page-counter" id="sgkPageCounter">Trang 1</span>
+        <button type="button" class="sgk-page-nav-btn" id="sgkNextPageBtn">Trang sau ➡</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tái sử dụng 100% module âm thanh, bảng tập viết 3 cấp độ, trò chơi XAML và thêm sgk-player.js -->
+  <script src="js/media.js?v=20261130"></script>
+  <script src="js/writing-board.js?v=20261130"></script>
+  <script src="js/games-engine.js?v=20261130"></script>
+  <script src="js/xaml-parser.js?v=20261130"></script>
+  <script src="js/sgk-player.js?v=20261130"></script>
+</body>
+</html>

@@ -1,0 +1,3719 @@
+{
+  "bookTitle": "Tiếng Việt 1 - Tập Một",
+  "series": "Kết nối tri thức với cuộc sống",
+  "weeks": [
+    {
+      "week": 0,
+      "title": "Khởi động: Chào lớp 1",
+      "lessons": [
+        {
+          "id": "sgk1_0",
+          "code": "Mở đầu",
+          "title": "Mở đầu: Chào em vào lớp 1",
+          "content": "Chào em vào lớp 1",
+          "bookPage": 6,
+          "isReview": false,
+          "targets": [
+            "Chào lớp 1"
+          ],
+          "readItems": [
+            "a",
+            "b",
+            "c",
+            "e",
+            "o"
+          ],
+          "sentence": "Chào mừng bé vào lớp một!",
+          "writingSvgs": [
+            "Writing/net so thang.svg",
+            "Writing/net ngang.svg",
+            "Writing/net cong kin.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "select apple",
+            "values": [
+              "a",
+              "b",
+              "c",
+              "e",
+              "o"
+            ],
+            "type": "1",
+            "questions": 1,
+            "answer": 5
+          }
+        }
+      ]
+    },
+    {
+      "week": 1,
+      "title": "Tuần 1",
+      "lessons": [
+        {
+          "id": "sgk1_1",
+          "code": "Bài 1",
+          "title": "Bài 1: A a",
+          "content": "A a",
+          "bookPage": 14,
+          "isReview": false,
+          "targets": [
+            "A",
+            "a"
+          ],
+          "readItems": [
+            "a",
+            "A"
+          ],
+          "sentence": "Nam và Hà vui chơi.",
+          "writingSvgs": [
+            "Writing/a1.svg",
+            "Writing/a2.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "a",
+              "A",
+              "b",
+              "c"
+            ],
+            "type": "1",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_2",
+          "code": "Bài 2",
+          "title": "Bài 2: B b, dấu huyền",
+          "content": "B b, dấu huyền",
+          "bookPage": 16,
+          "isReview": false,
+          "targets": [
+            "B",
+            "b",
+            "huyền"
+          ],
+          "readItems": [
+            "b",
+            "ba",
+            "bà"
+          ],
+          "sentence": "Bà bế bé.",
+          "writingSvgs": [
+            "Writing/b1.svg",
+            "Writing/dau huyen.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "dauthanh",
+            "values": [
+              "a",
+              "à",
+              "á",
+              "ả",
+              "ã",
+              "ạ"
+            ],
+            "questions": 3
+          }
+        },
+        {
+          "id": "sgk1_3",
+          "code": "Bài 3",
+          "title": "Bài 3: C c, dấu sắc",
+          "content": "C c, dấu sắc",
+          "bookPage": 18,
+          "isReview": false,
+          "targets": [
+            "C",
+            "c",
+            "sắc"
+          ],
+          "readItems": [
+            "c",
+            "ca",
+            "cá",
+            "cà",
+            "ba",
+            "bà"
+          ],
+          "sentence": "Bà có cá.",
+          "writingSvgs": [
+            "Writing/c1.svg",
+            "Writing/dau sac.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "dauthanh",
+            "values": [
+              "a",
+              "à",
+              "á",
+              "ả",
+              "ã",
+              "ạ"
+            ],
+            "questions": 3
+          }
+        },
+        {
+          "id": "sgk1_4",
+          "code": "Bài 4",
+          "title": "Bài 4: E e, Ê ê",
+          "content": "E e, Ê ê",
+          "bookPage": 20,
+          "isReview": false,
+          "targets": [
+            "E",
+            "e",
+            "Ê",
+            "ê"
+          ],
+          "readItems": [
+            "be",
+            "bè",
+            "bé",
+            "bê",
+            "bề",
+            "bế"
+          ],
+          "sentence": "Bà bế bé.",
+          "writingSvgs": [
+            "Writing/e1.svg",
+            "Writing/ê1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "be",
+              "bè",
+              "bé",
+              "bê",
+              "bề",
+              "bế"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_5",
+          "code": "Bài 5",
+          "title": "Bài 5: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 22,
+          "isReview": true,
+          "targets": [
+            "a",
+            "b",
+            "c",
+            "e",
+            "ê"
+          ],
+          "readItems": [
+            "ba",
+            "bà",
+            "cá",
+            "cà",
+            "bé",
+            "bế"
+          ],
+          "sentence": "Bà có cá, bà bế bé.",
+          "writingSvgs": [
+            "Writing/a1.svg",
+            "Writing/ê1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "ba",
+              "bà",
+              "cá",
+              "cà",
+              "bé",
+              "bế"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 2,
+      "title": "Tuần 2",
+      "lessons": [
+        {
+          "id": "sgk1_6",
+          "code": "Bài 6",
+          "title": "Bài 6: O o, dấu hỏi",
+          "content": "O o, dấu hỏi",
+          "bookPage": 24,
+          "isReview": false,
+          "targets": [
+            "O",
+            "o",
+            "hỏi"
+          ],
+          "readItems": [
+            "bo",
+            "bò",
+            "bó",
+            "bỏ",
+            "co",
+            "cò",
+            "cỏ"
+          ],
+          "sentence": "Bò có bó cỏ.",
+          "writingSvgs": [
+            "Writing/o1.svg",
+            "Writing/dau hoi.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "dauthanh",
+            "values": [
+              "o",
+              "ò",
+              "ó",
+              "ỏ",
+              "õ",
+              "ọ"
+            ],
+            "questions": 3
+          }
+        },
+        {
+          "id": "sgk1_7",
+          "code": "Bài 7",
+          "title": "Bài 7: Ô ô, dấu nặng",
+          "content": "Ô ô, dấu nặng",
+          "bookPage": 26,
+          "isReview": false,
+          "targets": [
+            "Ô",
+            "ô",
+            "nặng"
+          ],
+          "readItems": [
+            "bô",
+            "bố",
+            "bộ",
+            "cô",
+            "cổ",
+            "cọ"
+          ],
+          "sentence": "Bố có bộ cờ.",
+          "writingSvgs": [
+            "Writing/ô1.svg",
+            "Writing/dau nang.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "dauthanh",
+            "values": [
+              "ô",
+              "ồ",
+              "ố",
+              "ổ",
+              "ỗ",
+              "ộ"
+            ],
+            "questions": 3
+          }
+        },
+        {
+          "id": "sgk1_8",
+          "code": "Bài 8",
+          "title": "Bài 8: D d, Đ đ",
+          "content": "D d, Đ đ",
+          "bookPage": 28,
+          "isReview": false,
+          "targets": [
+            "D",
+            "d",
+            "Đ",
+            "đ"
+          ],
+          "readItems": [
+            "da",
+            "dê",
+            "dế",
+            "đá",
+            "đỏ",
+            "đồ"
+          ],
+          "sentence": "Bà có dê và bò.",
+          "writingSvgs": [
+            "Writing/d1.svg",
+            "Writing/đ1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "da",
+              "dê",
+              "dế",
+              "đá",
+              "đỏ",
+              "đồ"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_9",
+          "code": "Bài 9",
+          "title": "Bài 9: Ơ ơ, dấu ngã",
+          "content": "Ơ ơ, dấu ngã",
+          "bookPage": 30,
+          "isReview": false,
+          "targets": [
+            "Ơ",
+            "ơ",
+            "ngã"
+          ],
+          "readItems": [
+            "bơ",
+            "bờ",
+            "cờ",
+            "cỡ",
+            "đỡ",
+            "dỗ"
+          ],
+          "sentence": "Bố vẽ cờ đỏ.",
+          "writingSvgs": [
+            "Writing/ơ1.svg",
+            "Writing/dau nga.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "dauthanh",
+            "values": [
+              "ơ",
+              "ờ",
+              "ớ",
+              "ở",
+              "ỡ",
+              "ợ"
+            ],
+            "questions": 3
+          }
+        },
+        {
+          "id": "sgk1_10",
+          "code": "Bài 10",
+          "title": "Bài 10: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 32,
+          "isReview": true,
+          "targets": [
+            "o",
+            "ô",
+            "ơ",
+            "d",
+            "đ"
+          ],
+          "readItems": [
+            "cò",
+            "cổ",
+            "dê",
+            "đỏ",
+            "cờ",
+            "đỡ"
+          ],
+          "sentence": "Bò dê đã có ba bó cỏ.",
+          "writingSvgs": [
+            "Writing/o1.svg",
+            "Writing/đ1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "cò",
+              "cổ",
+              "dê",
+              "đỏ",
+              "cờ",
+              "đỡ"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 3,
+      "title": "Tuần 3",
+      "lessons": [
+        {
+          "id": "sgk1_11",
+          "code": "Bài 11",
+          "title": "Bài 11: I i, K k",
+          "content": "I i, K k",
+          "bookPage": 34,
+          "isReview": false,
+          "targets": [
+            "I",
+            "i",
+            "K",
+            "k"
+          ],
+          "readItems": [
+            "bi",
+            "bí",
+            "bị",
+            "kẻ",
+            "kể",
+            "kì"
+          ],
+          "sentence": "Bé đi kẻ ô.",
+          "writingSvgs": [
+            "Writing/i1.svg",
+            "Writing/k1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "bi",
+              "bí",
+              "bị",
+              "kẻ",
+              "kể",
+              "kì"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_12",
+          "code": "Bài 12",
+          "title": "Bài 12: H h, L l",
+          "content": "H h, L l",
+          "bookPage": 36,
+          "isReview": false,
+          "targets": [
+            "H",
+            "h",
+            "L",
+            "l"
+          ],
+          "readItems": [
+            "ha",
+            "hà",
+            "hồ",
+            "la",
+            "lá",
+            "lê"
+          ],
+          "sentence": "Bờ hồ có lá cờ.",
+          "writingSvgs": [
+            "Writing/h1.svg",
+            "Writing/l1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "ha",
+              "hà",
+              "hồ",
+              "la",
+              "lá",
+              "lê"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_13",
+          "code": "Bài 13",
+          "title": "Bài 13: U u, Ư ư",
+          "content": "U u, Ư ư",
+          "bookPage": 38,
+          "isReview": false,
+          "targets": [
+            "U",
+            "u",
+            "Ư",
+            "ư"
+          ],
+          "readItems": [
+            "bu",
+            "cũ",
+            "đủ",
+            "cử",
+            "dữ",
+            "lư"
+          ],
+          "sentence": "Chú bộ đội đi đò.",
+          "writingSvgs": [
+            "Writing/u1.svg",
+            "Writing/ư1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "select crab",
+            "values": [
+              "bu",
+              "cũ",
+              "đủ",
+              "cử",
+              "dữ",
+              "lư"
+            ],
+            "type": "3",
+            "questions": 1,
+            "answer": 5
+          }
+        },
+        {
+          "id": "sgk1_14",
+          "code": "Bài 14",
+          "title": "Bài 14: Ch ch, Kh kh",
+          "content": "Ch ch, Kh kh",
+          "bookPage": 40,
+          "isReview": false,
+          "targets": [
+            "Ch",
+            "ch",
+            "Kh",
+            "kh"
+          ],
+          "readItems": [
+            "cha",
+            "chú",
+            "chợ",
+            "kha",
+            "khế",
+            "khô"
+          ],
+          "sentence": "Bà đi chợ có cá khô.",
+          "writingSvgs": [
+            "Writing/ch1.svg",
+            "Writing/kh1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "cha",
+              "chú",
+              "chợ",
+              "kha",
+              "khế",
+              "khô"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_15",
+          "code": "Bài 15",
+          "title": "Bài 15: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 42,
+          "isReview": true,
+          "targets": [
+            "i",
+            "k",
+            "h",
+            "l",
+            "u",
+            "ư",
+            "ch",
+            "kh"
+          ],
+          "readItems": [
+            "bí",
+            "kể",
+            "hồ",
+            "lá",
+            "chú",
+            "khế"
+          ],
+          "sentence": "Bé kể chuyện chú khỉ.",
+          "writingSvgs": [
+            "Writing/h1.svg",
+            "Writing/ch1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "bí",
+              "kể",
+              "hồ",
+              "lá",
+              "chú",
+              "khế"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 4,
+      "title": "Tuần 4",
+      "lessons": [
+        {
+          "id": "sgk1_16",
+          "code": "Bài 16",
+          "title": "Bài 16: M m, N n",
+          "content": "M m, N n",
+          "bookPage": 44,
+          "isReview": false,
+          "targets": [
+            "M",
+            "m",
+            "N",
+            "n"
+          ],
+          "readItems": [
+            "me",
+            "mẹ",
+            "mũ",
+            "na",
+            "nơ",
+            "nô"
+          ],
+          "sentence": "Mẹ mua mũ đỏ cho bé.",
+          "writingSvgs": [
+            "Writing/m1.svg",
+            "Writing/n1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "me",
+              "mẹ",
+              "mũ",
+              "na",
+              "nơ",
+              "nô"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_17",
+          "code": "Bài 17",
+          "title": "Bài 17: G g, Gi gi",
+          "content": "G g, Gi gi",
+          "bookPage": 46,
+          "isReview": false,
+          "targets": [
+            "G",
+            "g",
+            "Gi",
+            "gi"
+          ],
+          "readItems": [
+            "ga",
+            "gà",
+            "gỗ",
+            "giá",
+            "giỏ",
+            "giò"
+          ],
+          "sentence": "Bà có giỏ gà gỗ.",
+          "writingSvgs": [
+            "Writing/g1.svg",
+            "Writing/gi1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "ga",
+              "gà",
+              "gỗ",
+              "giá",
+              "giỏ",
+              "giò"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_18",
+          "code": "Bài 18",
+          "title": "Bài 18: Gh gh, Nh nh",
+          "content": "Gh gh, Nh nh",
+          "bookPage": 48,
+          "isReview": false,
+          "targets": [
+            "Gh",
+            "gh",
+            "Nh",
+            "nh"
+          ],
+          "readItems": [
+            "ghe",
+            "ghế",
+            "ghi",
+            "nhà",
+            "nho",
+            "nhớ"
+          ],
+          "sentence": "Nhà bé có ghế gỗ.",
+          "writingSvgs": [
+            "Writing/gh1.svg",
+            "Writing/nh1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "ghe",
+              "ghế",
+              "ghi",
+              "nhà",
+              "nho",
+              "nhớ"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_19",
+          "code": "Bài 19",
+          "title": "Bài 19: Ng ng, Ngh ngh",
+          "content": "Ng ng, Ngh ngh",
+          "bookPage": 50,
+          "isReview": false,
+          "targets": [
+            "Ng",
+            "ng",
+            "Ngh",
+            "ngh"
+          ],
+          "readItems": [
+            "ngà",
+            "ngõ",
+            "ngủ",
+            "nghe",
+            "nghệ",
+            "nghỉ"
+          ],
+          "sentence": "Bé nghe bà kể chuyện.",
+          "writingSvgs": [
+            "Writing/ng1.svg",
+            "Writing/ngh1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "racing",
+            "values": [
+              "ngà",
+              "ngõ",
+              "ngủ",
+              "nghe",
+              "nghệ",
+              "nghỉ"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_20",
+          "code": "Bài 20",
+          "title": "Bài 20: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 52,
+          "isReview": true,
+          "targets": [
+            "m",
+            "n",
+            "g",
+            "gi",
+            "gh",
+            "nh",
+            "ng",
+            "ngh"
+          ],
+          "readItems": [
+            "mẹ",
+            "nơ",
+            "gà",
+            "giỏ",
+            "ghế",
+            "nhà",
+            "nghe"
+          ],
+          "sentence": "Mẹ để giỏ nho ở ghế gỗ.",
+          "writingSvgs": [
+            "Writing/m1.svg",
+            "Writing/nh1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "mẹ",
+              "nơ",
+              "gà",
+              "giỏ",
+              "ghế",
+              "nhà"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 5,
+      "title": "Tuần 5",
+      "lessons": [
+        {
+          "id": "sgk1_21",
+          "code": "Bài 21",
+          "title": "Bài 21: R r, S s",
+          "content": "R r, S s",
+          "bookPage": 54,
+          "isReview": false,
+          "targets": [
+            "R",
+            "r",
+            "S",
+            "s"
+          ],
+          "readItems": [
+            "ra",
+            "rổ",
+            "rùa",
+            "sa",
+            "sẻ",
+            "sư"
+          ],
+          "sentence": "Rổ cá rô và chú sẻ nhỏ.",
+          "writingSvgs": [
+            "Writing/r1.svg",
+            "Writing/s1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "ra",
+              "rổ",
+              "rùa",
+              "sa",
+              "sẻ",
+              "sư"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_22",
+          "code": "Bài 22",
+          "title": "Bài 22: T t, Tr tr",
+          "content": "T t, Tr tr",
+          "bookPage": 56,
+          "isReview": false,
+          "targets": [
+            "T",
+            "t",
+            "Tr",
+            "tr"
+          ],
+          "readItems": [
+            "ta",
+            "tổ",
+            "tủ",
+            "tra",
+            "tre",
+            "trà"
+          ],
+          "sentence": "Bờ tre có tổ cò.",
+          "writingSvgs": [
+            "Writing/t1.svg",
+            "Writing/tr1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "ta",
+              "tổ",
+              "tủ",
+              "tra",
+              "tre",
+              "trà"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_23",
+          "code": "Bài 23",
+          "title": "Bài 23: Th th, ia",
+          "content": "Th th, ia",
+          "bookPage": 58,
+          "isReview": false,
+          "targets": [
+            "Th",
+            "th",
+            "ia"
+          ],
+          "readItems": [
+            "thỏ",
+            "thư",
+            "thợ",
+            "chia",
+            "đĩa",
+            "tía"
+          ],
+          "sentence": "Chú thỏ có đĩa cà.",
+          "writingSvgs": [
+            "Writing/th1.svg",
+            "Writing/ia.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "select crab",
+            "values": [
+              "thỏ",
+              "thư",
+              "thợ",
+              "chia",
+              "đĩa",
+              "tía"
+            ],
+            "type": "3",
+            "questions": 1,
+            "answer": 5
+          }
+        },
+        {
+          "id": "sgk1_24",
+          "code": "Bài 24",
+          "title": "Bài 24: ua, ưa",
+          "content": "ua, ưa",
+          "bookPage": 60,
+          "isReview": false,
+          "targets": [
+            "ua",
+            "ưa"
+          ],
+          "readItems": [
+            "cua",
+            "lúa",
+            "múa",
+            "mưa",
+            "dưa",
+            "ngựa"
+          ],
+          "sentence": "Trời mưa, chú ngựa đi qua.",
+          "writingSvgs": [
+            "Writing/ua.svg",
+            "Writing/ưa.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "cua",
+              "lúa",
+              "múa",
+              "mưa",
+              "dưa",
+              "ngựa"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_25",
+          "code": "Bài 25",
+          "title": "Bài 25: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 62,
+          "isReview": true,
+          "targets": [
+            "r",
+            "s",
+            "t",
+            "tr",
+            "th",
+            "ia",
+            "ua",
+            "ưa"
+          ],
+          "readItems": [
+            "rổ",
+            "sẻ",
+            "tre",
+            "thỏ",
+            "đĩa",
+            "cua",
+            "dưa"
+          ],
+          "sentence": "Mẹ mua cua và dưa ở chợ.",
+          "writingSvgs": [
+            "Writing/r1.svg",
+            "Writing/ua.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "rổ",
+              "sẻ",
+              "tre",
+              "thỏ",
+              "đĩa",
+              "cua"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 6,
+      "title": "Tuần 6",
+      "lessons": [
+        {
+          "id": "sgk1_26",
+          "code": "Bài 26",
+          "title": "Bài 26: Ph ph, Qu qu",
+          "content": "Ph ph, Qu qu",
+          "bookPage": 64,
+          "isReview": false,
+          "targets": [
+            "Ph",
+            "ph",
+            "Qu",
+            "qu"
+          ],
+          "readItems": [
+            "pha",
+            "phố",
+            "phở",
+            "qua",
+            "quà",
+            "quê"
+          ],
+          "sentence": "Bé đi phố ăn phở bò.",
+          "writingSvgs": [
+            "Writing/ph1.svg",
+            "Writing/qu1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "pha",
+              "phố",
+              "phở",
+              "qua",
+              "quà",
+              "quê"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_27",
+          "code": "Bài 27",
+          "title": "Bài 27: V v, X x",
+          "content": "V v, X x",
+          "bookPage": 66,
+          "isReview": false,
+          "targets": [
+            "V",
+            "v",
+            "X",
+            "x"
+          ],
+          "readItems": [
+            "ve",
+            "vẽ",
+            "vở",
+            "xe",
+            "xô",
+            "xưa"
+          ],
+          "sentence": "Bé vẽ xe lửa vào vở.",
+          "writingSvgs": [
+            "Writing/v1.svg",
+            "Writing/x1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "ve",
+              "vẽ",
+              "vở",
+              "xe",
+              "xô",
+              "xưa"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_28",
+          "code": "Bài 28",
+          "title": "Bài 28: Y y",
+          "content": "Y y",
+          "bookPage": 68,
+          "isReview": false,
+          "targets": [
+            "Y",
+            "y"
+          ],
+          "readItems": [
+            "y",
+            "ý",
+            "y tá",
+            "chú ý",
+            "quý"
+          ],
+          "sentence": "Cô y tá chăm chỉ.",
+          "writingSvgs": [
+            "Writing/y1.svg",
+            "Writing/y2.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "y",
+              "ý",
+              "y tá",
+              "chú ý",
+              "quý"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_29",
+          "code": "Bài 29",
+          "title": "Bài 29: Luyện tập chính tả",
+          "content": "Luyện tập chính tả",
+          "bookPage": 70,
+          "isReview": true,
+          "targets": [
+            "c/k",
+            "g/gh",
+            "ng/ngh"
+          ],
+          "readItems": [
+            "cá",
+            "kẻ",
+            "gà",
+            "ghế",
+            "ngõ",
+            "nghe"
+          ],
+          "sentence": "Ghi nhớ luật c/k, g/gh, ng/ngh.",
+          "writingSvgs": [
+            "Writing/k1.svg",
+            "Writing/gh1.svg",
+            "Writing/ngh1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "cá",
+              "kẻ",
+              "gà",
+              "ghế",
+              "ngõ",
+              "nghe"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        },
+        {
+          "id": "sgk1_30",
+          "code": "Bài 30",
+          "title": "Bài 30: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 72,
+          "isReview": true,
+          "targets": [
+            "ph",
+            "qu",
+            "v",
+            "x",
+            "y"
+          ],
+          "readItems": [
+            "phố",
+            "quê",
+            "vở",
+            "xe",
+            "quý"
+          ],
+          "sentence": "Cả nhà đi xe về quê.",
+          "writingSvgs": [
+            "Writing/ph1.svg",
+            "Writing/v1.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "phố",
+              "quê",
+              "vở",
+              "xe",
+              "quý"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 7,
+      "title": "Tuần 7",
+      "lessons": [
+        {
+          "id": "sgk1_31",
+          "code": "Bài 31",
+          "title": "Bài 31: an, ăn, ân",
+          "content": "an, ăn, ân",
+          "bookPage": 74,
+          "isReview": false,
+          "targets": [
+            "an",
+            "ăn",
+            "ân"
+          ],
+          "readItems": [
+            "ban",
+            "can",
+            "đan",
+            "căn",
+            "lăn",
+            "răn",
+            "cân",
+            "dân"
+          ],
+          "sentence": "Bàn chân bé đi thật nhanh.",
+          "writingSvgs": [
+            "Writing/an.svg",
+            "Writing/ăn.svg",
+            "Writing/ân.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "ban",
+              "can",
+              "đan",
+              "căn",
+              "lăn",
+              "răn"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_32",
+          "code": "Bài 32",
+          "title": "Bài 32: on, ôn, ơn",
+          "content": "on, ôn, ơn",
+          "bookPage": 76,
+          "isReview": false,
+          "targets": [
+            "on",
+            "ôn",
+            "ơn"
+          ],
+          "readItems": [
+            "con",
+            "lon",
+            "mon",
+            "đôn",
+            "hôn",
+            "môn",
+            "cơn",
+            "đơn"
+          ],
+          "sentence": "Con chồn có bộ lông mượt.",
+          "writingSvgs": [
+            "Writing/on.svg",
+            "Writing/ôn.svg",
+            "Writing/ơn.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "con",
+              "lon",
+              "mon",
+              "đôn",
+              "hôn",
+              "môn"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_33",
+          "code": "Bài 33",
+          "title": "Bài 33: en, ên, in, un",
+          "content": "en, ên, in, un",
+          "bookPage": 78,
+          "isReview": false,
+          "targets": [
+            "en",
+            "ên",
+            "in",
+            "un"
+          ],
+          "readItems": [
+            "hen",
+            "len",
+            "men",
+            "bên",
+            "hên",
+            "lên",
+            "min",
+            "tin"
+          ],
+          "sentence": "Đèn pin sáng trên sân.",
+          "writingSvgs": [
+            "Writing/en.svg",
+            "Writing/ên.svg",
+            "Writing/in.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "select crab",
+            "values": [
+              "hen",
+              "len",
+              "men",
+              "bên",
+              "hên",
+              "lên"
+            ],
+            "type": "3",
+            "questions": 1,
+            "answer": 5
+          }
+        },
+        {
+          "id": "sgk1_34",
+          "code": "Bài 34",
+          "title": "Bài 34: am, ăm, âm",
+          "content": "am, ăm, âm",
+          "bookPage": 80,
+          "isReview": false,
+          "targets": [
+            "am",
+            "ăm",
+            "âm"
+          ],
+          "readItems": [
+            "cam",
+            "gam",
+            "ham",
+            "băm",
+            "lăm",
+            "năm",
+            "câm",
+            "lâm"
+          ],
+          "sentence": "Mẹ mua cam và nấm hương.",
+          "writingSvgs": [
+            "Writing/am.svg",
+            "Writing/ăm.svg",
+            "Writing/âm.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "cam",
+              "gam",
+              "ham",
+              "băm",
+              "lăm",
+              "năm"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_35",
+          "code": "Bài 35",
+          "title": "Bài 35: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 82,
+          "isReview": true,
+          "targets": [
+            "an",
+            "ăn",
+            "ân",
+            "on",
+            "am"
+          ],
+          "readItems": [
+            "ban",
+            "can",
+            "đan",
+            "căn",
+            "lăn",
+            "răn",
+            "cân",
+            "dân"
+          ],
+          "sentence": "Bé ôn tập các vần kết thúc bằng n và m.",
+          "writingSvgs": [
+            "Writing/an.svg",
+            "Writing/am.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "ban",
+              "can",
+              "đan",
+              "căn",
+              "lăn",
+              "răn"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 8,
+      "title": "Tuần 8",
+      "lessons": [
+        {
+          "id": "sgk1_36",
+          "code": "Bài 36",
+          "title": "Bài 36: om, ôm, ơm",
+          "content": "om, ôm, ơm",
+          "bookPage": 84,
+          "isReview": false,
+          "targets": [
+            "om",
+            "ôm",
+            "ơm"
+          ],
+          "readItems": [
+            "bom",
+            "gom",
+            "lom",
+            "hôm",
+            "nôm",
+            "rôm",
+            "bơm",
+            "cơm"
+          ],
+          "sentence": "Bữa cơm có tôm rim thơm ngon.",
+          "writingSvgs": [
+            "Writing/om.svg",
+            "Writing/ôm.svg",
+            "Writing/ơm.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "bom",
+              "gom",
+              "lom",
+              "hôm",
+              "nôm",
+              "rôm"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_37",
+          "code": "Bài 37",
+          "title": "Bài 37: em, êm, im, um",
+          "content": "em, êm, im, um",
+          "bookPage": 86,
+          "isReview": false,
+          "targets": [
+            "em",
+            "êm",
+            "im",
+            "um"
+          ],
+          "readItems": [
+            "kem",
+            "lem",
+            "nem",
+            "đêm",
+            "nêm",
+            "chêm",
+            "dim",
+            "kim"
+          ],
+          "sentence": "Đêm về chú chim ngủ yên.",
+          "writingSvgs": [
+            "Writing/em.svg",
+            "Writing/êm.svg",
+            "Writing/im.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "kem",
+              "lem",
+              "nem",
+              "đêm",
+              "nêm",
+              "chêm"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_38",
+          "code": "Bài 38",
+          "title": "Bài 38: ai, ay, ây",
+          "content": "ai, ay, ây",
+          "bookPage": 88,
+          "isReview": false,
+          "targets": [
+            "ai",
+            "ay",
+            "ây"
+          ],
+          "readItems": [
+            "cai",
+            "dai",
+            "đai",
+            "bay",
+            "cay",
+            "đay",
+            "bây",
+            "cây"
+          ],
+          "sentence": "Bàn tay bé vẽ đám mây bay.",
+          "writingSvgs": [
+            "Writing/ai.svg",
+            "Writing/ay.svg",
+            "Writing/ây.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "cai",
+              "dai",
+              "đai",
+              "bay",
+              "cay",
+              "đay"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_39",
+          "code": "Bài 39",
+          "title": "Bài 39: oi, ôi, ơi",
+          "content": "oi, ôi, ơi",
+          "bookPage": 90,
+          "isReview": false,
+          "targets": [
+            "oi",
+            "ôi",
+            "ơi"
+          ],
+          "readItems": [
+            "coi",
+            "moi",
+            "soi",
+            "bôi",
+            "côi",
+            "đôi",
+            "bơi",
+            "dơi"
+          ],
+          "sentence": "Chú voi con vui chơi dưới đồi.",
+          "writingSvgs": [
+            "Writing/oi.svg",
+            "Writing/ôi.svg",
+            "Writing/ơi.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "racing",
+            "values": [
+              "coi",
+              "moi",
+              "soi",
+              "bôi",
+              "côi",
+              "đôi"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_40",
+          "code": "Bài 40",
+          "title": "Bài 40: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 92,
+          "isReview": true,
+          "targets": [
+            "om",
+            "em",
+            "ai",
+            "oi"
+          ],
+          "readItems": [
+            "bom",
+            "gom",
+            "lom",
+            "kem",
+            "lem",
+            "nem",
+            "cai",
+            "dai"
+          ],
+          "sentence": "Bé ôn tập vần ôm, êm, ay, ôi.",
+          "writingSvgs": [
+            "Writing/ôm.svg",
+            "Writing/ai.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "bom",
+              "gom",
+              "lom",
+              "kem",
+              "lem",
+              "nem"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 9,
+      "title": "Tuần 9",
+      "lessons": [
+        {
+          "id": "sgk1_41",
+          "code": "Bài 41",
+          "title": "Bài 41: ui, ưi",
+          "content": "ui, ưi",
+          "bookPage": 94,
+          "isReview": false,
+          "targets": [
+            "ui",
+            "ưi"
+          ],
+          "readItems": [
+            "lui",
+            "mui",
+            "nui",
+            "cửi",
+            "gửi",
+            "chửi"
+          ],
+          "sentence": "Bé gửi thư cho ông bà ở núi.",
+          "writingSvgs": [
+            "Writing/ui.svg",
+            "Writing/ưi.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "lui",
+              "mui",
+              "nui",
+              "cửi",
+              "gửi",
+              "chửi"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_42",
+          "code": "Bài 42",
+          "title": "Bài 42: ao, eo",
+          "content": "ao, eo",
+          "bookPage": 96,
+          "isReview": false,
+          "targets": [
+            "ao",
+            "eo"
+          ],
+          "readItems": [
+            "bao",
+            "cao",
+            "dao",
+            "beo",
+            "đeo",
+            "heo"
+          ],
+          "sentence": "Chú mèo trèo lên cây cau cao.",
+          "writingSvgs": [
+            "Writing/ao.svg",
+            "Writing/eo.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "bao",
+              "cao",
+              "dao",
+              "beo",
+              "đeo",
+              "heo"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_43",
+          "code": "Bài 43",
+          "title": "Bài 43: au, âu, êu",
+          "content": "au, âu, êu",
+          "bookPage": 98,
+          "isReview": false,
+          "targets": [
+            "au",
+            "âu",
+            "êu"
+          ],
+          "readItems": [
+            "cau",
+            "đau",
+            "lau",
+            "bâu",
+            "câu",
+            "dâu",
+            "bêu",
+            "kêu"
+          ],
+          "sentence": "Chim sáo kêu trên cành dâu.",
+          "writingSvgs": [
+            "Writing/au.svg",
+            "Writing/âu.svg",
+            "Writing/êu.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "select crab",
+            "values": [
+              "cau",
+              "đau",
+              "lau",
+              "bâu",
+              "câu",
+              "dâu"
+            ],
+            "type": "3",
+            "questions": 1,
+            "answer": 5
+          }
+        },
+        {
+          "id": "sgk1_44",
+          "code": "Bài 44",
+          "title": "Bài 44: iu, ưu",
+          "content": "iu, ưu",
+          "bookPage": 100,
+          "isReview": false,
+          "targets": [
+            "iu",
+            "ưu"
+          ],
+          "readItems": [
+            "hiu",
+            "miu",
+            "riu",
+            "bưu",
+            "cưu",
+            "hưu"
+          ],
+          "sentence": "Chú cừu nhỏ dịu dàng quá.",
+          "writingSvgs": [
+            "Writing/iu.svg",
+            "Writing/ưu.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "hiu",
+              "miu",
+              "riu",
+              "bưu",
+              "cưu",
+              "hưu"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_45",
+          "code": "Bài 45",
+          "title": "Bài 45: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 102,
+          "isReview": true,
+          "targets": [
+            "ui",
+            "ao",
+            "au",
+            "iu"
+          ],
+          "readItems": [
+            "lui",
+            "mui",
+            "nui",
+            "bao",
+            "cao",
+            "dao",
+            "cau",
+            "đau"
+          ],
+          "sentence": "Bé ôn tập các vần kết thúc bằng i, o, u.",
+          "writingSvgs": [
+            "Writing/ui.svg",
+            "Writing/ao.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "lui",
+              "mui",
+              "nui",
+              "bao",
+              "cao",
+              "dao"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 10,
+      "title": "Tuần 10",
+      "lessons": [
+        {
+          "id": "sgk1_46",
+          "code": "Bài 46",
+          "title": "Bài 46: ac, ăc, âc",
+          "content": "ac, ăc, âc",
+          "bookPage": 104,
+          "isReview": false,
+          "targets": [
+            "ac",
+            "ăc",
+            "âc"
+          ],
+          "readItems": [
+            "bác",
+            "các",
+            "đác",
+            "bắc",
+            "cắc",
+            "đắc",
+            "bấc",
+            "cấc"
+          ],
+          "sentence": "Chú bác sĩ mặc áo trắng.",
+          "writingSvgs": [
+            "Writing/ac.svg",
+            "Writing/ăc.svg",
+            "Writing/âc.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "bác",
+              "các",
+              "đác",
+              "bắc",
+              "cắc",
+              "đắc"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_47",
+          "code": "Bài 47",
+          "title": "Bài 47: oc, ôc, uc, ưc",
+          "content": "oc, ôc, uc, ưc",
+          "bookPage": 106,
+          "isReview": false,
+          "targets": [
+            "oc",
+            "ôc",
+            "uc",
+            "ưc"
+          ],
+          "readItems": [
+            "bóc",
+            "cóc",
+            "dóc",
+            "bốc",
+            "cốc",
+            "dốc",
+            "cúc",
+            "đúc"
+          ],
+          "sentence": "Bé học bài với hộp mực tím.",
+          "writingSvgs": [
+            "Writing/oc.svg",
+            "Writing/ôc.svg",
+            "Writing/uc.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "bóc",
+              "cóc",
+              "dóc",
+              "bốc",
+              "cốc",
+              "dốc"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_48",
+          "code": "Bài 48",
+          "title": "Bài 48: at, ăt, ât",
+          "content": "at, ăt, ât",
+          "bookPage": 108,
+          "isReview": false,
+          "targets": [
+            "at",
+            "ăt",
+            "ât"
+          ],
+          "readItems": [
+            "bát",
+            "cát",
+            "dát",
+            "bắt",
+            "cắt",
+            "dắt",
+            "bất",
+            "cất"
+          ],
+          "sentence": "Mặt trời chiếu sáng bát ngát.",
+          "writingSvgs": [
+            "Writing/at.svg",
+            "Writing/ăt.svg",
+            "Writing/ât.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "bát",
+              "cát",
+              "dát",
+              "bắt",
+              "cắt",
+              "dắt"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_49",
+          "code": "Bài 49",
+          "title": "Bài 49: ot, ôt, ơt",
+          "content": "ot, ôt, ơt",
+          "bookPage": 110,
+          "isReview": false,
+          "targets": [
+            "ot",
+            "ôt",
+            "ơt"
+          ],
+          "readItems": [
+            "cót",
+            "gót",
+            "hót",
+            "bốt",
+            "cốt",
+            "dốt",
+            "bớt",
+            "dớt"
+          ],
+          "sentence": "Chim sơn ca hót thật ngọt.",
+          "writingSvgs": [
+            "Writing/ot.svg",
+            "Writing/ôt.svg",
+            "Writing/ơt.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "racing",
+            "values": [
+              "cót",
+              "gót",
+              "hót",
+              "bốt",
+              "cốt",
+              "dốt"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_50",
+          "code": "Bài 50",
+          "title": "Bài 50: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 112,
+          "isReview": true,
+          "targets": [
+            "ac",
+            "oc",
+            "at",
+            "ot"
+          ],
+          "readItems": [
+            "bác",
+            "các",
+            "đác",
+            "bóc",
+            "cóc",
+            "dóc",
+            "bát",
+            "cát"
+          ],
+          "sentence": "Bé ôn tập vần có âm cuối c và t.",
+          "writingSvgs": [
+            "Writing/ac.svg",
+            "Writing/at.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "bác",
+              "các",
+              "đác",
+              "bóc",
+              "cóc",
+              "dóc"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 11,
+      "title": "Tuần 11",
+      "lessons": [
+        {
+          "id": "sgk1_51",
+          "code": "Bài 51",
+          "title": "Bài 51: et, êt, it",
+          "content": "et, êt, it",
+          "bookPage": 114,
+          "isReview": false,
+          "targets": [
+            "et",
+            "êt",
+            "it"
+          ],
+          "readItems": [
+            "bét",
+            "hét",
+            "mét",
+            "bết",
+            "hết",
+            "kết",
+            "bít",
+            "đít"
+          ],
+          "sentence": "Tết đến bé mặc áo mới đẹp.",
+          "writingSvgs": [
+            "Writing/et.svg",
+            "Writing/êt.svg",
+            "Writing/it.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "bét",
+              "hét",
+              "mét",
+              "bết",
+              "hết",
+              "kết"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_52",
+          "code": "Bài 52",
+          "title": "Bài 52: ut, ưt",
+          "content": "ut, ưt",
+          "bookPage": 116,
+          "isReview": false,
+          "targets": [
+            "ut",
+            "ưt"
+          ],
+          "readItems": [
+            "bút",
+            "cút",
+            "đút",
+            "bứt",
+            "dứt",
+            "đứt"
+          ],
+          "sentence": "Bút chì vẽ nét thật sắc nét.",
+          "writingSvgs": [
+            "Writing/ut.svg",
+            "Writing/ưt.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "bút",
+              "cút",
+              "đút",
+              "bứt",
+              "dứt",
+              "đứt"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_53",
+          "code": "Bài 53",
+          "title": "Bài 53: ap, ăp, âp",
+          "content": "ap, ăp, âp",
+          "bookPage": 118,
+          "isReview": false,
+          "targets": [
+            "ap",
+            "ăp",
+            "âp"
+          ],
+          "readItems": [
+            "cáp",
+            "đáp",
+            "ráp",
+            "bắp",
+            "cắp",
+            "đắp",
+            "bấp",
+            "cấp"
+          ],
+          "sentence": "Bé tập vẽ tháp cao chót vót.",
+          "writingSvgs": [
+            "Writing/ap.svg",
+            "Writing/ăp.svg",
+            "Writing/âp.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "select crab",
+            "values": [
+              "cáp",
+              "đáp",
+              "ráp",
+              "bắp",
+              "cắp",
+              "đắp"
+            ],
+            "type": "3",
+            "questions": 1,
+            "answer": 5
+          }
+        },
+        {
+          "id": "sgk1_54",
+          "code": "Bài 54",
+          "title": "Bài 54: op, ôp, ơp",
+          "content": "op, ôp, ơp",
+          "bookPage": 120,
+          "isReview": false,
+          "targets": [
+            "op",
+            "ôp",
+            "ơp"
+          ],
+          "readItems": [
+            "bóp",
+            "cóp",
+            "góp",
+            "bốp",
+            "cốp",
+            "đốp",
+            "đớp",
+            "hớp"
+          ],
+          "sentence": "Cả lớp họp nhóm thật vui.",
+          "writingSvgs": [
+            "Writing/op.svg",
+            "Writing/ôp.svg",
+            "Writing/ơp.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "bóp",
+              "cóp",
+              "góp",
+              "bốp",
+              "cốp",
+              "đốp"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_55",
+          "code": "Bài 55",
+          "title": "Bài 55: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 122,
+          "isReview": true,
+          "targets": [
+            "et",
+            "ut",
+            "ap",
+            "op"
+          ],
+          "readItems": [
+            "bét",
+            "hét",
+            "mét",
+            "bút",
+            "cút",
+            "đút",
+            "cáp",
+            "đáp"
+          ],
+          "sentence": "Bé ôn tập vần et, ut, ap, op.",
+          "writingSvgs": [
+            "Writing/et.svg",
+            "Writing/ap.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "bét",
+              "hét",
+              "mét",
+              "bút",
+              "cút",
+              "đút"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 12,
+      "title": "Tuần 12",
+      "lessons": [
+        {
+          "id": "sgk1_56",
+          "code": "Bài 56",
+          "title": "Bài 56: ep, êp, ip, up",
+          "content": "ep, êp, ip, up",
+          "bookPage": 124,
+          "isReview": false,
+          "targets": [
+            "ep",
+            "êp",
+            "ip",
+            "up"
+          ],
+          "readItems": [
+            "bép",
+            "dép",
+            "kép",
+            "bếp",
+            "kếp",
+            "nếp",
+            "kíp",
+            "híp"
+          ],
+          "sentence": "Bé giúp mẹ xếp dép gọn gàng.",
+          "writingSvgs": [
+            "Writing/ep.svg",
+            "Writing/êp.svg",
+            "Writing/ip.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "bép",
+              "dép",
+              "kép",
+              "bếp",
+              "kếp",
+              "nếp"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_57",
+          "code": "Bài 57",
+          "title": "Bài 57: anh, ênh, inh",
+          "content": "anh, ênh, inh",
+          "bookPage": 126,
+          "isReview": false,
+          "targets": [
+            "anh",
+            "ênh",
+            "inh"
+          ],
+          "readItems": [
+            "banh",
+            "canh",
+            "đanh",
+            "bênh",
+            "kênh",
+            "mênh",
+            "binh",
+            "dinh"
+          ],
+          "sentence": "Cành cây xanh lung linh nắng sớm.",
+          "writingSvgs": [
+            "Writing/anh.svg",
+            "Writing/ênh.svg",
+            "Writing/inh.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "banh",
+              "canh",
+              "đanh",
+              "bênh",
+              "kênh",
+              "mênh"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_58",
+          "code": "Bài 58",
+          "title": "Bài 58: ach, êch, ich",
+          "content": "ach, êch, ich",
+          "bookPage": 128,
+          "isReview": false,
+          "targets": [
+            "ach",
+            "êch",
+            "ich"
+          ],
+          "readItems": [
+            "bách",
+            "cách",
+            "hách",
+            "hếch",
+            "lếch",
+            "thếch",
+            "bích",
+            "đích"
+          ],
+          "sentence": "Chú ếch xanh thích đọc sách.",
+          "writingSvgs": [
+            "Writing/ach.svg",
+            "Writing/êch.svg",
+            "Writing/ich.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "bách",
+              "cách",
+              "hách",
+              "hếch",
+              "lếch",
+              "thếch"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_59",
+          "code": "Bài 59",
+          "title": "Bài 59: ang, ăng, âng",
+          "content": "ang, ăng, âng",
+          "bookPage": 130,
+          "isReview": false,
+          "targets": [
+            "ang",
+            "ăng",
+            "âng"
+          ],
+          "readItems": [
+            "đang",
+            "gang",
+            "hang",
+            "băng",
+            "căng",
+            "dăng",
+            "bâng",
+            "dâng"
+          ],
+          "sentence": "Ánh trăng vàng tỏa sáng sân nhà.",
+          "writingSvgs": [
+            "Writing/ang.svg",
+            "Writing/ăng.svg",
+            "Writing/âng.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "racing",
+            "values": [
+              "đang",
+              "gang",
+              "hang",
+              "băng",
+              "căng",
+              "dăng"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_60",
+          "code": "Bài 60",
+          "title": "Bài 60: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 132,
+          "isReview": true,
+          "targets": [
+            "ep",
+            "anh",
+            "ach",
+            "ang"
+          ],
+          "readItems": [
+            "bép",
+            "dép",
+            "kép",
+            "banh",
+            "canh",
+            "đanh",
+            "bách",
+            "cách"
+          ],
+          "sentence": "Bé ôn tập vần có âm cuối p, nh, ch, ng.",
+          "writingSvgs": [
+            "Writing/anh.svg",
+            "Writing/ang.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "bép",
+              "dép",
+              "kép",
+              "banh",
+              "canh",
+              "đanh"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 13,
+      "title": "Tuần 13",
+      "lessons": [
+        {
+          "id": "sgk1_61",
+          "code": "Bài 61",
+          "title": "Bài 61: ong, ông, ung, ưng",
+          "content": "ong, ông, ung, ưng",
+          "bookPage": 134,
+          "isReview": false,
+          "targets": [
+            "ong",
+            "ông",
+            "ung",
+            "ưng"
+          ],
+          "readItems": [
+            "bong",
+            "cong",
+            "đong",
+            "bông",
+            "công",
+            "dông",
+            "bung",
+            "cung"
+          ],
+          "sentence": "Cánh đồng rộng có chú ong chăm chỉ.",
+          "writingSvgs": [
+            "Writing/ong.svg",
+            "Writing/ông.svg",
+            "Writing/ung.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "bong",
+              "cong",
+              "đong",
+              "bông",
+              "công",
+              "dông"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_62",
+          "code": "Bài 62",
+          "title": "Bài 62: iêc, iên, iêp",
+          "content": "iêc, iên, iêp",
+          "bookPage": 136,
+          "isReview": false,
+          "targets": [
+            "iêc",
+            "iên",
+            "iêp"
+          ],
+          "readItems": [
+            "biếc",
+            "điếc",
+            "liếc",
+            "biên",
+            "diên",
+            "điên",
+            "diếp",
+            "kiếp"
+          ],
+          "sentence": "Biển xanh biếc có cánh buồm trắng.",
+          "writingSvgs": [
+            "Writing/iêc.svg",
+            "Writing/iên.svg",
+            "Writing/iêp.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "biếc",
+              "điếc",
+              "liếc",
+              "biên",
+              "diên",
+              "điên"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_63",
+          "code": "Bài 63",
+          "title": "Bài 63: iêng, iêm, yên",
+          "content": "iêng, iêm, yên",
+          "bookPage": 138,
+          "isReview": false,
+          "targets": [
+            "iêng",
+            "iêm",
+            "yên"
+          ],
+          "readItems": [
+            "siêng",
+            "chiêng",
+            "nghiêng",
+            "diêm",
+            "kiêm",
+            "liêm",
+            "yên"
+          ],
+          "sentence": "Chim yến bay lượn bình yên.",
+          "writingSvgs": [
+            "Writing/iêm.svg",
+            "Writing/yên.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "select crab",
+            "values": [
+              "siêng",
+              "chiêng",
+              "nghiêng",
+              "diêm",
+              "kiêm",
+              "liêm"
+            ],
+            "type": "3",
+            "questions": 1,
+            "answer": 5
+          }
+        },
+        {
+          "id": "sgk1_64",
+          "code": "Bài 64",
+          "title": "Bài 64: iêt, iêu, yêu",
+          "content": "iêt, iêu, yêu",
+          "bookPage": 140,
+          "isReview": false,
+          "targets": [
+            "iêt",
+            "iêu",
+            "yêu"
+          ],
+          "readItems": [
+            "biết",
+            "miết",
+            "riết",
+            "kiêu",
+            "liêu",
+            "miêu",
+            "yêu"
+          ],
+          "sentence": "Bé yêu cánh diều bay cao.",
+          "writingSvgs": [
+            "Writing/iêt.svg",
+            "Writing/iêu.svg",
+            "Writing/yêu.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "biết",
+              "miết",
+              "riết",
+              "kiêu",
+              "liêu",
+              "miêu"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_65",
+          "code": "Bài 65",
+          "title": "Bài 65: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 142,
+          "isReview": true,
+          "targets": [
+            "ong",
+            "iên",
+            "yên",
+            "iêu"
+          ],
+          "readItems": [
+            "bong",
+            "cong",
+            "đong",
+            "biên",
+            "diên",
+            "điên",
+            "yên",
+            "kiêu"
+          ],
+          "sentence": "Bé ôn tập vần ong, iên, yên, iêu.",
+          "writingSvgs": [
+            "Writing/ong.svg",
+            "Writing/iên.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "bong",
+              "cong",
+              "đong",
+              "biên",
+              "diên",
+              "điên"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 14,
+      "title": "Tuần 14",
+      "lessons": [
+        {
+          "id": "sgk1_66",
+          "code": "Bài 66",
+          "title": "Bài 66: uôi, uôm",
+          "content": "uôi, uôm",
+          "bookPage": 144,
+          "isReview": false,
+          "targets": [
+            "uôi",
+            "uôm"
+          ],
+          "readItems": [
+            "đuôi",
+            "muôi",
+            "nuôi",
+            "duôm",
+            "chuôm",
+            "buồm"
+          ],
+          "sentence": "Dòng suối trong có cánh buồm nâu.",
+          "writingSvgs": [
+            "Writing/uôi.svg",
+            "Writing/uôm.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "đuôi",
+              "muôi",
+              "nuôi",
+              "duôm",
+              "chuôm",
+              "buồm"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_67",
+          "code": "Bài 67",
+          "title": "Bài 67: uôc, uôt",
+          "content": "uôc, uôt",
+          "bookPage": 146,
+          "isReview": false,
+          "targets": [
+            "uôc",
+            "uôt"
+          ],
+          "readItems": [
+            "cuốc",
+            "đuốc",
+            "ruốc",
+            "buốt",
+            "muốt",
+            "nuốt"
+          ],
+          "sentence": "Bé thuộc bài đọc trơn thật nhanh.",
+          "writingSvgs": [
+            "Writing/uôc.svg",
+            "Writing/uôt.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "cuốc",
+              "đuốc",
+              "ruốc",
+              "buốt",
+              "muốt",
+              "nuốt"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_68",
+          "code": "Bài 68",
+          "title": "Bài 68: uôn, uông",
+          "content": "uôn, uông",
+          "bookPage": 148,
+          "isReview": false,
+          "targets": [
+            "uôn",
+            "uông"
+          ],
+          "readItems": [
+            "buôn",
+            "luôn",
+            "muôn",
+            "buông",
+            "đuông",
+            "huông"
+          ],
+          "sentence": "Chuông reo vang gọi bé vào lớp.",
+          "writingSvgs": [
+            "Writing/uôn.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "buôn",
+              "luôn",
+              "muôn",
+              "buông",
+              "đuông",
+              "huông"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_69",
+          "code": "Bài 69",
+          "title": "Bài 69: ươi, ươu",
+          "content": "ươi, ươu",
+          "bookPage": 150,
+          "isReview": false,
+          "targets": [
+            "ươi",
+            "ươu"
+          ],
+          "readItems": [
+            "bươi",
+            "mươi",
+            "tươi",
+            "bươu",
+            "hươu",
+            "bướu"
+          ],
+          "sentence": "Chú hươu sao tươi cười đón nắng.",
+          "writingSvgs": [
+            "Writing/ươi.svg",
+            "Writing/ươu.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "racing",
+            "values": [
+              "bươi",
+              "mươi",
+              "tươi",
+              "bươu",
+              "hươu",
+              "bướu"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_70",
+          "code": "Bài 70",
+          "title": "Bài 70: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 152,
+          "isReview": true,
+          "targets": [
+            "uôi",
+            "uôc",
+            "uôn",
+            "ươi"
+          ],
+          "readItems": [
+            "đuôi",
+            "muôi",
+            "nuôi",
+            "cuốc",
+            "đuốc",
+            "ruốc",
+            "buôn",
+            "luôn"
+          ],
+          "sentence": "Bé ôn tập nhóm vần uô và ươ.",
+          "writingSvgs": [
+            "Writing/uôi.svg",
+            "Writing/ươi.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "đuôi",
+              "muôi",
+              "nuôi",
+              "cuốc",
+              "đuốc",
+              "ruốc"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 15,
+      "title": "Tuần 15",
+      "lessons": [
+        {
+          "id": "sgk1_71",
+          "code": "Bài 71",
+          "title": "Bài 71: ươc, ươt",
+          "content": "ươc, ươt",
+          "bookPage": 154,
+          "isReview": false,
+          "targets": [
+            "ươc",
+            "ươt"
+          ],
+          "readItems": [
+            "bước",
+            "cước",
+            "hước",
+            "lướt",
+            "mướt",
+            "thướt"
+          ],
+          "sentence": "Bé dùng thước kẻ đường thẳng tắp.",
+          "writingSvgs": [
+            "Writing/ươc.svg",
+            "Writing/ươt.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "bước",
+              "cước",
+              "hước",
+              "lướt",
+              "mướt",
+              "thướt"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_72",
+          "code": "Bài 72",
+          "title": "Bài 72: ươm, ươp",
+          "content": "ươm, ươp",
+          "bookPage": 156,
+          "isReview": false,
+          "targets": [
+            "ươm",
+            "ươp"
+          ],
+          "readItems": [
+            "bươm",
+            "gươm",
+            "rươm",
+            "cướp",
+            "mướp",
+            "nượp"
+          ],
+          "sentence": "Đàn bướm xinh bay quanh giàn mướp.",
+          "writingSvgs": [
+            "Writing/ươm.svg",
+            "Writing/ươp.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "bươm",
+              "gươm",
+              "rươm",
+              "cướp",
+              "mướp",
+              "nượp"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_73",
+          "code": "Bài 73",
+          "title": "Bài 73: ươn, ương",
+          "content": "ươn, ương",
+          "bookPage": 158,
+          "isReview": false,
+          "targets": [
+            "ươn",
+            "ương"
+          ],
+          "readItems": [
+            "bươn",
+            "lươn",
+            "khươn",
+            "cương",
+            "dương",
+            "đương"
+          ],
+          "sentence": "Con đường đến trường rợp bóng cây.",
+          "writingSvgs": [
+            "Writing/ươn.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "select crab",
+            "values": [
+              "bươn",
+              "lươn",
+              "khươn",
+              "cương",
+              "dương",
+              "đương"
+            ],
+            "type": "3",
+            "questions": 1,
+            "answer": 5
+          }
+        },
+        {
+          "id": "sgk1_74",
+          "code": "Bài 74",
+          "title": "Bài 74: oa, oe",
+          "content": "oa, oe",
+          "bookPage": 160,
+          "isReview": false,
+          "targets": [
+            "oa",
+            "oe"
+          ],
+          "readItems": [
+            "boa",
+            "hoa",
+            "loa",
+            "hoe",
+            "khoe",
+            "toe"
+          ],
+          "sentence": "Hoa hồng đỏ khoe sắc trong vườn.",
+          "writingSvgs": [
+            "Writing/oa.svg",
+            "Writing/oe.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "boa",
+              "hoa",
+              "loa",
+              "hoe",
+              "khoe",
+              "toe"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_75",
+          "code": "Bài 75",
+          "title": "Bài 75: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 162,
+          "isReview": true,
+          "targets": [
+            "ươc",
+            "ươm",
+            "ương",
+            "oa"
+          ],
+          "readItems": [
+            "bước",
+            "cước",
+            "hước",
+            "bươm",
+            "gươm",
+            "rươm",
+            "cương",
+            "dương"
+          ],
+          "sentence": "Bé ôn tập vần ươc, ươm, ương, oa, oe.",
+          "writingSvgs": [
+            "Writing/ươc.svg",
+            "Writing/oa.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "bước",
+              "cước",
+              "hước",
+              "bươm",
+              "gươm",
+              "rươm"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 16,
+      "title": "Tuần 16",
+      "lessons": [
+        {
+          "id": "sgk1_76",
+          "code": "Bài 76",
+          "title": "Bài 76: oan, oăn, oat, oăt",
+          "content": "oan, oăn, oat, oăt",
+          "bookPage": 164,
+          "isReview": false,
+          "targets": [
+            "oan",
+            "oăn",
+            "oat",
+            "oăt"
+          ],
+          "readItems": [
+            "đoan",
+            "hoan",
+            "loan",
+            "xoăn",
+            "khoăn",
+            "xoắn",
+            "toát",
+            "xoát"
+          ],
+          "sentence": "Bé chăm ngoan học giỏi mỗi ngày.",
+          "writingSvgs": [
+            "Writing/oan.svg",
+            "Writing/oăn.svg",
+            "Writing/oat.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "box matching",
+            "values": [
+              "đoan",
+              "hoan",
+              "loan",
+              "xoăn",
+              "khoăn",
+              "xoắn"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_77",
+          "code": "Bài 77",
+          "title": "Bài 77: oai, uê, uy",
+          "content": "oai, uê, uy",
+          "bookPage": 166,
+          "isReview": false,
+          "targets": [
+            "oai",
+            "uê",
+            "uy"
+          ],
+          "readItems": [
+            "choai",
+            "khoai",
+            "đoái",
+            "huê",
+            "khuê",
+            "thuê",
+            "duy",
+            "huy"
+          ],
+          "sentence": "Hoa huệ trắng thơm ngát khu vườn.",
+          "writingSvgs": [
+            "Writing/oai.svg",
+            "Writing/uê.svg",
+            "Writing/uy.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "mole",
+            "values": [
+              "choai",
+              "khoai",
+              "đoái",
+              "huê",
+              "khuê",
+              "thuê"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_78",
+          "code": "Bài 78",
+          "title": "Bài 78: uân, uât",
+          "content": "uân, uât",
+          "bookPage": 168,
+          "isReview": false,
+          "targets": [
+            "uân",
+            "uât"
+          ],
+          "readItems": [
+            "huân",
+            "luân",
+            "tuân",
+            "tuất",
+            "xuất",
+            "khuất"
+          ],
+          "sentence": "Mùa xuân về hoa đào nở rộ.",
+          "writingSvgs": [
+            "Writing/uân.svg",
+            "Writing/uât.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "huân",
+              "luân",
+              "tuân",
+              "tuất",
+              "xuất",
+              "khuất"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_79",
+          "code": "Bài 79",
+          "title": "Bài 79: uyên, uyêt",
+          "content": "uyên, uyêt",
+          "bookPage": 170,
+          "isReview": false,
+          "targets": [
+            "uyên",
+            "uyêt"
+          ],
+          "readItems": [
+            "duyên",
+            "huyên",
+            "tuyên",
+            "huyết",
+            "tuyết",
+            "khuyết"
+          ],
+          "sentence": "Con thuyền lướt sóng dưới ánh trăng.",
+          "writingSvgs": [
+            "Writing/uy.svg",
+            "Writing/yên.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "racing",
+            "values": [
+              "duyên",
+              "huyên",
+              "tuyên",
+              "huyết",
+              "tuyết",
+              "khuyết"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 3
+          }
+        },
+        {
+          "id": "sgk1_80",
+          "code": "Bài 80",
+          "title": "Bài 80: Ôn tập và kể chuyện",
+          "content": "Ôn tập và kể chuyện",
+          "bookPage": 172,
+          "isReview": true,
+          "targets": [
+            "oan",
+            "oai",
+            "uân",
+            "uyên"
+          ],
+          "readItems": [
+            "đoan",
+            "hoan",
+            "loan",
+            "choai",
+            "khoai",
+            "đoái",
+            "huân",
+            "luân"
+          ],
+          "sentence": "Bé ôn tập các vần có âm đệm o, u.",
+          "writingSvgs": [
+            "Writing/oan.svg",
+            "Writing/uân.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "memory",
+            "values": [
+              "đoan",
+              "hoan",
+              "loan",
+              "choai",
+              "khoai",
+              "đoái"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    },
+    {
+      "week": 17,
+      "title": "Tuần 17: Ôn tập & Đánh giá cuối HK1",
+      "lessons": [
+        {
+          "id": "sgk1_81",
+          "code": "Bài 81",
+          "title": "Bài 81: Ôn tập cuối học kì 1 (Phần 1)",
+          "content": "Ôn tập cuối học kì 1 (Phần 1)",
+          "bookPage": 174,
+          "isReview": true,
+          "targets": [
+            "an",
+            "on",
+            "am",
+            "ai",
+            "oi"
+          ],
+          "readItems": [
+            "ban",
+            "can",
+            "đan",
+            "con",
+            "lon",
+            "mon",
+            "cam",
+            "gam"
+          ],
+          "sentence": "Bé đọc to, rõ ràng các vần đã học.",
+          "writingSvgs": [
+            "Writing/a2.svg",
+            "Writing/b2.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "ban",
+              "can",
+              "đan",
+              "con",
+              "lon",
+              "mon"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        },
+        {
+          "id": "sgk1_82",
+          "code": "Bài 82",
+          "title": "Bài 82: Ôn tập cuối học kì 1 (Phần 2)",
+          "content": "Ôn tập cuối học kì 1 (Phần 2)",
+          "bookPage": 176,
+          "isReview": true,
+          "targets": [
+            "anh",
+            "ang",
+            "iên",
+            "uôn",
+            "ương"
+          ],
+          "readItems": [
+            "banh",
+            "canh",
+            "đanh",
+            "đang",
+            "gang",
+            "hang",
+            "biên",
+            "diên"
+          ],
+          "sentence": "Bé ghép tiếng và viết chữ thật đều nét.",
+          "writingSvgs": [
+            "Writing/c2.svg",
+            "Writing/d2.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "banh",
+              "canh",
+              "đanh",
+              "đang",
+              "gang",
+              "hang"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        },
+        {
+          "id": "sgk1_83",
+          "code": "Bài 83",
+          "title": "Bài 83: Ôn tập cuối học kì 1 (Phần 3)",
+          "content": "Ôn tập cuối học kì 1 (Phần 3)",
+          "bookPage": 178,
+          "isReview": true,
+          "targets": [
+            "oa",
+            "oe",
+            "uê",
+            "uy",
+            "uyên"
+          ],
+          "readItems": [
+            "boa",
+            "hoa",
+            "loa",
+            "hoe",
+            "khoe",
+            "toe",
+            "huê",
+            "khuê"
+          ],
+          "sentence": "Bé tự tin đọc cả đoạn văn ngắn.",
+          "writingSvgs": [
+            "Writing/e2.svg",
+            "Writing/o2.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "boa",
+              "hoa",
+              "loa",
+              "hoe",
+              "khoe",
+              "toe"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        },
+        {
+          "id": "sgk1_84",
+          "code": "Đánh giá",
+          "title": "Đánh giá: Đánh giá cuối học kì I",
+          "content": "Đánh giá cuối học kì I",
+          "bookPage": 180,
+          "isReview": true,
+          "targets": [
+            "Tổng hợp"
+          ],
+          "readItems": [
+            "học",
+            "giỏi",
+            "chăm",
+            "ngoan",
+            "vui",
+            "tươi"
+          ],
+          "sentence": "Chúc mừng bé hoàn thành học kì một!",
+          "writingSvgs": [
+            "Writing/a2.svg",
+            "Writing/đ2.svg"
+          ],
+          "game": {
+            "name": "game",
+            "game": "goal",
+            "values": [
+              "học",
+              "giỏi",
+              "chăm",
+              "ngoan",
+              "vui",
+              "tươi"
+            ],
+            "type": "3",
+            "questions": 3,
+            "answer": 4
+          }
+        }
+      ]
+    }
+  ],
+  "officialBookUrl": "https://hanhtrangso.nxbgd.vn/ebook/read/tieng-viet-1-tap-mot-409",
+  "publisher": "Nhà xuất bản Giáo dục Việt Nam (Hành Trang Số)",
+  "useLocalPages": false,
+  "localPagesDir": "data/sgk1_pages/"
+}
