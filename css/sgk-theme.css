@@ -539,3 +539,9 @@ body.sgk-body {
   text-align: center;
   line-height: 1.35;
 }
+/* Cắt gọn dải banner trên & dưới khi dùng chế độ dự phòng FlipHTML5 */
+.sgk-book-iframe.sgk-crop-ads {
+  height: calc(100% + 185px);
+  margin-top: -40px;
+  background: #334155;
+}

@@ -289,15 +289,23 @@ window.AppTV = window.AppTV || {};
     }
   }
 
-  // ===== 4. TRÌNH XEM SÁCH ĐIỆN TỬ CHÍNH THỨC (HÀNH TRANG SỐ — 0% QUẢNG CÁO) =====
-  const DEFAULT_OFFICIAL_BOOK_URL = 'https://hanhtrangso.nxbgd.vn/ebook/read/tieng-viet-1-tap-mot-409';
-  let bookIframeLoadedUrl = '';
-  let currentViewerBookPage = 1;
+  // ===== 4. TRÌNH XEM SÁCH LAI THÔNG MINH (ƯU TIÊN ẢNH NỘI BỘ -> DỰ PHÒNG ĐÚNG TRANG KHÔNG CẦN ĐĂNG NHẬP) =====
+  const DEFAULT_FLIP_BASE = 'https://online.fliphtml5.com/vjzyu/qbtq/';
+  let currentViewerBookPage = 14;
   let currentViewerLessonCode = '';
   let currentZoomPercent = 100;
+  let viewerLoadSeq = 0;
 
-  function getOfficialBookUrl() {
-    return (sgkData && sgkData.officialBookUrl) || DEFAULT_OFFICIAL_BOOK_URL;
+  function getFlipBaseUrl() {
+    let base = (sgkData && sgkData.flipBaseUrl) || DEFAULT_FLIP_BASE;
+    if (!base.endsWith('/')) base += '/';
+    return base;
+  }
+
+  function getExactFlipUrl(bookPageNum) {
+    const offset = (sgkData && typeof sgkData.pageOffset === 'number') ? sgkData.pageOffset : 1;
+    const flipPage = Math.max(1, (Number(bookPageNum) || 1) + offset);
+    return `${getFlipBaseUrl()}#p=${flipPage}`;
   }
 
   function applyBookZoom() {
@@ -307,84 +315,96 @@ window.AppTV = window.AppTV || {};
     img.style.maxWidth = currentZoomPercent > 100 ? 'none' : '100%';
   }
 
-  // Hiển thị ảnh trang sách ngoại tuyến (khi người dùng bật useLocalPages: true trong JSON)
-  function renderLocalBookPage(bookPageNum) {
-    const pageNum = Math.max(1, Math.min(184, Number(bookPageNum) || 1));
-    currentViewerBookPage = pageNum;
-
-    const dir = (sgkData && sgkData.localPagesDir) || 'data/sgk1_pages/';
-    const imgEl = document.getElementById('sgkBookPageImg');
-    const scroller = document.getElementById('sgkBookImgScroller');
+  function updateViewerHeaderAndNav(bookPageNum) {
     const titleEl = document.getElementById('sgkBookModalTitle');
-    const guideText = document.getElementById('sgkPageGuideText');
     const counterEl = document.getElementById('sgkPageCounter');
+    const extLink = document.getElementById('sgkBookExternalLink');
     const prevBtn = document.getElementById('sgkPrevPageBtn');
     const nextBtn = document.getElementById('sgkNextPageBtn');
 
-    if (titleEl) titleEl.textContent = `📖 ${currentViewerLessonCode || 'SGK'} — Trang ${pageNum}`;
-    if (guideText) guideText.innerHTML = `📌 Đang xem ảnh nội bộ: <b>Trang ${pageNum}</b>`;
-    if (counterEl) counterEl.textContent = `Trang ${pageNum} / 184`;
-    if (prevBtn) prevBtn.disabled = pageNum <= 1;
-    if (nextBtn) nextBtn.disabled = pageNum >= 184;
+    if (titleEl) {
+      titleEl.textContent = currentViewerLessonCode
+        ? `📖 ${currentViewerLessonCode} — Trang ${bookPageNum}`
+        : `📖 SGK Lớp 1 — Trang ${bookPageNum}`;
+    }
+    if (counterEl) counterEl.textContent = `Trang ${bookPageNum} / 183`;
+    if (extLink) extLink.href = getExactFlipUrl(bookPageNum);
+    if (prevBtn) prevBtn.disabled = bookPageNum <= 1;
+    if (nextBtn) nextBtn.disabled = bookPageNum >= 183;
+  }
 
-    if (!imgEl) return;
+  function showExactPageIframe(bookPageNum, seq) {
+    const frameWrap = document.getElementById('sgkBookFrameWrap');
+    const readerWrap = document.getElementById('sgkBookReaderWrap');
+    const zoomTools = document.getElementById('sgkLocalZoomTools');
+    const iframe = document.getElementById('sgkBookIframe');
+
+    if (readerWrap) readerWrap.style.display = 'none';
+    if (zoomTools) zoomTools.style.display = 'none';
+    if (frameWrap) frameWrap.style.display = 'block';
+
+    if (iframe) {
+      // Đổi src thẳng tới đúng số trang #p=... (không cần đăng nhập, khóa nhảy quảng cáo bằng sandbox)
+      iframe.src = 'about:blank';
+      const targetUrl = getExactFlipUrl(bookPageNum);
+      setTimeout(() => {
+        if (seq !== undefined && seq !== viewerLoadSeq) return;
+        iframe.src = targetUrl;
+      }, 30);
+    }
+  }
+
+  /**
+   * Tự động thử nạp ảnh nội bộ ở data/sgk1_pages/p{trang}.webp (hoặc .jpg) trước:
+   * - Nếu có ảnh nội bộ: hiển thị ảnh sắc nét 0% quảng cáo, phóng to/thu nhỏ mượt, chạy offline.
+   * - Nếu chưa có ảnh của trang này: tự chuyển sang đúng trang #p=... (không yêu cầu đăng nhập).
+   */
+  function renderBookPageHybrid(bookPageNum) {
+    const mySeq = ++viewerLoadSeq;
+    const pageNum = Math.max(1, Math.min(183, Number(bookPageNum) || 1));
+    currentViewerBookPage = pageNum;
+    updateViewerHeaderAndNav(pageNum);
+
+    const dir = (sgkData && sgkData.localPagesDir) || 'data/sgk1_pages/';
+    const frameWrap = document.getElementById('sgkBookFrameWrap');
+    const readerWrap = document.getElementById('sgkBookReaderWrap');
+    const zoomTools = document.getElementById('sgkLocalZoomTools');
+    const imgEl = document.getElementById('sgkBookPageImg');
+    const scroller = document.getElementById('sgkBookImgScroller');
+
+    if (!imgEl) {
+      showExactPageIframe(pageNum, mySeq);
+      return;
+    }
+
     const pad3 = String(pageNum).padStart(3, '0');
     const candidates = [
       `${dir}p${pad3}.webp`,
       `${dir}p${pageNum}.webp`,
-      `${dir}${pageNum}.webp`,
       `${dir}p${pad3}.jpg`,
-      `${dir}${pageNum}.jpg`
+      `${dir}p${pageNum}.jpg`
     ];
+
     let idx = 0;
-    imgEl.onload = () => {
+    const probe = new Image();
+    probe.onload = () => {
+      if (mySeq !== viewerLoadSeq) return;
+      if (frameWrap) frameWrap.style.display = 'none';
+      if (readerWrap) readerWrap.style.display = 'flex';
+      if (zoomTools) zoomTools.style.display = 'flex';
+      imgEl.src = probe.src;
       if (scroller) scroller.scrollTo({ top: 0, left: 0 });
       applyBookZoom();
     };
-    imgEl.onerror = () => {
+    probe.onerror = () => {
+      if (mySeq !== viewerLoadSeq) return;
       if (idx < candidates.length) {
-        imgEl.src = candidates[idx++];
+        probe.src = candidates[idx++];
       } else {
-        // Không tìm thấy ảnh cục bộ -> tự chuyển sang Hành Trang Số chính thức
-        showOfficialBookIframe(pageNum);
+        showExactPageIframe(pageNum, mySeq);
       }
     };
-    imgEl.src = candidates[idx++];
-  }
-
-  function showOfficialBookIframe(bookPageNum) {
-    const url = getOfficialBookUrl();
-    const frameWrap = document.getElementById('sgkBookFrameWrap');
-    const readerWrap = document.getElementById('sgkBookReaderWrap');
-    const zoomTools = document.getElementById('sgkLocalZoomTools');
-    const footer = document.getElementById('sgkBookFooter');
-    const noticeBar = document.getElementById('sgkBookNoticeBar');
-    const iframe = document.getElementById('sgkBookIframe');
-    const extLink = document.getElementById('sgkBookExternalLink');
-    const titleEl = document.getElementById('sgkBookModalTitle');
-    const guideText = document.getElementById('sgkPageGuideText');
-
-    if (frameWrap) frameWrap.style.display = 'block';
-    if (readerWrap) readerWrap.style.display = 'none';
-    if (zoomTools) zoomTools.style.display = 'none';
-    if (footer) footer.style.display = 'none';
-    if (noticeBar) noticeBar.style.display = 'block';
-
-    if (extLink) extLink.href = url;
-    if (titleEl) {
-      titleEl.textContent = currentViewerLessonCode
-        ? `📖 ${currentViewerLessonCode} — Trang ${bookPageNum}`
-        : `📖 SGK Tiếng Việt 1 · Trang ${bookPageNum}`;
-    }
-    if (guideText) {
-      guideText.innerHTML = `📌 Bài đang học nằm ở <b>Trang ${bookPageNum}</b> trên sách điện tử Hành Trang Số`;
-    }
-
-    // Giữ nguyên iframe đã nạp trong phiên để không phải tải lại SPA hay mất phiên đăng nhập khi chuyển bài
-    if (iframe && bookIframeLoadedUrl !== url) {
-      iframe.src = url;
-      bookIframeLoadedUrl = url;
-    }
+    probe.src = candidates[idx++];
   }
 
   function openBookViewer(lesson) {
@@ -392,32 +412,19 @@ window.AppTV = window.AppTV || {};
     if (ns.Media) ns.Media.playEffect('button');
 
     currentViewerLessonCode = lesson.code || '';
-    currentViewerBookPage = lesson.bookPage || 14;
     currentZoomPercent = 100;
 
     const modal = document.getElementById('sgkBookModal');
     if (modal) modal.classList.add('open');
-
-    if (sgkData && sgkData.useLocalPages) {
-      const frameWrap = document.getElementById('sgkBookFrameWrap');
-      const readerWrap = document.getElementById('sgkBookReaderWrap');
-      const zoomTools = document.getElementById('sgkLocalZoomTools');
-      const footer = document.getElementById('sgkBookFooter');
-      const noticeBar = document.getElementById('sgkBookNoticeBar');
-      if (frameWrap) frameWrap.style.display = 'none';
-      if (readerWrap) readerWrap.style.display = 'flex';
-      if (zoomTools) zoomTools.style.display = 'flex';
-      if (footer) footer.style.display = 'flex';
-      if (noticeBar) noticeBar.style.display = 'none';
-      renderLocalBookPage(currentViewerBookPage);
-    } else {
-      showOfficialBookIframe(currentViewerBookPage);
-    }
+    renderBookPageHybrid(lesson.bookPage || 14);
   }
 
   function closeBookViewer() {
+    viewerLoadSeq++;
     const modal = document.getElementById('sgkBookModal');
+    const iframe = document.getElementById('sgkBookIframe');
     if (modal) modal.classList.remove('open');
+    if (iframe) iframe.src = 'about:blank';
   }
 
   // ===== 5. TRÌNH PHÁT BÀI HỌC SGK (3 CHẶNG: ĐỌC -> TẬP VIẾT Ô LY -> TRÒ CHƠI) =====
@@ -953,13 +960,13 @@ window.AppTV = window.AppTV || {};
     if (prevPageBtn) {
       prevPageBtn.onclick = () => {
         if (ns.Media) ns.Media.playEffect('button');
-        renderLocalBookPage(currentViewerBookPage - 1);
+        renderBookPageHybrid(currentViewerBookPage - 1);
       };
     }
     if (nextPageBtn) {
       nextPageBtn.onclick = () => {
         if (ns.Media) ns.Media.playEffect('button');
-        renderLocalBookPage(currentViewerBookPage + 1);
+        renderBookPageHybrid(currentViewerBookPage + 1);
       };
     }
     if (zoomInBtn) {

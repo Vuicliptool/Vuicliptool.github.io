@@ -42,7 +42,8 @@
             "type": "1",
             "questions": 1,
             "answer": 5
-          }
+          },
+          "flipPage": 7
         }
       ]
     },
@@ -82,7 +83,8 @@
             "type": "1",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 15
         },
         {
           "id": "sgk1_2",
@@ -118,7 +120,8 @@
               "ạ"
             ],
             "questions": 3
-          }
+          },
+          "flipPage": 17
         },
         {
           "id": "sgk1_3",
@@ -157,7 +160,8 @@
               "ạ"
             ],
             "questions": 3
-          }
+          },
+          "flipPage": 19
         },
         {
           "id": "sgk1_4",
@@ -199,7 +203,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 21
         },
         {
           "id": "sgk1_5",
@@ -242,7 +247,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 23
         }
       ]
     },
@@ -288,7 +294,8 @@
               "ọ"
             ],
             "questions": 3
-          }
+          },
+          "flipPage": 25
         },
         {
           "id": "sgk1_7",
@@ -327,7 +334,8 @@
               "ộ"
             ],
             "questions": 3
-          }
+          },
+          "flipPage": 27
         },
         {
           "id": "sgk1_8",
@@ -369,7 +377,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 29
         },
         {
           "id": "sgk1_9",
@@ -408,7 +417,8 @@
               "ợ"
             ],
             "questions": 3
-          }
+          },
+          "flipPage": 31
         },
         {
           "id": "sgk1_10",
@@ -451,7 +461,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 33
         }
       ]
     },
@@ -499,7 +510,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 35
         },
         {
           "id": "sgk1_12",
@@ -541,7 +553,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 37
         },
         {
           "id": "sgk1_13",
@@ -583,7 +596,8 @@
             "type": "3",
             "questions": 1,
             "answer": 5
-          }
+          },
+          "flipPage": 39
         },
         {
           "id": "sgk1_14",
@@ -625,7 +639,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 41
         },
         {
           "id": "sgk1_15",
@@ -671,7 +686,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 43
         }
       ]
     },
@@ -719,7 +735,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 45
         },
         {
           "id": "sgk1_17",
@@ -761,7 +778,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 47
         },
         {
           "id": "sgk1_18",
@@ -803,7 +821,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 49
         },
         {
           "id": "sgk1_19",
@@ -845,7 +864,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 51
         },
         {
           "id": "sgk1_20",
@@ -892,7 +912,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 53
         }
       ]
     },
@@ -940,7 +961,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 55
         },
         {
           "id": "sgk1_22",
@@ -982,7 +1004,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 57
         },
         {
           "id": "sgk1_23",
@@ -1023,7 +1046,8 @@
             "type": "3",
             "questions": 1,
             "answer": 5
-          }
+          },
+          "flipPage": 59
         },
         {
           "id": "sgk1_24",
@@ -1063,7 +1087,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 61
         },
         {
           "id": "sgk1_25",
@@ -1110,7 +1135,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 63
         }
       ]
     },
@@ -1158,7 +1184,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 65
         },
         {
           "id": "sgk1_27",
@@ -1200,7 +1227,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 67
         },
         {
           "id": "sgk1_28",
@@ -1238,7 +1266,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 69
         },
         {
           "id": "sgk1_29",
@@ -1280,7 +1309,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 71
         },
         {
           "id": "sgk1_30",
@@ -1321,7 +1351,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 73
         }
       ]
     },
@@ -1371,7 +1402,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 75
         },
         {
           "id": "sgk1_32",
@@ -1415,7 +1447,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 77
         },
         {
           "id": "sgk1_33",
@@ -1460,7 +1493,8 @@
             "type": "3",
             "questions": 1,
             "answer": 5
-          }
+          },
+          "flipPage": 79
         },
         {
           "id": "sgk1_34",
@@ -1504,7 +1538,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 81
         },
         {
           "id": "sgk1_35",
@@ -1549,7 +1584,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 83
         }
       ]
     },
@@ -1599,7 +1635,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 85
         },
         {
           "id": "sgk1_37",
@@ -1644,7 +1681,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 87
         },
         {
           "id": "sgk1_38",
@@ -1688,7 +1726,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 89
         },
         {
           "id": "sgk1_39",
@@ -1732,7 +1771,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 91
         },
         {
           "id": "sgk1_40",
@@ -1776,7 +1816,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 93
         }
       ]
     },
@@ -1822,7 +1863,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 95
         },
         {
           "id": "sgk1_42",
@@ -1862,7 +1904,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 97
         },
         {
           "id": "sgk1_43",
@@ -1906,7 +1949,8 @@
             "type": "3",
             "questions": 1,
             "answer": 5
-          }
+          },
+          "flipPage": 99
         },
         {
           "id": "sgk1_44",
@@ -1946,7 +1990,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 101
         },
         {
           "id": "sgk1_45",
@@ -1990,7 +2035,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 103
         }
       ]
     },
@@ -2040,7 +2086,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 105
         },
         {
           "id": "sgk1_47",
@@ -2085,7 +2132,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 107
         },
         {
           "id": "sgk1_48",
@@ -2129,7 +2177,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 109
         },
         {
           "id": "sgk1_49",
@@ -2173,7 +2222,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 111
         },
         {
           "id": "sgk1_50",
@@ -2217,7 +2267,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 113
         }
       ]
     },
@@ -2267,7 +2318,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 115
         },
         {
           "id": "sgk1_52",
@@ -2307,7 +2359,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 117
         },
         {
           "id": "sgk1_53",
@@ -2351,7 +2404,8 @@
             "type": "3",
             "questions": 1,
             "answer": 5
-          }
+          },
+          "flipPage": 119
         },
         {
           "id": "sgk1_54",
@@ -2395,7 +2449,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 121
         },
         {
           "id": "sgk1_55",
@@ -2439,7 +2494,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 123
         }
       ]
     },
@@ -2490,7 +2546,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 125
         },
         {
           "id": "sgk1_57",
@@ -2534,7 +2591,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 127
         },
         {
           "id": "sgk1_58",
@@ -2578,7 +2636,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 129
         },
         {
           "id": "sgk1_59",
@@ -2622,7 +2681,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 131
         },
         {
           "id": "sgk1_60",
@@ -2666,7 +2726,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 133
         }
       ]
     },
@@ -2717,7 +2778,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 135
         },
         {
           "id": "sgk1_62",
@@ -2761,7 +2823,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 137
         },
         {
           "id": "sgk1_63",
@@ -2803,7 +2866,8 @@
             "type": "3",
             "questions": 1,
             "answer": 5
-          }
+          },
+          "flipPage": 139
         },
         {
           "id": "sgk1_64",
@@ -2846,7 +2910,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 141
         },
         {
           "id": "sgk1_65",
@@ -2890,7 +2955,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 143
         }
       ]
     },
@@ -2936,7 +3002,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 145
         },
         {
           "id": "sgk1_67",
@@ -2976,7 +3043,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 147
         },
         {
           "id": "sgk1_68",
@@ -3015,7 +3083,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 149
         },
         {
           "id": "sgk1_69",
@@ -3055,7 +3124,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 151
         },
         {
           "id": "sgk1_70",
@@ -3099,7 +3169,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 153
         }
       ]
     },
@@ -3145,7 +3216,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 155
         },
         {
           "id": "sgk1_72",
@@ -3185,7 +3257,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 157
         },
         {
           "id": "sgk1_73",
@@ -3224,7 +3297,8 @@
             "type": "3",
             "questions": 1,
             "answer": 5
-          }
+          },
+          "flipPage": 159
         },
         {
           "id": "sgk1_74",
@@ -3264,7 +3338,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 161
         },
         {
           "id": "sgk1_75",
@@ -3308,7 +3383,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 163
         }
       ]
     },
@@ -3359,7 +3435,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 165
         },
         {
           "id": "sgk1_77",
@@ -3403,7 +3480,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 167
         },
         {
           "id": "sgk1_78",
@@ -3443,7 +3521,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 169
         },
         {
           "id": "sgk1_79",
@@ -3483,7 +3562,8 @@
             "type": "3",
             "questions": 3,
             "answer": 3
-          }
+          },
+          "flipPage": 171
         },
         {
           "id": "sgk1_80",
@@ -3527,7 +3607,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 173
         }
       ]
     },
@@ -3578,7 +3659,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 175
         },
         {
           "id": "sgk1_82",
@@ -3623,7 +3705,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 177
         },
         {
           "id": "sgk1_83",
@@ -3668,7 +3751,8 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 179
         },
         {
           "id": "sgk1_84",
@@ -3707,13 +3791,15 @@
             "type": "3",
             "questions": 3,
             "answer": 4
-          }
+          },
+          "flipPage": 181
         }
       ]
     }
   ],
   "officialBookUrl": "https://hanhtrangso.nxbgd.vn/ebook/read/tieng-viet-1-tap-mot-409",
   "publisher": "Nhà xuất bản Giáo dục Việt Nam (Hành Trang Số)",
-  "useLocalPages": false,
-  "localPagesDir": "data/sgk1_pages/"
+  "localPagesDir": "data/sgk1_pages/",
+  "flipBaseUrl": "https://online.fliphtml5.com/vjzyu/qbtq/",
+  "pageOffset": 1
 }

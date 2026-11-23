@@ -10,9 +10,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700;800;900&display=swap" rel="stylesheet">
   <!-- Tái sử dụng trọn bộ CSS trò chơi & luyện viết, bổ sung sgk-theme.css -->
-  <link rel="stylesheet" href="css/style.css?v=20261130" />
-  <link rel="stylesheet" href="css/lessons-theme.css?v=20261130" />
-  <link rel="stylesheet" href="css/sgk-theme.css?v=20261130" />
+  <link rel="stylesheet" href="css/style.css?v=20261131" />
+  <link rel="stylesheet" href="css/lessons-theme.css?v=20261131" />
+  <link rel="stylesheet" href="css/sgk-theme.css?v=20261131" />
 </head>
 <body class="lessons-body sgk-body">
 
@@ -125,69 +125,58 @@
     </div>
   </div>
 
-  <!-- 7. TRÌNH XEM SÁCH GIÁO KHOA CHÍNH THỨC — HÀNH TRANG SỐ (0% QUẢNG CÁO) -->
+  <!-- 7. TRÌNH XEM SÁCH THÔNG MINH (Ưu tiên ảnh nội bộ 0% quảng cáo -> Tự lùi về đúng trang #p= không cần đăng nhập) -->
   <div class="sgk-book-modal" id="sgkBookModal" role="dialog" aria-modal="true">
     <div class="sgk-book-dialog">
       <!-- Thanh tiêu đề hộp thoại sách -->
       <div class="sgk-book-dialog-header">
-        <strong id="sgkBookModalTitle">📖 SGK Tiếng Việt 1 · Tập 1</strong>
+        <strong id="sgkBookModalTitle">📖 Trang sách</strong>
         <div class="sgk-book-header-tools">
-          <a href="https://hanhtrangso.nxbgd.vn/ebook/read/tieng-viet-1-tap-mot-409"
+          <div class="sgk-local-zoom-tools" id="sgkLocalZoomTools" style="display:none;">
+            <button type="button" class="sgk-tool-mini-btn" id="sgkZoomOutBtn" title="Thu nhỏ">➖</button>
+            <button type="button" class="sgk-tool-mini-btn" id="sgkZoomInBtn" title="Phóng to">➕</button>
+          </div>
+          <a href="#"
              target="_blank"
              rel="noopener noreferrer"
              class="sgk-external-link"
              id="sgkBookExternalLink"
-             title="Mở sách toàn màn hình trên trình duyệt">Mở trên Chrome ↗</a>
+             title="Mở đúng trang bài học trên Chrome">Mở Chrome ↗</a>
           <button type="button" class="sgk-book-close-btn" id="sgkBookCloseBtn" title="Đóng">✕</button>
         </div>
       </div>
 
-      <!-- Thanh chỉ dẫn đúng số trang bài đang học -->
-      <div class="sgk-page-guide-bar" id="sgkPageGuideBar">
-        <span id="sgkPageGuideText">📌 Bài đang học nằm ở <b>Trang 14</b> của sách Hành Trang Số</span>
-        <div class="sgk-local-zoom-tools" id="sgkLocalZoomTools" style="display:none;">
-          <button type="button" class="sgk-tool-mini-btn dark" id="sgkZoomOutBtn" title="Thu nhỏ">➖</button>
-          <button type="button" class="sgk-tool-mini-btn dark" id="sgkZoomInBtn" title="Phóng to">➕</button>
-        </div>
-      </div>
-
-      <!-- Chế độ chính: Nhúng trực tiếp trang sách điện tử Hành Trang Số (NXB Giáo dục VN — sạch 100% quảng cáo) -->
-      <div class="sgk-book-frame-wrap" id="sgkBookFrameWrap">
-        <iframe
-          class="sgk-book-iframe"
-          id="sgkBookIframe"
-          allow="fullscreen"
-          referrerpolicy="no-referrer-when-downgrade"
-          title="SGK Tiếng Việt 1 Tập 1 - Hành Trang Số NXB Giáo dục Việt Nam">
-        </iframe>
-      </div>
-
-      <!-- Chế độ tùy chọn đọc ảnh ngoại tuyến (tự kích hoạt nếu đặt useLocalPages: true và chép ảnh vào data/sgk1_pages/) -->
+      <!-- Chế độ 1 (Ưu tiên): Ảnh trang sách nội bộ trong data/sgk1_pages/ (Sạch 100% quảng cáo, chạy offline) -->
       <div class="sgk-book-reader-wrap" id="sgkBookReaderWrap" style="display:none;">
         <div class="sgk-book-img-scroller" id="sgkBookImgScroller">
           <img id="sgkBookPageImg" class="sgk-book-page-img" alt="Trang sách giáo khoa" />
         </div>
       </div>
 
-      <!-- Thanh hỗ trợ ở đáy hộp thoại -->
-      <div class="sgk-book-notice-bar" id="sgkBookNoticeBar">
-        <span>💡 Nếu khung sách yêu cầu đăng nhập hoặc trình duyệt chặn nhúng, bấm <b>"Mở trên Chrome ↗"</b> để đọc toàn màn hình.</span>
+      <!-- Chế độ 2 (Tự động dự phòng khi chưa có ảnh cục bộ): Nhảy đúng trang #p=, KHÔNG cần đăng nhập, khóa nhảy quảng cáo -->
+      <div class="sgk-book-frame-wrap" id="sgkBookFrameWrap" style="display:none;">
+        <iframe
+          class="sgk-book-iframe sgk-crop-ads"
+          id="sgkBookIframe"
+          sandbox="allow-scripts allow-same-origin"
+          title="SGK Tiếng Việt 1 Tập 1">
+        </iframe>
       </div>
 
-      <!-- Thanh lật trang (chỉ hiện khi bật chế độ ảnh ngoại tuyến) -->
-      <div class="sgk-book-footer" id="sgkBookFooter" style="display:none;">
+      <!-- Thanh lật trang Trước / Sau hoạt động ở cả 2 chế độ -->
+      <div class="sgk-book-footer" id="sgkBookFooter">
         <button type="button" class="sgk-page-nav-btn" id="sgkPrevPageBtn">⬅ Trang trước</button>
-        <span class="sgk-page-counter" id="sgkPageCounter">Trang 1</span>
+        <span class="sgk-page-counter" id="sgkPageCounter">Trang 14</span>
         <button type="button" class="sgk-page-nav-btn" id="sgkNextPageBtn">Trang sau ➡</button>
       </div>
     </div>
   </div>
 
   <!-- Tái sử dụng 100% module âm thanh, bảng tập viết 3 cấp độ, trò chơi XAML và thêm sgk-player.js -->
-  <script src="js/media.js?v=20261130"></script>
-  <script src="js/writing-board.js?v=20261130"></script>
-  <script src="js/games-engine.js?v=20261130"></script>
-  <script src="js/xaml-parser.js?v=20261130"></script>
-  <script src="js/sgk-player.js?v=20261130"></script>
+  <script src="js/media.js?v=20261131"></script>
+  <script src="js/writing-board.js?v=20261131"></script>
+  <script src="js/games-engine.js?v=20261131"></script>
+  <script src="js/xaml-parser.js?v=20261131"></script>
+  <script src="js/sgk-player.js?v=20261131"></script>
 </body>
 </html>
