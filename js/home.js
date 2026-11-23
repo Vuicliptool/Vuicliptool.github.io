@@ -106,6 +106,18 @@ window.AppTV = window.AppTV || {};
       }
     });
 
+    // Hiển thị tiến độ nhánh SGK Lớp 1 trên banner Trang chủ
+    const sgkSub = document.getElementById('sgkHomeSubText');
+    if (sgkSub) {
+      try {
+        const sgkRaw = safeGetStorage('APPTV_SGK1_PROGRESS_V1');
+        const sgkDone = sgkRaw ? JSON.parse(sgkRaw).length : 0;
+        sgkSub.textContent = sgkDone > 0
+          ? `Kết nối tri thức · ⭐ Đã học ${sgkDone} / 85 bài`
+          : 'Kết nối tri thức · 17 tuần · 85 bài';
+      } catch (e) {}
+    }
+
     const totalStarsEl = document.getElementById('totalStarsText');
     if (totalStarsEl) {
       totalStarsEl.textContent = `${grandDone} bài`;
